@@ -1,0 +1,78 @@
+
+Wtypescript:S1128"/Remove this unused import of 'setSearchParams'.(ñ”â“üÿÿÿÿ8ÅşĞğ1
+|typescript:S3776?"TRefactor this function to reduce its Cognitive Complexity from 41 to the 15 allowed.(’Éçíÿÿÿÿÿ8ÇşĞğ1
+·typescript:S6440A"“React Hook "useStore" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function.(–Ÿø›8ÇşĞğ1
+ºtypescript:S6440D"–React Hook "usePathname" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function.(¼çÕñ8ÇşĞğ1
+¸typescript:S6440E"”React Hook "useRouter" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function.(¬Ü©ı8ÇşĞğ1
+]typescript:S6754G":useState call is not destructured into value + setter pair(–Éã®8ÇşĞğ1
+·typescript:S6440G"“React Hook "useState" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function.(–Éã®8ÇşĞğ1
+atypescript:S6644H">Unnecessary use of boolean literals in conditional expression.(‰İ¶‘8ÇşĞğ1
+]typescript:S6754J":useState call is not destructured into value + setter pair(çèÂ8ÇşĞğ1
+·typescript:S6440J"“React Hook "useState" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function.(çèÂ8ÇşĞğ1
+]typescript:S6754K":useState call is not destructured into value + setter pair(ÅÏÍˆ8ÇşĞğ1
+·typescript:S6440K"“React Hook "useState" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function.(ÅÏÍˆ8ÇşĞğ1
+Atypescript:S125L"Remove this commented out code.(‰õ´Ê8ÇşĞğ1
+¼typescript:S6440M"“React Hook "useState" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function.(ª‡¸üÿÿÿÿ8ÇşĞğ1
+Ãtypescript:S6440N"šReact Hook "useSearchParams" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function.(ùŞÛíúÿÿÿÿ8ÇşĞğ1
+Ytypescript:S1854O"6Remove this useless assignment to variable "saleRout".(†È¯¿8ÇşĞğ1
+¸typescript:S6440O"”React Hook "useRouter" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function.(†È¯¿8ÇşĞğ1
+Ãtypescript:S6440P"šReact Hook "useSearchParams" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function.(ú¨”Éıÿÿÿÿ8ÇşĞğ1
+\typescript:S1854Q"4Remove this useless assignment to variable "params".(×´”†úÿÿÿÿ8™„¢Ğğ1
+Btypescript:S125Ÿ"Remove this commented out code.(Ä¤›ÿ8™„¢Ğğ1
+ktypescript:S1479¤"BReduce the number of non-empty switch cases from 39 to at most 30.(ø”‡Ãøÿÿÿÿ8™„¢Ğğ1
+Xtypescript:S1135£"4Complete the task associated to this "TODO" comment.(†ì¬Ã8™„¢Ğğ1
+¾typescript:S6440§"”React Hook "useEffect" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function.(ùëİ¯ùÿÿÿÿ8™„¢Ğğ1
+¾typescript:S6440µ"”React Hook "useEffect" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function.(™ÔÉ³ÿÿÿÿÿ8™„¢Ğğ1
+¸typescript:S6440¹"“React Hook "useState" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function.(ıÇ‹Ì8™„¢Ğğ1
+typescript:S6606¹"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(ıÇ‹Ì8š„¢Ğğ1
+¾typescript:S6440»"”React Hook "useEffect" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function.(ùëİ¯ùÿÿÿÿ8š„¢Ğğ1
+“typescript:S6606½"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(¨ßäüÿÿÿÿ8š„¢Ğğ1
+{typescript:S6847Ã"RNon-interactive elements should not be assigned mouse or keyboard event listeners.(€³ø”ÿÿÿÿÿ8š„¢Ğğ1
+ˆtypescript:S1082Ã"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(€³ø”ÿÿÿÿÿ8’‡šĞğ1
+ìtypescript:S6848Æ"ÂAvoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.(êöë‘şÿÿÿÿ8š„¢Ğğ1
+ˆtypescript:S1082Æ"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(êöë‘şÿÿÿÿ8š„¢Ğğ1
+“typescript:S6606Ë"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(ÎÙı«ıÿÿÿÿ8š„¢Ğğ1
+{typescript:S6847Ø"RNon-interactive elements should not be assigned mouse or keyboard event listeners.(ÜŠ¢Íúÿÿÿÿ8š„¢Ğğ1
+ˆtypescript:S1082Ø"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(ÜŠ¢Íúÿÿÿÿ8“‡šĞğ1
+ìtypescript:S6848Û"ÂAvoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.(‹ã©¦ıÿÿÿÿ8›„¢Ğğ1
+ˆtypescript:S1082Û"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(‹ã©¦ıÿÿÿÿ8›„¢Ğğ1
+typescript:S6606à"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(¿÷»C8›„¢Ğğ1
+{typescript:S6847ì"RNon-interactive elements should not be assigned mouse or keyboard event listeners.(ºˆ¥ûøÿÿÿÿ8›„¢Ğğ1
+ˆtypescript:S1082ì"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(ºˆ¥ûøÿÿÿÿ8”‡šĞğ1
+çtypescript:S6848ï"ÂAvoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.(ù¥Û’8›„¢Ğğ1
+ƒtypescript:S1082ï"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(ù¥Û’8›„¢Ğğ1
+typescript:S6606ô"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(ßÕ«Ê8›„¢Ğğ1
+{typescript:S6847ÿ"RNon-interactive elements should not be assigned mouse or keyboard event listeners.(ÜŠ¢Íúÿÿÿÿ8›„¢Ğğ1
+ˆtypescript:S1082ÿ"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(ÜŠ¢Íúÿÿÿÿ8•‡šĞğ1
+ìtypescript:S6848‚"ÂAvoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.(‹ã©¦ıÿÿÿÿ8›„¢Ğğ1
+ˆtypescript:S1082‚"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(‹ã©¦ıÿÿÿÿ8›„¢Ğğ1
+typescript:S6606‡"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(¿÷»C8›„¢Ğğ1
+“typescript:S6606™"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(…©öõüÿÿÿÿ8›„¢Ğğ1
+“typescript:S6606š"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(î œ¶ÿÿÿÿÿ8›„¢Ğğ1
+typescript:S6606­"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(Ÿ¯³º8œ„¢Ğğ1
+typescript:S6606®"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(Û¡Çò8œ„¢Ğğ1
+typescript:S6606Â"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(Ö»8œ„¢Ğğ1
+typescript:S6606Ã"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(Í„¾Ü8œ„¢Ğğ1
+“typescript:S6606Ö"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(ÊÍŒÊıÿÿÿÿ8œ„¢Ğğ1
+“typescript:S6606×"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(â‰€Íÿÿÿÿÿ8œ„¢Ğğ1
+“typescript:S6606ç"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(œ†ìªúÿÿÿÿ8œ„¢Ğğ1
+typescript:S6606è"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(×ÚË8œ„¢Ğğ1
+typescript:S6606ú"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(ù¦ş¦8œ„¢Ğğ1
+“typescript:S6606û"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(Ò‡Ş¡ıÿÿÿÿ8œ„¢Ğğ1
+“typescript:S6606‹"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(‚ùì•ÿÿÿÿÿ8„¢Ğğ1
+“typescript:S6606Œ"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(ğÀ»™ÿÿÿÿÿ8„¢Ğğ1
+{typescript:S6847˜"RNon-interactive elements should not be assigned mouse or keyboard event listeners.(ÜŠ¢Íúÿÿÿÿ8„¢Ğğ1
+ˆtypescript:S1082˜"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(ÜŠ¢Íúÿÿÿÿ8˜‡šĞğ1
+ìtypescript:S6848›"ÂAvoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.(‹ã©¦ıÿÿÿÿ8„¢Ğğ1
+ˆtypescript:S1082›"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(‹ã©¦ıÿÿÿÿ8„¢Ğğ1
+“typescript:S6606 "jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(òÕ¨ıÿÿÿÿ8„¢Ğğ1
+{typescript:S6847¬"RNon-interactive elements should not be assigned mouse or keyboard event listeners.(ÜŠ¢Íúÿÿÿÿ8„¢Ğğ1
+ˆtypescript:S1082¬"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(ÜŠ¢Íúÿÿÿÿ8™‡šĞğ1
+ìtypescript:S6848¯"ÂAvoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.(‹ã©¦ıÿÿÿÿ8„¢Ğğ1
+ˆtypescript:S1082¯"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(‹ã©¦ıÿÿÿÿ8„¢Ğğ1
+“typescript:S6606´"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(¿‰‚Æşÿÿÿÿ8„¢Ğğ1
+{typescript:S6847Á"RNon-interactive elements should not be assigned mouse or keyboard event listeners.(ÜŠ¢Íúÿÿÿÿ8„¢Ğğ1
+ˆtypescript:S1082Á"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(ÜŠ¢Íúÿÿÿÿ8š‡šĞğ1
+ìtypescript:S6848Ä"ÂAvoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.(‹ã©¦ıÿÿÿÿ8„¢Ğğ1
+ˆtypescript:S1082Ä"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(‹ã©¦ıÿÿÿÿ8„¢Ğğ1
+typescript:S6606É"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(ğ¸êƒ8„¢Ğğ1

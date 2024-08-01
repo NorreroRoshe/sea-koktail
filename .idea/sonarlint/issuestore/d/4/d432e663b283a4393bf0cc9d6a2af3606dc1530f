@@ -1,0 +1,8 @@
+
+Ptypescript:S1128"(Remove this unused import of 'useState'.(¿óšäşÿÿÿÿ8¦Ï‘çö1
+Ltypescript:S1128"$Remove this unused import of 'toJS'.(ªéÿüÿÿÿÿ8ŠØ’çö1
+typescript:S6606!"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(ˆŞŸ8¦Ï‘çö1
+\typescript:S11357"4Complete the task associated to this "TODO" comment.(æ¹Ûøÿÿÿÿ8¦Ï‘çö1
+ƒtypescript:S6582A"[Prefer using an optional chain expression instead, as it's more concise and easier to read.(ªàŠÃøÿÿÿÿ8¦Ï‘çö1
+ætypescript:S6848q"ÂAvoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.(ÿÆ†8¦Ï‘çö1
+‚typescript:S1082q"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(ÿÆ†8¦Ï‘çö1

@@ -1,0 +1,32 @@
+"use client"
+export interface IFilter {
+  Colors?: number[];
+  ProductTypes?: number[];
+  Categories?: number[];
+  Styles?: number[];
+  MinPrice?: number;
+  MaxPrice?: number;
+  MinLength?: number;
+  MaxLength?: number;
+  MinDiameter?: number;
+  MaxDiameter?: number;
+  MinHeight?: number;
+  MaxHeight?: number;
+  MinWidth?: number;
+  MaxWidth?: number;
+  MinIndent?: number;
+  MaxIndent?: number;
+  MinLampCount?: number;
+  MaxLampCount?: number;
+  AdditionalParams?: number[];
+  Materials?: number[];
+  PictureMaterial?: number[];
+  From?: number;
+  Page?: number;
+  Count?: number;
+  ChandelierTypes?: number[];
+  SearchQuery?: string;
+  CollectionsId?: string;
+  BrandsId?: string;
+  IsSale?: boolean;
+}

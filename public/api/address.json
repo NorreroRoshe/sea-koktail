@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "title": "Дом",
+        "default": true,
+        "address": {
+            "lat": 1.357334,
+            "lng": 103.821417,
+            "formatted_address" : "г. Москва, ул. Ясная, д.3"
+        }
+    },
+    {
+        "id": 2,
+        "title": "Офис",
+        "default": false,
+        "address": {
+            "lat": 51.522379,
+            "lng": -0.099130,
+            "formatted_address" : "г. Москва, ул. Тверская, д.28"
+        }
+    }
+]

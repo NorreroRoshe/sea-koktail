@@ -1,0 +1,7 @@
+
+Stypescript:S1854""8Remove this useless assignment to variable "totalPrice".(˜¤Œy
+`typescript:S1854'"?Remove this useless assignment to variable "totaDiscountPrice".(Ïö¶Âÿÿÿÿÿ
+:typescript:S1254"Remove this commented out code.(äÕ™
+_typescript:S6852D">Elements with the 'button' interactive role must be focusable.(¯ƒúÁøÿÿÿÿ
+Ôtypescript:S6819D"²Use <input type="button">, <input type="image">, <input type="reset">, <input type="submit">, or <button> instead of the "button" role to ensure accessibility across all devices.(¯ƒúÁøÿÿÿÿ
+€typescript:S1082D"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(¯ƒúÁøÿÿÿÿ

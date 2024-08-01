@@ -1,0 +1,14 @@
+
+Ztypescript:S18544"8Remove this useless assignment to variable "searchOpen".(ô²Í8®ı±Ñğ1
+atypescript:S1301e"9"switch" statements should have at least 3 "case" clauses(”×½·ıÿÿÿÿ8ìı²Ñğ1
+[typescript:S1854…"7Remove this useless assignment to variable "isLoading".(­“á8ìı²Ñğ1
+Gtypescript:S125‹"Remove this commented out code.(”ùüúÿÿÿÿ8ìı²Ñğ1
+ìtypescript:S6848®"ÂAvoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.(¯ƒúÁøÿÿÿÿ8ìı²Ñğ1
+ˆtypescript:S1082®"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(¯ƒúÁøÿÿÿÿ8ìı²Ñğ1
+stypescript:S6747Ø"JUnknown property 'stroke-miterlimit' found, use 'strokeMiterlimit' instead(¤¥ÿŒøÿÿÿÿ8ìı²Ñğ1
+ìtypescript:S6848â"ÂAvoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.(¯ƒúÁøÿÿÿÿ8ìı²Ñğ1
+ˆtypescript:S1082â"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(¯ƒúÁøÿÿÿÿ8ìı²Ñğ1
+ìtypescript:S6848€"ÂAvoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.(¯ƒúÁøÿÿÿÿ8ìı²Ñğ1
+ˆtypescript:S1082€"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(¯ƒúÁøÿÿÿÿ8ìı²Ñğ1
+Btypescript:S6479"Do not use Array index in keys(ÏµÊı8ìı²Ñğ1
+Btypescript:S6479…"Do not use Array index in keys(­ë¿è8ìı²Ñğ1

@@ -1,0 +1,18 @@
+
+typescript:S6523%"mUnsafe usage of optional chaining. If it short-circuits with 'undefined' the evaluation will throw TypeError.(ëµ¼‹ùÿÿÿÿ
+typescript:S6523%"mUnsafe usage of optional chaining. If it short-circuits with 'undefined' the evaluation will throw TypeError.(ëµ¼‹ùÿÿÿÿ
+typescript:S65232"mUnsafe usage of optional chaining. If it short-circuits with 'undefined' the evaluation will throw TypeError.(ëµ¼‹ùÿÿÿÿ
+typescript:S65232"mUnsafe usage of optional chaining. If it short-circuits with 'undefined' the evaluation will throw TypeError.(ëµ¼‹ùÿÿÿÿ
+typescript:S6523?"mUnsafe usage of optional chaining. If it short-circuits with 'undefined' the evaluation will throw TypeError.(ëµ¼‹ùÿÿÿÿ
+typescript:S6523?"mUnsafe usage of optional chaining. If it short-circuits with 'undefined' the evaluation will throw TypeError.(ëµ¼‹ùÿÿÿÿ
+typescript:S6523M"mUnsafe usage of optional chaining. If it short-circuits with 'undefined' the evaluation will throw TypeError.(ëµ¼‹ùÿÿÿÿ
+typescript:S6523M"mUnsafe usage of optional chaining. If it short-circuits with 'undefined' the evaluation will throw TypeError.(ëµ¼‹ùÿÿÿÿ
+typescript:S6523\"mUnsafe usage of optional chaining. If it short-circuits with 'undefined' the evaluation will throw TypeError.(ëµ¼‹ùÿÿÿÿ
+typescript:S6523\"mUnsafe usage of optional chaining. If it short-circuits with 'undefined' the evaluation will throw TypeError.(ëµ¼‹ùÿÿÿÿ
+typescript:S6523j"mUnsafe usage of optional chaining. If it short-circuits with 'undefined' the evaluation will throw TypeError.(ëµ¼‹ùÿÿÿÿ
+typescript:S6523j"mUnsafe usage of optional chaining. If it short-circuits with 'undefined' the evaluation will throw TypeError.(ëµ¼‹ùÿÿÿÿ
+typescript:S6523w"mUnsafe usage of optional chaining. If it short-circuits with 'undefined' the evaluation will throw TypeError.(ëµ¼‹ùÿÿÿÿ
+typescript:S6523w"mUnsafe usage of optional chaining. If it short-circuits with 'undefined' the evaluation will throw TypeError.(ëµ¼‹ùÿÿÿÿ
+typescript:S6523„"mUnsafe usage of optional chaining. If it short-circuits with 'undefined' the evaluation will throw TypeError.(ëµ¼‹ùÿÿÿÿ
+typescript:S6523„"mUnsafe usage of optional chaining. If it short-circuits with 'undefined' the evaluation will throw TypeError.(ëµ¼‹ùÿÿÿÿ
+Œtypescript:S6606ò"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(Ù¯‰üÿÿÿÿ

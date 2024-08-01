@@ -1,0 +1,12 @@
+
+Ttypescript:S1128"8Remove this unused import of 'searchProductPlaceholder'.(Ş¹ÖÉ
+[typescript:S6754":useState call is not destructured into value + setter pair( Àø™üÿÿÿÿ
+†typescript:S6606"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(„ğ¶
+?typescript:S64796"Do not use Array index in keys(£õıúıÿÿÿÿ
+:typescript:S64799"Do not use Array index in keys(€„ö›
+;typescript:S125…"Remove this commented out code.(Àµƒ‘
+@typescript:S125"Remove this commented out code.(ßû‡¶ùÿÿÿÿ
+;typescript:S125–"Remove this commented out code.(ˆû¼Ù
+@typescript:S125˜"Remove this commented out code.(ŸÌ™¡ıÿÿÿÿ
+;typescript:S125"Remove this commented out code.(ÈÍ÷‚
+@typescript:S125×"Remove this commented out code.(Ö—¯ıÿÿÿÿ

@@ -1,0 +1,13 @@
+
+Ktypescript:S1128"(Remove this unused import of 'useState'.(×¢Ñ8ÈŒçö1
+Ntypescript:S1128"&Remove this unused import of 'Slider'.(èä‘ıüÿÿÿÿ8ÈŒçö1
+btypescript:S1854":Remove this useless assignment to variable "productStore".(ı§üÿûÿÿÿÿ8ÈŒçö1
+Ftypescript:S125"Remove this commented out code.(¯Ùø¢ùÿÿÿÿ8ÈŒçö1
+Ftypescript:S125%"Remove this commented out code.(òá‚Íøÿÿÿÿ8ÈŒçö1
+typescript:S6606&"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(æµÊ8ÈŒçö1
+ëtypescript:S68482"ÂAvoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.(šÚ×øÿÿÿÿ8ÈŒçö1
+‡typescript:S10822"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(šÚ×øÿÿÿÿ8ÈŒçö1
+ætypescript:S68487"ÂAvoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.(½•ıü8ÉŒçö1
+‚typescript:S10827"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(½•ıü8ÉŒçö1
+_typescript:S1854:"<Remove this useless assignment to variable "sliderSettings".(ş¡á8ÉŒçö1
+Btypescript:S6509U"Redundant double negation.(Æ±„×üÿÿÿÿ8ÉŒçö1

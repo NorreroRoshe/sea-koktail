@@ -1,0 +1,141 @@
+.section_butterfly {
+  position: relative;
+  // margin-bottom: 50px;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  background: #eeeef0;
+  align-items: center;
+  padding: 100px 70px;
+  @media(max-width: 540px) {
+    padding: 50px 70px 65px;
+    flex-direction: column;
+  }
+  .butterfly_back {
+    display: flex;
+    // background: url('../../../assets/img/img/btbunner2.webp') left repeat;
+    // background-size: cover; 
+    width: 100%;
+    // height: 35vw;
+    color: #fdfdfd;
+    margin: 0 auto;
+    align-items: center;
+    // justify-content: space-around;
+    justify-content: center;
+    gap: 130px;
+    border-radius: 10px;
+    @media(max-width: 1200px) {
+      gap: 60px;
+    }
+    @media(max-width: 540px) {
+      padding: 50px 70px 0px;
+      flex-direction: column;
+    }
+  }
+}
+
+.krugi {
+  background: url('../../../assets/img/img/currently___debora_s.png') center no-repeat;
+  background-size: cover;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  margin-top: 70px;
+  position: relative;
+  @media(max-width: 1200px) {
+    width: 350px;
+    height: 350px;
+  }
+  @media(max-width: 900px) {
+    width: 250px;
+    height: 250px;
+  }
+  @media(max-width: 670px) {
+    width: 150px;
+    height: 150px;
+  }
+  @media(max-width: 540px) {
+    padding: 50px 70px 65px;
+    flex-direction: column;
+  }
+  @media(max-width: 540px) {
+    width: 250px;
+    height: 250px;
+    margin-top: 0;
+  }
+  
+  &:before {
+    content: "Продукты";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 38px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(1, 1, 1, 0.3);
+    border-radius: 50%;
+
+    @media(max-width: 670px) {
+      font-size: 25px;
+    }
+  }
+}
+
+.krugi1 {
+  background: url('../../../assets/img/img/shutterstock_4848103.jpg') center no-repeat;
+  background-size: cover;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  margin-top: 70px;
+  position: relative;
+  @media(max-width: 1200px) {
+    width: 350px;
+    height: 350px;
+  }
+  @media(max-width: 900px) {
+    width: 250px;
+    height: 250px;
+  }
+  @media(max-width: 670px) {
+    width: 150px;
+    height: 150px;
+  }
+  @media(max-width: 540px) {
+    padding: 50px 70px 65px;
+    flex-direction: column;
+  }
+  @media(max-width: 540px) {
+    width: 250px;
+    height: 250px;
+    margin-top: 0;
+  }
+  
+  &:before {
+    content: "Ресторан";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 38px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(1, 1, 1, 0.3);
+    border-radius: 50%;
+
+  @media(max-width: 670px) {
+    font-size: 25px;
+  }
+  }
+}
+
+.section_butterfly_cdvsz {
+  font-size: 39px;
+}

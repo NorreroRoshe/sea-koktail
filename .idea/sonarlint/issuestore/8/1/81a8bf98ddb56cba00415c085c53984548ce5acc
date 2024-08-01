@@ -1,0 +1,44 @@
+
+Otypescript:S1128"'Remove this unused import of 'useMemo'.(”î ¹úÿÿÿÿ8Î¬­Ìğ1
+Ptypescript:S1128
+"-Remove this unused import of 'NotFoundBlock'.(â˜ˆ8Î¬­Ìğ1
+Rtypescript:S1128"*Remove this unused import of 'Pagination'.(âà•Ÿûÿÿÿÿ8Î¬­Ìğ1
+’typescript:S3863"j'C:\Users\Dmitriy\Desktop\Work\vgdcrPROJECT-main\node_modules\next\navigation.js' imported multiple times.(„ª€ıÿÿÿÿ8Î¬­Ìğ1
+’typescript:S3863"j'C:\Users\Dmitriy\Desktop\Work\vgdcrPROJECT-main\node_modules\next\navigation.js' imported multiple times.(£“ç±ÿÿÿÿÿ8Î¬­Ìğ1
+Ltypescript:S1128"$Remove this unused import of 'toJS'.(ªéÿüÿÿÿÿ8Î¬­Ìğ1
+Wtypescript:S1128"/Remove this unused import of 'setSearchParams'.(ñ”â“üÿÿÿÿ8Î¬­Ìğ1
+|typescript:S3776"TRefactor this function to reduce its Cognitive Complexity from 87 to the 15 allowed.(ÎĞ—Ëûÿÿÿÿ8Î¬­Ìğ1
+]typescript:S1854#"5Remove this useless assignment to variable "setPage".(Ù›¶×úÿÿÿÿ8Î¬­Ìğ1
+Atypescript:S125$"Remove this commented out code.(õØ×8Î¬­Ìğ1
+@typescript:S125&"Remove this commented out code.(…»8Î¬­Ìğ1
+`typescript:S1854)"8Remove this useless assignment to variable "filterRout".(¢å©ıÿÿÿÿ8Î¬­Ìğ1
+’typescript:S66061"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(‹şşğşÿÿÿÿ8Î¬­Ìğ1
+’typescript:S66063"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(ÛÈÿüÿÿÿÿÿ8Î¬­Ìğ1
+ftypescript:S18544">Remove this useless assignment to variable "searchMinMaxLamp".(‹…¿ëøÿÿÿÿ8Î¬­Ìğ1
+’typescript:S6606:"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(„—á÷úÿÿÿÿ8Î¬­Ìğ1
+’typescript:S6606<"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(è´Åõıÿÿÿÿ8Î¬­Ìğ1
+ftypescript:S1854=">Remove this useless assignment to variable "searchMinMaxDiam".(ëÛëÕûÿÿÿÿ8Î¬­Ìğ1
+’typescript:S6606C"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(˜¶š¦úÿÿÿÿ8Î¬­Ìğ1
+’typescript:S6606E"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(˜¯Ï×ÿÿÿÿÿ8Î¬­Ìğ1
+htypescript:S1854F"@Remove this useless assignment to variable "searchMinMaxHeight".(¨’Á™ûÿÿÿÿ8Î¬­Ìğ1
+typescript:S6606L"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(ê²Ş¬8Î¬­Ìğ1
+’typescript:S6606N"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(Şäæ¾üÿÿÿÿ8Î¬­Ìğ1
+gtypescript:S1854O"?Remove this useless assignment to variable "searchMinMaxWidth".(Ğøÿ›øÿÿÿÿ8Î¬­Ìğ1
+typescript:S6606U"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(×Šç8Î¬­Ìğ1
+’typescript:S6606W"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(¸À±œûÿÿÿÿ8Î¬­Ìğ1
+htypescript:S1854X"@Remove this useless assignment to variable "searchMinMaxLength".(š÷æ–şÿÿÿÿ8Î¬­Ìğ1
+typescript:S6606^"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(âƒ† 8Î¬­Ìğ1
+’typescript:S6606`"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(şÂÚÎüÿÿÿÿ8Î¬­Ìğ1
+ctypescript:S1854a"@Remove this useless assignment to variable "searchMinMaxIndent".(ÛÖ½§8Î¬­Ìğ1
+typescript:S6606g"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(ÈÓÎ®8Î¬­Ìğ1
+typescript:S6606i"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(¼—÷Ñ8Î¬­Ìğ1
+gtypescript:S1854j"?Remove this useless assignment to variable "searchMinMaxPrice".(Œ–Ãªúÿÿÿÿ8Î¬­Ìğ1
+btypescript:S6644€">Unnecessary use of boolean literals in conditional expression.(ıÚŒ 8Î¬­Ìğ1
+htypescript:S3358€"DExtract this nested ternary operation into an independent statement.(ıÚŒ 8Î¬­Ìğ1
+btypescript:S1854µ"9Remove this useless assignment to variable "searchPages".(Äò„Öşÿÿÿÿ8ğÁ¸Ìğ1
+\typescript:S1854¹"8Remove this useless assignment to variable "defaultObj".(ğ¯Â¸8ğÁ¸Ìğ1
+_typescript:S1854ñ";Remove this useless assignment to variable "productsCount".(ÊÆ˜¹8á®Ñğ1
+Ztypescript:S1854ó"6Remove this useless assignment to variable "skeleton".(…•€è8á®Ñğ1
+Gtypescript:S6479ô"Do not use Array index in keys(™ã‡Äşÿÿÿÿ8á®Ñğ1
+Btypescript:S125ˆ"Remove this commented out code.(„¬ä8á®Ñğ1
+Btypescript:S125È"Remove this commented out code.(Ì˜ğÆ8á®Ñğ1

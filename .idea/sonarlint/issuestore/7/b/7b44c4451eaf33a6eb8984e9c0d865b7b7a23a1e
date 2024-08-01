@@ -1,0 +1,17 @@
+
+Ntypescript:S1128"&Remove this unused import of 'useRef'.(©šÅßúÿÿÿÿ8À“ÒĞğ1
+Ytypescript:S1128"1Remove this unused import of 'useOutsideAlerter'.(â÷›çÿÿÿÿÿ8Á“ÒĞğ1
+Ftypescript:S1128	"#Remove this unused import of 'cls'.(¤ø¿À8Á“ÒĞğ1
+wtypescript:S3776>"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(Ò¼ºÌ8Á“ÒĞğ1
+Xtypescript:S1854C"5Remove this useless assignment to variable "filters".(¬‚Ÿ8Á“ÒĞğ1
+Wtypescript:S1854["5Remove this useless assignment to variable "sort_by".(ãÀßI8Á“ÒĞğ1
+Gtypescript:S6479"Do not use Array index in keys(Áü‚ªÿÿÿÿÿ8‚ÆíĞğ1
+Gtypescript:S125×"Remove this commented out code.(ùõ¯Âùÿÿÿÿ8‚ÆíĞğ1
+Gtypescript:S125Ş"Remove this commented out code.(ö¨‘ôıÿÿÿÿ8‚ÆíĞğ1
+Gtypescript:S125à"Remove this commented out code.(şçÜ‹ùÿÿÿÿ8‚ÆíĞğ1
+Btypescript:S125ä"Remove this commented out code.(‰áì†8‚ÆíĞğ1
+Gtypescript:S125’"Remove this commented out code.(ËÀ¶ıÿÿÿÿ8‚ÆíĞğ1
+Gtypescript:S125š"Remove this commented out code.(ŸÌ™¡ıÿÿÿÿ8‚ÆíĞğ1
+Gtypescript:S125Ÿ"Remove this commented out code.(’´¨óÿÿÿÿÿ8‚ÆíĞğ1
+Gtypescript:S125¡"Remove this commented out code.(åû†ûÿÿÿÿ8‚ÆíĞğ1
+Btypescript:S125Ì"Remove this commented out code.(ÇĞŸå8‚ÆíĞğ1
