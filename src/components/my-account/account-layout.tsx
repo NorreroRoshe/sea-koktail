@@ -47,11 +47,11 @@ const accountMenu = [
     name: 'Настройки аккаунта',
     icon: <SettingsIcon className="w-5 md:w-[22px] h-5 md:h-[22px]" />,
   },
-  {
-    slug: ROUTES.ORDERS,
-    name: 'Заказы',
-    icon: <OrdersIcon className="w-5 md:w-[22px] h-5 md:h-[22px]" />,
-  },
+  // {
+  //   slug: ROUTES.ORDERS,
+  //   name: 'Заказы',
+  //   icon: <OrdersIcon className="w-5 md:w-[22px] h-5 md:h-[22px]" />,
+  // },
   {
     slug: ROUTES.CONTACTS,
     name: 'Контакты',

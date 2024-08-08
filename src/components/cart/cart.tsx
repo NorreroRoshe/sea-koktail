@@ -25,7 +25,7 @@ const Cart = observer(() => {
   const authStore = store.auth
   const productStore = store.product
 
-  const cart = cartStore.cartItems.map((cartItem) => {
+  const cart = cartStore.cartItems?.map((cartItem) => {
     const count =
     cartStore.cart.find((countItem) => countItem.id === cartItem?.id)?.count || 0;
     return { ...cartItem, count: count };

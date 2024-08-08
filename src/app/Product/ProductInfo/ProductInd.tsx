@@ -210,6 +210,18 @@ export const ProductInd: React.FC<ProductInfoProps> = observer(({ detProduct }) 
                 </div>
               )}
             </div>
+            <div className="pb-2">
+     
+                <div
+                  className="whitespace-nowrap"
+                  style={{
+                    width: 'fit-content',
+                    fontSize: '12px',
+                  }}>код товара:<span style={{ marginLeft: '10px', fontSize: '17px' }}>
+                  {detProduct.nomNumber}
+                  </span>
+                </div>
+            </div>
 
             <div className="pt-1.5 lg:pt-3 xl:pt-4 space-y-2.5 md:space-y-3.5">
               <div className="grid grid-cols-2 gap-2.5">

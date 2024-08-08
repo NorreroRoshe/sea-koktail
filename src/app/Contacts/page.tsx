@@ -11,20 +11,20 @@ const Contacts: React.FC = () => {
         <h2 className={cls.constact_header}>Контакты</h2>
         <div className={cls.contact_online}>
           <div className={cls.online_timeline}>
-            <h3 className={cls.timeline_header}>Режим работы интернет-магазина:</h3>
-            <p className={cls.timeline_time}>ПН-ВС КРУГЛОСУТОЧНО</p>
+            <h3 className={cls.timeline_header}>Режим работы сайта:</h3>
+            <p className={cls.timeline_time}>09:00 до 21:00</p>
           </div>
           <div className={cls.online_connection}>
             <h3 className={cls.connection_header}>Телефоны и почта:</h3>
             <div className={cls.connection_tel}>
-              <a href="tel:+79055778884" className={cls.connection_tel_number}>
-                +7(999)-990-20-20
+              <a href="tel:+79151777765" className={cls.connection_tel_number}>
+                +7(915)-177-77-65
               </a>
             </div>
             <div className={cls.connection_mail}>
               <div className={cls.connection_mail_client}>
                 <a href="" className={cls.mail_client_telink}>
-                  info@morskoikoktail.ru
+                  ikrabery@mail.ru
                 </a>
               </div>
             </div>
@@ -39,20 +39,24 @@ const Contacts: React.FC = () => {
             <div className={cls.requisite__item}>
               <p className={`${cls.requisite__itemComp} ${cls.requisite__itemText} ${cls.mrreset} ${cls.tac}`}>
                 Организация:
-                <strong className={`${cls.requisite__itemTextAccent} ${cls.requisite__item_text}`}>ИП Галоян Норайр Жирайрович</strong>
+                <strong className={`${cls.requisite__itemTextAccent} ${cls.requisite__item_text}`}>ИП Давыдкин Александр Иванович</strong>
+              </p>
+              <p className={`${cls.requisite__itemComp} ${cls.requisite__itemText} ${cls.mrreset} ${cls.tac}`}>
+                Магазин-ресторан:
+                <strong className={`${cls.requisite__itemTextAccent} ${cls.requisite__item_text}`}>МОРСКОЙ КОКТЕЙЛЬ</strong>
               </p>
               <p className={`${cls.requisite__itemText} ${cls.requisite__itemAddress} ${cls.requisite__itemAddressLegal} ${cls.mrreset}`}>
                 Юридический адрес:
-                <span className={`${cls.requisite__itemTextAccent}`}>143362, г. Московская область, г. Апрелевка, ул. Ясаня , д. 3</span>
+                <span className={`${cls.requisite__itemTextAccent}`}>123290, г. Москва, Шмитовский проезд, д. 39, корпус 3, кв. 103</span>
               </p>
-              <p className={`${cls.requisite__itemText} ${cls.requisite__itemAddress} ${cls.requisite__itemAddressActual} ${cls.mrreset}`}>
+              {/* <p className={`${cls.requisite__itemText} ${cls.requisite__itemAddress} ${cls.requisite__itemAddressActual} ${cls.mrreset}`}>
                 Почтовый адрес:
                 <span className={`${cls.requisite__itemTextAccent}`}>143362, г. Московская область, г. Апрелевка, ул. Ясаня , д. 3</span>
-              </p>
+              </p> */}
 
               <p className={`${cls.requisite__itemText} ${cls.requisite__itemAddress} ${cls.requisite__itemAddressActual} ${cls.mrreset}`}>
                 ИНН:
-                <span className={`${cls.requisite__itemTextAccent}`}>461501845610</span>
+                <span className={`${cls.requisite__itemTextAccent}`}>770304491900</span>
               </p>
               {/* <p className={`${cls.requisite__itemText} ${cls.requisite__itemAddress} ${cls.requisite__itemAddressActual} ${cls.mrreset}`}>
                 КПП:
@@ -60,24 +64,24 @@ const Contacts: React.FC = () => {
               </p> */}
               <p className={`${cls.requisite__itemText} ${cls.requisite__itemAddress} ${cls.requisite__itemAddressActual} ${cls.mrreset}`}>
                 ОГРН:
-                <span className={`${cls.requisite__itemTextAccent}`}>315503000007608</span>
+                <span className={`${cls.requisite__itemTextAccent}`}>317774600406814</span>
               </p>
               <p className={`${cls.requisite__itemText} ${cls.requisite__itemAddress} ${cls.requisite__itemAddressActual} ${cls.mrreset}`}>
                 Расчетный счет:
-                <span className={`${cls.requisite__itemTextAccent}`}>40802810540000012646</span>
+                <span className={`${cls.requisite__itemTextAccent}`}>40802810438000445985</span>
               </p>
               <p className={`${cls.requisite__itemText} ${cls.requisite__itemAddress} ${cls.requisite__itemAddressActual} ${cls.mrreset}`}>
                 Банк:
-                <span className={`${cls.requisite__itemTextAccent}`}>ПАО Сбербанк Среднерусский банк СБ  РФ г. Москва Доп. офис №9040/01636</span>
+                <span className={`${cls.requisite__itemTextAccent}`}>ПАО Сбербанк</span>
               </p>
               <p className={`${cls.requisite__itemText} ${cls.requisite__itemAddress} ${cls.requisite__itemAddressActual} ${cls.mrreset}`}>
                 БИК:
                 <span className={`${cls.requisite__itemTextAccent}`}>044525225</span>
               </p>
-              {/* <p className={`${cls.requisite__itemText} ${cls.requisite__itemAddress} ${cls.requisite__itemAddressActual} ${cls.mrreset}`}>
+              <p className={`${cls.requisite__itemText} ${cls.requisite__itemAddress} ${cls.requisite__itemAddressActual} ${cls.mrreset}`}>
                 К/сч:
-                <span className={`${cls.requisite__itemTextAccent}`}>30101810200000000593</span>
-              </p> */}
+                <span className={`${cls.requisite__itemTextAccent}`}>30101810400000000225</span>
+              </p>
               {/* Add other details for the first company */}
             </div>
           </div>

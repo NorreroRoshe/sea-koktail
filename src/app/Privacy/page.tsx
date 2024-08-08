@@ -33,7 +33,7 @@ const PrivacyPage: React.FC = () => {
         <Container>
           <div className="flex flex-col md:flex-row">
             <nav className="hidden sm:block md:w-72 xl:w-3/12 mb-8 2xl:mb-0 lg:-mt-2">
-              <ul className="sticky md:top-16 lg:top-20 z-10">
+              <ul className="sticky lg:top-20 z-10" style={{top: '10rem'}}>
                 {privacyPolicy?.map((item, index) => (
                   <li key={index}>
                     <Link
@@ -51,7 +51,6 @@ const PrivacyPage: React.FC = () => {
                 ))}
               </ul>
             </nav>
-            {/* End of section scroll spy menu */}
 
             <div className="md:w-9/12 md:ps-8">
               {privacyPolicy?.map((item) => (

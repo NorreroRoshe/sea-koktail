@@ -59,8 +59,8 @@ const FeedbackPhone: React.FC<LoginFormProps> = ({ isPopup = true, className }) 
               <div className={cls.callme_container}>Вы можете сэкономить время, позвонив нам прямо сейчас:</div>
               <div className={cls.phnumber_container}>
                 <div className={cls.phnumber_container_wrapp}>
-                  <Link className={cls.phnumber_container_wrapp_phone} href="tel:+79055778884">
-                    +7 (905) 577-88-84
+                  <Link className={cls.phnumber_container_wrapp_phone} href="tel:+79151777765">
+                    +7 (915) 177-77-65
                   </Link>
                 </div>
               </div>

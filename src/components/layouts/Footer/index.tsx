@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
 
           <div className={`${cls.footer_nav} ${cls.footer_nav_first} ${cls.footer_nav_firstavrwbe}`}>
 
-            <Image alt='logo' src={logo} className={cls.asfewlogo}/>
+            <Image alt='logo' src={logo} className={cls.asfewlogo} />
             <ul className={cls.footer_nav__list}>
               <li className={cls.footer_nav__item}>
                 <span className={`${cls.nav_link} ${cls.nav_link_dvr}`}>
@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
                   Про то что мы занимаемся продажей продуктов а так же заказом блюд
                 </span> */}
               </li>
-            </ul> 
+            </ul>
             {/* <h4 className={cls.footer_nav__title}>Категории товаров</h4>
             */}
           </div>
@@ -41,14 +41,23 @@ export const Footer: React.FC = () => {
                 <Link href="/DostavkaOplata" className={cls.nav_link}>
                   Доставка и оплата
                 </Link>
-                <Link href="/Designer" className={cls.nav_link}>
+                <Link href="/ProductiOnline?ProductTypes=2&Page=0" className={cls.nav_link}>
+                  Продукты
+                </Link>
+                <Link href="/Restaurant?ProductTypes=1&Categories=518&Page=0" className={cls.nav_link}>
                   Ресторан
                 </Link>
-                <Link href="/Collaboration" className={cls.nav_link}>
-                  Магазин
-                </Link>
-                <Link href="/Warranty" className={cls.nav_link}>
+                <Link href="/Contacts" className={cls.nav_link}>
                   Контакты
+                </Link>
+                {/* <Link href="/Oferta" className={cls.nav_link}>
+                  Оферта
+                </Link> */}
+                <Link href="/Soglasie" className={cls.nav_link}>
+                  Согласие на обработку ПД
+                </Link>
+                <Link href="/Soglashenie" className={cls.nav_link}>
+                  Соглашение
                 </Link>
               </li>
             </ul>
@@ -58,7 +67,7 @@ export const Footer: React.FC = () => {
             <h4 className={cls.footer_nav__title}>Контакты</h4>
             <div className={cls.footer_nav__callwu}>
               <h5 className={cls.nav__callwu_title}>Свяжитесь с нами</h5>
-              <a href="tel:+79055778884" className={cls.footer_callwu_link}>
+              <a href="tel:+79151777765" className={cls.footer_callwu_link}>
                 <svg className={cls.footer_callwu__icon} height="24" width="18">
                   <g transform="matrix(1,0,0,1,0,0)">
                     <svg height="24" viewBox="0 0 30 24" width="24">
@@ -77,9 +86,9 @@ export const Footer: React.FC = () => {
                     </svg>
                   </g>
                 </svg>
-                <span className={cls.footer_callwu__phonenum}> +7 (905) 577-88-84 </span>
+                <span className={cls.footer_callwu__phonenum}> +7 (915) 177-77-65 </span>
               </a>
-              <a href="mailto:info@morskoikoktail.ru" className={cls.footer_callwu_link}>
+              <a href="mailto:ikrabery@mail.ru" className={cls.footer_callwu_link}>
                 <svg
                   className={cls.footer_communic__icon}
                   height="24"
@@ -160,16 +169,18 @@ export const Footer: React.FC = () => {
                     </g>
                   </g>
                 </svg>
-                <span className={cls.footer_callwu__phonenum}> info@morskoikoktail.ru</span>
+                <span className={cls.footer_callwu__phonenum}> ikrabery@mail.ru</span>
               </a>
             </div>
 
             <div className={cls.footer_nav_nytime}>
-              <h5 className={cls.nav_nytime_title}>Режим работы</h5>
-              <p className={cls.nav_nytime_time}>Пн-Вс 10:00-22:00</p>
+              <h5 className={cls.nav_nytime_title}>Режим работы сайта</h5>
+              <p className={cls.nav_nytime_time}>Пн-Вс 10:00-23:00</p>
+              <h5 className={cls.nav_nytime_title} style={{marginTop: '10px'}}>Режим работы ресторана</h5>
+              <p className={cls.nav_nytime_time}>Пн-Вс 12:00-23:00</p>
             </div>
 
-            <div className={cls.footer__nav_social}>
+            {/* <div className={cls.footer__nav_social}>
               <h5 className={cls.nav_social_title}> Мы в соцсетях </h5>
               <Link href="" className={cls.nav_social_link}>
                 <Image
@@ -189,16 +200,18 @@ export const Footer: React.FC = () => {
                   className={cls.nav_social_img}
                 />
               </Link>
-            </div>
+            </div> */}
           </div>
           <div className={cls.footer_priv_log_dessa}>
-            <p className={cls.footer_create}>Designed by Galoyan</p>
+            {/* <p className={cls.footer_create}>Designed by Galoyan</p> */}
+            <Link href='/Oferta' className={cls.footer_privacy}>Оферта</Link>
             <Link href='/Home' className={cls.logo_main}>© МОРСКОЙКОКТЕЙЛЬ 2024</Link>
             <Link href='/Privacy' className={cls.footer_privacy}>Политика конфеднциальности</Link>
           </div>
         </div>
         <div className={cls.footer_priv_log_des}>
-          <p className={cls.footer_create}>Designed by Galoyan</p>
+          <Link href='/Oferta' className={cls.footer_privacy}>Оферта</Link>
+          {/* <p className={cls.footer_create}>Designed by Galoyan</p> */}
           <Link href='/Home' className={cls.logo_main}>© МОРСКОЙКОКТЕЙЛЬ 2024</Link>
           <Link href='/Privacy' className={cls.footer_privacy}>Политика конфеднциальности</Link>
         </div>

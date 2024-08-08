@@ -27,7 +27,7 @@ const AboutUs = () => {
   const page = usePathname();
   return (
     <>
-      <div className={cls.section_collaboration}>
+      {/* <div className={cls.section_collaboration}>
         <div className={cls.container} style={{ marginLeft: '40px' }}>
           <Breadcrumb />
         </div>
@@ -37,13 +37,6 @@ const AboutUs = () => {
             <div className={cls.content_img_s}>
               <div className={cls.content_img_p}></div>
             </div>
-            {/* <img
-              width="100%"
-              className={cls.content_img}
-              alt="Салон Vogue Decor на Новой Риге"
-              src={sotrud.src}
-              title="Салон Vogue Decor на Новой Риге Аутлет Виллидж"
-            /> */}
             <div className={cls.container}>
               <div>
                 <img
@@ -105,7 +98,6 @@ const AboutUs = () => {
                   </div>
                 </div>
                 <div className={`${cls.about_desc_wrapper_sdq} ${cls.about_desc_wrapper}`}>
-                  {/* <VideoComponent /> */}
                   <img
                     className={`${cls.desc_wrapper_image} ${cls.desc_wrapper_image_gif}`}
                     alt="Салон Vogue Decor на Новой Риге"
@@ -164,7 +156,7 @@ const AboutUs = () => {
           </div>
         </div>
         <ReturnForm pageMess={page} />
-      </div>
+      </div> */}
     </>
   );
 };

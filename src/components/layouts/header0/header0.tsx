@@ -201,7 +201,8 @@ const Header0: React.FC<Header0Props> = observer(({setSearchBigVisible, searchBi
               >
                 <MenuIcon />
               </button>
-            <Polulogo className="logo -mt-1.5 md:-mt-1" />
+            {/* <Polulogo className="logo -mt-1.5 md:-mt-1" /> */}
+            <Logo className="logo -mt-1.5 md:-mt-1" style={{ marginRight: '-40px' }} />
             </div>
             <Search
               searchId="top-bar-search"

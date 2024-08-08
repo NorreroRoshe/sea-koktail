@@ -32,125 +32,155 @@ export const siteSettings = {
       // },
       {
         id: 1,
-        path: '/ProductiOnline?ProductTypes=1',
+        path: '/ProductiOnline?ProductTypes=2',
         label: 'Продукты',
         subMenu: [
           {
-            id: 12,
-            path: '/ProductiOnline?ProductTypes=1',
+            id: 16,
+            path: '/ProductiOnline?ProductTypes=2',
             label: 'Все продукты',
           },
           {
             id: 0,
-            path: '/ProductiOnline/IkraKrasnaya?ProductTypes=1&Categories=1',
+            path: '/ProductiOnline/IkraKrasnaya?ProductTypes=2&Categories=20',
             label: 'Икра красная',
           },
           {
             id: 1,
-            path: '/ProductiOnline/IkraChernaya?ProductTypes=1&Categories=2',
+            path: '/ProductiOnline/IkraChernaya?ProductTypes=2&Categories=19',
             label: 'Икра черная',
           },
           {
             id: 2,
-            path: '/ProductiOnline/IkraShuchya?ProductTypes=1&Categories=3',
-            label: 'Икра щучья и северных рыб',
-          },
-          {
-            id: 3,
-            path: '/ProductiOnline/KrabiILobsteri?ProductTypes=1&Categories=4',
+            path: '/ProductiOnline/KrabiILobsteri?ProductTypes=2&Categories=73',
             label: 'Крабы и лобстеры',
           },
           {
-            id: 4,
-            path: '/ProductiOnline/KrevetkiILangustini?ProductTypes=1&Categories=5',
+            id: 3,
+            path: '/ProductiOnline/KrevetkiILangustini?ProductTypes=2&Categories=49',
             label: 'Креветки и лангустины',
           },
           {
+            id: 4,
+            path: '/ProductiOnline/Moreproducti?ProductTypes=2&Categories=88',
+            label: 'Морские деликатесы',
+          },
+          {
             id: 5,
-            path: '/ProductiOnline/Moreproducti?ProductTypes=1&Categories=6',
-            label: 'Морепродукты',
+            path: '/ProductiOnline/RibaSvejomorojennaya?ProductTypes=2&Categories=134',
+            label: 'Рыба',
           },
           {
             id: 6,
-            path: '/ProductiOnline/RibaSvejomorojennaya?ProductTypes=1&Categories=7',
-            label: 'Рыба свежемороженая',
+            path: '/ProductiOnline/RibaOxlojdennaya?ProductTypes=2&Categories=146',
+            label: 'Живые морепродукты',
           },
           {
             id: 7,
-            path: '/ProductiOnline/RibaOxlojdennaya?ProductTypes=1&Categories=8',
-            label: 'Рыба охлажденная',
-          },
-          {
-            id: 8,
-            path: '/ProductiOnline/SteikiIFile?ProductTypes=1&Categories=9',
+            path: '/ProductiOnline/SteikiIFile?ProductTypes=2&Categories=109',
             label: 'Стейки и филе',
           },
           {
-            id: 9,
-            path: '/ProductiOnline/RibaVyalennaya?ProductTypes=1&Categories=10',
+            id: 8,
+            path: '/ProductiOnline/RibaVyalennaya?ProductTypes=2&Categories=152',
             label: 'Рыба вяленая, солёная и копченая',
           },
           {
-            id: 10,
-            path: '/ProductiOnline/Polufabrikati?ProductTypes=1&Categories=11',
+            id: 9,
+            path: '/ProductiOnline/Polufabrikati?ProductTypes=2&Categories=332',
             label: 'Полуфабрикаты',
           },
           {
-            id: 11,
-            path: '/ProductiOnline/KonserviIPreservi?ProductTypes=1&Categories=12',
+            id: 10,
+            path: '/ProductiOnline/KonserviIPreservi?ProductTypes=2&Categories=41',
             label: 'Консервы и пресервы',
+          },
+          {
+            id: 11,
+            path: '/ProductiOnline/Snacks?ProductTypes=2&Categories=209',
+            label: 'Снеки',
+          },
+          {
+            id: 12,
+            path: '/ProductiOnline/Sauces?ProductTypes=2&Categories=223',
+            label: 'Соусы',
+          },
+          {
+            id: 13,
+            path: '/ProductiOnline/Beer?ProductTypes=2&Categories=237',
+            label: 'Пиво',
+          },
+          {
+            id: 14,
+            path: '/ProductiOnline/Beverages?ProductTypes=2&Categories=483',
+            label: 'Напитки',
+          },
+          {
+            id: 15,
+            path: '/ProductiOnline/Water?ProductTypes=2&Categories=498',
+            label: 'Вода',
           }
         ]
       },
       {
         id: 2,
-        path: '/Restaurant?ProductTypes=1&Categories=1',
+        path: '/Restaurant?ProductTypes=1&Categories=518',
         label: 'Ресторан',
         subMenu: [
           {
             id: 1,
-            path: '/Restaurant?ProductTypes=1&Categories=1',
-            label: 'Холодные закуски',
+            path: '/Restaurant?ProductTypes=1&Categories=518',
+            label: 'Закуски',
           },
           {
             id: 2,
-            path: '/Restaurant?ProductTypes=1&Categories=2',
-            label: 'Горячие закуски',
+            path: '/Restaurant?ProductTypes=1&Categories=521',
+            label: 'Горячее',
           },
           {
             id: 3,
-            path: '/Restaurant?ProductTypes=1&Categories=3',
+            path: '/Restaurant?ProductTypes=1&Categories=519',
             label: 'Салаты',
           },
           {
             id: 4,
-            path: '/Restaurant?ProductTypes=1&Categories=4',
+            path: '/Restaurant?ProductTypes=1&Categories=517',
             label: 'Супы',
           },
           {
             id: 5,
-            path: '/Restaurant?ProductTypes=1&Categories=5',
-            label: 'Горячие блюда',
+            path: '/Restaurant?ProductTypes=1&Categories=522',
+            label: 'Витрина',
           },
           {
             id: 6,
-            path: '/Restaurant?ProductTypes=1&Categories=6',
-            label: 'Морепродукты',
-          },
-          {
-            id: 7,
-            path: '/Restaurant?ProductTypes=1&Categories=7',
+            path: '/Restaurant?ProductTypes=1&Categories=513',
             label: 'Роллы',
           },
           {
+            id: 7,
+            path: '/Restaurant?ProductTypes=1&Categories=514',
+            label: 'Теплые роллы',
+          },
+          {
             id: 8,
-            path: '/Restaurant?ProductTypes=1&Categories=8',
+            path: '/Restaurant?ProductTypes=1&Categories=520',
             label: 'Сэндвичи',
           },
           {
             id: 9,
-            path: '/Restaurant?ProductTypes=1&Categories=9',
-            label: 'Салаты',
+            path: '/Restaurant?ProductTypes=1&Categories=515',
+            label: 'Суши',
+          },
+          {
+            id: 10,
+            path: '/Restaurant?ProductTypes=1&Categories=516',
+            label: 'Сашими',
+          },
+          {
+            id: 11,
+            path: '/Restaurant?ProductTypes=1&Categories=526',
+            label: 'Бургеры',
           }
         ],
         // subMenu1: [

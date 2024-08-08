@@ -238,7 +238,7 @@ export class ProductStore implements IProductStore {
         this.totalCount = response?.data?.totalCount ?? 0;
 
         if (data.Count === 3) {
-          this.searchProduct = response?.data?.products.slice(0, 3) ?? [];
+          this.searchProduct = response?.data?.products?.slice(0, 3) ?? [];
         } else {
           this.searchPageProduct = response?.data?.products ?? [];
           this.searchedString = data.SearchQuery || "";

@@ -12,10 +12,23 @@ import { PreFooter } from './PreFooter/PreFooter';
 import CategoryGridBlock from '@/components/common/category-grid-block';
 import { SectionFoppa } from './SectionFoppa/SectionFoppa';
 import YandexMap from './YandexMap/YandexMap';
+import { useModalAction } from '../../components/common/modal/modal.context';
 import { MirrorAdvertisement } from './MirrorAdvertisement/MirrorAdvertisement';
 import { SectionChoise } from './SectionChoise/SectionChoise';
 const Home: React.FC = () => {
 
+
+  const { closeModal, openModal } = useModalAction();
+
+  useEffect(() => {
+    const isFirstVisit = localStorage.getItem("isFirstVisit");
+    if (!isFirstVisit) {
+      localStorage.setItem("isFirstVisit", "true");
+      setTimeout(() => {
+        openModal("SUCCESS_CHANGE_PASSWORD");
+      }, 3000);
+    }
+  }, [openModal]);
 
 
   return (

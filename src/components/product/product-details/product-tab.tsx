@@ -92,14 +92,14 @@ export const ProductDetailsTab: React.FC<ProductInfoProps> = ({ detProduct }) =>
               <div className="border border-skin-four rounded">
                 <table className="w-full text-skin-base text-15px">
                   <tbody>
-                    <tr className="border-b font-normal border-skin-four last:border-b-0">
+                    {/* <tr className="border-b font-normal border-skin-four last:border-b-0">
                       <td className="px-4 lg:px-5 xl:px-6 py-3">
                         Цвет:
                       </td>
                       <td className="border-s border-skin-four px-4 lg:px-5 xl:px-6 py-3 text-end w-24 lg:w-28 xl:w-36">
                         {detProduct.colors?.map((colors) => arrayColor[colors]).join(' / ')}
                       </td>
-                    </tr>
+                    </tr> */}
                     {!!detProduct.height && detProduct.height.length > 0 && (
                       <tr className="border-b font-normal border-skin-four last:border-b-0">
                         <td className="px-4 lg:px-5 xl:px-6 py-3">
@@ -146,7 +146,7 @@ export const ProductDetailsTab: React.FC<ProductInfoProps> = ({ detProduct }) =>
                         </td>
                       </tr>
                     )}
-                    <tr className="border-b font-normal border-skin-four last:border-b-0">
+                    {/* <tr className="border-b font-normal border-skin-four last:border-b-0">
                       <td className="px-4 lg:px-5 xl:px-6 py-3">
                         Тип люстры:
                       </td>
@@ -155,7 +155,7 @@ export const ProductDetailsTab: React.FC<ProductInfoProps> = ({ detProduct }) =>
                           ?.map((chandelierType) => chandelierTypeArray[chandelierType])
                           .join(' / ')}
                       </td>
-                    </tr>
+                    </tr> */}
                   </tbody>
                 </table>
               </div>

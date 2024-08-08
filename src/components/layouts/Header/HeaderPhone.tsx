@@ -9,11 +9,11 @@ function HeaderPhone() {
   return (
     <>
       <div className={cls.header_icon_phone}>
-        <Link href="tel:+79055778884" className={cls.header_phone}>
-          +7 (905) 577-88-84
+        <Link href="tel:+79151777765" className={cls.header_phone}>
+          +7 (915) 177-77-65
         </Link>
         <Link
-          href="tel:+79055778884"
+          href="tel:+79151777765"
           className={cls.icon_phone}>
           {/* <button
           // onClick={() => setMobPhone(!mobPhone)}

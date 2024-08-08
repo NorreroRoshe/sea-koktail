@@ -95,7 +95,7 @@ const ProductPopup: React.FC<ProductPopupProps> = observer(({ popupProduct }) =>
 
   const cartCount = () => {
     if (popupProduct && popupProduct.id) {
-      return cartStore.cart.find((row) => row.id === popupProduct.id)?.count || 0;
+      return cartStore.cart?.find((row) => row.id === popupProduct.id)?.count || 0;
     }
     return 0; // Или какое-то другое значение по умолчанию
   };
@@ -105,7 +105,7 @@ const ProductPopup: React.FC<ProductPopupProps> = observer(({ popupProduct }) =>
 
   const isFavorite = () => {
     if (popupProduct && popupProduct.id) {
-      return !!favoritesStore.ids.find((obj) => obj === popupProduct.id);
+      return !!favoritesStore.ids?.find((obj) => obj === popupProduct.id);
     }
     // Вернуть какое-то значение по умолчанию, если popupProduct или id не существуют
     return /* значение по умолчанию */;
@@ -249,15 +249,25 @@ const ProductPopup: React.FC<ProductPopupProps> = observer(({ popupProduct }) =>
                       <br />
                     </span>
                   )}
+                  {!!popupProduct.plinth && popupProduct.plinth.length > 0 &&(
+                    <span
+                      className="text-sm font-extrabold"
+                      style={{ color: '#787a80', fontSize: '17px' }}>
+                      Лампочки:
+                      <span style={{ marginLeft: '10px', fontSize: '17px' }}>
+                        {popupProduct.lampCount} x {popupProduct.plinth}
+                      </span>
+                    </span>
+                  )}
                   <span
                     className="text-sm font-extrabold"
                     style={{ color: '#787a80', fontSize: '17px' }}>
-                    Лампочки:
+                    код товара:
                     <span style={{ marginLeft: '10px', fontSize: '17px' }}>
-                      {popupProduct.lampCount} x {popupProduct.plinth}
+                      {popupProduct.nomNumber}
                     </span>
                   </span>
-                </div>
+                  </div>
 
                 {popupProduct.discount > 0 ? (
                   <div className={`flex items-center mt-5 ${cls.fegrhbetrgweas}`}>

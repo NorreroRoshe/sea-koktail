@@ -68,22 +68,30 @@ const Breadcrumb: React.FC<{ separator?: string }> = ({
     switch (breadcrumb) {
       case 'ProductiOnline':
         return 'Продукты';
+      case 'Beverages':
+        return 'Напитки';
+      case 'Beer':
+        return 'Пиво';
+      case 'Sauces':
+        return 'Соусы';
+      case 'Water':
+        return 'Вода';
       case 'IkraKrasnaya':
         return 'Икра красная';
       case 'IkraChernaya':
         return 'Икра черная';
-      case 'IkraShuchya':
-        return 'Икра щучья и северных рыб';
+      case 'Snacks':
+        return 'Снеки';
       case 'KrabiILobsteri':
         return 'Крабы и лобстеры';
       case 'KrevetkiILangustini':
         return 'Креветки и лангустины';
       case 'Moreproducti':
-        return 'Морепродукты';
+        return 'Морские деликатесы';
       case 'RibaSvejomorojennaya':
-        return 'Рыба свежемороженая';
+        return 'Рыба';
       case 'RibaOxlojdennaya':
-        return 'Рыба охлажденная';
+        return 'Живые морепродукты';
       case 'SteikiIFile':
         return 'Стейки и филе';
       case 'RibaVyalennaya':
@@ -94,17 +102,30 @@ const Breadcrumb: React.FC<{ separator?: string }> = ({
         return 'Консервы и пресервы';
       case 'Restaurant':
         return 'Ресторан';
+      case 'Contacts':
+        return 'Контакты';
       case 'Cart':
         return 'Корзина';
+      case 'Privacy':
+        return 'Политика';
       case 'Favourites':
-        return 'Избранные';
-
+        return 'Оферта интернет-магазина';
+      case 'Oferta':
+        return 'Политика';
+      case 'Soglasie':
+        return 'Согласие на обработку';
+      case 'DostavkaOplata':
+        return 'Доставка и оплата';
+      case 'SearchPage':
+        return 'Поиск';
+      case 'Soglashenie':
+        return 'Соглашение';
         
       default:
         return convertBreadcrumbTitle(breadcrumb);
     }
   };
-
+  
   return (
     <div style={{
       marginTop: '30px',
@@ -124,7 +145,9 @@ const Breadcrumb: React.FC<{ separator?: string }> = ({
             href={breadcrumb.href}
             activeClassName="font-semibold text-heading"
             key={breadcrumb.href}>
-            <span className="capitalize">{getBreadcrumbLabel(breadcrumb.breadcrumb)}</span>
+            <span
+            // className="capitalize"
+            >{getBreadcrumbLabel(breadcrumb.breadcrumb)}</span>
           </ActiveLink>
         ))}
       </BreadcrumbItems>

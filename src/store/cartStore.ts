@@ -125,11 +125,11 @@ export class CartStore implements ICartStore {
     const response = await CartService.getUserCart();
 
     if ('data' in response) {
-      this.cart = response.data.products.map((item: CartItem) => ({
+      this.cart = response.data.products?.map((item: CartItem) => ({
         count: item.count,
         id: item.id,
       }));
-      this.cartItems = response.data.products.map((product: CartItem) => ({
+      this.cartItems = response.data.products?.map((product: CartItem) => ({
         ...product,
       }));
     }

@@ -35,7 +35,7 @@ export const DeashBlock: React.FC<ProdBlockProps> = observer(({ product }) => {
 
 
   // const cartCount = useAppSelector((state) => cartProductCountByIdSelector(product.id, state));
-  const cartCount = cartStore.cart.find((row) => row.id === product.id)?.count || 0;
+  const cartCount = cartStore.cart?.find((row) => row.id === product.id)?.count || 0;
 
   const handleChangeFav = () => {
     isFavorite ? deleteFromFavorite(product.id) : addToFavorite(product.id);
@@ -93,7 +93,9 @@ export const DeashBlock: React.FC<ProdBlockProps> = observer(({ product }) => {
         <div className={`${cls.allproduct_goods_artikul_wrsdewrhtenapp} ${cls.allproduct_goods_artikul_wrsdewrhtenqwvp}`}>
           <div className={cls.allproduct_goods_artikul_nalnenal}>
             <div className={cls.allproduct_goods_activity_wrapp}>
-              <p className={cls.goods_activity_priasdce}>180г / {mainPrice}₽</p>
+              <p className={cls.goods_activity_priasdce}>
+                {/* 180г /  */}
+                {mainPrice}₽</p>
             </div>
             <span className={`${cls.allproduct_goods_nal} ${cls.allproduct_goods_nal_ot}`}>
               {product.availability > 0 ? (

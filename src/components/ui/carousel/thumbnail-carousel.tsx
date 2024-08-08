@@ -65,7 +65,7 @@ const ThumbnailCarousel: React.FC<Props> = ({
           }}
           {...swiperParams}
         >
-          {popupProduct?.files.map((file, index) => (
+          {popupProduct?.files?.map((file, index) => (
             <SwiperSlide
               key={index}
               className="flex items-center justify-center"
@@ -110,7 +110,7 @@ const ThumbnailCarousel: React.FC<Props> = ({
           observeParents={true}
           breakpoints={galleryCarouselBreakpoints}
         >
-          {popupProduct?.files.map((file, index) => (
+          {popupProduct?.files?.map((file, index) => (
             <SwiperSlide
               key={index}
               className="flex items-center justify-center cursor-pointer rounded overflow-hidden border border-skin-base transition hover:opacity-75"

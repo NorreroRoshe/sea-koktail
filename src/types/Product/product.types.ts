@@ -25,6 +25,7 @@ export type Product = {
   brand?: IBrand;
   urls: string[];
   files: IFileUrl[];
+  nomNumber: string;
   // products?: any;
   count?: number;
 };

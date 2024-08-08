@@ -35,7 +35,7 @@ export const ProdBlock: React.FC<ProdBlockProps> = observer(({ product }) => {
 
 
   // const cartCount = useAppSelector((state) => cartProductCountByIdSelector(product.id, state));
-  const cartCount = cartStore.cart.find((row) => row.id === product.id)?.count || 0;
+  const cartCount = cartStore.cart?.find((row) => row.id === product.id)?.count || 0;
 
   const handleChangeFav = () => {
     isFavorite ? deleteFromFavorite(product.id) : addToFavorite(product.id);
@@ -98,7 +98,7 @@ export const ProdBlock: React.FC<ProdBlockProps> = observer(({ product }) => {
           ) : (
             <div className="w-auto flex items-center justify-center">
               {/* <img src={PP} alt='404!'/> */}
-                <Image src={PP} alt={'404!'} className={cls.allproduct_goods_img} />
+                <Image src={PP} alt={'404!'} className={`${cls.allproduct_goods_img} ${cls.allproduct_goods_img_non}`} />
             </div>
           )}
           {!!product.discount && (

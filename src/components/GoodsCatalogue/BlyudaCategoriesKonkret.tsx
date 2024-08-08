@@ -45,30 +45,43 @@ export const BlyudaCategoriesKonkret: React.FC<ICatalogCategories> = ({ ProductT
     }
   };
 
-  const isActive = (subcategory?.subName === "Холодные закуски" && 
-                   ProductTypesArray.includes(1) && 
-                   CategoriesArray.includes(1)) ||
-                  (subcategory?.subName === "Горячие закуски" && 
-                   ProductTypesArray.includes(1) && 
-                   CategoriesArray.includes(2))||
-                    (subcategory?.subName === "Салаты" && 
-                     ProductTypesArray.includes(1) && 
-                     CategoriesArray.includes(3))||
-                     (subcategory?.subName === "Супы" && 
-                      ProductTypesArray.includes(1) && 
-                      CategoriesArray.includes(4))||
-                      (subcategory?.subName === "Горячие блюда" && 
-                       ProductTypesArray.includes(1) && 
-                       CategoriesArray.includes(5))||
-                       (subcategory?.subName === "Морепродукты" && 
-                        ProductTypesArray.includes(1) && 
-                        CategoriesArray.includes(6))||
-                        (subcategory?.subName === "Роллы" && 
-                         ProductTypesArray.includes(1) && 
-                         CategoriesArray.includes(7))||
-                         (subcategory?.subName === "Сэндвичи" && 
-                          ProductTypesArray.includes(1) && 
-                          CategoriesArray.includes(8));
+  const isActive = 
+    (subcategory?.subName === "Закуски" && 
+    ProductTypesArray.includes(1) && 
+    CategoriesArray.includes(518)) ||
+    (subcategory?.subName === "Салаты" && 
+    ProductTypesArray.includes(1) && 
+    CategoriesArray.includes(519))||
+    (subcategory?.subName === "Супы" && 
+    ProductTypesArray.includes(1) && 
+    CategoriesArray.includes(4))||
+    (subcategory?.subName === "Горячее" && 
+    ProductTypesArray.includes(1) && 
+    CategoriesArray.includes(521))||
+    (subcategory?.subName === "Роллы" && 
+    ProductTypesArray.includes(1) && 
+    CategoriesArray.includes(513))||
+    (subcategory?.subName === "Теплые роллы" && 
+    ProductTypesArray.includes(1) && 
+    CategoriesArray.includes(514))||
+    (subcategory?.subName === "Суши" && 
+    ProductTypesArray.includes(1) && 
+    CategoriesArray.includes(515))||
+    (subcategory?.subName === "Сашими" && 
+    ProductTypesArray.includes(1) && 
+    CategoriesArray.includes(516))||
+    (subcategory?.subName === "Витрина" && 
+    ProductTypesArray.includes(1) && 
+    CategoriesArray.includes(522))||
+    (subcategory?.subName === "Супы" && 
+    ProductTypesArray.includes(1) && 
+    CategoriesArray.includes(517))||
+    (subcategory?.subName === "Бургеры" && 
+    ProductTypesArray.includes(1) && 
+    CategoriesArray.includes(526))||
+    (subcategory?.subName === "Сэндвичи" && 
+    ProductTypesArray.includes(1) && 
+    CategoriesArray.includes(520));
 
   return (
     <>

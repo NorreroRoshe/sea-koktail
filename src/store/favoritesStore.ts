@@ -65,7 +65,7 @@ export class FavoritesStore implements IFavoritesStore {
     if (typeof window !== 'undefined') {
       Cookies.remove("favorites");
     }
-      this.ids = response.data.products.map((item: Product) => item.id);
+      this.ids = response.data.products?.map((item: Product) => item.id);
       this.favoriteItems = response.data.products;
     }
   };

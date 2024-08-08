@@ -280,7 +280,8 @@ export const GoodsCatalogue: React.FC<ICatalogCategories> = observer(({ sitePath
     pathname === "/ProductiOnline" ||
     pathname === "/ProductiOnline/IkraKrasnaya" ||
     pathname === "/ProductiOnline/IkraChernaya" ||
-    pathname === "/ProductiOnline/IkraShuchya" ||
+    pathname === "/ProductiOnline/Sauces" ||
+    pathname === "/ProductiOnline/Snacks" ||
     pathname === "/ProductiOnline/KrabiILobsteri" ||
     pathname === "/ProductiOnline/KrevetkiILangustini" ||
     pathname === "/ProductiOnline/Moreproducti" ||
@@ -289,6 +290,9 @@ export const GoodsCatalogue: React.FC<ICatalogCategories> = observer(({ sitePath
     pathname === "/ProductiOnline/SteikiIFile" ||
     pathname === "/ProductiOnline/RibaVyalennaya" ||
     pathname === "/ProductiOnline/Polufabrikati" ||
+    pathname === "/ProductiOnline/Beer" ||
+    pathname === "/ProductiOnline/Beverages" ||
+    pathname === "/ProductiOnline/Water" ||
     pathname === "/ProductiOnline/KonserviIPreservi";
 
   return (

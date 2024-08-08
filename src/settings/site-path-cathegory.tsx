@@ -5,7 +5,12 @@
 import lyustra from "../assets/img/allCat/artu.jpg";
 import ikraKrasnaya from "../assets/img/allCat/krasIkra.png";
 import ikraChernaya from "../assets/img/allCat/cherIkra.png";
+import Snacks from "../assets/img/allCat/Snacks.png";
+import Sauces from "../assets/img/allCat/Sauces.png";
 import IkraShuchya from "../assets/img/allCat/ikraShuchya.png";
+import Beverages from "../assets/img/allCat/Beverages.png";
+import Water from "../assets/img/allCat/Water.png";
+import Beer from "../assets/img/allCat/Beer.png";
 import Lobster from "../assets/img/allCat/lobster.png";
 import Krevetki from "../assets/img/allCat/krevetki.png";
 import Moreproducti from "../assets/img/allCat/moreproducti.png";
@@ -2331,59 +2336,80 @@ export const sitePathCategory: ISiteCategory[] = [
     subcategories: [
       {
         id: 1,
-        subName: 'Холодные закуски',
+        subName: 'Закуски',
         href: '/Restaurant',
         typese: 1,
-        categor: 1,
+        categor: 518,
       },
       {
         id: 2,
-        subName: 'Горячие закуски',
+        subName: 'Горячее',
         href: '/Restaurant',
         typese: 1,
-        categor: 2,
+        categor: 521,
       },
       {
         id: 3,
         subName: 'Салаты',
         href: '/Restaurant',
         typese: 1,
-        categor: 3,
+        categor: 519,
       },
       {
         id: 4,
         subName: 'Супы',
         href: '/Restaurant',
         typese: 1,
-        categor: 4,
+        categor: 517,
       },
       {
         id: 5,
-        subName: 'Горячие блюда',
+        subName: 'Витрина',
         href: '/Restaurant',
         typese: 1,
-        categor: 5,
+        categor: 522,
       },
       {
         id: 6,
-        subName: 'Морепродукты',
-        href: '/Restaurant',
-        typese: 1,
-        categor: 6,
-      },
-      {
-        id: 7,
         subName: 'Роллы',
         href: '/Restaurant',
         typese: 1,
-        categor: 7,
+        categor: 513,
+      },
+      {
+        id: 7,
+        subName: 'Теплые роллы',
+        href: '/Restaurant',
+        typese: 1,
+        categor: 514,
       },
       {
         id: 8,
         subName: 'Сэндвичи',
         href: '/Restaurant',
         typese: 1,
-        categor: 8,
+        categor: 520,
+      },
+      {
+        id: 9,
+        subName: 'Суши',
+        href: '/Restaurant',
+        typese: 1,
+        categor: 515,
+      },
+      {
+        id: 10,
+        subName: 'Сашими',
+        href: '/Restaurant',
+        typese: 1,
+        categor: 516,
+      },
+      {
+        id: 11,
+        subName: 'Бургеры',
+        href: '/Restaurant',
+        typese: 1,
+        categor: 526,
       }
     ],
     filters: {
@@ -2422,85 +2448,113 @@ export const sitePathCategory: ISiteCategory[] = [
         id: 0,
         subName: 'Икра красная',
         href: '/ProductiOnline/IkraKrasnaya',
-        types: '?ProductTypes=1&Categories=1',
+        types: '?ProductTypes=2&Categories=20',
         mainPhoto: ikraKrasnaya
       },
       {
         id: 1,
         subName: 'Икра черная',
         href: '/ProductiOnline/IkraChernaya',
-        types: '?ProductTypes=1&Categories=2',
+        types: '?ProductTypes=2&Categories=19',
         mainPhoto: ikraChernaya
       },
       {
         id: 2,
-        subName: 'Икра щучья и северных рыб',
-        href: '/ProductiOnline/IkraShuchya',
-        types: '?ProductTypes=1&Categories=3',
-        mainPhoto: IkraShuchya
-      },
-      {
-        id: 3,
         subName: 'Крабы и лобстеры',
         href: '/ProductiOnline/KrabiILobsteri',
-        types: '?ProductTypes=1&Categories=4',
+        types: '?ProductTypes=2&Categories=73',
         mainPhoto: Lobster
       },
       {
-        id: 4,
+        id: 3,
         subName: 'Креветки и лангустины',
         href: '/ProductiOnline/KrevetkiILangustini',
-        types: '?ProductTypes=1&Categories=5',
+        types: '?ProductTypes=2&Categories=49',
         mainPhoto: Krevetki
       },
       {
-        id: 5,
-        subName: 'Морепродукты',
+        id: 4,
+        subName: 'Морские деликатесы',
         href: '/ProductiOnline/Moreproducti',
-        types: '?ProductTypes=1&Categories=6',
+        types: '?ProductTypes=2&Categories=88',
         mainPhoto: Moreproducti
       },
       {
-        id: 6,
-        subName: 'Рыба свежемороженая',
+        id: 5,
+        subName: 'Рыба',
         href: '/ProductiOnline/RibaSvejomorojennaya',
-        types: '?ProductTypes=1&Categories=7',
+        types: '?ProductTypes=2&Categories=134',
         mainPhoto: Ribasvozhomoroj
       },
       {
-        id: 7,
-        subName: 'Рыба охлажденная',
+        id: 6,
+        subName: 'Живые морепродукты',
         href: '/ProductiOnline/RibaOxlojdennaya',
-        types: '?ProductTypes=1&Categories=8',
+        types: '?ProductTypes=2&Categories=146',
         mainPhoto: Ribaoxlazhd
       },
       {
-        id: 8,
+        id: 7,
         subName: 'Стейки и филе',
         href: '/ProductiOnline/SteikiIFile',
-        types: '?ProductTypes=1&Categories=9',
+        types: '?ProductTypes=2&Categories=109',
         mainPhoto: SteikiRibi
       },
       {
-        id: 9,
+        id: 8,
         subName: 'Рыба вяленая, солёная и копченая',
         href: '/ProductiOnline/RibaVyalennaya',
-        types: '?ProductTypes=1&Categories=10',
+        types: '?ProductTypes=2&Categories=152',
         mainPhoto: Kopchriba
       },
       {
-        id: 10,
+        id: 9,
         subName: 'Полуфабрикаты',
         href: '/ProductiOnline/Polufabrikati',
-        types: '?ProductTypes=1&Categories=11',
+        types: '?ProductTypes=2&Categories=332',
         mainPhoto: polufabrikati
       },
       {
-        id: 11,
+        id: 10,
         subName: 'Консервы и пресервы',
         href: '/ProductiOnline/KonserviIPreservi',
-        types: '?ProductTypes=1&Categories=12',
+        types: '?ProductTypes=2&Categories=41',
         mainPhoto: konservi
+      },
+      {
+        id: 11,
+        subName: 'Снеки',
+        href: '/ProductiOnline/Snacks',
+        types: '?ProductTypes=2&Categories=209',
+        mainPhoto: Snacks
+      },
+      {
+        id: 12,
+        subName: 'Соусы',
+        href: '/ProductiOnline/Sauces',
+        types: '?ProductTypes=2&Categories=223',
+        mainPhoto: Sauces
+      },
+      {
+        id: 13,
+        subName: 'Пиво',
+        href: '/ProductiOnline/Beer',
+        types: '?ProductTypes=2&Categories=237',
+        mainPhoto: Beer
+      },
+      {
+        id: 15,
+        subName: 'Напитки',
+        href: '/ProductiOnline/Beverages',
+        types: '?ProductTypes=2&Categories=483',
+        mainPhoto: Beverages
+      },
+      {
+        id: 15,
+        subName: 'Вода',
+        href: '/ProductiOnline/Water',
+        types: '?ProductTypes=2&Categories=498',
+        mainPhoto: Water
       }
     ],
     filters: {

@@ -53,9 +53,9 @@ const Logo: React.FC<React.AnchorHTMLAttributes<{}>> = ({
           />
         </h2>
       ) : (
-        <h2 className={cls.logo_main_a}>
+        <h2 className={cls.logo_main}>
           <Image
-            src={logoCa}
+            src={logoC}
             alt={siteSettings.logo.alt}
             loading="eager"
           />

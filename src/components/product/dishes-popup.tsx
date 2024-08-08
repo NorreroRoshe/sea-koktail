@@ -248,14 +248,25 @@ const DishesPopup: React.FC<ProductPopupProps> = observer(({ popupProduct }) => 
                       <br />
                     </span>
                   )}
-                  <span
-                    className="text-sm font-extrabold"
-                    style={{ color: '#787a80', fontSize: '17px' }}>
-                    Лампочки:
-                    <span style={{ marginLeft: '10px', fontSize: '17px' }}>
-                      {popupProduct.lampCount} x {popupProduct.plinth}
+                  {!!popupProduct.plinth && popupProduct.plinth.length > 0 &&(
+                    <span
+                      className="text-sm font-extrabold"
+                      style={{ color: '#787a80', fontSize: '17px' }}>
+                      Лампочки:
+                      <span style={{ marginLeft: '10px', fontSize: '17px' }}>
+                        {popupProduct.lampCount} x {popupProduct.plinth}
+                      </span>
                     </span>
-                  </span>
+                  )}
+
+                    <span
+                      className="text-sm font-extrabold"
+                      style={{ color: '#787a80', fontSize: '17px' }}>
+                      код товара:
+                      <span style={{ marginLeft: '10px', fontSize: '17px' }}>
+                        {popupProduct.nomNumber}
+                      </span>
+                    </span>
                 </div>
 
                   <div className={`flex items-center mt-5 ${cls.fegrhbetrgweas}`}>                    
@@ -269,7 +280,8 @@ const DishesPopup: React.FC<ProductPopupProps> = observer(({ popupProduct }) => 
                     <div className="text-skin-base font-extrabold text-base md:text-xl xl:text-[22px]">
                       {/* {Math.round(popupProduct.price - discountPercentage)} */}
                       {mainPrice}
-                      <span>₽</span> / 180г
+                      <span>₽</span>
+                       {/* / 180г */}
                     </div>
 
 
