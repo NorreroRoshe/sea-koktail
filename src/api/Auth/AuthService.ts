@@ -1,6 +1,7 @@
 "use client"
 import makeRequest from '@/api/makeRequest';
-import { IConfirmRes, IConfirmReq, IGetUserDetailsReq, IGetUserDetailsRes, IPasswodForgotReq, IPasswodForgotRes, IPasswordResetReq, IPasswordResetRes, IPutUserDetailsReq, IResendConfirmReq, IResendConfirmRes, ISingInReq, ISingInRes, ISingUpReq, ISingUpRes } from '@/types/Auth/auth.dtos';
+import makeRequestMap from '@/api/makeRequestMap';
+import { IConfirmRes, IScheduleData, IDataOrderReq, IDataOrderRes, IConfirmReq, IGetUserDetailsReq, IGetUserDetailsRes, IPasswodForgotReq, IPasswodForgotRes, IPasswordResetReq, IPasswordResetRes, IPutUserDetailsReq, IAddAddressReq, IGetAddressRes, IGetPhoneRes, IAddPhoneReq, IEditPhoneReq, IResendConfirmReq, IResendConfirmRes, ISingInReq, ISingInRes, ISingUpReq, ISingUpRes, IDeleteAddressReq, IEditAddressReq, IGetYandexListRes } from '@/types/Auth/auth.dtos';
 // import {ProductsResponse} from "@/types/types";
 import {AxiosResponse} from "axios";
 import Cookies from 'js-cookie';
@@ -75,6 +76,132 @@ class AuthService {
       url: `/user/details`,
       method: "PUT",
       data: data,
+    });
+  };
+
+  
+  
+
+  getUserAddress({data} :
+    {data: void}) {
+    return makeRequest<IGetAddressRes>({
+      url: "/user/addresses/get",
+      method: "POST",
+      data: data,
+    });
+  };
+
+  addUserAddress({data} :
+    {data: IAddAddressReq}) {
+    return makeRequest<void>({
+      url: "/user/addresses/add",
+      method: "POST",
+      data: data,
+    });
+  };
+  deleteUserAddress(id: number) {
+    return makeRequest<void>({
+      url: "/user/addresses/delete",
+      method: "POST",
+      data: {
+        id: id
+      }
+    });
+  };
+  editUserAddress({data} :
+    {data: IEditAddressReq}) {
+    return makeRequest<void>({
+      url: "/user/addresses/edit",
+      method: "POST",
+      data: data,
+    });
+  };
+
+
+
+  
+  
+  getUserPhone({data} :
+    {data: void}) {
+    return makeRequest<IGetPhoneRes>({
+      url: "/user/phones/get",
+      method: "POST",
+      data: data,
+    });
+  };
+  addUserPhone({data} :
+    {data: IAddPhoneReq}) {
+    return makeRequest<void>({
+      url: "/user/phones/add",
+      method: "POST",
+      data: data,
+    });
+  };
+  deleteUserPhone(id: number) {
+    return makeRequest<void>({
+      url: "/user/phones/delete",
+      method: "POST",
+      data: {
+        id: id
+      }
+    });
+  };
+  editUserPhone({data} :
+    {data: IEditPhoneReq}) {
+    return makeRequest<void>({
+      url: "/user/phones/edit",
+      method: "POST",
+      data: data,
+    });
+  };
+
+
+
+
+
+  getOrderTimes({data} :
+    {data: void}) {
+    return makeRequest<IScheduleData>({
+      url: "/order/times",
+      method: "GET",
+      data: data,
+    });
+  };
+
+
+  dataOrder({data} :
+    {data: IDataOrderReq}) {
+    return makeRequest<IDataOrderRes>({
+      url: "/order",
+      method: "POST",
+      data: data,
+    });
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  getValidAddress({data} :
+    {data: string}) {
+    return makeRequestMap<IGetYandexListRes>({
+      url: `&text=${data}&ll=55.75583,37.61778`,
+      method: "GET"
     });
   };
 }

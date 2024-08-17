@@ -1,3 +1,4 @@
+'use client'
 import cn from 'classnames';
 import MinusIcon from '@/components/iconsCode/minus-icon';
 import PlusIcon from '@/components/iconsCode/plus-icon';

@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import ActiveLink from '@/components/ui/active-link';
 import useBreadcrumb, { convertBreadcrumbTitle } from '@/utils/use-breadcrumb';
@@ -5,6 +6,7 @@ import { useTranslation } from 'next-i18next';
 import { IoChevronForward } from 'react-icons/io5';
 import { IoHomeOutline } from 'react-icons/io5';
 import { ROUTES } from '@/utils/routes';
+import cls from './Ui.module.scss';
 
 interface Props {
   children: any;
@@ -108,10 +110,12 @@ const Breadcrumb: React.FC<{ separator?: string }> = ({
         return 'Корзина';
       case 'Privacy':
         return 'Политика';
+        // конфеденциальности';
       case 'Favourites':
-        return 'Оферта интернет-магазина';
+        return 'Избранные';
       case 'Oferta':
-        return 'Политика';
+        return 'Оферта';
+        //  интернет-магазина';
       case 'Soglasie':
         return 'Согласие на обработку';
       case 'DostavkaOplata':
@@ -134,8 +138,8 @@ const Breadcrumb: React.FC<{ separator?: string }> = ({
     }}>
       <BreadcrumbItems separator={separator}>
         <ActiveLink href={ROUTES.HOME} activeClassName="font-semibold text-heading">
-          <span className="inline-flex items-center">
-            <IoHomeOutline className="me-1.5 text-skin-base text-15px" />
+          <span className={`inline-flex items-center ${cls.sadaasveqw}`}>
+            <IoHomeOutline className={`me-1.5 text-skin-base text-15px`} />
             {t('МорскойКоктейль.ру')}
           </span>
         </ActiveLink>
@@ -147,6 +151,7 @@ const Breadcrumb: React.FC<{ separator?: string }> = ({
             key={breadcrumb.href}>
             <span
             // className="capitalize"
+            className={cls.ewgrefwd}
             >{getBreadcrumbLabel(breadcrumb.breadcrumb)}</span>
           </ActiveLink>
         ))}

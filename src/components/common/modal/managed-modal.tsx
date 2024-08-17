@@ -28,11 +28,17 @@ const DishPrePopup = dynamic(() => import('@/components/product/dish-pre-popup')
 const AddressPopup = dynamic(
   () => import('@/components/common/form/add-address')
 );
+const EditAddressForm = dynamic(
+  () => import('@/components/common/form/edit-address')
+);
 const PaymentPopup = dynamic(
   () => import('@/components/common/form/add-payment')
 );
 const PhoneNumberPopup = dynamic(
   () => import('@/components/common/form/add-contact')
+);
+const PhoneNumberEditPopup = dynamic(
+  () => import('@/components/common/form/edit-contact')
 );
 const DeliveryAddresses = dynamic(
   () => import('@/components/address/delivery-addresses')
@@ -67,8 +73,10 @@ const ManagedModal: React.FC = () => {
       {view === 'THX_MOD' && <ThxMod />}
 
       {view === 'ADDRESS_VIEW_AND_EDIT' && <AddressPopup />}
+      {view === 'ADDRESS_EDIT' && <EditAddressForm />}
       {view === 'PAYMENT' && <PaymentPopup />}
       {view === 'PHONE_NUMBER' && <PhoneNumberPopup />}
+      {view === 'PHONE_NUMBER_EDIT' && <PhoneNumberEditPopup />}
       {view === 'DELIVERY_VIEW' && <DeliveryAddresses />}
     </Modal>
   );

@@ -249,10 +249,13 @@ export const BlyudaCatalogue: React.FC<ICatalogCategories> = observer(({ sitePat
             <div className={cls.catalogue__product_filsort}>
             </div>
               <h3 className={cls.allproduct_headingsafvs}>
-                Доставка еды из ресторана &apos;МорскойКоктейль&apos;
+                Доставка еды из ресторана &nbsp;
+                {/* &apos; */}
+                МорскойКоктейль
+                {/* &apos; */}
               </h3>
               <span className={cls.allproduct_headinsgegw}>
-                +7(999) 999-99-99
+                +7 (915) 177-77-65
               </span>
             <ul className={cls.allproduct_goods_list}>
               {products.map((product) => (

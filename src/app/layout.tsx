@@ -5,7 +5,7 @@ import "@/styles/drawer-lib.css";
 import "@/styles/tailwind.css";
 import "@/styles/global.css";
 import "@/styles/scrollbar.css";
-import "@/styles/swiper-carousel.css";
+import "@/styles/swiper-carousel.scss";
 import "@/styles/ImgSlick.scss";
 import "@/styles/allCategories.scss";
 import "@/styles/custom-plugins.css";
@@ -42,7 +42,7 @@ export default function RootLayout({
   const cartStore = store.cart;
   const favoritesStore = store.favorites;
 
-  const [searchBigVisible, setSearchBigVisible] = useState(true);
+  const [searchBigVisible, setSearchBigVisible] = useState(false);
 
 
 

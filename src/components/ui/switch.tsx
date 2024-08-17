@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import Switch from 'react-switch'; // Импорт из библиотеки react-switch
 // import { useRouter } from 'next/navigation';

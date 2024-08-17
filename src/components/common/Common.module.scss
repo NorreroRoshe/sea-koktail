@@ -282,18 +282,23 @@ margin: 0;
 
 .down_desc {
   @media(max-width: 850px) {
-    width: 35vw !important;
+    width: 40vw !important;
   }
   @media(max-width: 520px) {
     font-size: 12px !important;
   }
 }
 
+.down_dessascs {
+  @media(max-width: 520px) {
+    font-size: 12px !important;
+  }
+}
 
 .down_fwrap {
   @media(max-width: 850px) {
     // width: 100px;
-    justify-content: space-around !important;
+    justify-content: space-between !important;
   }
   // @media(max-width: 590px) {
   //   flex-direction: column;

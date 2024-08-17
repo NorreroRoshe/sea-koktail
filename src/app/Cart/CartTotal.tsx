@@ -8,6 +8,8 @@ import {observer} from "mobx-react";
 import Button from '@/components/ui/button';
 import { ROUTES } from '@/utils/routes';
 import { useRouter } from "next/navigation";
+import { IDataOrderReq } from '@/types/Auth/auth.dtos';
+import { useForm } from "react-hook-form";
 
 const CartTotal: React.FC = observer(({ }) => {
   const [isEmpty, setIsEmpty] = useState(true);
@@ -38,6 +40,87 @@ const CartTotal: React.FC = observer(({ }) => {
   console.log(totalPrice === totalPrice, 'cart')
 
 
+
+//проба
+
+  const userStore = store.auth;
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IDataOrderReq>({
+    defaultValues: {
+      deliveryType: 0,
+      dayType: 0,
+      address: '',
+      phone: '',
+      dateTime: '',
+      description: '',
+      payType: 0,
+      // adresSamovivoz: ''
+    },
+  });
+  
+  // const onSubmit = async ({deliveryType,
+  //   dayType,
+  //   address,
+  //   phone,
+  //   dateTime,
+  //   description,
+  //   payType,
+  //   adresSamovivoz
+  //  }: IDataOrderReq) => {
+  //   try {
+  //     const orderData = {
+  //       deliveryType: orderStore.deliveryType,
+  //       dayType: orderStore.dayType,
+  //       address: orderStore.address,
+  //       phone: orderStore.phone,
+  //       dateTime: orderStore.dateTime,
+  //       description: orderStore.description,
+  //       payType: orderStore.payType,
+  //       adresSamovivoz: orderStore.adresSamovivoz,
+  //     };
+
+  //     await userStore.dataOrder(orderData);
+  //     orderStore.resetOrder();
+  //     Router.push('/order-success'); // Redirect to success page
+  //   } catch (error) {
+  //     console.error('Ошибка при оформлении заказа:', error);
+  //   }
+  // };
+
+  const onSubmit = async ({ 
+      deliveryType,
+      dayType,
+      address,
+      phone,
+      dateTime,
+      description,
+      payType,
+      // adresSamovivoz
+     }: IDataOrderReq) => {
+    try {
+      await userStore.dataOrder({
+        deliveryType: userStore.deliveryType,
+        dayType: userStore.dayType,
+        address: userStore.address,
+        phone: userStore.phone,
+        dateTime: userStore.dateTime,
+        description: userStore.description,
+        payType: userStore.payType,
+        // adresSamovivoz: userStore.
+      });
+      // Router.push(ROUTES.ORDER);
+    } catch (error) {
+      console.error('Ошибка при обновлении данных:', error);
+    }
+  };
+
+//проба
+
+  
   return (
 
     <div className="CxtlU">
@@ -89,18 +172,20 @@ const CartTotal: React.FC = observer(({ }) => {
           className={`w-full mt-8 mb-5 bg-skin-primary text-skin-inverted rounded px-4 py-3 transition-all ${
             isEmpty && 'opacity-40 cursor-not-allowed'
           }`}
-          onClick={orderHeader}
+          // onClick={orderHeader}
+          onClick={handleSubmit(onSubmit)}
+          // onClick={orderHeader}
         >
           Оформить заказ
         </Button>
         
 
 
-ИЛИ
+        ИЛИ
 
 
-<br/>
-<br/>
+        <br/>
+        <br/>
 
         <div>
           <div className="ldmvk">
@@ -110,14 +195,13 @@ const CartTotal: React.FC = observer(({ }) => {
           </div>
           <div className="nuVy0">
             <div className="UVRnF">
-              Нажимая кнопку &apos;Оформить заказ&apos;, Вы принимаете условия соответствующей оферты: <span className="ui-GPFV8 ui-HoDUP">Оферты для физических лиц</span> и <a target="_blank" className="ui-GPFV8 ui-HoDUP" href="/static-page/privacy-policy">Политики конфиденциальности</a>, а также даете <span className="ui-GPFV8 ui-HoDUP">Согласие на обработку</span> Ваших персональных данных и их передачу.
+              Нажимая кнопку &apos;Оформить заказ&apos;, Вы принимаете условия соответствующей оферты: <a href="/Oferta" target="_blank" className="ui-GPFV8 ui-HoDUP">Публичной оферты</a> и <a target="_blank" className="ui-GPFV8 ui-HoDUP" href="/Privacy">Политики конфиденциальности</a>, а также даете <a target="_blank" href="/Soglasie" className="ui-GPFV8 ui-HoDUP">Согласие на обработку</a> Ваших персональных данных и их передачу.
             </div>
           </div>
         </div>
         <div className="Pterg">
-          <a data-testid="payment-type" className="ui-GPFV8 ER_YK" href="/site/delivery">Способы оплаты</a>
-          <a data-testid="delivery-and-assembly" className="ui-GPFV8 ER_YK" href="/site/delivery">Доставка и сборка</a>
-          <a data-testid="private-offer" className="ui-GPFV8 ER_YK" href="/static-page/oferta">Оферта для физических лиц</a>
+          <a data-testid="delivery-and-assembly" className="ui-GPFV8 ER_YK" href="/DostavkaOplata">Доставка и оплата</a>
+          <a data-testid="private-offer" className="ui-GPFV8 ER_YK" href="/Oferta">Публичная оферта</a>
         </div>
       </div>
     </div>

@@ -150,8 +150,8 @@ export default function MobileMenu() {
 
   return (
     <>
-      <div className="flex flex-col justify-between w-full h-full">
-        <div className="w-full border-b border-skin-base flex justify-between items-center relative ps-5 md:ps-7 flex-shrink-0 py-0.5">
+      <div className="flex flex-col justify-start w-full h-full">
+        <div className="w-full border-b border-skin-base flex justify-between items-center relative ps-5 md:ps-7 flex-shrink-0 py-0.5" style={{padding: '20px'}}>
           <div role="button" onClick={closeSidebar} className="inline-flex">
             <Logo />
           </div>
@@ -206,7 +206,7 @@ export default function MobileMenu() {
           </div>
         </Scrollbar>
 
-        <div className="flex items-center justify-center bg-skin-fill border-t border-skin-base px-7 flex-shrink-0 space-s-1 py-5">
+        {/* <div className="flex items-center justify-center bg-skin-fill border-t border-skin-base px-7 flex-shrink-0 space-s-1 py-5">
           {social?.map((item, index) => (
             <Link
               href={item.link}
@@ -217,7 +217,7 @@ export default function MobileMenu() {
               {item.icon}
             </Link>
           ))}
-        </div>
+        </div> */}
       </div>
     </>
   );

@@ -1,3 +1,4 @@
+'use client'
 import cn from 'classnames';
 import { Disclosure, Transition } from '@headlessui/react';
 import { useTranslation } from 'next-i18next';

@@ -5,6 +5,9 @@
   @media (max-width: 1150px) {
     padding: 0 20px;
   }
+  @media (max-width: 500px) {
+    padding: 0 10px;
+  }
   // @media (max-width: 1000px) {
   //   padding: 0 40px;
   // }
@@ -17,21 +20,6 @@
 }
 .chapter__container {
   padding-bottom: 50px;
-  .chapter__mt {
-    margin-top: 50px;
-    @media (max-width: 1150px) {
-      margin-top: 30px;
-    }
-    @media (max-width: 1024px) {
-      margin-top: 90px;
-    }
-    @media (max-width: 500px) {
-      margin-top: 70px;
-    }
-    // @media (max-width: 400px) {
-    //   margin-top: 60px;
-    // }
-  }
 }
 
 

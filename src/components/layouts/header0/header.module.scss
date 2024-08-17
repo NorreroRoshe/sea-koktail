@@ -3,6 +3,7 @@
 }
 
 .header_search_main_up {
+  margin-left: 80px;
   @media(max-width: 769px) {
     display: none;
   }
@@ -53,6 +54,7 @@
     padding-right: 60px;
     padding-bottom: 10px;
     padding-top: 10px;
+    background: #0085FF;
     position: relative;
   }
   @media(max-width: 550px) {
@@ -96,8 +98,8 @@
     height: 50px;
     padding-top: 18px;
     padding-bottom: 13px;
-    padding-top: 32px;
-    padding-bottom: 30px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 }
 
@@ -105,8 +107,8 @@
   padding-top: 65px;
   padding-bottom: 65px;
   @media(max-width: 550px) {
-    padding-top: 32px;
-    padding-bottom: 30px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 }
 
@@ -351,7 +353,7 @@
 
 .fegrtef {
   display: none;
-  @media (max-width: 550px) {
+  @media (max-width: 769px) {
     display: block;
   }
 }

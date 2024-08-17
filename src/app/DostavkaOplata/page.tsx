@@ -47,7 +47,7 @@ const DostavkaOplata: React.FC = () => {
               </div>
               <div className={cls.info__col_wrap}>
                 <div className={`${cls.info__subheadline} ${cls.info__subheadline_fir}`}>
-                  ЗА ПРЕДЕЛАМИ МКАД - 790₽
+                  зА ПРЕДЕЛАМИ МКАД - 790₽
                 </div>
               </div>
             </div>
@@ -67,7 +67,6 @@ const DostavkaOplata: React.FC = () => {
           <div className={cls.contact_online}>
             <span>
               Доставка осуществляется сервисом Янедкс.Доставка, после успешной оплаты заказа. После оплаты заказа , вам на телефон поступит сообщение с датой и временем доставки заказа , а так же в вашем личном кабинете будет отображаться статус заказа!
-              <br />
               <br />
             </span>
           </div>

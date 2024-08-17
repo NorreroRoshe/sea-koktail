@@ -1,3 +1,4 @@
+'use client'
 import { BsThreeDots } from 'react-icons/bs';
 import { Popover, Transition } from '@headlessui/react';
 import { Fragment } from 'react';

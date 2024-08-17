@@ -1,3 +1,4 @@
+'use client'
 interface AlertProps {
   message?: string;
   className?: string;

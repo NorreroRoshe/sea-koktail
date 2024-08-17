@@ -1,3 +1,4 @@
+'use client'
 import Image from '@/components/ui/image';
 import cn from 'classnames';
 // import Link from '@/components/ui/link';
@@ -44,7 +45,7 @@ const ProductDownloadApps: React.FC<Props> = ({ className = 'pt-1.5 md:pt-0' }) 
       style={{flexDirection: 'column', padding: '60px 50px 40px'}}>
         <h2 className={cls.down_title} style={{ paddingBottom: '20px', color: '#fff' }}>Почему нам доверяют</h2>
 
-        <p className={`text-15px xl:text-base 2xl:text-[17px] leading-7 xl:leading-9 text-skin-base text-opacity-70 pb-5 lg:pb-7 pe-0 xl:pe-8 2xl:pe-20 ${cls.down_desc}`}
+        <p className={`text-15px xl:text-base 2xl:text-[17px] leading-7 xl:leading-9 text-skin-base text-opacity-70 pb-5 lg:pb-7 pe-0 xl:pe-8 2xl:pe-20 ${cls.down_dessascs}`}
               style={{ lineHeight: '25px', paddingInlineEnd: '0', fontSize: '15px', textAlign: 'center', width: '100% !important', color: '#fff', margin: '0 auto'}}
               >
               Нам доверяют потому что , и тут нужно небольшое описание того почему нам доверяют...
@@ -89,7 +90,7 @@ const ProductDownloadApps: React.FC<Props> = ({ className = 'pt-1.5 md:pt-0' }) 
             <p className={`text-15px xl:text-base 2xl:text-[17px] leading-7 xl:leading-9 text-skin-base text-opacity-70 pb-5 lg:pb-7 pe-0 xl:pe-8 2xl:pe-20 ${cls.down_desc}`}
               style={{ lineHeight: '25px', paddingInlineEnd: '0', fontSize: '15px', textAlign: 'center', width: '25vw', color: '#fff'}}
               >
-              Выберите удобный для вас способ оплаты: банковской картой, СБП или наличными при самовывозе.
+              Удобный способ оплаты: банковской картой или СБП.
             </p>
             </div>
         

@@ -1,3 +1,4 @@
+'use client'
 import ArrowIcon from '@/components/iconsCode/arrow-icon';
 import Link, { LinkProps } from 'next/link';
 import { useTranslation } from 'next-i18next';

@@ -1,7 +1,9 @@
+'use client'
 import { useState } from 'react';
 import { RadioGroup } from '@headlessui/react';
 import cn from 'classnames';
 import { useTranslation } from 'next-i18next';
+import {observer} from "mobx-react";
 
 interface DeliveryOrSamovivozProps {
   deliveryDateSchedule: string[];
@@ -10,7 +12,11 @@ interface DeliveryOrSamovivozProps {
   // Dispatch<SetStateAction<string>>;
 }
 
-export default function DeliveryOrSamovivoz({ deliveryDateSchedule, dateSchedule, setDateSchedule }: DeliveryOrSamovivozProps) {
+const DeliveryOrSamovivoz = observer(({ deliveryDateSchedule, dateSchedule, setDateSchedule }: DeliveryOrSamovivozProps) => {
+
+
+  
+
   const { t } = useTranslation('common');
   function getDay(date: string) {
     const day = date.split(',');
@@ -69,4 +75,6 @@ export default function DeliveryOrSamovivoz({ deliveryDateSchedule, dateSchedule
       </div>
     </div>
   );
-}
+})
+
+export default DeliveryOrSamovivoz;

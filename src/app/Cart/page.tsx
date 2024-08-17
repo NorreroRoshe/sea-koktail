@@ -49,43 +49,59 @@ const Cart: React.FC = observer(() => {
       return { ...cartItem, count: count };
     });
 
+
+    // console.log(cart,'cart')
+    
     const { clearCart, isLoading, addToCart } = useCart();
     const onClickClear = () => {
     if (window.confirm('Очистить корзину ???')) {
       clearCart();
     }
   };
+
   
   const localCart = cartStore.cart;
   
-  useEffect(() => {
-    cartStore.cartItems = [];
-    console.log(cartStore.cart);
-    cartStore.cart.length > 0 &&
-    cartStore.cart.map(
-      (row) =>
-      productStore.getDetProduct({ ProductId: row.id }).then((pld) => {
-        //@ts-ignore
-        cartStore.addItem(pld?.data);
-      }),
-      );
+    useEffect(() => {
+      cartStore.cartItems = [];
+      console.log(cartStore.cart);
+      cartStore.cart.length > 0 &&
+      cartStore.cart.map(
+        (row) =>
+        productStore.getDetProduct({ ProductId: row.id }).then((pld) => {
+          //@ts-ignore
+          cartStore.addItem(pld?.data);
+        }),
+        );
     }, [cartStore.cart]);
 
+    // useEffect(() => {
+    //   if (isAuth && authStore.isLoading) {
+    //     localCart &&
+    //     localCart.map((row) => !cart.map((item) => item.id).includes(row.id) && addToCart(row.id));
+    //   }
+    // }, [isAuth, authStore.isLoading]);
+
+
+
+    // console.log(dateSchedule,'dateSchedule')
+
+
     useEffect(() => {
-      if (isAuth && authStore.isLoading) {
-      localCart &&
-      localCart.map((row) => !cart.map((item) => item.id).includes(row.id) && addToCart(row.id));
-    }
-  }, [isAuth, authStore.isLoading]);
+      if (dateSchedule) {
+        const deliveryType = dateSchedule === 'Доставка' ? 0 : 1;
+        authStore.setDeliveryType(deliveryType);
+      }
+    }, [dateSchedule]);
 
   return (
     <div className={cls.section_cart}>
         <div className={`${cls.cart_container} ${cls.container}`}>
-          {localCart.length === 0 && typeof window !== 'undefined'
+          {/* {localCart.length === 0 && typeof window !== 'undefined'
             ? <CartEmpty />
-            : (
+            : ( */}
               <>
-              <div style={{marginBottom: '100px'}}>
+              <div className={cls.fqeaefews} >
                 <Breadcrumb />
                 </div>
                 <div className={cls.cart_root}>
@@ -99,7 +115,9 @@ const Cart: React.FC = observer(() => {
                       </div>
                     </div>
                     {cart.map((item: any) =>
-                      item.count ? <CartItemBlock key={item.id} {...item} /> : undefined,
+                      item.count ? 
+                      <CartItemBlock key={item.id} {...item} /> 
+                      : undefined,
                     )}
 
 
@@ -121,8 +139,8 @@ const Cart: React.FC = observer(() => {
                   </div>
                 </div>
               </>
-            )
-          }
+            {/* )
+          } */}
         </div>
       </div>
   );

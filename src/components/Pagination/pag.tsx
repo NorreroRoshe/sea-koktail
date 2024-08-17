@@ -39,12 +39,12 @@ export const Pagination = (props: ITablePagination) => {
   return (
     <div className={cls.paginationWrapper}>
       <div className={cls.pagination}>
-        <button
+        {/* <button
           className={cls.pagination_dprev}
           disabled={currentPage === 1 || isLoading}
           onClick={() => hangleChangePage(1)}>
           Начало
-        </button>
+        </button> */}
         <button
           disabled={currentPage === 1 || isLoading}
           onClick={() => hangleChangePage(currentPage)}>
@@ -90,12 +90,12 @@ export const Pagination = (props: ITablePagination) => {
           onClick={() => hangleChangePage(currentPage)}>
           |
         </button>
-        <button
+        {/* <button
           disabled={currentPage === totalPages || isLoading}
           onClick={() => hangleChangePage(totalPages)}
           className={cls.pagination_dnext}>
           Конец
-        </button>
+        </button> */}
       </div>
     </div>
   );

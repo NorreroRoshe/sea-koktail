@@ -27,7 +27,7 @@ export const SectionHero: React.FC = () => {
     slidesToScroll: 1,
     nextArrow: <CustomNextArrow />,
     prevArrow: <CustomPrevArrow />,
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 2500,
     pauseOnHover: false,
     // centerMode: true,
@@ -36,7 +36,7 @@ export const SectionHero: React.FC = () => {
 
   return (
     <section className={cls.section_hero}>
-      <h1 className={cls.visually_hidden}>Vogue Decor</h1>
+      <h1 className={cls.visually_hidden}>Morskoi Koktail</h1>
       <div className={`${cls.hero__container}`}>
         <Slider className={cls.main_slider} {...sliderSettings}>
           <div className={`${cls.hero_slider} ${cls.slider1}`}>
@@ -53,7 +53,7 @@ export const SectionHero: React.FC = () => {
           <div className={`${cls.hero_slider} ${cls.slider2}`}>
             <div className={`${cls.container}`}>
               {/* <h2 className={cls.slider_header}>Новинки нашего магазина</h2> */}
-              <Link href='/Chapter' className={`${cls.bano_reklamo} ${cls.bano_title_s}`}>Попробуй море на вкус!</Link>
+              <Link href='/' className={`${cls.bano_reklamo} ${cls.bano_title_s}`}>Попробуй море на вкус!</Link>
               {/* <Link href='/Chapter' className={cls.bano_kupito_s}>Перейти к новинкам</Link> */}
             </div>
           </div>
@@ -61,14 +61,14 @@ export const SectionHero: React.FC = () => {
             <div className={`${cls.container} ${cls.container_s3}`}>
               {/* <h2 className={cls.slider_header}>Воплоти свои идеи вместе с нами !</h2> */}
               <p className={`${cls.bano_reklamo} ${cls.bano_title_s} ${cls.bano_title_ssa}`}>Магазин-Ресторан морепродуктов</p>
-              <Link href='/ProductiOnline' className={cls.bano_kupito_s}>В магазин</Link>
+              <Link href='/ProductiOnline?ProductTypes=2&Page=0' className={cls.bano_kupito_s}>В магазин</Link>
             </div>
           </div>
           <div className={`${cls.hero_slider} ${cls.slider3}`}>
             <div className={`${cls.container} ${cls.container_s3}`}>
               {/* <h2 className={cls.slider_header}>Воплоти свои идеи вместе с нами !</h2> */}
               <p className={`${cls.bano_reklamo} ${cls.bano_title_s} ${cls.bano_title_ssa}`}>Готовим из того что продаем</p>
-              <Link href='/Restaurant' className={cls.bano_kupito_s}>В ресторан</Link>
+              <Link href='/Restaurant?ProductTypes=1&Categories=518&Page=0' className={cls.bano_kupito_s}>В ресторан</Link>
             </div>
           </div>
         </Slider>

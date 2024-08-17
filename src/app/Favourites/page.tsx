@@ -99,14 +99,18 @@ const Favourites: React.FC = observer(() => {
                         )}
                         <FavAddCart product={favorite} />
                         <div className={cls.item_unit_data}>
-                          <div className={cls.unit_data_item}>
-                            <span>Диаметр:</span>
-                            {favorite?.diameter} смзщ
-                          </div>
-                          <div className={cls.unit_data_item}>
-                            <span>Высота:</span>
-                            {favorite?.height} см
-                          </div>
+                            {!!favorite.diameter && (
+                              <div className={cls.unit_data_item}>
+                                <span>Диаметр:</span>
+                                {favorite?.diameter}
+                              </div>
+                            )}
+                            {!!favorite.height && (
+                              <div className={cls.unit_data_item}>
+                                <span>Высота:</span>
+                                {favorite?.height}
+                              </div>
+                            )}
                         </div>
                       </div>
                     </li>

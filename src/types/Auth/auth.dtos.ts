@@ -33,6 +33,90 @@ export interface ISingUpReq {
   password: string;
 }
 
+export interface IGetAddressRes {
+  data: IAddressFormat[];
+}
+
+export interface IAddressFormat {
+  id: number;
+  title: string;
+  text: string;
+  userId: number;
+}
+
+export interface IGetPhoneRes {
+  data: IPhoneFormat[];
+}
+
+export interface IScheduleData {
+  days: string[][];
+}
+
+export interface IDataOrderReq {
+  deliveryType: number;
+  dayType: number;
+  address: string;
+  phone: string;
+  dateTime: string;
+  description?: string;
+  payType: number;
+  adresSamovivoz?: string;
+}
+
+
+export interface IDataOrderRes {
+  message: string;
+  orderId: string;
+  cartCount: number;
+  totalCost: number;
+  email: string;
+  payStatus: number;
+  products: IDataOrderProductsRes[];
+}
+
+export interface IDataOrderProductsRes {
+  product_id: number;
+  name: string;
+  count: number;
+  cost: string;
+  total_cost: number;
+}
+
+export interface IPhoneFormat {
+  id: number;
+  title: string;
+  text: string;
+  userId: number;
+}
+
+export interface IAddAddressReq {
+  title: string;
+  text: string;
+}
+
+export interface IAddPhoneReq {
+  title: string;
+  text: string;
+  flag: number;
+}
+
+export interface IDeleteAddressReq {
+  id: number;
+}
+
+export interface IEditAddressReq {
+  id: number;
+  title: string;
+  text: string;
+}
+
+export interface IEditPhoneReq {
+  id: number;
+  title: string;
+  text: string;
+  flag: number;
+}
+
 export interface ISingUpRes {
   data?: ISingUpResData;
   message?: string;
@@ -120,3 +204,47 @@ export interface IPutUserDetailsReq {
 //   "refresh_token": "string",
 //   "refresh_token_expires": 0
 // }
+
+
+interface Result {
+  title: Title;
+  subtitle: Subtitle;
+  tags: string[];
+  distance: Distance;
+  address: Address;
+  uri: string;
+}
+
+interface Title {
+  text: string;
+  hl: Highlight[];
+}
+
+interface Highlight {
+  begin: number;
+  end: number;
+}
+
+interface Subtitle {
+  text: string;
+}
+
+interface Distance {
+  text: string;
+  value: number;
+}
+
+interface Address {
+  formatted_address: string;
+  component: Component[];
+}
+
+interface Component {
+  name: string;
+  kind: string[];
+}
+
+// Общая структура данных
+export interface IGetYandexListRes {
+  results: Result[];
+}

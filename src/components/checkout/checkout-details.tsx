@@ -1,3 +1,4 @@
+'use client'
 import { useState } from 'react';
 import Button from '@/components/ui/button';
 import Heading from '@/components/ui/heading';
@@ -7,6 +8,7 @@ import DeliveryNotes from './delivery-instruction';
 import DeliverySchedule from './schedule';
 import SposobOplati from './sposobOplati';
 import DeliveryTips from './delivery-tips';
+import {observer} from "mobx-react";
 import { useTranslation } from 'next-i18next';
 
 const data = [
@@ -37,7 +39,7 @@ const data = [
   },
 ];
 
-const CheckoutDetails: React.FC = () => {
+const CheckoutDetails: React.FC = observer (() => {
   const { t } = useTranslation('common');
   const [bindIndex, setBindIndex] = useState(0);
   const changeItem = (itemIndex: any) => {
@@ -90,6 +92,6 @@ const CheckoutDetails: React.FC = () => {
       })}
     </div>
   );
-};
+});
 
 export default CheckoutDetails;

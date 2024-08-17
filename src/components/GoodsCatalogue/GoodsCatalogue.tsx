@@ -153,7 +153,7 @@ export const GoodsCatalogue: React.FC<ICatalogCategories> = observer(({ sitePath
     ...(searchMaxPrice !== null && { MaxPrice: parsedMaxPrice }),
 
     ...(parsedSearchIsSale !== null && parsedSearchIsSale !== false && { IsSale: parsedSearchIsSale }),
-    SortType: sort,
+    // SortType: sort,
     // From: +(searchPage || 0) * COUNT_PER_PAGE,
   };
 

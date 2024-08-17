@@ -8,7 +8,7 @@ const Warranty: React.FC = () => {
       <section className={cls.section_warranty}>
         <div className={`${cls.warranty_container} ${cls.container}`}>
           <Breadcrumb />
-          <h1 className={cls.warranty_header}>Гарантии Vogue Decor</h1>
+          <h1 className={cls.warranty_header}>Гарантии Morskoi Koktail</h1>
           <div className={cls.warranty_desc}>
             Мы уверены в <b>качестве</b> наших светильников, мебели
             и аксессуаров. На весь товар в нашем магазине предоставляется{" "}

@@ -1,3 +1,4 @@
+'use client'
 import { useTranslation } from 'next-i18next';
 import { Attachment } from '@/framework/basic-rest/types';
 import useWindowSize from '@/utils/use-window-size';
@@ -48,7 +49,8 @@ const SoglashenieHeroSection: React.FC<HeaderProps> = ({
           </span>
         </h2>
         <p style={{ color: 'white', textAlign: 'center', fontSize: '15px', maxWidth: '90%' }}>
-        Настоящее Соглашение является публичной офертой и определяет условия использования материалов и сервисов, размещенных на сайте в сети Интернет по адресу: https://morskoi-koktail.ru, посетителями и пользователями данного интернет-сайта (далее - Сайт).</p>
+          Настоящее Соглашение является публичной офертой и определяет условия использования материалов и сервисов, размещенных на сайте в сети Интернет по адресу: https://morskoi-koktail.ru, посетителями и пользователями данного интернет-сайта (далее - Сайт).
+        </p>
       </div>
     </div>
   );

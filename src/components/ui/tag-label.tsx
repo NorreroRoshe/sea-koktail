@@ -1,3 +1,4 @@
+'use client'
 import { Tag } from '@/framework/basic-rest/types';
 import cn from 'classnames';
 import { ROUTES } from '@/utils/routes';

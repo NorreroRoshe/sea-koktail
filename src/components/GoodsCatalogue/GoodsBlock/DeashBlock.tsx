@@ -72,25 +72,13 @@ export const DeashBlock: React.FC<ProdBlockProps> = observer(({ product }) => {
           )}
            
         </div>
-        
-        <div className={`${cls.allproduct_goods_activity} ${cls.allproduct_goods_activityvbfe}`}>
-
               <p onClick={handlePopupView} className={`${cls.allproduct_goods_artikul} ${cls.allproduct_goods_artikulvebw}`}>{product.name}
                 &nbsp;<span>{product.article}</span></p>
 
-                
-          <div className={cls.goods_activity_cartlike_wrapo}>
-            <div className={cls.goods_activity_cartlike}>
-              <AddToCart cartCount={cartCount} product={product} />
-{/*               
-            <button
-              onClick={handlePopupView}
-              className={`${cls.cartlike__btn3} ${isFavorite ? cls.cartlike__btn3_active : ''}`}
-              ></button> */}
-            </div>
-          </div>
-        </div>
-        <div className={`${cls.allproduct_goods_artikul_wrsdewrhtenapp} ${cls.allproduct_goods_artikul_wrsdewrhtenqwvp}`}>
+        
+        <div className={`${cls.allproduct_goods_activity} ${cls.allproduct_goods_activityvbfe}`}>
+
+                <div className={`${cls.allproduct_goods_artikul_wrsdewrhtenapp} ${cls.allproduct_goods_artikul_wrsdewrhtenqwvp}`}>
           <div className={cls.allproduct_goods_artikul_nalnenal}>
             <div className={cls.allproduct_goods_activity_wrapp}>
               <p className={cls.goods_activity_priasdce}>
@@ -104,6 +92,13 @@ export const DeashBlock: React.FC<ProdBlockProps> = observer(({ product }) => {
                 <span className={cls.goods_nal_desc} style={{color: '#b62908'}}>Предзаказ</span>
               )}
             </span>
+          </div>
+        </div>
+                
+          <div className={cls.goods_activity_cartlike_wrapo}>
+            <div className={cls.goods_activity_cartlike}>
+              <AddToCart cartCount={cartCount} product={product} />
+            </div>
           </div>
         </div>
       </div>

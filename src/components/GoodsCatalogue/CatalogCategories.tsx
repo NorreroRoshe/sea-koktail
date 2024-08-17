@@ -70,12 +70,10 @@ export const CatalogCategories: React.FC<ICatalogCategories> = ({ sitePathCatego
     )
   } else {
     return (
-      <Container>
         <BundleGridCategory
-          className="mb-12 lg:mb-14 xl:mb-16 2xl:mb-20"
+          className="mb-12 xl:mb-16 2xl:mb-20"
           data={sitePathCategory} // You should replace this with your actual data for BundleGrid
         />
-      </Container>
     );
   }
 }

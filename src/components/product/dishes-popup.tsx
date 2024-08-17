@@ -154,6 +154,17 @@ const DishesPopup: React.FC<ProductPopupProps> = observer(({ popupProduct }) => 
 		openModal("LOGIN_VIEW");
 	}
 
+  const attributeLabels: any = {
+    calorie: 'Ккал',
+    carbohydrate: 'Углеводы',
+    protein: 'Белки, г',
+    outQuantity: '‍Грамовка',
+    fat: '‍Жиры, г',
+    storageConditions: '‍‍Хранение, t'
+  };
+  
+  const getAttributeLabel = (key: any) => attributeLabels[key] || key;
+
   return (
     <div className="md:w-[600px] lg:w-[940px] xl:w-[1180px] 2xl:w-[1360px] mx-auto p-1 lg:p-0 xl:p-3 bg-skin-fill rounded-md">
       <CloseButton onClick={closeModal} />
@@ -209,55 +220,20 @@ const DishesPopup: React.FC<ProductPopupProps> = observer(({ popupProduct }) => 
                 </div>
 
                 <div className="pb-2">
-                  {!!popupProduct.height && (
+
+
+                {popupProduct?.attribute
+                    ?.filter((attribute) => attribute.value)
+                    .map((attribute, ids) => (
                     <span
+                      key={ids}
                       className="text-sm font-extrabold"
                       style={{ color: '#787a80', fontSize: '17px' }}>
-                      Высота:&nbsp;
-                      <span style={{ marginLeft: '10px', fontSize: '17px' }}>{popupProduct.height} см</span>
-                      <br />
-                    </span>)}
-                  {!!popupProduct.diameter && (
-                    <span
-                      className="text-sm font-extrabold"
-                      style={{ color: '#787a80', fontSize: '17px' }}>
-                      Диаметр:
-                      <span style={{ marginLeft: '10px', fontSize: '17px' }}>
-                        {popupProduct.diameter} см
-                      </span>
+                          {getAttributeLabel(attribute.key)}:
+                      <span style={{ marginLeft: '10px', fontSize: '17px' }}>{attribute.value}</span>
                       <br />
                     </span>
-                  )}
-                  {!!popupProduct.length && popupProduct.length.length > 0 && (
-                    <span
-                      className="text-sm font-extrabold"
-                      style={{ color: '#787a80', fontSize: '17px' }}>
-                      Длинна:
-                      <span style={{ marginLeft: '10px', fontSize: '17px' }}>
-                        {popupProduct.length} см
-                      </span>
-                      <br />
-                    </span>
-                  )}
-                  {!!popupProduct.width && popupProduct.width.length > 0 &&(
-                    <span
-                      className="text-sm font-extrabold"
-                      style={{ color: '#787a80', fontSize: '17px' }}>
-                      Ширина:
-                      <span style={{ marginLeft: '10px', fontSize: '17px' }}>{popupProduct.width} см</span>
-                      <br />
-                    </span>
-                  )}
-                  {!!popupProduct.plinth && popupProduct.plinth.length > 0 &&(
-                    <span
-                      className="text-sm font-extrabold"
-                      style={{ color: '#787a80', fontSize: '17px' }}>
-                      Лампочки:
-                      <span style={{ marginLeft: '10px', fontSize: '17px' }}>
-                        {popupProduct.lampCount} x {popupProduct.plinth}
-                      </span>
-                    </span>
-                  )}
+                  ))}
 
                     <span
                       className="text-sm font-extrabold"
@@ -324,7 +300,6 @@ const DishesPopup: React.FC<ProductPopupProps> = observer(({ popupProduct }) => 
         </div>
 
             <div className="pt-6 xl:pt-8">
-              {/* <Heading className="mb-3 lg:mb-3.5">Описание:</Heading> */}
               <Text variant="small">
               {popupProduct?.description}
               </Text>

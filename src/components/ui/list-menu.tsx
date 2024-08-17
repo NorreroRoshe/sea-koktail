@@ -1,3 +1,4 @@
+'use client'
 import { useTranslation } from 'next-i18next';
 import { IoIosArrowForward } from 'react-icons/io';
 import cls from '@/components/layouts/header0/header.module.scss';

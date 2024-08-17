@@ -310,7 +310,7 @@
 }
 
 /* Breadcrumb truncate last child */
-.Vogue DecorBreadcrumb li:last-child {
+.Morskoi KoktailBreadcrumb li:last-child {
   @apply truncate font-extrabold text-skin-base;
 }
 .cart-counter-badge {
@@ -320,14 +320,14 @@
   border-radius: 20px;
   font-size: 10px;
 }
-.style-variant-white .Vogue DecorBreadcrumb ol > li > a > svg,
-.style-variant-white .Vogue DecorBreadcrumb ol > li > a {
+.style-variant-white .Morskoi KoktailBreadcrumb ol > li > a > svg,
+.style-variant-white .Morskoi KoktailBreadcrumb ol > li > a {
   @apply text-skin-inverted text-opacity-70;
 }
-.style-variant-white .Vogue DecorBreadcrumb ol > li > svg {
+.style-variant-white .Morskoi KoktailBreadcrumb ol > li > svg {
   @apply text-skin-inverted text-opacity-50;
 }
-.style-variant-white .Vogue DecorBreadcrumb ol > li:last-of-type > a {
+.style-variant-white .Morskoi KoktailBreadcrumb ol > li:last-of-type > a {
   @apply text-skin-inverted;
 }
 

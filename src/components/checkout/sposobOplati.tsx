@@ -1,18 +1,32 @@
-import { useState } from 'react';
+'use client'
+import React, { useEffect, useState } from 'react';
+import { useStore } from '@/hooks/useStore';
 import { RadioGroup } from '@headlessui/react';
 import cn from 'classnames';
 import { useTranslation } from 'next-i18next';
 import sbp from '../../assets/img/social_icon/sbp.svg';
 import cardses from '../../assets/img/social_icon/cardpay.png';
+import {observer} from "mobx-react";
 
-const deliveryDateSchedule = [
+const paymentMethods = [
   { name: 'Банковская карта', icon: cardses },
   { name: 'СБП', icon: sbp },
 ];
 
-export default function SposobOplati() {
+const SposobOplati = observer(() => {
   const { t } = useTranslation('common');
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(deliveryDateSchedule[0]);
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(paymentMethods[0]);
+  
+  const store = useStore();
+  const userStore = store.auth;
+
+  useEffect(() => {
+    if (selectedPaymentMethod) {
+      const paymentTypeIndex = paymentMethods.findIndex(method => method.name === selectedPaymentMethod.name);
+      userStore.setPayType(paymentTypeIndex);
+      console.log(userStore.payType, 'payType');
+    }
+  }, [selectedPaymentMethod]);
 
   return (
     <div className="w-full">
@@ -22,7 +36,7 @@ export default function SposobOplati() {
             {t('text-delivery-schedule')}
           </RadioGroup.Label>
           <div className="grid gap-2 grid-cols-2 sm:grid-cols-2 lg:grid-cols-2">
-            {deliveryDateSchedule.map((option) => (
+            {paymentMethods.map((option) => (
               <RadioGroup.Option
                 key={option.name}
                 value={option}
@@ -55,4 +69,6 @@ export default function SposobOplati() {
       </div>
     </div>
   );
-}
+});  
+
+export default SposobOplati;

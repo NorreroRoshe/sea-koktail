@@ -1,3 +1,4 @@
+'use client'
 import { useTranslation } from 'next-i18next';
 import { Attachment } from '@/framework/basic-rest/types';
 import useWindowSize from '@/utils/use-window-size';

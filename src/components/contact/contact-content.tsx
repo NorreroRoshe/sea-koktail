@@ -1,46 +1,57 @@
-
-
-
-
-
-// Этот код я исправил через GPT, поэтому тут одно из главных изменений это нету даты после айтем :
-// const ContactBox: React.FC<{ items?: any }> = ({ items: { data } }) => {
-// Нужно исправить
-
-
-
-
-
-
-
 'use client'
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { TiPencil } from 'react-icons/ti';
 import { AiOutlinePlus } from 'react-icons/ai';
+import { TiDelete } from 'react-icons/ti';
 import { RadioGroup } from '@headlessui/react';
+import { IoCheckmarkCircle } from 'react-icons/io5';
 import { useModalAction } from '@/components/common/modal/modal.context';
 import { useTranslation } from 'next-i18next';
+import {observer} from "mobx-react";
+import { useStore } from '@/hooks/useStore';
 
-const ContactBox: React.FC<{ items?: any }> = ({ items }) => {
+const ContactBox: React.FC<{ items?: any }> = observer(({ items }) => {
   const { t } = useTranslation('common');
-  let [contactData, setContactData] = useState(items?.data || []); // Initialize with an empty array if items or data is undefined
+  // let [contactData, setContactData] = useState(items?.data || []); // Initialize with an empty array if items or data is undefined
   const { openModal } = useModalAction();
 
   function handlePopupView(item: any) {
     openModal('PHONE_NUMBER', item);
   }
 
-  const removeItem = (id: any, title: string) => {
-    var result = confirm(`Want to delete? ${title} Contact`);
-    if (result) {
-      let items = [...contactData];
-      let array = items.filter((item: any) => item.id !== id);
-      setContactData(array);
+  function handlePopupViewEdit(item: any) {
+    openModal('PHONE_NUMBER_EDIT', item);
+  }
+
+  items = items || [];
+
+  const store = useStore();
+  const userStore = store.auth;
+
+
+  const onClickRemovePhone = async (id: number) => {
+    if (window.confirm('Вы действительно хотите удалить данный адрес ?')) {
+        await userStore.deleteUserPhone(id) ;
+        await userStore.getUserPhone();
     }
   };
 
-  const [selected, setSelected] = useState(contactData[0] || null); // Initialize with null if contactData is empty
+  // const [selected, setSelected] = useState(items[0] || null); // Initialize with null if contactData is empty
+
+  const [selected, setSelected] = useState<any>(null);
+
+  useEffect(() => {
+    if (items && items.length > 0) {
+      setSelected(items[0]); // Default to the first item or set to null if no items
+    }
+  }, [items]);
+
+  useEffect(() => {
+    if (selected) {
+      userStore.setPhone(selected.text);
+    }
+  }, [selected]);
 
   return (
     <>
@@ -53,38 +64,55 @@ const ContactBox: React.FC<{ items?: any }> = ({ items }) => {
           <RadioGroup.Label className="sr-only">
             {t('text-default')}
           </RadioGroup.Label>
-          {contactData.map((item: any, index: any) => (
-            <RadioGroup.Option
-              key={index}
-              value={item}
-              className={({ active, checked }) =>
-                `${active ? 'border-skin-primary' : 'border-skin-base'}
-                  ${checked ? 'border-skin-primary' : 'border-skin-base'}
-                  border-2 relative shadow-md focus:outline-none rounded p-5 block cursor-pointer min-h-[112px] h-full group address__box`
-              }
-            >
-              <RadioGroup.Label as="h2" className="font-semibold mb-2">
-                {item?.title}
-              </RadioGroup.Label>
-              <RadioGroup.Description as="div" className="opacity-70">
-                {item?.number}
-              </RadioGroup.Description>
-              <div className="flex absolute end-3 top-3 z-30 lg:opacity-0 transition-all address__actions">
-                <button
-                  onClick={() => handlePopupView(item)}
-                  className="flex justify-center items-center bg-skin-primary h-6 w-6 rounded-full text-skin-inverted text-opacity-80 text-base"
-                >
-                  <TiPencil />
-                </button>
-                {/* <button
-                  className="flex justify-center items-center bg-[#F35C5C] h-5 w-5 rounded-full ms-"
-                  onClick={() => removeItem(item?.id, item?.title)}
-                >
-                  <IoMdClose size={12} fill={'#fff'} />
-                </button> */}
-              </div>
-            </RadioGroup.Option>
-          ))}
+          {items?.length > 0 ? (
+            items.map((item: any, index: any) => (
+              <RadioGroup.Option
+                key={index}
+                value={item}
+                className={({ active, checked }) =>
+                  `${active ? 'border-skin-primary' : 'border-skin-base'}
+                    ${checked ? 'border-skin-primary' : 'border-skin-base'}
+                    border-2 relative shadow-md focus:outline-none rounded p-5 block cursor-pointer min-h-[112px] h-full group address__box`
+                }
+              >
+                <RadioGroup.Label as="h2" className="font-semibold mb-2">
+                  {item?.title}
+                </RadioGroup.Label>
+                <RadioGroup.Description as="div" className="opacity-70">
+                  {item?.text}
+                </RadioGroup.Description>
+                <div className="flex absolute end-3 top-3 z-30 transition-all address__actions">
+                  <div className="flex lg:opacity-0 transition-all address__actions">
+                      <button
+                        onClick={() => handlePopupViewEdit(item)}
+                        className="flex justify-center items-center bg-skin-primary h-6 w-6 rounded-full text-skin-inverted text-opacity-80 text-base"
+                        style={{marginRight: '5px'}}
+                      >
+                        <TiPencil />
+                      </button>
+                      <button
+                        className="flex justify-center items-center bg-[#F35C5C] h-6 w-6 rounded-full text-skin-inverted text-opacity-80 text-base"
+                        style={{marginRight: '5px'}}
+                        onClick={() => onClickRemovePhone(item)}
+                      >
+                        <TiDelete fill={'#fff'} />
+                      </button>
+                    </div>
+                    {item?.flag === 1 && (
+                      <button
+                        className="flex justify-center items-center bg-[#02b290] h-6 w-6 rounded-full text-skin-inverted text-opacity-80 text-base"
+                      >
+                        <IoCheckmarkCircle style={{ color: '#fff' }} />
+                      </button>
+                    )}
+                </div>
+              </RadioGroup.Option>
+            ))
+          ) : (
+            <div className="border-2 border-skin-base rounded font-semibold p-5 px-10 text-skin-red flex justify-start items-center min-h-[112px] h-full">
+              {t('У вас нету адресов')}
+            </div>
+          )}
           <button
             className="border-2 transition-all border-skin-base rounded font-semibold p-5 px-10 cursor-pointer text-skin-primary flex justify-start hover:border-skin-primary items-center min-h-[112px] h-full"
             onClick={handlePopupView}
@@ -96,7 +124,7 @@ const ContactBox: React.FC<{ items?: any }> = ({ items }) => {
       </div>
     </>
   );
-};
+});
 
 export default ContactBox;
 

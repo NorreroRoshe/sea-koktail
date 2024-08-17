@@ -171,7 +171,7 @@ export class CartStore implements ICartStore {
     const response = await CartService.addProductToCart(productId);
 
     if ('data' in response) {
-      const ind = this.cart.findIndex((item) => productId === item.id);
+      const ind = this.cart?.findIndex((item) => productId === item.id);
 
       if (ind === -1) {
         this.cart = [

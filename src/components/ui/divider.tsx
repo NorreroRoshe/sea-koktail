@@ -1,3 +1,4 @@
+'use client'
 interface DividerProps {
   className?: string;
 }

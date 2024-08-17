@@ -1,24 +1,12 @@
 .section_constact {
   margin-top: 40px;
-  @media (max-width: 1150px) {
-    margin-top: 45px;
-  }
-  @media (max-width: 1024px) {
-    margin-top: 105px;
-  }
-  @media (max-width: 1024px) {
-    margin-top: 75px;
-  }
 
   .container {
     max-width: 1660px;
     padding: 0 70px;
     margin: 0 auto;
-    @media(max-width: 1200px) {
-      padding: 0 45px;
-    }
-    @media(max-width: 1023px) {
-      margin-top: 70px;
+    @media (max-width: 1150px) {
+      padding: 0 20px;
     }
   }
   .contacts_container {

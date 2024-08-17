@@ -1,3 +1,4 @@
+'use client'
 import cn from 'classnames';
 import { forwardRef, ButtonHTMLAttributes } from 'react';
 import { ImSpinner2 } from 'react-icons/im';

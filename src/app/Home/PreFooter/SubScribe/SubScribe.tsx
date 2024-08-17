@@ -6,7 +6,7 @@ export const SubScribe: React.FC = () => {
   return (
     <div className={s.pre_subscribe}>
       <div className={`${s.container} container`}>
-        <p>Получайте эксклюзивные предложения и свежие новости от Vogue Decor, подписавшись на нашу рассылку.</p>
+        <p>Получайте эксклюзивные предложения и свежие новости от Morskoi Koktail, подписавшись на нашу рассылку.</p>
         <form className={s.pre_subscribe__form}>
           <div className={s.pre_subscribe__wrap}>
             <input

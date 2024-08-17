@@ -2536,13 +2536,6 @@ export const sitePathCategory: ISiteCategory[] = [
         mainPhoto: Sauces
       },
       {
-        id: 13,
-        subName: 'Пиво',
-        href: '/ProductiOnline/Beer',
-        types: '?ProductTypes=2&Categories=237',
-        mainPhoto: Beer
-      },
-      {
         id: 15,
         subName: 'Напитки',
         href: '/ProductiOnline/Beverages',

@@ -16,6 +16,7 @@ import { Drawer } from '@/components/common/drawer/drawer';
 import { getDirection } from '@/utils/get-direction';
 import SearchBig from '@/components/common/searchBig';
 import SearchIcon from '@/components/iconsCode/search-icon';
+import CloseIcon from '@/components/iconsCode/close-icon';
 import { useModalAction } from '@/components/common/modal/modal.context';
 import useOnClickOutside from '@/utils/use-click-outside';
 import cls from './header.module.scss';
@@ -107,39 +108,27 @@ const Header0: React.FC<Header0Props> = observer(({setSearchBigVisible, searchBi
       id="siteHeader"
       ref={siteHeaderRef}
       className={cn(
-        'header-two sticky-header sticky top-0 z-20 lg:relative w-full h-16 lg:h-auto',
+        'header-two sticky-header sticky top-0 z-20 lg:relative w-full h-16 lg:h-auto dewrfsceas',
         displayMobileSearch && 'active-mobile-search'
       )}
     >
       <div className="innerSticky lg:w-full transition-all duration-200 ease-in-out body-font z-20" style={{background: '#0085FF'}}>
-        {/* <Search
-          searchId="mobile-search"
-          className="top-bar-search hidden lg:max-w-[600px] absolute z-30 px-4 md:px-6 top-1"
-        /> */}
-        {/* End of Mobile search */}
         <Container className={`top-bar h-16 lg:h-auto flex items-center justify-between py-3 ${cls.head_cont}`}>
           <div className={cls.efrvws}>
             <button
               aria-label="Menu"
-              className={`flex flex-col items-center justify-center flex-shrink-0 outline-none focus:outline-none ${cls.fegsartef}`}
+              className={`flex flex-col items-center justify-center flex-shrink-0 outline-none focus:outline-none`}             // ${cls.fegsartef}
               onClick={handleMobileMenu}
               style={{padding: '12px 9px', background: '#fff', borderRadius: '50%', marginRight: '15px', marginBottom: '8px'}}
             >
               <MenuIcon />
             </button>
               <Logo className="logo -mt-1.5 md:-mt-1" style={{ marginRight: '-40px' }} />
-          </div>
-          {/* End of logo */}
-
-          {/* <SearchLikeCart isBurger={isBurger} setBurger={setBurger} /> */}
-
-
           <Search
             searchId="top-bar-search"
             className={`lg:flex lg:max-w-[350px] lg:ms-8 lg:me-5 ${cls.header_search_main} ${cls.header_search_main_up}`}
           />
-          {/* End of search */}
-
+          </div>
           <div className="flex flex-shrink-0 space-s-5 xl:space-s-7" style={{alignItems: 'center'}}>
             <HeaderPhone />
             <div className={`flex flex-shrink-0 space-s-5 xl:space-s-7 ${cls.header_search_main_dev}`}>
@@ -150,64 +139,42 @@ const Header0: React.FC<Header0Props> = observer(({setSearchBigVisible, searchBi
             <button
               aria-label="Menu"
               className={`flex flex-col items-center justify-center flex-shrink-0 outline-none focus:outline-none ${cls.fegrtef}`}
-              onClick={handleMobileMenu}
-              style={{padding: '12px 9px', background: '#fff', borderRadius: '50%', marginRight: '15px'
-              // , marginBottom: '8px'
-            }}
+              onClick={toggleSearchBig}
+              style={{padding: '9px', background: '#fff', borderRadius: '50%'}}
             >
-              <MenuIcon />
+              {searchBigVisible ? (
+                <CloseIcon className="text-skin-base text-opacity-40" />
+                ) : (
+                <SearchIcon className="text-skin-base text-opacity-40" />
+              )}
             </button>
-
-          {/* кнопка для открытия моб версии сёрч */}
-          {/* <button
-          className={cn(
-            'flex items-center justify-center flex-shrink-0 h-auto focus:outline-none transform'
-          )}
-          style={{ display: 'flex', zIndex: 1 }}
-          onClick={toggleSearchBig}
-          aria-label="cart-button">
-            <div className="flex items-center relative" style={{padding: '8px', background: '#fff', borderRadius: '50%'}}>
-              <Image alt='favorite-icon' src={carhovpol} className={cls.favimga}/>
-            </div>
-        </button> */}
-
-        
           </div>
-          {/* End of auth & lang */}
         </Container>
-        {/* {searchBigVisible && ( */}
+        {searchBigVisible && (
           <div className={cls.header_search_main_black}>
             <SearchBig
               searchId="top-bar-search"
               className={`lg:flex lg:max-w-[650px] ${cls.header_search_main}  ${cls.header_search_main_down}`}
             />
-          {/* <div className={`flex flex-shrink-0 space-s-5 xl:space-s-7 ${cls.header_search_main_dek}`}>
-            <CartButton className="lg:flex" />
-            <FavoritesButton className="lg:flex" />
-            <AuthButton className="lg:flex" />
-          </div> */}
           </div>
-        {/* )} */}
-        {/* End of top part */}
-
+        )}
         <div className={`navbar bg-skin-fill hidden ${cls.header_search_main_wrapp}`}>
           <Container className={`h-16 flex justify-between items-center ${cls.head_cont} ${cls.head_cont_polu}`}>
           <div className={cls.efrvws}>
               <button
                 aria-label="Menu"
-                className={`flex flex-col items-center justify-center flex-shrink-0 outline-none focus:outline-none ${cls.fegsartef}`}
+                className={`flex flex-col items-center justify-center flex-shrink-0 outline-none focus:outline-none`}      // ${cls.fegsartef}
                 onClick={handleMobileMenu}
                 style={{padding: '12px 9px', background: '#fff', borderRadius: '50%', marginRight: '15px', marginBottom: '8px'}}
               >
                 <MenuIcon />
               </button>
-            {/* <Polulogo className="logo -mt-1.5 md:-mt-1" /> */}
             <Logo className="logo -mt-1.5 md:-mt-1" style={{ marginRight: '-40px' }} />
-            </div>
             <Search
               searchId="top-bar-search"
               className={`lg:flex lg:max-w-[350px] lg:ms-8 lg:me-5 ${cls.header_search_main} ${cls.header_search_main_up}`}
             />
+            </div>
             <div className="flex flex-shrink-0 space-s-5 xl:space-s-7" style={{alignItems: 'center'}}>
               <HeaderPhone />
               <div className={`flex flex-shrink-0 space-s-5 xl:space-s-7 ${cls.header_search_main_dev}`}>
@@ -215,37 +182,30 @@ const Header0: React.FC<Header0Props> = observer(({setSearchBigVisible, searchBi
                 <FavoritesButton className="lg:flex" />
                 <AuthButton className="lg:flex" />
               </div>
-              <button
+            <button
               aria-label="Menu"
               className={`flex flex-col items-center justify-center flex-shrink-0 outline-none focus:outline-none ${cls.fegrtef}`}
-              onClick={handleMobileMenu}
-              style={{padding: '12px 9px', background: '#fff', borderRadius: '50%', marginRight: '15px', marginBottom: '8px'}}
+              onClick={toggleSearchBig}
+              style={{padding: '9px', background: '#fff', borderRadius: '50%'}}
             >
-              <MenuIcon />
+              {searchBigVisible ? (
+                <CloseIcon className="text-skin-base text-opacity-40" />
+                ) : (
+                <SearchIcon className="text-skin-base text-opacity-40" />
+              )}
             </button>
             </div>
           </Container>
-          {/* <Container className={`"h-16 flex justify-between items-center`}> */}
-          <div className={cls.header_search_main_black}>
-            <SearchBig
-              searchId="top-bar-search"
-              className={`lg:flex lg:max-w-[650px] ${cls.header_search_main}  ${cls.header_search_main_down}`}
-            />
-            {/* <div className={`flex flex-shrink-0 space-s-5 xl:space-s-7 ${cls.header_search_main_dek}`}>
-              <CartButton className="lg:flex" />
-              <FavoritesButton className="lg:flex" />
-              <AuthButton className="lg:flex" />
-            </div> */}
-            {/* </Container> */}
-          </div>
+          {searchBigVisible && (
+            <div className={cls.header_search_main_black}>
+              <SearchBig
+                searchId="top-bar-search"
+                className={`lg:flex lg:max-w-[650px] ${cls.header_search_main}  ${cls.header_search_main_down}`}
+              />
+            </div>
+          )}
         </div>
       </div>
-      {/* <Container className={`"h-16 flex justify-between items-center ${cls.header_main_menuhead}`}>
-        <HeaderMenu
-          data={site_header.menu}
-          className="flex transition-all duration-200 ease-in-out"
-        />
-      </Container> */}
     </header>
     <Drawer
     placement={dir === 'rtl' ? 'right' : 'left'}

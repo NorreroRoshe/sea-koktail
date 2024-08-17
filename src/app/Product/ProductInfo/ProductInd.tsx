@@ -149,7 +149,7 @@ export const ProductInd: React.FC<ProductInfoProps> = observer(({ detProduct }) 
             <div className="pb-3 lg:pb-5">
               <div className="md:mb-2.5 block -mt-1.5">
                 <h2 className="text-skin-base text-lg md:text-xl xl:text-2xl font-extrabold transition-colors duration-300">
-                  {/* {detProduct?.name} */}
+                  {detProduct?.name}
                 </h2>
                 <h2
                   style={{
@@ -183,35 +183,47 @@ export const ProductInd: React.FC<ProductInfoProps> = observer(({ detProduct }) 
             </div>
 
             <div className="pb-2">
-              {!!detProduct.availability ? (
-                <div
-                  className="text-base whitespace-nowrap border-sink-base"
-                  style={{
-                    width: 'fit-content',
-                    fontSize: '14px'
-                  }}>
-                  В наличии: <span
-                  style={{
-                    width: 'fit-content',
-                    fontSize: '124x',
-                    color: '#6bb431'
-                  }}>{detProduct.availability} шт.</span>
-                </div>) : (
-                <div
-                  className="whitespace-nowrap"
-                  style={{
-                    border: '1px solid',
-                    width: 'fit-content',
-                    padding: '0px 8px',
-                    fontSize: '12px',
-                    borderRadius: '5px',
-                    color: '#f73d34'
-                  }}>Нету в наличии
-                </div>
+            {detProduct && detProduct.productType !== "1" && (
+              <>
+                {detProduct.availability && detProduct.availability > 0 ? (
+                  <div
+                    className="text-base whitespace-nowrap border-sink-base"
+                    style={{
+                      width: 'fit-content',
+                      fontSize: '14px',
+                    }}
+                  >
+                    В наличии:&nbsp;
+                    <span
+                      style={{
+                        width: 'fit-content',
+                        fontSize: '14px',  // Corrected the font size to 14px
+                        color: '#6bb431',
+                      }}
+                    >
+                      {detProduct.availability} шт.
+                    </span>
+                  </div>
+                ) : (
+                  <div
+                    className="whitespace-nowrap"
+                    style={{
+                      border: '1px solid',
+                      width: 'fit-content',
+                      padding: '0px 8px',
+                      fontSize: '12px',
+                      borderRadius: '5px',
+                      color: '#f73d34',
+                    }}
+                  >
+                    Нету в наличии
+                  </div>
+                )}
+              </>
               )}
             </div>
+            
             <div className="pb-2">
-     
                 <div
                   className="whitespace-nowrap"
                   style={{

@@ -106,11 +106,6 @@ export const siteSettings = {
             label: 'Соусы',
           },
           {
-            id: 13,
-            path: '/ProductiOnline/Beer?ProductTypes=2&Categories=237',
-            label: 'Пиво',
-          },
-          {
             id: 14,
             path: '/ProductiOnline/Beverages?ProductTypes=2&Categories=483',
             label: 'Напитки',
@@ -259,28 +254,13 @@ export const siteSettings = {
       },
       {
         id: 1,
-        path: '/Outlet',
-        label: 'Outlet',
-      },
-      {
-        id: 1,
-        path: '/Factory',
-        label: 'Производство',
-      },
-      {
-        id: 1,
-        path: '/Collaboration',
-        label: 'Сотрудниество',
-      },
-      {
-        id: 1,
         path: '/Contacts',
         label: 'Контакты',
       },
       {
         id: 1,
         path: '/DostavkaOplata',
-        label: 'Доставка',
+        label: 'Доставка и оплата',
       },
     ],
   },

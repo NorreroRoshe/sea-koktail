@@ -112,3 +112,19 @@
     margin: 0 0 12px;
   }
 }
+
+
+.swiper-wrapper .swiper-slide  {
+  @media (max-width: 1150px) {
+    margin-right: 8px !important;
+    width: fit-content !important;
+  }
+}
+
+.swiper-wrapper {
+  gap: 15px;
+  align-items: center;
+  @media (max-width: 500px) {
+    gap: 10px;
+  }
+}

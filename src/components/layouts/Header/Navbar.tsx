@@ -25,14 +25,6 @@ function Navbar() {
         <Link href="/AboutUs" className={cls.glav_menu__item}>
           О нас
         </Link>
-        {/* <span className={cls.glav_menu__item_text}>•</span> */}
-        <Link
-          href={`/Chapter/?IsSale=true`}
-          onClick={handleSetSale}
-          className={`${cls.glav_menu__item} ${cls.glav_menu__item_outlet}`}
-        >
-          Outlet
-        </Link>
         <Link href="/Factory" className={cls.glav_menu__item}>
           Производство
         </Link>

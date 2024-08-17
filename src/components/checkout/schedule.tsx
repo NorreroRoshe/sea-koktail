@@ -1,31 +1,68 @@
-import { useState } from 'react';
+'use client'
+
+import React, { useEffect, useState } from 'react';
 import { RadioGroup } from '@headlessui/react';
 import cn from 'classnames';
 import { useTranslation } from 'next-i18next';
+import { observer } from 'mobx-react';
+import { useStore } from '@/hooks/useStore';
 
 const deliveryDateSchedule = [
   'Сегодня',
   'Завтра',
   'Послезавтра'
 ];
-  const deliveryTimeSchedule = ['Как можно скорее', '15:00', '15:15', '15:30', '15:45', '16:00', '16:15', '16:30', '16:45', '17:00', '17:15', '17:30', '18:00', '18:15', '18:30', '18:45', '19:00', '19:15', '19:30', '19:45', '20:00', '20:15', '20:30', '20:45', '21:00', '21:15', '21:30', '21:45', '22:00', '22:15', '22:30', '22:45', '23:00'];
 
-export default function Schedule() {
+const Schedule: React.FC = observer(() => {
   const { t } = useTranslation('common');
+
+  const store = useStore();
+  const userStore = store.auth;
+  
   const [dateSchedule, setDateSchedule] = useState(deliveryDateSchedule[0]);
-  const [timeSchedule, setTimeSchedule] = useState(deliveryTimeSchedule[0]);
+  const [timeSchedule, setTimeSchedule] = useState('');
+
+  useEffect(() => {
+    userStore.getOrderTimes();
+  }, []);
+
+  useEffect(() => {
+    // Определяем индекс на основе выбранной даты
+    const dateIndex = deliveryDateSchedule.indexOf(dateSchedule);
+    if (userStore.orderTimes.length > dateIndex) {
+      setTimeSchedule(userStore.orderTimes[dateIndex][0] || ''); // Обновляем timeSchedule для выбранной даты
+    }
+  }, [dateSchedule, userStore.orderTimes]);
+
   function getDay(date: string) {
-    const day = date.split(',');
-    return day[0];
+    const day = date.split(',')[0];
+    return day;
   }
+
   function getMonth(date: string) {
-    const month = date.split(',');
-    return month[1];
+    const month = date.split(',')[1];
+    return month;
   }
+
+
+  useEffect(() => {
+    if (dateSchedule) {
+      const deliveryType = deliveryDateSchedule.indexOf(dateSchedule);
+      userStore.setDayType(deliveryType);
+    }
+  }, [dateSchedule]);
+
+  useEffect(() => {
+    if (timeSchedule) {
+      userStore.setDateTime(timeSchedule);
+    }
+  }, [timeSchedule]);
+
+
 
   return (
     <div className="w-full">
-      <div className="w-full  mx-auto">
+      <div className="w-full mx-auto">
         <RadioGroup value={dateSchedule} onChange={setDateSchedule}>
           <RadioGroup.Label className="sr-only">
             {t('text-delivery-schedule')}
@@ -44,11 +81,11 @@ export default function Schedule() {
                   )
                 }
               >
-                {({ checked }) => (
+                {({ checked }) => ( 
                   <div className="text-center">
                     <RadioGroup.Label
                       as="p"
-                      className={`text-base font-semibold  ${
+                      className={`text-base font-semibold ${
                         checked ? 'text-skin-inverted' : 'text-gray-900'
                       }`}
                     >
@@ -79,7 +116,7 @@ export default function Schedule() {
             {t('text-delivery-schedule')}
           </RadioGroup.Label>
           <div className="flex justify-between flex-wrap lg:grid gap-3 grid-cols-3 sm:grid-cols-3 lg:grid-cols-3">
-            {deliveryTimeSchedule.map((time) => (
+            {userStore.orderTimes[deliveryDateSchedule.indexOf(dateSchedule)]?.map((time) => (
               <RadioGroup.Option
                 key={time}
                 value={time}
@@ -111,4 +148,6 @@ export default function Schedule() {
       </div>
     </div>
   );
-}
+});
+
+export default Schedule;

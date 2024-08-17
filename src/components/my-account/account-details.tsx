@@ -81,10 +81,6 @@ const AccountDetails: React.FC = observer(() => {
 
   }, [authName]);
 
-      useEffect(() => { 
-        console.log(data, 'ads');
-          
-        }, []);
 
   return (
     <div className="w-full flex flex-col">

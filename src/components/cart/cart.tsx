@@ -39,9 +39,15 @@ const Cart = observer(() => {
   };
 
   useEffect(() => {
+    cartStore.getUserCart();
+  }, []);
+
+
+    console.log(cart,'aevrbfwcs');
+
+  useEffect(() => {
     if(!authStore.isAuth) {
       cartStore.cartItems = [];
-      console.log(cartStore.cart);
       cartStore.cart.length > 0 &&
       cartStore.cart.map(
         (row) =>
@@ -57,14 +63,14 @@ const Cart = observer(() => {
 
 
 
-  const totalDiscountPrice = cartStore.cartItems.reduce((sum, curr) => {
+  const totalDiscountPrice = cartStore.cartItems?.reduce((sum, curr) => {
     const truePrice = curr.price - (curr.price * curr.discount) / 100;
     return truePrice * (cartStore.cart.find((item) => item.id === curr.id)?.count ?? 1) + sum;
   }, 0);
 
   console.log(cart)
 
-  if (cartStore.cart.length === 0) {
+  if (cartStore.cart?.length === 0) {
     return <EmptyCart />;
   }
   return (
@@ -92,7 +98,7 @@ const Cart = observer(() => {
       </div>
       <Scrollbar className="cart-scrollbar w-full flex-grow">
         <div className="w-full px-5 md:px-7">
-          {cart.map((item: any) =>
+          {cart?.map((item: any) =>
             item.count ? <CartItem key={item.id} {...item} /> : undefined,
           )}
         </div>
@@ -110,7 +116,7 @@ const Cart = observer(() => {
         </div>
         <div className="flex flex-col" onClick={closeDrawer}>
           <Link
-            href={cartStore.cart.length > 0 ? ROUTES.CART : '/'}
+            href={cartStore.cart?.length > 0 ? ROUTES.CART : '/'}
             className={cn(
               'w-full px-5 py-3 md:py-4 flex items-center justify-center bg-heading rounded font-semibold text-sm sm:text-15px text-skin-inverted bg-skin-primary focus:outline-none transition duration-300 hover:bg-opacity-90',
               // {

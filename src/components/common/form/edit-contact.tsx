@@ -10,7 +10,7 @@ import {
 } from '@/components/common/modal/modal.context';
 import {observer} from "mobx-react";
 import { useTranslation } from 'next-i18next';
-import { IAddPhoneReq } from '@/types/Auth/auth.dtos';
+import { IEditPhoneReq } from '@/types/Auth/auth.dtos';
 import { useStore } from '@/hooks/useStore';
 
 interface ContactFormValues {
@@ -19,10 +19,11 @@ interface ContactFormValues {
   default: boolean;
 }
 
-const AddContactForm: React.FC = observer(() => {
+const PhoneNumberEditPopup: React.FC = observer(() => {
   const { t } = useTranslation();
   const [{ data }, setState] = useState<any>([]); //дата не всегда заполнялась , просто влязи стейт и засунули в него ответ с сервером
-  // const { data } = useModalState();
+
+  const { data: item } = useModalState();
   
   const [isDefault, setIsDefault] = useState(false);
   
@@ -35,20 +36,23 @@ const AddContactForm: React.FC = observer(() => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IAddPhoneReq>({
+  } = useForm<IEditPhoneReq>({
     defaultValues: {
+      id: 0,
       title: '',
       text: '',
       flag: 0,
     },
   });
 
-  const onSubmit = async ({ title, text }: IAddPhoneReq) => {
+  const onSubmit = async ({ title, text }: IEditPhoneReq) => {
     try {
-      await userStore.addUserPhone({
+      await userStore.editUserPhone({
+        id: item.id,
         title,
         text,
-        flag: isDefault ? 1 : 0
+        flag: 0
+        // flag: isDefault ? 1 : 0
       });
       const response = await userStore.getUserPhone();
       setState(response as any);
@@ -57,15 +61,24 @@ const AddContactForm: React.FC = observer(() => {
       console.error('Ошибка при обновлении данных:', error);
     }
   };
+  
+  useEffect(() => {
+    if (item?.flag === "1") {
+      setIsDefault(true);
+    }
+  }, [item?.flag]);
 
   return (
     <div className="w-full md:w-[510px] mx-auto p-5 sm:p-8 bg-skin-fill rounded-md">
       <CloseButton onClick={closeModal} />
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className="mb-6">
+        </div>
+        <div className="mb-6">
           <Input
             variant="solid"
             label="Название контакта"
+            placeholder={item.title}
             {...register('title'
             // , { required: 'Название контакта обязательна' }
             )}
@@ -75,6 +88,7 @@ const AddContactForm: React.FC = observer(() => {
         <div className="mb-6">
           <Input
             variant="solid"
+            placeholder={item.text}
             label="Контактный номер"
             {...register('text'
             // , {
@@ -84,12 +98,12 @@ const AddContactForm: React.FC = observer(() => {
             error={errors.text?.message}
           />
         </div>
-        <div className="mb-6">
+        {/* <div className="mb-6">
           <input
             id="default-type"
             type="checkbox"
             className="form-checkbox w-5 h-5 border border-gray-300 rounded cursor-pointer transition duration-500 ease-in-out focus:ring-offset-0 hover:border-heading focus:outline-none focus:ring-0 focus-visible:outline-none focus:checked:bg-skin-primary hover:checked:bg-skin-primary checked:bg-skin-primary"
-            // {...register("default")}
+            {...register("default")}
             onChange={(e) => setIsDefault(e.target.checked)} // Обновление состояния при изменении чекбокса
           />
           <label
@@ -98,7 +112,7 @@ const AddContactForm: React.FC = observer(() => {
           >
             {t("Сделать номер основным")}
           </label>
-        </div>
+        </div> */}
         {/* <div className="mb-6">
           <input
             id="default-type"
@@ -123,4 +137,4 @@ const AddContactForm: React.FC = observer(() => {
   );
 });
 
-export default AddContactForm;
+export default PhoneNumberEditPopup;

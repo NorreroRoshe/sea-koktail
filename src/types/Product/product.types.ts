@@ -26,14 +26,20 @@ export type Product = {
   urls: string[];
   files: IFileUrl[];
   nomNumber: string;
+  productType: string;
   // products?: any;
   count?: number;
+  attribute: Attribute[];
 };
 
-
-
-
-
+interface Attribute {
+  id: number;
+  product_id: number;
+  key: string;
+  value: string;
+  created_at: string;
+  updated_at?: string;
+}
 
 export interface IFileUrl {
   name: string;
@@ -63,3 +69,5 @@ export interface IProductSliceState {
   searchedString: string;
   sort: number;
 }
+
+

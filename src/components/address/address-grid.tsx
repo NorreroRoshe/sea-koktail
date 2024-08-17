@@ -1,16 +1,30 @@
 "use client"
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TiPencil } from 'react-icons/ti';
+import { TiDelete } from 'react-icons/ti';
+import { IDeleteAddressReq } from '@/types/Auth/auth.dtos';
+
 import { AiOutlinePlus } from 'react-icons/ai';
 import { RadioGroup } from '@headlessui/react';
 import { useModalAction } from '@/components/common/modal/modal.context';
 import { formatAddress } from '@/utils/format-address';
 import Button from '@/components/ui/button';
 import { useTranslation } from 'next-i18next';
+import {observer} from "mobx-react";
+import { IAddressFormat } from "@/types/Auth/auth.dtos";
+import { useStore } from '@/hooks/useStore';
 
-const AddressGrid: React.FC<{ address?: any }> = ({ address }) => {
+const AddressGrid: React.FC<{ address?: any }> = observer(({ address }) => {
   const { t } = useTranslation('common');
   const { openModal } = useModalAction();
+
+  const store = useStore();
+  const userStore = store.auth;
+
+
+  function handlePopupEdit(item: any) {
+    openModal('ADDRESS_EDIT', item);
+  }
 
   function handlePopupView(item: any) {
     openModal('ADDRESS_VIEW_AND_EDIT', item);
@@ -18,7 +32,34 @@ const AddressGrid: React.FC<{ address?: any }> = ({ address }) => {
 
   address = address || [];
 
-  const [selected, setSelected] = useState(address[0]);
+  const onClickRemoveAddress = async (id: number) => {
+    if (window.confirm('Вы действительно хотите удалить данный адрес ?')) {
+        await userStore.deleteUserAddress(id) ;
+        await userStore.getUserAddress();
+    }
+  };
+
+
+
+
+
+
+  // const [selected, setSelected] = useState(address[0]);
+
+  const [selected, setSelected] = useState<any>(null);
+
+  useEffect(() => {
+    if (address && address.length > 0) {
+      setSelected(address[0]);
+    }
+  }, [address]);
+
+
+  useEffect(() => {
+    if (selected) {
+      userStore.setAddress(selected.text);
+    }
+  }, [selected]);
 
   return (
     <div className="text-15px h-full flex flex-col justify-between -mt-4 md:mt-0">
@@ -48,22 +89,28 @@ const AddressGrid: React.FC<{ address?: any }> = ({ address }) => {
                 as="div"
                 className="text-skin-muted leading-6"
               >
-                {formatAddress(item?.address)}
+                {item?.text}
               </RadioGroup.Description>
               <div className="flex absolute end-3 top-3 z-10 lg:opacity-0 transition-all address__actions">
                 <button
-                  onClick={() => handlePopupView(item)}
+                  onClick={() => handlePopupEdit(item)}
                   className="flex justify-center items-center bg-skin-primary h-6 w-6 rounded-full text-skin-inverted text-opacity-80 text-base"
+                  style={{marginRight: '5px'}}
                 >
-                  <span className="sr-only">{t(item?.title)}</span>
                   <TiPencil />
+                </button>
+                <button
+                  onClick={() => onClickRemoveAddress(item?.id)}
+                  className="flex justify-center items-center bg-[#F35C5C] h-6 w-6 rounded-full text-skin-inverted text-opacity-80 text-base"
+                >
+                  <TiDelete  />
                 </button>
               </div>
             </RadioGroup.Option>
           ))
         ) : (
           <div className="border-2 border-skin-base rounded font-semibold p-5 px-10 text-skin-red flex justify-start items-center min-h-[112px] h-full">
-            {t('text-no-address-found')}
+            {t('У вас нету адресов')}
           </div>
         )}
         <button
@@ -74,12 +121,12 @@ const AddressGrid: React.FC<{ address?: any }> = ({ address }) => {
           {t('Добавить адрес')}
         </button>
       </RadioGroup>
-
+{/* 
       <div className="flex sm:justify-end mt-5 md:mt-10 lg:mt-20 save-change-button">
         <Button className="w-full sm:w-auto">{t('Сохранить изменения')}</Button>
-      </div>
+      </div> */}
     </div>
   );
-};
+});
 
 export default AddressGrid;

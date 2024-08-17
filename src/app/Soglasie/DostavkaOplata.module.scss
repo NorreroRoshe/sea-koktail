@@ -1,25 +1,15 @@
 .section_constact {
   margin-top: 40px;
-  @media (max-width: 1150px) {
-    margin-top: 45px;
-  }
-  @media (max-width: 1024px) {
-    margin-top: 105px;
-  }
-  @media (max-width: 1024px) {
-    margin-top: 75px;
-  }
-
   .container {
     max-width: 1760px;
     padding: 0 70px;
     margin: 0 auto;
-    @media (max-width: 550px) {
-      padding: 0 40px;
-    }
-    @media (max-width: 450px) {
+    @media (max-width: 1150px) {
       padding: 0 20px;
     }
+    // @media (max-width: 450px) {
+    //   padding: 0 20px;
+    // }
   }
   .DostavkaOplata_container {
     margin-bottom: 50px;

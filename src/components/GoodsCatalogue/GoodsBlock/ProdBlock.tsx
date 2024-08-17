@@ -113,24 +113,12 @@ export const ProdBlock: React.FC<ProdBlockProps> = observer(({ product }) => {
            
         </Link>
         
+        <p className={cls.allproduct_goods_artikul}>{product.name}
+                &nbsp;<span>{product.article}</span></p>
         <div className={cls.allproduct_goods_activity}>
 
-              <p className={cls.allproduct_goods_artikul}>{product.name}
-                &nbsp;<span>{product.article}</span></p>
 
-                
-          <div className={cls.goods_activity_cartlike_wrapo}>
-            <div className={cls.goods_activity_cartlike}>
-              <AddToCart cartCount={cartCount} product={product} />
-              
-            <button
-              onClick={handlePopupView}
-              className={`${cls.cartlike__btn3} ${isFavorite ? cls.cartlike__btn3_active : ''}`}
-              ></button>
-            </div>
-          </div>
-        </div>
-        <div className={cls.allproduct_goods_artikul_wrapp}>
+                <div className={cls.allproduct_goods_artikul_wrapp}>
           <div className={cls.allproduct_goods_artikul_nalnenal}>
             <div className={cls.allproduct_goods_activity_wrapp}>
               <p className={cls.goods_activity_price}>{mainPrice} <span>₽</span></p>
@@ -150,7 +138,19 @@ export const ProdBlock: React.FC<ProdBlockProps> = observer(({ product }) => {
             </span>
           </div>
           {/* <p className={`${cls.allproduct_goods_artikul} ${cls.allproduct_goods_artikul_dn} ${cls.allproduct_goods_artikul_padin}`}>{product.article}</p> */}
+        </div>                
+          <div className={cls.goods_activity_cartlike_wrapo}>
+            <div className={cls.goods_activity_cartlike}>
+              <AddToCart cartCount={cartCount} product={product} />
+              
+            <button
+              onClick={handlePopupView}
+              className={`${cls.cartlike__btn3} ${isFavorite ? cls.cartlike__btn3_active : ''}`}
+              ></button>
+            </div>
+          </div>
         </div>
+        
       </div>
 
       <div

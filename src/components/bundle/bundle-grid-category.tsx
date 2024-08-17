@@ -18,7 +18,7 @@ interface Props {
 
 const breakpoints = {
   '1002': {
-    slidesPerView: 4,
+    slidesPerView: 5,
     spaceBetween: 16,
   },
   '840': {
@@ -51,6 +51,7 @@ const BundleGridCategory: React.FC<Props> = ({ className = 'mb-12 pb-0.5', data 
                 />
               </SwiperSlide>
             ))}
+            
           </Carousel>
         </>
       ) : (

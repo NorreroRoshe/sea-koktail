@@ -18,7 +18,7 @@ export const ProductInfo: React.FC<ProductInfoProps> = observer(({ detProduct })
   return (
     <div className={`${cls.product_info_container} ${cls.container}`}>
       {/* <Breadcrumb /> */}
-      <div style={{marginTop: '20px'}}></div>
+      {/* <div style={{marginTop: '20px'}}></div> */}
       <ProductInd detProduct={detProduct} />
       {/* <div className={cls.product_info_feed}>
         <RelatedProductFeed
