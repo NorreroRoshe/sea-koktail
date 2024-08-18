@@ -10,15 +10,18 @@ import { ROUTES } from '@/utils/routes';
 import { useRouter } from "next/navigation";
 import { IDataOrderReq } from '@/types/Auth/auth.dtos';
 import { useForm } from "react-hook-form";
+import { useModalAction } from '@/components/common/modal/modal.context';
 
 const CartTotal: React.FC = observer(({ }) => {
   const [isEmpty, setIsEmpty] = useState(true);
+  const { closeModal, openModal } = useModalAction();
+  const [phoneError, setPhoneError] = useState<string | null>(null);
 
   const Router = useRouter();
 
-  function orderHeader() {
-    isEmpty && Router.push(ROUTES.ORDER);
-  }
+  // function orderHeader() {
+  //   isEmpty && Router.push(ROUTES.ORDER);
+  // }
 
   const store = useStore();
   const cartStore = store.cart;
@@ -61,62 +64,37 @@ const CartTotal: React.FC = observer(({ }) => {
       // adresSamovivoz: ''
     },
   });
-  
-  // const onSubmit = async ({deliveryType,
-  //   dayType,
-  //   address,
-  //   phone,
-  //   dateTime,
-  //   description,
-  //   payType,
-  //   adresSamovivoz
-  //  }: IDataOrderReq) => {
-  //   try {
-  //     const orderData = {
-  //       deliveryType: orderStore.deliveryType,
-  //       dayType: orderStore.dayType,
-  //       address: orderStore.address,
-  //       phone: orderStore.phone,
-  //       dateTime: orderStore.dateTime,
-  //       description: orderStore.description,
-  //       payType: orderStore.payType,
-  //       adresSamovivoz: orderStore.adresSamovivoz,
-  //     };
 
-  //     await userStore.dataOrder(orderData);
-  //     orderStore.resetOrder();
-  //     Router.push('/order-success'); // Redirect to success page
-  //   } catch (error) {
-  //     console.error('Ошибка при оформлении заказа:', error);
-  //   }
-  // };
 
-  const onSubmit = async ({ 
-      deliveryType,
-      dayType,
-      address,
-      phone,
-      dateTime,
-      description,
-      payType,
-      // adresSamovivoz
-     }: IDataOrderReq) => {
-    try {
-      await userStore.dataOrder({
-        deliveryType: userStore.deliveryType,
-        dayType: userStore.dayType,
-        address: userStore.address,
-        phone: userStore.phone,
-        dateTime: userStore.dateTime,
-        description: userStore.description,
-        payType: userStore.payType,
-        // adresSamovivoz: userStore.
-      });
-      // Router.push(ROUTES.ORDER);
-    } catch (error) {
-      console.error('Ошибка при обновлении данных:', error);
-    }
+  const onSubmit = async ({deliveryType, dayType, address, phone, dateTime, description, payType}: IDataOrderReq) => {
+    userStore.dataOrder({
+      deliveryType: userStore.deliveryType,
+      dayType: userStore.dayType,
+      address: userStore.address,
+      phone: userStore.phone,
+      dateTime: userStore.dateTime,
+      description: userStore.description,
+      payType: userStore.payType,
+      // adresSamovivoz: userStore.
+    })
+    .then((data) => {
+      
+      console.log(data?.data?.errors.phone[0],'datadatsss')
+      
+      if (data?.message === "Запрос выполнен успешно") {
+        // Router.push(ROUTES.ORDER);
+      } else {
+        if (data?.data?.errors.phone[0] === "Поле phone должно содержать 11 цифр.") {
+            setPhoneError('Номер телефона должен содержать больше 11 цыфр');
+            // openModal('AFTER_LOGIN_VIEW');
+        }
+      }
+    })
   };
+
+
+  console.log(phoneError,'phoneError')
+
 
 //проба
 
@@ -165,16 +143,19 @@ const CartTotal: React.FC = observer(({ }) => {
         )}
 
 
-
+        {phoneError && (
+          <div style={{border: '1px solid red', padding: '10px', borderRadius: '10px'}}>
+            <h4 className="text-red-500 mb-4 weight-700 text-center">Ошбика валидации контактной информации:</h4>
+            <span className="text-red-500 mb-4">*{phoneError}</span>
+          </div>
+        )}
 
         <Button
           variant="formButton"
           className={`w-full mt-8 mb-5 bg-skin-primary text-skin-inverted rounded px-4 py-3 transition-all ${
             isEmpty && 'opacity-40 cursor-not-allowed'
           }`}
-          // onClick={orderHeader}
           onClick={handleSubmit(onSubmit)}
-          // onClick={orderHeader}
         >
           Оформить заказ
         </Button>

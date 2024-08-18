@@ -97,9 +97,9 @@ const Cart: React.FC = observer(() => {
   return (
     <div className={cls.section_cart}>
         <div className={`${cls.cart_container} ${cls.container}`}>
-          {/* {localCart.length === 0 && typeof window !== 'undefined'
+          {localCart.length === 0 && typeof window !== 'undefined'
             ? <CartEmpty />
-            : ( */}
+            : (
               <>
               <div className={cls.fqeaefews} >
                 <Breadcrumb />
@@ -139,8 +139,8 @@ const Cart: React.FC = observer(() => {
                   </div>
                 </div>
               </>
-            {/* )
-          } */}
+            )
+          }
         </div>
       </div>
   );

@@ -20,6 +20,9 @@ export type APIError<T = any, D = any> = {
 export interface AxiosResponse<T = any, D = any> {
   data: T;
   message?: string;
+  errors: {
+    [key: string]: string[]; // Здесь ключи - это названия полей, а значения - массивы строк с сообщениями об ошибках
+  };
   status: number;
   statusText: string;
   headers: RawAxiosResponseHeaders | AxiosResponseHeaders;
