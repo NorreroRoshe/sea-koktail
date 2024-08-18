@@ -41,6 +41,7 @@
     "next-svgr": "^0.0.2",
     "overlayscrollbars": "^2.3.2",
     "overlayscrollbars-react": "^0.5.2",
+    "picocolors": "^1.0.1",
     "qs": "^6.11.0",
     "rc-drawer": "^6.5.2",
     "rc-pagination": "^3.6.1",
