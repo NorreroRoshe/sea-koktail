@@ -1,4 +1,4 @@
-const pc = require('picocolors')
+// const pc = require('picocolors')
 
 const nextUtilsConfig = () => {
   const trueEnv = ['true', '1', 'yes']
@@ -10,11 +10,11 @@ const nextUtilsConfig = () => {
     : './tsconfig.json'
 
   // eslint-disable-next-line no-console
-  console.warn(
-    `${pc.green('warn  -')} experimental.esmExternals is ${
-      esmExternals ? 'enabled' : 'disabled'
-    }`
-  )
+  // console.warn(
+  //   `${pc.green('warn  -')} experimental.esmExternals is ${
+  //     esmExternals ? 'enabled' : 'disabled'
+  //   }`
+  // )
   return {
     esmExternals,
     tsconfigPath,
