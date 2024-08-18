@@ -52,7 +52,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
       password,
     })
       .then((data) => {
-        console.log(data,'datadatsss')
+        console.log(data,'datadhatssss')
         
         if (data?.data?.message === "Запрос выполнен успешно") {
           openModal('AFTER_LOGIN_VIEW');
