@@ -518,43 +518,85 @@
       }
     }
 
+    // .allproduct_goods_box {
+    //   padding: 5px 4px 8px;
+    //   // margin: auto;
+    //   // border-bottom: 1px solid #dfdfdf;
+    //   width: 100%;
+    //   position: relative;
+    //   @media (max-width: 690px) {
+    //     padding-bottom: 3px;
+    //   }
+    //   .allproduct_goods_img {
+    //     display: block;
+    //     margin: 0 auto 7px;
+    //     border-radius: 5px;
+    //     // min-height: 170px;
+    //     // max-height: 271px;
+    //     max-height: 294px;
+    //     min-height: 170px;
+
+    //     @media (max-width: 1383px) {
+    //       max-width: 284px;
+    //     }
+    //     @media (max-width: 1150px) {
+    //       max-width: 395px;
+    //       width: 100%;
+    //     }
+    //     @media (max-width: 1000px) {
+    //       max-height: 290px;
+    //     }
+    //     @media (max-width: 700px) {
+    //       // max-height: 200px;
+    //       min-height: max-content;
+    //     }
+    //   }
+    //   .allproduct_goods_img_non {
+    //     max-height: 294px;
+    //   }
+    // }
+
     .allproduct_goods_box {
       padding: 5px 4px 8px;
-      // margin: auto;
-      // border-bottom: 1px solid #dfdfdf;
       width: 100%;
       position: relative;
+      
       @media (max-width: 690px) {
         padding-bottom: 3px;
       }
+    
       .allproduct_goods_img {
         display: block;
         margin: 0 auto 7px;
         border-radius: 5px;
-        // min-height: 170px;
-        // max-height: 271px;
         max-height: 294px;
         min-height: 170px;
-
+    
         @media (max-width: 1383px) {
           max-width: 284px;
         }
+    
         @media (max-width: 1150px) {
           max-width: 395px;
           width: 100%;
         }
+    
         @media (max-width: 1000px) {
           max-height: 290px;
         }
+    
         @media (max-width: 700px) {
-          // max-height: 200px;
-          min-height: max-content;
+          // min-height: max-content;
+          // min-height: -moz-max-content;
+          // Убедись, что это значение подходит для твоего контента.
         }
       }
+    
       .allproduct_goods_img_non {
         max-height: 294px;
       }
     }
+    
 
     .allproduct_goods_artikul {
       font-size: 16px;
@@ -976,6 +1018,9 @@
   position: sticky;
   top: 133px;
   z-index: 1;
+  @media(max-width: 550px) {
+    top: 81px;
+  }
 }
 
 .catalogCategory_title {

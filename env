@@ -1,0 +1,6 @@
+NEXT_PUBLIC_REST_API_ENDPOINT=https://morskoi-koktail.ru/api
+NEXT_PUBLIC_SITE_URL=https://morskoi-koktail.ru
+NEXT_PUBLIC_BACKEND_URL=https://api.morskoi-koktail.ru/api
+# NEXT_PUBLIC_BACKEND_URL=https://www.toplight.pro/api
+# NEXT_PUBLIC_GOOGLE_API_KEY= Put your google api key here
+# NEXT_PUBLIC_STRIPE_PUBLIC_KEY= Put your stripe public key here

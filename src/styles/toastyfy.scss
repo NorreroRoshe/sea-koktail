@@ -9739,10 +9739,12 @@ body>.os-scrollbar {
   }
 }
 
-
 .diaplaynonemobile {
   display: none;
   @media(max-width: 1199px) {
-    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex !important;
   }
 }
