@@ -25,7 +25,7 @@ const AccountDetailsPage = observer(() => {
         {!authStore.isLoading ? (
           <AddressGrid address={authStore?.addressData} />
         ) : (
-          <div>Loading...</div>
+          <div>Loading...///</div>
         )}
       </AccountLayout>
     </>
