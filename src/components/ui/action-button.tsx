@@ -5,7 +5,6 @@ import { Fragment } from 'react';
 import { useUI } from '@/contexts/ui.context';
 
 const ActionsButton: React.FC<{ item?: any }> = ({ item }) => {
-  console.log(item,'itemitemitem')
 
   const { openDrawer, setDrawerView } = useUI();
 
@@ -43,10 +42,10 @@ const ActionsButton: React.FC<{ item?: any }> = ({ item }) => {
                   className="text-[14px] whitespace-nowrap text-skin-base py-2 px-5 hover:bg-[#F6F9FC] transition-all cursor-pointer"
                   onClick={() => handleCartOpen(item)}
                 >
-                  Order Details
+                  Детали заказа
                 </div>
                 <div className="text-[14px] whitespace-nowrap text-[#F35C5C] py-2 px-5 hover:bg-[#F6F9FC] transition-all cursor-pointer">
-                  Cancel Order
+                  Отменить заказ
                 </div>
               </Popover.Panel>
             </Transition>

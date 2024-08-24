@@ -1,4 +1,5 @@
 "use client"
+import React, { useEffect, useState } from 'react';
 import AccountLayout from '@/components/my-account/account-layout';
 import { useContactQuery } from '@/framework/basic-rest/contact/contact';
 import ContactBox from '@/components/contact/contact-content';
@@ -10,16 +11,22 @@ const AccountContantPage = observer(() => {
     const store = useStore();
     const authStore = store.auth;
   
+
+    useEffect(() => {
+      authStore.getUserPhone();
+  }, []);
+
     if (!authStore.isAuth) {
       return <NotFoundBlock />;
     }
-  let { data, isLoading } = useContactQuery();
+
+  // let { data, isLoading } = useContactQuery();
 
   return (
     <>
       <AccountLayout>
-        {!isLoading ? (
-          <ContactBox items={data} />
+        {!authStore.isLoading ? (
+          <ContactBox items={authStore.phoneData} />
         ) : (
           <div>Loading...</div>
         )}

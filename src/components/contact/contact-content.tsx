@@ -41,9 +41,17 @@ const ContactBox: React.FC<{ items?: any }> = observer(({ items }) => {
 
   const [selected, setSelected] = useState<any>(null);
 
+  // useEffect(() => {
+  //   if (items && items.length > 0) {
+  //     setSelected(items[0]); // Default to the first item or set to null if no items
+  //   }
+  // }, [items]);
+
   useEffect(() => {
     if (items && items.length > 0) {
-      setSelected(items[0]); // Default to the first item or set to null if no items
+      // Поиск элемента с flag === true
+      const flaggedItem = items.find((item: any) => item.flag === true);
+      setSelected(flaggedItem || items[0]); // Установить найденный элемент или items[0], если такого элемента нет
     }
   }, [items]);
 
@@ -98,7 +106,7 @@ const ContactBox: React.FC<{ items?: any }> = observer(({ items }) => {
                         <TiDelete fill={'#fff'} />
                       </button>
                     </div>
-                    {item?.flag === 1 && (
+                    {item?.flag === true && (
                       <button
                         className="flex justify-center items-center bg-[#02b290] h-6 w-6 rounded-full text-skin-inverted text-opacity-80 text-base"
                       >

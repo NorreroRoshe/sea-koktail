@@ -1,6 +1,6 @@
 "use client"
 import { APIError } from "@/api/makeRequest";
-import { IConfirmRes, IGetPhoneRes, IDataOrderReq, IDataOrderRes, IEditPhoneReq, IScheduleData, IAddPhoneReq, IPhoneFormat, IAddressFormat, IConfirmReq, IGetUserDetailsReq, IDeleteAddressReq, IGetAddressRes, IEditAddressReq, IAddAddressReq, IGetUserDetailsRes, IPasswodForgotReq, IPasswodForgotRes, IPasswordResetReq, IPasswordResetRes, IPutUserDetailsReq, IResendConfirmReq, IResendConfirmRes, ISingInReq, ISingInRes, ISingUpReq, ISingUpRes } from "../Auth/auth.dtos";
+import { OrderByIdProduct, IGetUserOrdersReq, IGetUserOrdersRes, IDataGetOrderByIdReq, IDataGetOrderByIdRes, IConfirmRes, IGetPhoneRes, IDataOrderReq, IDataOrderRes, IEditPhoneReq, IScheduleData, IAddPhoneReq, IPhoneFormat, IAddressFormat, IConfirmReq, IGetUserDetailsReq, IDeleteAddressReq, IGetAddressRes, IEditAddressReq, IAddAddressReq, IGetUserDetailsRes, IPasswodForgotReq, IPasswodForgotRes, IPasswordResetReq, IPasswordResetRes, IPutUserDetailsReq, IResendConfirmReq, IResendConfirmRes, ISingInReq, ISingInRes, ISingUpReq, ISingUpRes, IOrderAll } from "../Auth/auth.dtos";
 import { AxiosResponse } from "@/api/makeRequest";
 
 export interface IAuthStore {
@@ -8,11 +8,16 @@ export interface IAuthStore {
   addressData: IAddressFormat[];
   phoneData: IPhoneFormat[];
   orderTimes: string[][];
+  flagOrderTimes: boolean;
   name: string,
   email: string,
   phoneNumber: string,
   isLoading: boolean,
   isAuth: boolean,
+  orderId: number,
+  orderTotalCount: number;
+  ordersAll: IOrderAll[];
+  orderByIdProduct: OrderByIdProduct[];
 
   deliveryType: number,
   dayType: number,
@@ -48,7 +53,9 @@ export interface IAuthStore {
   getOrderTimes: (data: void) => Promise<APIError | AxiosResponse<IScheduleData, any>>;
 
   dataOrder: (data: IDataOrderReq) => Promise<APIError | AxiosResponse<IDataOrderRes, any>>;
-
+  dataGetOrderById: (data: IDataGetOrderByIdReq) => Promise<APIError | AxiosResponse<IDataGetOrderByIdRes, any>>;
+  getUserOrders: (data: IGetUserOrdersReq) => Promise<APIError | AxiosResponse<IGetUserOrdersRes, any>>;
+  
   setAddress: (address: string) => void;
   setPhone: (phone: string) => void;
   setDeliveryType: (deliveryType: number) => void;

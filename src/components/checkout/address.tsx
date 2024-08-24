@@ -15,9 +15,6 @@ const AddressPage: React.FC = observer(() => {
 
   useEffect(() => {
       userStore.getUserAddress();
-      // userStore.getOrderTimes();
-      
-      // console.log(userStore.orderTimes[0],'addressData')
   }, []);
 
   return !userStore.isLoading ? (

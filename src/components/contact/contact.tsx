@@ -12,7 +12,6 @@ const ContactPage: React.FC = observer(() => {
 
   useEffect(() => {
       userStore.getUserPhone();
-      console.log(userStore.addressData,'addressData')
   }, []);
 
   return !userStore.isLoading ? (

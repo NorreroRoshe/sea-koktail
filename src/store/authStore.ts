@@ -1,6 +1,6 @@
 "use client"
 import AuthService from '@/api/Auth/AuthService';
-import { IAddAddressReq, IScheduleData, IAddressFormat, IPhoneFormat, IDeleteAddressReq, IEditAddressReq, IConfirmReq, IGetUserDetailsReq, IPasswodForgotReq, IPasswordResetReq, IPutUserDetailsReq, IResendConfirmReq, ISingInReq, ISingUpReq, IAddPhoneReq, IEditPhoneReq, IDataOrderReq } from '@/types/Auth/auth.dtos';
+import { OrderByIdProduct, IOrderAll, IGetUserOrdersReq, IDataGetOrderByIdReq, IAddAddressReq, IScheduleData, IAddressFormat, IPhoneFormat, IDeleteAddressReq, IEditAddressReq, IConfirmReq, IGetUserDetailsReq, IPasswodForgotReq, IPasswordResetReq, IPutUserDetailsReq, IResendConfirmReq, ISingInReq, ISingUpReq, IAddPhoneReq, IEditPhoneReq, IDataOrderReq } from '@/types/Auth/auth.dtos';
 import { IAuthStore } from '@/types/Stores/IAuthStore';
 import { makeAutoObservable } from 'mobx';
 import {cookies} from 'next/headers';
@@ -9,13 +9,18 @@ import Cookies from 'js-cookie';
 export class AuthStore implements IAuthStore {
   userId: string = "";
   addressData: IAddressFormat[] = [];
-  orderTimes : string[][] = []
+  orderTimes : string[][] = [];
+  flagOrderTimes: boolean = false;
   phoneData: IPhoneFormat[] = [];
   name: string = "";
   email: string = "";
   phoneNumber: string = "";
   isAuth: boolean = false;
   isLoading: boolean = false;
+  orderId: number = 0;
+  orderByIdProduct: OrderByIdProduct[] = [];
+  orderTotalCount: number = 0;
+  ordersAll: IOrderAll[] = [];
 
   deliveryType: number = 0;
   dayType: number = 0;
@@ -241,6 +246,7 @@ export class AuthStore implements IAuthStore {
     if ('data' in response) {
       this.isLoading = false;
       this.orderTimes = response.data?.days ?? [];
+      this.flagOrderTimes = response.data?.flag ?? false;
     }
     return response;
   }
@@ -251,15 +257,39 @@ export class AuthStore implements IAuthStore {
     const response = await AuthService.dataOrder({data});
 
     if ('data' in response) {
-      // this.userId = response.data.id;
-      // this.name = response.data.name;
-      // this.email = response.data.email;
-      // this.phoneNumber = response.data.phoneNumber;
+      // this.orderId = response?.data?.orderId ?? 0;
     }
       this.isLoading = false;
     return response;
   }
   
+  async dataGetOrderById(data: IDataGetOrderByIdReq ) {
+    this.isLoading = true;
+    const response = await AuthService.dataGetOrderById({data});
+    console.log(response.data.products,'productsOPDER')
+
+    if ('data' in response) {
+      this.orderId = response?.data?.orderId ?? 0;
+      this.orderByIdProduct = response?.data?.products ?? [];
+    }
+      this.isLoading = false;
+    return response;
+  }
+
+  
+  
+  async getUserOrders(data: IGetUserOrdersReq) {
+    this.isLoading = true;
+    const response = await AuthService.getUserOrders({data});
+
+    if ('data' in response) {
+      this.orderTotalCount = response?.data?.orderTotalCount ?? 0;
+      this.ordersAll = response.data?.orders ?? [];
+    }
+
+      this.isLoading = false;
+    return response;
+  }
   
   setAddress(address: string) {
     this.address = address;

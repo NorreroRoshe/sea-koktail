@@ -26,7 +26,7 @@ const Home: React.FC = () => {
       localStorage.setItem("isFirstVisit", "true");
       setTimeout(() => {
         openModal("SUCCESS_CHANGE_PASSWORD");
-      }, 3000);
+      }, 1000);
     }
   }, [openModal]);
 

@@ -3,10 +3,10 @@ import usePrice from '@/framework/basic-rest/product/use-price';
 import { calculateTotal } from '@/contexts/cart/cart.utils';
 
 export const TotalPrice: React.FC<{ items?: any }> = ({ items }) => {
-  console.log(items.products,'itemsitemsitems')
   const { price } = usePrice({
     amount: Math.round(
-      calculateTotal(items?.products) + items?.delivery_fee - items?.discount
+      // calculateTotal(items?.products) + items?.delivery_fee - items?.discount
+      items?.total_cost
     ),
     currencyCode: 'RUB',
   });
@@ -31,7 +31,10 @@ export const DeliveryFee = (delivery: any) => {
 
 export const SubTotalPrice: React.FC<{ items?: any }> = ({ items }) => {
   const { price } = usePrice({
-    amount: calculateTotal(items),
+    // amount: calculateTotal(items),
+    amount: Math.round(
+      items?.total_cost
+    ),
     currencyCode: 'RUB',
   });
   return <>{price}</>;

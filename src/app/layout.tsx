@@ -9,7 +9,7 @@ import "@/styles/swiper-carousel.scss";
 import "@/styles/ImgSlick.scss";
 import "@/styles/allCategories.scss";
 import "@/styles/custom-plugins.css";
-import "@/styles/toastyfy.css";
+import "@/styles/toastyfy.scss";
 import React, { Suspense, useEffect } from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";

@@ -1,4 +1,5 @@
 "use client"
+import React, { useEffect, useState } from 'react';
 import AccountLayout from '@/components/my-account/account-layout';
 import AddressGrid from '@/components/address/address-grid';
 import { useAddressQuery } from '@/framework/basic-rest/address/address';
@@ -10,15 +11,19 @@ const AccountDetailsPage = observer(() => {
   const store = useStore();
   const authStore = store.auth;
 
+  useEffect(() => {
+    authStore.getUserAddress();
+}, []);
+
   if (!authStore.isAuth) {
     return <NotFoundBlock />;
   }
-  let { data, isLoading } = useAddressQuery();
+  
   return (
     <>
       <AccountLayout>
-        {!isLoading ? (
-          <AddressGrid address={data?.data} />
+        {!authStore.isLoading ? (
+          <AddressGrid address={authStore?.addressData} />
         ) : (
           <div>Loading...</div>
         )}

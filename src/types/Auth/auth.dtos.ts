@@ -50,7 +50,9 @@ export interface IGetPhoneRes {
 
 export interface IScheduleData {
   days: string[][];
+  flag?: boolean;
 }
+
 
 export interface IDataOrderReq {
   deliveryType: number;
@@ -63,6 +65,42 @@ export interface IDataOrderReq {
   adresSamovivoz?: string;
 }
 
+
+export interface IDataGetOrderByIdReq {
+  orderId: number;
+}
+
+export interface IDataGetOrderByIdRes {
+  orderId: number;
+  formatedOrderId: string;
+  cartCount: number;
+  totalCost: string;
+  deliveryType: number;
+  dayType: number;
+  address: string;
+  phone: string;
+  email: string;
+  dateTime: string;
+  description: string;
+  payType: number;
+  created_at: string;
+  adresSamovivoz: string;
+  payStatus: number;
+  payURL: string | null;
+  products: OrderByIdProduct[];
+}
+
+export interface OrderByIdProduct {
+  id: number;
+  order_id: number;
+  product_id: number | null;
+  name: string;
+  cost: string;
+  count: number;
+  user_id: number;
+  created_at: string;
+  updated_at: string;
+}
 
 export interface IDataOrderRes {
   message: string;
@@ -82,6 +120,33 @@ export interface IDataOrderProductsRes {
   total_cost: number;
 }
 
+
+
+export interface IGetUserOrdersRes {
+  orders: IOrderAll[];
+  orderTotalCount: number;
+}
+
+export interface IOrderAll {
+  id: number;
+  deliveryType: number;
+  dayType: number;
+  address: string;
+  phone: string;
+  dateTime: string;
+  description: string;
+  payType: number;
+  adresSamovivoz: string;
+  userId: number;
+  total_cost: string;
+  email: string;
+  payStatus: number;
+  payURL: string;
+  created_at: string;
+  updated_at: string;
+}
+
+
 export interface IPhoneFormat {
   id: number;
   title: string;
@@ -97,7 +162,7 @@ export interface IAddAddressReq {
 export interface IAddPhoneReq {
   title: string;
   text: string;
-  flag: number;
+  flag?: boolean;
 }
 
 export interface IDeleteAddressReq {
@@ -114,7 +179,7 @@ export interface IEditPhoneReq {
   id: number;
   title: string;
   text: string;
-  flag: number;
+  flag?: boolean;
 }
 
 export interface ISingUpRes {
@@ -185,6 +250,11 @@ export interface IGetUserDetailsRes {
   name: string;
   email: string;
   phoneNumber: string
+}
+
+
+export interface IGetUserOrdersReq {
+  orderCount?: number;
 }
 
 export interface IGetUserDetailsReq {

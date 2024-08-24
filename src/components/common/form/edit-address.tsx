@@ -22,6 +22,8 @@ const EditAddressForm: React.FC = observer(() => {
   const [{ data }, setState] = useState<any>([]); //дата не всегда заполнялась , просто влязи стейт и засунули в него ответ с сервером
   const { data: item } = useModalState();
   const { closeModal } = useModalAction();
+  const [textError, setTextError] = useState<string | null>(null);
+  const [titleError, setTitleError] = useState<string | null>(null);
 
   const store = useStore();
   const userStore = store.auth;
@@ -45,10 +47,21 @@ const EditAddressForm: React.FC = observer(() => {
         id: item.id,
         title,
         text
-      });
+      }).then((data) => {
+      
+        console.log(text,'datadatsss')
+      
+        if (data?.data?.message === "Запрос выполнен успешно") {
+          closeModal();
+        }
+        if (data?.message  === `Не удалось преобразовать адрес ${text} в координаты: проверьте корректность адреса или попробуйте указать координаты вручную`) {
+        setTextError(`Не удалось преобразовать адрес ${text} в координаты: проверьте корректность адреса или попробуйте указать координаты вручную`);
+        }
+        
+      })
       const response = await userStore.getUserAddress();
       setState(response as any);
-      closeModal();
+      // closeModal();
     } catch (error) {
       console.error('Ошибка при обновлении данных:', error);
     }
@@ -69,7 +82,7 @@ const EditAddressForm: React.FC = observer(() => {
             {...register('title'
             // , { required: 'Название обязательна' }
             )}
-            error={errors.title?.message}
+            error={titleError || errors.title?.message}
           />
         </div>
         <div className="grid grid-cols-1 mb-6 gap-7">
@@ -79,7 +92,7 @@ const EditAddressForm: React.FC = observer(() => {
             {...register('text', {
               // required: 'Адрес обязателен',
             })}
-            error={errors.text?.message}
+            error={textError || errors.text?.message}
             className="text-skin-base"
             variant="solid"
           />

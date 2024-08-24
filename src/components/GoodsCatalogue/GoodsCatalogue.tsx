@@ -167,6 +167,7 @@ export const GoodsCatalogue: React.FC<ICatalogCategories> = observer(({ sitePath
     );
   }, [productStore.filters, searchPage, sort, page]);
 
+
   useEffect(() => {
     CategoriesArray.map((category) => {
       productStore.setCategories(category - 1);

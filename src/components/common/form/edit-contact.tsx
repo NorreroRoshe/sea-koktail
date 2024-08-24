@@ -22,6 +22,7 @@ interface ContactFormValues {
 const PhoneNumberEditPopup: React.FC = observer(() => {
   const { t } = useTranslation();
   const [{ data }, setState] = useState<any>([]); //дата не всегда заполнялась , просто влязи стейт и засунули в него ответ с сервером
+  const [textError, setTextError] = useState<string | null>(null);
 
   const { data: item } = useModalState();
   
@@ -41,29 +42,41 @@ const PhoneNumberEditPopup: React.FC = observer(() => {
       id: 0,
       title: '',
       text: '',
-      flag: 0,
+      flag: false,
     },
   });
 
-  const onSubmit = async ({ title, text }: IEditPhoneReq) => {
+  const onSubmit = async ({ title, text, flag }: IEditPhoneReq) => {
+    const finalTitle = title.trim() === '' ? item.title : title;
+    const finalText = text.trim() === '' ? item.text : text;
+
     try {
       await userStore.editUserPhone({
         id: item.id,
-        title,
-        text,
-        flag: 0
-        // flag: isDefault ? 1 : 0
-      });
+        title: finalTitle,
+        text: finalText,
+        flag: isDefault ? true : false
+      }).then((data) => {
+      
+        console.log(text,'datadatsss')
+      
+        if (data?.data?.message === "Запрос выполнен успешно") {
+          closeModal();
+        }
+        if (data?.message  === `Неверный формат номера телефона`) {
+        setTextError(`Неверный формат номера телефона. Пример правильного формата: +7 либо 7 либо 8 ... 9999999999`);
+        }
+        
+      })
       const response = await userStore.getUserPhone();
       setState(response as any);
-      closeModal();
     } catch (error) {
       console.error('Ошибка при обновлении данных:', error);
     }
   };
   
   useEffect(() => {
-    if (item?.flag === "1") {
+    if (item?.flag === true) {
       setIsDefault(true);
     }
   }, [item?.flag]);
@@ -95,16 +108,16 @@ const PhoneNumberEditPopup: React.FC = observer(() => {
             //   required: 'Контактный номер обязателен',
             // }
             )}
-            error={errors.text?.message}
+            error={textError || errors.text?.message}
           />
         </div>
-        {/* <div className="mb-6">
+        <div className="mb-6">
           <input
             id="default-type"
             type="checkbox"
             className="form-checkbox w-5 h-5 border border-gray-300 rounded cursor-pointer transition duration-500 ease-in-out focus:ring-offset-0 hover:border-heading focus:outline-none focus:ring-0 focus-visible:outline-none focus:checked:bg-skin-primary hover:checked:bg-skin-primary checked:bg-skin-primary"
-            {...register("default")}
-            onChange={(e) => setIsDefault(e.target.checked)} // Обновление состояния при изменении чекбокса
+            checked={isDefault} // контролируемое свойство checked
+            onChange={(e) => setIsDefault(e.target.checked)} // обновление состояния
           />
           <label
             htmlFor="default-type"
@@ -112,7 +125,7 @@ const PhoneNumberEditPopup: React.FC = observer(() => {
           >
             {t("Сделать номер основным")}
           </label>
-        </div> */}
+        </div>
         {/* <div className="mb-6">
           <input
             id="default-type"

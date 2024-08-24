@@ -6,8 +6,17 @@ import { GetStaticProps } from 'next';
 import Divider from '@/components/ui/divider';
 import { useEffect } from 'react';
 import { useCart } from '@/contexts/cart/cart.context';
+import {observer} from "mobx-react";
+import NotFoundBlock from "@/components/NotFoundBlock";
+import { useStore } from '@/hooks/useStore';
 
-export default function Order() {
+const Order = observer(() => {
+  const store = useStore();
+  const authStore = store.auth;
+
+  if (!authStore.isAuth) {
+    return <NotFoundBlock />;
+  }
   return (
     <>
       <Divider />
@@ -17,4 +26,6 @@ export default function Order() {
       <Divider />
     </>
   );
-}
+})
+
+export default Order;

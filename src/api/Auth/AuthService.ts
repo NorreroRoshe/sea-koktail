@@ -1,7 +1,7 @@
 "use client"
 import makeRequest from '@/api/makeRequest';
 import makeRequestMap from '@/api/makeRequestMap';
-import { IConfirmRes, IScheduleData, IDataOrderReq, IDataOrderRes, IConfirmReq, IGetUserDetailsReq, IGetUserDetailsRes, IPasswodForgotReq, IPasswodForgotRes, IPasswordResetReq, IPasswordResetRes, IPutUserDetailsReq, IAddAddressReq, IGetAddressRes, IGetPhoneRes, IAddPhoneReq, IEditPhoneReq, IResendConfirmReq, IResendConfirmRes, ISingInReq, ISingInRes, ISingUpReq, ISingUpRes, IDeleteAddressReq, IEditAddressReq, IGetYandexListRes } from '@/types/Auth/auth.dtos';
+import { IGetUserOrdersReq, IGetUserOrdersRes,IDataGetOrderByIdReq, IDataGetOrderByIdRes, IConfirmRes, IScheduleData, IDataOrderReq, IDataOrderRes, IConfirmReq, IGetUserDetailsReq, IGetUserDetailsRes, IPasswodForgotReq, IPasswodForgotRes, IPasswordResetReq, IPasswordResetRes, IPutUserDetailsReq, IAddAddressReq, IGetAddressRes, IGetPhoneRes, IAddPhoneReq, IEditPhoneReq, IResendConfirmReq, IResendConfirmRes, ISingInReq, ISingInRes, ISingUpReq, ISingUpRes, IDeleteAddressReq, IEditAddressReq, IGetYandexListRes } from '@/types/Auth/auth.dtos';
 // import {ProductsResponse} from "@/types/types";
 import {AxiosResponse} from "axios";
 import Cookies from 'js-cookie';
@@ -99,6 +99,7 @@ class AuthService {
       data: data,
     });
   };
+  
   deleteUserAddress(id: number) {
     return makeRequest<void>({
       url: "/user/addresses/delete",
@@ -108,6 +109,7 @@ class AuthService {
       }
     });
   };
+  
   editUserAddress({data} :
     {data: IEditAddressReq}) {
     return makeRequest<void>({
@@ -129,6 +131,7 @@ class AuthService {
       data: data,
     });
   };
+
   addUserPhone({data} :
     {data: IAddPhoneReq}) {
     return makeRequest<void>({
@@ -137,6 +140,7 @@ class AuthService {
       data: data,
     });
   };
+
   deleteUserPhone(id: number) {
     return makeRequest<void>({
       url: "/user/phones/delete",
@@ -178,8 +182,24 @@ class AuthService {
     });
   };
 
+  dataGetOrderById({data} :
+    {data: IDataGetOrderByIdReq}) {
+    return makeRequest<IDataGetOrderByIdRes>({
+      url: "/order/getbyid",
+      method: "GET",
+      params: data,
+    });
+  };
 
 
+  getUserOrders({data} :
+    {data: IGetUserOrdersReq}) {
+    return makeRequest<IGetUserOrdersRes>({
+      url: "/order/all",
+      method: "GET",
+      data: data,
+    });
+  };
 
 
 

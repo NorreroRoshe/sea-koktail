@@ -1,4 +1,5 @@
 "use client"
+import React, { useEffect, useState } from 'react';
 import { OrderDetailsContent } from './order-details-content';
 import { formatAddress } from '@/utils/format-address';
 import OrderStatus from './order-status';
@@ -8,17 +9,47 @@ import {
   TotalPrice,
   SubTotalPrice,
 } from '@/components/order/price';
-
 import { useUI } from '@/contexts/ui.context';
+import { useStore } from '@/hooks/useStore';
 
 const OrderDrawer: React.FC = () => {
   const { data, closeDrawer } = useUI();
+  const [{ datas }, setState] = useState<any>([]);
+  
+  
+  const store = useStore();
+  const userStore = store.auth;
 
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const id = data.id;
+        if (id) {
+          const response = await userStore.dataGetOrderById({
+            orderId: id,
+          });
+          setState(response as any);
+        }
+      } catch (error) {
+        console.error('Ошибка при получении данных:', error);
+      }
+    };
+
+    fetchData();
+
+  }, []);
+
+
+  
+
+
+  
   const onClose = () => {
     return closeDrawer();
   };
 
-  let { shipping_address } = data;
+  // let { shipping_address } = data;
 
   return (
     <>
@@ -31,11 +62,11 @@ const OrderDrawer: React.FC = () => {
             </div>
             <div className="rounded border border-solid min-h-[90px] bg-skin-two p-4 border-skin-two text-[12px] md:text-[14px]">
               <p className="text-skin-base opacity-70">
-                {/* {formatAddress(shipping_address)} */}
-                Ул. Ясная, д.3
+                {/* {formatAddress(data?.address)} */}
+                {data?.address}
               </p>
             </div>
-            <OrderStatus status={data?.status?.serial} />
+            {/* <OrderStatus status={data?.status?.serial} /> */}
             <div className="grid grid-cols-12 bg-skin-two py-3 rounded-[3px] text-black text-[12px] md:text-[14px]">
               <div className="col-span-2 opacity-50"></div>
               <div className="col-span-5 opacity-50">Наименование</div>
@@ -44,8 +75,8 @@ const OrderDrawer: React.FC = () => {
               </div>
               <div className="col-span-2 opacity-50">Цена</div>
             </div>
-            {data?.products?.map((item: any, index: string) => (
-              <OrderDetailsContent key={index} item={item} />
+            {userStore.orderByIdProduct?.map((item: any) => (
+              <OrderDetailsContent key={item?.id} item={item} />
             ))}
             <div className="mt-3 text-end">
               <div className="text-black inline-flex flex-col text-[12px] md:text-[14px]">
@@ -53,7 +84,8 @@ const OrderDrawer: React.FC = () => {
                   <p className="flex justify-between mb-1">
                     <span className="me-8">Стоимость за товар: </span>
                     <span className="font-700">
-                      <SubTotalPrice items={data?.products} />
+                      <SubTotalPrice items={data} />
+                      {/* <SubTotalPrice items={data?.products} /> */}
                     </span>
                   </p>
                   {typeof data?.discount === 'number' && (
@@ -82,14 +114,16 @@ const OrderDrawer: React.FC = () => {
               </div>
             </div>
             <div className="text-end mt-12">
-              <span className="py-3 px-5 cursor-pointer inline-block text-[12px] md:text-[14px] text-black font-700 bg-white rounded border border-solid border-[#DEE5EA] me-4 hover:bg-[#F35C5C] hover:text-white hover:border-[#F35C5C] transition-all capitalize">
-                Report order
-              </span>
               <span
                 onClick={onClose}
+                className="py-3 px-5 cursor-pointer inline-block text-[12px] md:text-[14px] text-black font-700 bg-white rounded border border-solid border-[#DEE5EA] me-4 hover:bg-[#F35C5C] hover:text-white hover:border-[#F35C5C] transition-all capitalize"
+              >
+                Закрыть заказ
+              </span>
+              <span
                 className="py-3 px-5 cursor-pointer inline-block text-[12px] md:text-[14px] text-white font-700 bg-[#F35C5C] rounded border border-solid border-[#F35C5C]  hover:bg-white hover:text-black hover:border-[#DEE5EA] transition-all capitalize"
               >
-                Cancel order
+                Отменить заказ
               </span>
             </div>
           </div>

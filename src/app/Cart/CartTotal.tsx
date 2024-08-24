@@ -16,7 +16,8 @@ const CartTotal: React.FC = observer(({ }) => {
   const [isEmpty, setIsEmpty] = useState(true);
   const { closeModal, openModal } = useModalAction();
   const [phoneError, setPhoneError] = useState<string | null>(null);
-
+  const [addressError, setAddressError] = useState<string | null>(null);
+  
   const Router = useRouter();
 
   // function orderHeader() {
@@ -79,25 +80,31 @@ const CartTotal: React.FC = observer(({ }) => {
     })
     .then((data) => {
       
-      console.log(data?.data?.errors.phone[0],'datadatsss')
-      
-      if (data?.message === "Запрос выполнен успешно") {
-        // Router.push(ROUTES.ORDER);
+      if (data?.data?.message === "Запрос выполнен успешно") {
+        Router.push(`${ROUTES.ORDER}?order_id=${userStore.orderId}`);
       } else {
-        if (data?.data?.errors.phone[0] === "Поле phone должно содержать 11 цифр.") {
-            setPhoneError('Номер телефона должен содержать больше 11 цыфр');
-            // openModal('AFTER_LOGIN_VIEW');
+
+        if (data?.data?.errors?.phone?.[0] === "Поле phone должно содержать 11 цифр.") {
+          setPhoneError('Номер телефона должен содержать больше 11 цыфр');
+        }
+        if (data?.data?.errors?.phone?.[0] === "Поле phone обязательно для заполнения.") {
+            setPhoneError('Поле "Контактная информация" обязательно для заполнения.');
+        }
+        if (data?.data?.errors?.address?.[0] === "Поле address обязательно для заполнения.") {
+            setAddressError('Поле "Адрес доставки" обязательно для заполнения.');
         }
       }
     })
   };
 
 
-  console.log(phoneError,'phoneError')
+  // console.log(userStore.address,'phoneError')
 
 
 //проба
 
+
+console.log(userStore.orderId,'userStoreuserStore')
   
   return (
 
@@ -142,38 +149,32 @@ const CartTotal: React.FC = observer(({ }) => {
           </div>
         )}
 
-
-        {phoneError && (
-          <div style={{border: '1px solid red', padding: '10px', borderRadius: '10px'}}>
-            <h4 className="text-red-500 mb-4 weight-700 text-center">Ошбика валидации контактной информации:</h4>
-            <span className="text-red-500 mb-4">*{phoneError}</span>
+        {(phoneError || addressError) && (
+          <div style={{ border: '1px solid red', padding: '10px', borderRadius: '10px' }}>
+            <h4 className="text-red-500 mb-4 font-bold text-center">Ошибка валидации контактной информации:</h4>
+            {phoneError && (
+              <span className="text-red-500 mb-4">*{phoneError}</span>
+            )}
+            <br />
+            {addressError && (
+              <span className="text-red-500 mb-4">*{addressError}</span>
+            )}
           </div>
         )}
 
         <Button
           variant="formButton"
           className={`w-full mt-8 mb-5 bg-skin-primary text-skin-inverted rounded px-4 py-3 transition-all ${
-            isEmpty && 'opacity-40 cursor-not-allowed'
+            (!userStore.address || !userStore.phone || !userStore.dateTime) ? 'opacity-40 cursor-not-allowed' : ''
           }`}
           onClick={handleSubmit(onSubmit)}
+          disabled={!userStore.address || !userStore.phone || !userStore.dateTime}
         >
           Оформить заказ
         </Button>
-        
 
-
-        ИЛИ
-
-
-        <br/>
-        <br/>
-
+                
         <div>
-          <div className="ldmvk">
-            <button form="authFormId" data-testid="checkout-button" className="ui-oyu-F ui-Sommu ui-niVbG ui-8R7U2 HEoVy" type="submit">
-              <span className="ui-An69V">Оформить заказ</span>
-            </button>
-          </div>
           <div className="nuVy0">
             <div className="UVRnF">
               Нажимая кнопку &apos;Оформить заказ&apos;, Вы принимаете условия соответствующей оферты: <a href="/Oferta" target="_blank" className="ui-GPFV8 ui-HoDUP">Публичной оферты</a> и <a target="_blank" className="ui-GPFV8 ui-HoDUP" href="/Privacy">Политики конфиденциальности</a>, а также даете <a target="_blank" href="/Soglasie" className="ui-GPFV8 ui-HoDUP">Согласие на обработку</a> Ваших персональных данных и их передачу.

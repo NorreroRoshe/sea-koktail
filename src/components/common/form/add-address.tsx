@@ -9,7 +9,6 @@ import { useModalAction } from '@/components/common/modal/modal.context';
 import CloseButton from '@/components/ui/close-button';
 import { IAddAddressReq } from '@/types/Auth/auth.dtos';
 import Heading from '@/components/ui/heading';
-// import Map from '@/components/ui/map';
 import { useTranslation } from 'next-i18next';
 import { useStore } from '@/hooks/useStore';
 import {observer} from "mobx-react";
@@ -19,11 +18,13 @@ import AsyncSelectMap from './async-select-map';
 
 const AddAddressForm: React.FC = observer(() => {
   const { t } = useTranslation();
-  const [{ data }, setState] = useState<any>([]); //дата не всегда заполнялась , просто влязи стейт и засунули в него ответ с сервером
-  // const { data } = useModalState();
+  const [{ data }, setState] = useState<any>([]);
 
-  const { closeModal } = useModalAction();
+  const { openModal, closeModal } = useModalAction();
 
+  const [textError, setTextError] = useState<string | null>(null);
+  const [titleError, setTitleError] = useState<string | null>(null);
+  
   const store = useStore();
   const userStore = store.auth;
 
@@ -44,12 +45,22 @@ const AddAddressForm: React.FC = observer(() => {
       await userStore.addUserAddress({
         title,
         text
-      });
+      }).then((data) => {
+      
+        console.log(text,'datadatsss')
+      
+        if (data?.data?.message === "Запрос выполнен успешно") {
+          closeModal();
+        }
+        if (data?.message  === `Не удалось преобразовать адрес ${text} в координаты: проверьте корректность адреса или попробуйте указать координаты вручную`) {
+        setTextError(`Не удалось преобразовать адрес ${text} в координаты: проверьте корректность адреса или попробуйте указать координаты вручную`);
+        }
+        
+      })
       const response = await userStore.getUserAddress();
       setState(response as any);
-      closeModal();
     } catch (error) {
-      console.error('Ошибка при обновлении данных:', error);
+      console.error('errorerror', error);
     }
   };
 
@@ -65,20 +76,21 @@ const AddAddressForm: React.FC = observer(() => {
             variant="solid"
             label="Наименование"
             {...register('title'
-            // , { required: 'Название обязательна' }
+            , { required: 'Название обязательна' }
             )}
-            error={errors.title?.message}
+            error={titleError || errors.title?.message}
           />
         </div>
         <div className="grid grid-cols-1 mb-6 gap-7">
           <TextArea
-            label="Адрес"
+            // label={<>Введите адрес <br/> <span style={{color: '#686464'}}>Адрес быть введен по примеру: Город Москва, Смоленская ул., 8 кв. 15</span></>}
+            label={`Введите адрес. Адрес должен быть введен по примеру: Город Москва, Смоленская ул., 8 кв. 15`}
             {...register('text',
-            //  {
-            //   required: 'Адрес обязателен',
-            // }
+             {
+              required: 'Адрес обязателен',
+            }
             )}
-            error={errors.text?.message}
+            error={textError || errors.text?.message}
             className="text-skin-base"
             variant="solid"
           />

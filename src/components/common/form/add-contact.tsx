@@ -27,6 +27,7 @@ const AddContactForm: React.FC = observer(() => {
   const [isDefault, setIsDefault] = useState(false);
   
   const { closeModal } = useModalAction();
+  const [textError, setTextError] = useState<string | null>(null);
 
   const store = useStore();
   const userStore = store.auth;
@@ -39,20 +40,30 @@ const AddContactForm: React.FC = observer(() => {
     defaultValues: {
       title: '',
       text: '',
-      flag: 0,
+      flag: false,
     },
   });
 
-  const onSubmit = async ({ title, text }: IAddPhoneReq) => {
+  const onSubmit = async ({ title, text, flag }: IAddPhoneReq) => {
     try {
       await userStore.addUserPhone({
         title,
         text,
-        flag: isDefault ? 1 : 0
-      });
+        flag: isDefault ? true : false
+      }).then((data) => {
+      
+        console.log(text,'datadatsss')
+      
+        if (data?.data?.message === "Запрос выполнен успешно") {
+          closeModal();
+        }
+        if (data?.message  === `Неверный формат номера телефона`) {
+        setTextError(`Неверный формат номера телефона. Пример правильного формата: +7 либо 7 либо 8 ... 9999999999`);
+        }
+        
+      })
       const response = await userStore.getUserPhone();
       setState(response as any);
-      closeModal();
     } catch (error) {
       console.error('Ошибка при обновлении данных:', error);
     }
@@ -81,7 +92,7 @@ const AddContactForm: React.FC = observer(() => {
             //   required: 'Контактный номер обязателен',
             // }
             )}
-            error={errors.text?.message}
+            error={textError || errors.text?.message}
           />
         </div>
         <div className="mb-6">

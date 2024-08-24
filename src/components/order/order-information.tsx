@@ -1,16 +1,34 @@
 "use client"
+import React, { useEffect, useState } from 'react';
 import { IoCheckmarkCircle } from 'react-icons/io5';
 import OrderDetails from '@/components/order/order-details';
 import { useOrderQuery } from '@/framework/basic-rest/order/get-order';
 import { useSearchParams } from 'next/navigation';
 import usePrice from '@/framework/basic-rest/product/use-price';
 import { useTranslation } from 'next-i18next';
+import {observer} from "mobx-react";
+import { useStore } from '@/hooks/useStore';
+import { format } from 'date-fns';
+import { ru } from 'date-fns/locale';
 
-export default function OrderInformation() {
+
+const OrderInformation = observer(() => {
+
+  const [{ data }, setState] = useState<any>([]); //дата не всегда заполнялась , просто влязи стейт и засунули в него ответ с сервером
+
+
+
+
+
+  const store = useStore();
+  const userStore = store.auth;
+
+
+
+
   const searchParams = useSearchParams();
   const { t } = useTranslation('common');
-  const id = searchParams.get('id');
-  const { data, isLoading } = useOrderQuery(id?.toString()!);
+  // const { data, isLoading } = useOrderQuery(id?.toString()!);
   const { price: total } = usePrice(
     data && {
       amount: data.shipping_fee ? data.total + data.shipping_fee : data.total,
@@ -18,7 +36,40 @@ export default function OrderInformation() {
     }
   );
 
-  if (isLoading) return <p>Loading...</p>;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const id = Number(searchParams.get('order_id'));
+        if (id) {
+          const response = await userStore.dataGetOrderById({
+            orderId: id,
+          });
+          setState(response as any);
+        }
+      } catch (error) {
+        console.error('Ошибка при получении данных:', error);
+      }
+    };
+
+    fetchData();
+
+  }, []);
+
+
+  const formatDate = (dateString: any) => {
+    if (!dateString) {
+      return "Неизвестная дата"; // Можете вернуть значение по умолчанию или пустую строку
+    }
+  
+    const date = new Date(dateString);
+    if (isNaN(date.getTime())) {
+      return "Неверная дата"; // На случай, если дата не может быть распознана
+    }
+  
+    return format(date, "d MMMM yyyy", { locale: ru });
+  }
+
+  if (userStore.isLoading) return <p>Loading...</p>;
 
   return (
     <div className="xl:px-32 2xl:px-44 3xl:px-56 py-16 lg:py-20">
@@ -30,51 +81,79 @@ export default function OrderInformation() {
         Спасибо. Ваш заказ получен.
       </div>
 
-      <ul className="border border-skin-base bg-skin-secondary rounded-md flex flex-col md:flex-row mb-7 lg:mb-8 xl:mb-10">
+      <ul className="border border-skin-base bg-skin-secondary rounded-md flex flex-col md:flex-row mb-7 lg:mb-8 xl:mb-10 items-center wfqegrveasvdeqwv">
         <li className="text-skin-base font-semibold text-base lg:text-lg border-b md:border-b-0 md:border-r border-dashed border-skin-two px-4 lg:px-6 xl:px-8 py-4 md:py-5 lg:py-6 last:border-0">
           <span className="uppercase text-xs block text-skin-muted font-normal leading-5">
             {/* {t('text-order-number')}: */}
             НОМЕР ЗАКАЗА :
           </span>
-          {data?.tracking_number}
+          {data?.formatedOrderId}
         </li>
         <li className="text-skin-base font-semibold text-base lg:text-lg border-b md:border-b-0 md:border-r border-dashed border-gray-300 px-4 lg:px-6 xl:px-8 py-4 md:py-5 lg:py-6 last:border-0">
           <span className="uppercase text-[11px] block text-skin-muted font-normal leading-5">
             {/* {t('text-date')}: */}
             ДАТА :
           </span>
-          22 апреля 2024
+          {/* 22 апреля 2024 - не сделано еще!!! */}
+          {formatDate(data?.created_at)}
         </li>
         <li className="text-skin-base font-semibold text-base lg:text-lg border-b md:border-b-0 md:border-r border-dashed border-gray-300 px-4 lg:px-6 xl:px-8 py-4 md:py-5 lg:py-6 last:border-0">
-          <span className="uppercase text-[11px] block text-skin-muted font-normal leading-5">
-            {/* {t('text-email')}: */}
-            Почта :
-          </span>
-          {data?.customer.email}
+          <div>
+            <span className="uppercase text-[11px] block text-skin-muted font-normal leading-5">
+              {/* {t('text-email')}: */}
+              Почта :
+            </span>
+          {data?.email}
+          </div>
+          <div>
+            <span className="uppercase text-[11px] block text-skin-muted font-normal leading-5">
+              {/* {t('text-email')}: */}
+              Телефон :
+            </span>
+          {data?.phone}
+          </div>
         </li>
         <li className="text-skin-base font-semibold text-base lg:text-lg border-b md:border-b-0 md:border-r border-dashed border-gray-300 px-4 lg:px-6 xl:px-8 py-4 md:py-5 lg:py-6 last:border-0">
           <span className="uppercase text-[11px] block text-skin-muted font-normal leading-5">
             {/* {t('text-total')}: */}
             Итоговая сумма:
           </span>
-          {total}
+          {data?.totalCost}
         </li>
         <li className="text-skin-base font-semibold text-base lg:text-lg border-b md:border-b-0 md:border-r border-dashed border-gray-300 px-4 lg:px-6 xl:px-8 py-4 md:py-5 lg:py-6 last:border-0">
           <span className="uppercase text-[11px] block text-skin-muted font-normal leading-5">
-            {/* {t('text-payment-method')}: */}
             СПОСОБ ОПЛАТЫ :
           </span>
-          {/* {data?.payment_gateway} */}
-          Оплата по СБП.
+          {data?.payType === 0 ? "Оплата по Банковской карте" : "Оплата по СБП"}
+
         </li>
       </ul>
+      {data?.payStatus === 1 ? (
+        <p className="text-skin-base text-sm md:text-base mb-8">
+          <a href={data?.payURL} className="text-blue-600 hover:text-blue-600">
+            Чек оплаты
+          </a>
+        </p>
+      ) : (
+        <p className="text-skin-base text-sm md:text-base mb-8">
+          Ссылка на оплату :&nbsp;
+          <a href={data?.payURL} className="text-blue-600 hover:text-blue-600">
+            Перейти к оплате!
+          </a>
+        </p>
+      )}
 
       <p className="text-skin-base text-sm md:text-base mb-8">
-        {/* {t('text-pay-cash')} */}
-          Статус оплаты: Оплата не прошла !
+        Статус оплаты :&nbsp;
+        <span className={data?.payStatus === 1 ? "text-green-600" : "text-red-600"}>
+          {data?.payStatus === 1 ? "Оплата выполнена!" : "Оплата не прошла!"}
+        </span>
       </p>
 
-      <OrderDetails />
+      <OrderDetails orderi={data}/>
     </div>
   );
-}
+})
+
+export default OrderInformation;
+

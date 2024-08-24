@@ -11,8 +11,11 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import timezone from 'dayjs/plugin/timezone';
 import { GrNext, GrPrevious } from 'react-icons/gr';
 import { BsSearch } from 'react-icons/bs';
+import {observer} from "mobx-react";
+import { format } from 'date-fns';
+import { ru } from 'date-fns/locale';
 
-export const CreatedAt: React.FC<{ createdAt?: any }> = ({ createdAt }) => {
+export const CreatedAt: React.FC<{ createdAt?: any }> = observer(({ createdAt }) => {
   dayjs.extend(relativeTime);
   dayjs.extend(utc);
   dayjs.extend(timezone);
@@ -21,9 +24,9 @@ export const CreatedAt: React.FC<{ createdAt?: any }> = ({ createdAt }) => {
       {dayjs.utc(createdAt).tz(dayjs.tz.guess()).fromNow()}
     </span>
   );
-};
+});
 
-export const Status: React.FC<{ item?: any }> = ({ item }) => {
+export const Status: React.FC<{ item?: any }> = observer(({ item }) => {
   return (
     <span className={item?.status?.name?.replace(/\s/g, '_').toLowerCase()}>
       <span
@@ -33,14 +36,27 @@ export const Status: React.FC<{ item?: any }> = ({ item }) => {
       {item?.status?.name}
     </span>
   );
-};
+});
 
+
+export const formatDate = (dateString: any) => {
+  if (!dateString) {
+    return "Неизвестная дата"; // Можете вернуть значение по умолчанию или пустую строку
+  }
+
+  const date = new Date(dateString);
+  if (isNaN(date.getTime())) {
+    return "Неверная дата"; // На случай, если дата не может быть распознана
+  }
+
+  return format(date, "d MMMM yyyy", { locale: ru });
+}
 
 const columns = [
   {
     title: 'Номер заказа',
-    dataIndex: 'tracking_number',
-    key: 'tracking_number',
+    dataIndex: 'id',
+    key: 'id',
     className: 'id-cell',
   },
   {
@@ -50,18 +66,24 @@ const columns = [
     render: function createdAt(items: any) {
       return <CreatedAt createdAt={items} />;
     },
+    // render: (created_at: any) => {
+    //   return formatDate(created_at);
+    // },
   },
-  {
-    title: 'Статус',
-    key: 'status',
-    render: function status(item: any) {
-      return <Status item={item} />;
-    },
-  },
+  // {
+  //   title: 'Статус',
+  //   key: 'status',
+  //   render: function status(item: any) {
+  //     return <Status item={item} />;
+  //   },
+  // },
   {
     title: 'Дата доставки',
-    dataIndex: 'delivery_time',
-    key: 'delivery_time',
+    dataIndex: 'updated_at',
+    key: 'updated_at',
+    render: (updated_at: any) => {
+      return formatDate(updated_at);
+    },
   },
   {
     title: 'Цена',
@@ -80,11 +102,17 @@ const columns = [
   },
 ];
 
-const OrderTable: React.FC<{ orders?: any }> = ({ orders }) => {
+const OrderTable: React.FC<{ orders?: any }> = observer(({ orders }) => {
+
   const [currentPage, setCurrentPage] = useState(1);
   const [value, setValue] = useState('');
   const countPerPage = 5;
-  let [filterData, setDataValue] = useState(orders.slice(0, countPerPage));
+  
+  let reversedOrders = orders ? [...orders].reverse() : [];
+
+  let [filterData, setDataValue] = useState(reversedOrders?.slice(0, countPerPage));
+
+
 
   const updatePage = (p: any) => {
     setCurrentPage(p);
@@ -93,21 +121,23 @@ const OrderTable: React.FC<{ orders?: any }> = ({ orders }) => {
     setDataValue(orders.slice(from, to));
   };
 
-  const onChangeSearch = (e: any) => {
-    setCurrentPage(1);
-    let filter: any = orders
-      .filter((item: any) =>
-        item.tracking_number
-          .toLowerCase()
-          .includes(e.target.value.toLowerCase())
-      )
-      .slice(0, countPerPage);
-    setValue(e.target.value);
-    if (!e.target.value) {
-      updatePage(1);
-    }
-    setDataValue(filter);
-  };
+  // const onChangeSearch = (e: any) => {
+  //   setCurrentPage(1);
+  //   let filter: any = orders
+  //     .filter((item: any) =>
+  //     toString(item.id)
+  //     // item.tracking_number
+  //     .toLowerCase()
+  //         .includes(e.target.value.toLowerCase())
+  //     )
+  //     .slice(0, countPerPage);
+  //   setValue(e.target.value);
+  //   if (!e.target.value) {
+  //     updatePage(1);
+  //   }
+  //   setDataValue(filter);
+  // };
+
   const onSubmitHandle = (e: any) => {
     e.preventDefault();
   };
@@ -118,7 +148,7 @@ const OrderTable: React.FC<{ orders?: any }> = ({ orders }) => {
         <h2 className="font-semibold text-sm md:text-xl text-skin-base mb-4 md:mb-0">
           Список моих заказов
         </h2>
-        <form onSubmit={onSubmitHandle} className="relative">
+        {/* <form onSubmit={onSubmitHandle} className="relative">
           <span className="absolute end-3 top-[80%] transform -translate-y-1/2 order-icon-color">
             <BsSearch size={19} />
           </span>
@@ -130,7 +160,7 @@ const OrderTable: React.FC<{ orders?: any }> = ({ orders }) => {
             placeholder="Поиск по номеру заказа"
             inputClassName=" h-[46px] w-full placeholder-[rgba(0, 0, 0, .3)] bg-white border border-[#E3E8EC] rounded-md order-search focus:border-2 focus:outline-none focus:border-skin-primary"
           />
-        </form>
+        </form> */}
       </div>
       <div className="order-list-table-wraper">
         <Table
@@ -155,6 +185,6 @@ const OrderTable: React.FC<{ orders?: any }> = ({ orders }) => {
       )}
     </>
   );
-};
+});
 
 export default OrderTable;

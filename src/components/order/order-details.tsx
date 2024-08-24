@@ -5,55 +5,76 @@ import { OrderItem } from '@/framework/basic-rest/types';
 import { useSearchParams } from 'next/navigation';
 import { useTranslation } from 'next-i18next';
 import Heading from '@/components/ui/heading';
+import { IDataGetOrderByIdRes, OrderByIdProduct } from '@/types/Auth/auth.dtos';
+import {observer} from "mobx-react";
+import { useStore } from '@/hooks/useStore';
 
 
-const OrderItemCard = ({ product }: { product: OrderItem }) => {
-  const { price: itemTotal } = usePrice({
-    amount: product.price * product.quantity,
-    currencyCode: 'RUB',
-  });
+
+const OrderItemCard = observer(({ product }: { product: OrderByIdProduct }) => {
+
+
+  const store = useStore();
+  const userStore = store.auth;
+
+
+  const itemTotalPrice = Number(product?.cost) * product.count;
+
+  // const { price: itemTotal } = usePrice({
+  //   amount: product.cost * product.count,
+  //   currencyCode: 'RUB',
+  // });
   return (
     <tr
       className="border-b font-normal border-skin-base last:border-b-0"
       key={product.id}
     >
       <td className="p-4">
-        {product.name} * {product.quantity}
+        {product.name} * {product.count}
       </td>
-      <td className="p-4">{itemTotal}</td>
+      <td className="p-4 text-end">{itemTotalPrice}</td>
     </tr>
   );
-};
-const OrderDetails: React.FC<{ className?: string }> = ({
+});
+
+
+const OrderDetails: React.FC<{ orderi: IDataGetOrderByIdRes,className?: string }> = observer(({
   className = 'pt-10 lg:pt-12',
+  orderi
 }) => {
+
+  const store = useStore();
+  const userStore = store.auth;
+
+  console.log(orderi,'orderorderorder')
+  
   const { t } = useTranslation('common');
 
   const searchParams = useSearchParams();
   const id = searchParams.get('id');
 
-  const { data: order, isLoading } = useOrderQuery(id?.toString()!);
-  const { price: subtotal } = usePrice(
-    order && {
-      amount: order.total,
-      currencyCode: 'RUB',
-    }
-  );
-  const { price: total } = usePrice(
-    order && {
-      amount: order.shipping_fee
-        ? order.total + order.shipping_fee
-        : order.total,
-      currencyCode: 'RUB',
-    }
-  );
-  const { price: shipping } = usePrice(
-    order && {
-      amount: order.shipping_fee,
-      currencyCode: 'RUB',
-    }
-  );
-  if (isLoading) return <p>Loading...</p>;
+  // const { data: order, isLoading } = useOrderQuery(id?.toString()!);
+  // const { price: subtotal } = usePrice(
+  //   order && {
+  //     amount: order.total,
+  //     currencyCode: 'RUB',
+  //   }
+  // );
+  // const { price: total } = usePrice(
+  //   order && {
+  //     amount: order.shipping_fee
+  //       ? order.total + order.shipping_fee
+  //       : order.total,
+  //     currencyCode: 'RUB',
+  //   }
+  // );
+  // const { price: shipping } = usePrice(
+  //   order && {
+  //     amount: order.shipping_fee,
+  //     currencyCode: 'RUB',
+  //   }
+  // );
+  if (userStore.isLoading) return <p>Loading...</p>;
 
   return (
     <div className={className}>
@@ -68,14 +89,14 @@ const OrderDetails: React.FC<{ className?: string }> = ({
               {/* {t('text-product')} */}
               Продукт
             </th>
-            <th className="bg-skin-secondary p-4 text-start last:rounded-te-md w-1/2">
+            <th className="bg-skin-secondary p-4 text-end last:rounded-te-md w-1/2">
               {/* {t('text-total')} */}
               Итог
             </th>
           </tr>
         </thead>
         <tbody>
-          {order?.products.map((product, index) => (
+          {orderi?.products.map((product, index) => (
             <OrderItemCard key={index} product={product} />
           ))}
         </tbody>
@@ -85,14 +106,42 @@ const OrderDetails: React.FC<{ className?: string }> = ({
               {/* {t('text-sub-total')}: */}
               Промежуточный итог :
             </td>
-            <td className="p-4">{subtotal}</td>
+            <td className="p-4 text-end">{orderi?.totalCost}</td>
+          </tr>
+
+
+
+
+
+          <tr className="odd:bg-skin-secondary">
+            <td className="p-4 italic">
+              {/* {t('text-shipping')}: */}
+              Дата и время доставки :
+            </td>
+            <td className="p-4 text-end">
+              30 августа 2024г. в 16:00
+            </td>
           </tr>
           <tr className="odd:bg-skin-secondary">
             <td className="p-4 italic">
               {/* {t('text-shipping')}: */}
-              Доставка :
+              Адрес доставки :
             </td>
-            <td className="p-4">
+            <td className="p-4 text-end">
+              г. Москва, ул. Ясная д.3, кв. 62
+            </td>
+          </tr>
+
+
+
+
+
+          <tr className="odd:bg-skin-secondary">
+            <td className="p-4 italic">
+              {/* {t('text-shipping')}: */}
+              Цена доставки :
+            </td>
+            <td className="p-4 text-end">
               {/* {shipping} */}450 ₽
               <span className="text-[13px] font-normal ps-1.5 inline-block">
                 по фиксированной ставке
@@ -101,35 +150,28 @@ const OrderDetails: React.FC<{ className?: string }> = ({
           </tr>
           <tr className="odd:bg-skin-secondary">
             <td className="p-4 italic">
-              {/* {t('text-payment-method')}: */}
-              Способ оплаты :
-            </td>
-            <td className="p-4">
-              {/* {order?.payment_gateway} */}
-              Оплата по СБП
-              </td>
-          </tr>
-          <tr className="odd:bg-skin-secondary">
-            <td className="p-4 italic">
               {/* {t('text-total')}: */}
-              Общий :
+              Общий итог с учетом доставки :
             </td>
-            <td className="p-4">{total}</td>
+            <td className="p-4 text-end">{orderi?.totalCost}</td>
           </tr>
           <tr className="odd:bg-skin-secondary">
             <td className="p-4 italic">
               {/* {t('text-note')}: */}
               Комментарий :
             </td>
-            <td className="p-4">
-              {/* {t('text-new-order')} */}
-              новый заказ
+            <td className="p-4 text-end">
+              {orderi?.description ? (
+                orderi.description
+              ) : (
+                <i className="text-red-600 italic">*Без комментариев*</i>
+              )}
             </td>
           </tr>
         </tfoot>
       </table>
     </div>
   );
-};
+});
 
 export default OrderDetails;

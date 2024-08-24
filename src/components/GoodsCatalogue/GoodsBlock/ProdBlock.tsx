@@ -18,6 +18,8 @@ type ProdBlockProps = {
 };
 
 export const ProdBlock: React.FC<ProdBlockProps> = observer(({ product }) => {
+  
+  console.log(product.discount,'productsproductsproductsproductsproducts')
 
   const store = useStore();
   const productStore = store.product
