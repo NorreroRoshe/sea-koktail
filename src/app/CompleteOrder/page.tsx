@@ -7,7 +7,7 @@ import Divider from '@/components/ui/divider';
 import { useEffect } from 'react';
 import { useCart } from '@/contexts/cart/cart.context';
 import {observer} from "mobx-react";
-import NotFoundBlock from "@/components/NotFoundBlock";
+import NotAuthBlock from "@/components/NotFoundBlock/notauthblock";
 import { useStore } from '@/hooks/useStore';
 
 const Order = observer(() => {
@@ -15,7 +15,7 @@ const Order = observer(() => {
   const authStore = store.auth;
 
   if (!authStore.isAuth) {
-    return <NotFoundBlock />;
+    return <NotAuthBlock />;
   }
   return (
     <>

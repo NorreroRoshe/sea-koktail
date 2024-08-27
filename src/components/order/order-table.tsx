@@ -110,7 +110,7 @@ const OrderTable: React.FC<{ orders?: any }> = observer(({ orders }) => {
   
   let reversedOrders = orders ? [...orders].reverse() : [];
 
-  let [filterData, setDataValue] = useState(reversedOrders?.slice(0, countPerPage));
+  let [filterData, setDataValue] = useState(orders?.slice(0, countPerPage));
 
 
 
@@ -183,6 +183,8 @@ const OrderTable: React.FC<{ orders?: any }> = observer(({ orders }) => {
           />
         </div>
       )}
+
+
     </>
   );
 });

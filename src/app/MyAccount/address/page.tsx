@@ -1,8 +1,7 @@
 "use client"
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import AccountLayout from '@/components/my-account/account-layout';
 import AddressGrid from '@/components/address/address-grid';
-import { useAddressQuery } from '@/framework/basic-rest/address/address';
 import { observer } from "mobx-react";
 import NotFoundBlock from "@/components/NotFoundBlock";
 import { useStore } from '@/hooks/useStore';

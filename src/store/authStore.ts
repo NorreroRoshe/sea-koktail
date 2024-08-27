@@ -1,6 +1,6 @@
 "use client"
 import AuthService from '@/api/Auth/AuthService';
-import { OrderByIdProduct, IOrderAll, IGetUserOrdersReq, IDataGetOrderByIdReq, IAddAddressReq, IScheduleData, IAddressFormat, IPhoneFormat, IDeleteAddressReq, IEditAddressReq, IConfirmReq, IGetUserDetailsReq, IPasswodForgotReq, IPasswordResetReq, IPutUserDetailsReq, IResendConfirmReq, ISingInReq, ISingUpReq, IAddPhoneReq, IEditPhoneReq, IDataOrderReq } from '@/types/Auth/auth.dtos';
+import { IRemoveOrderByIdReq, OrderByIdProduct, IChangeOrderStatusByIdReq, IOrderAll, IGetUserOrdersReq, IDataGetOrderByIdReq, IAddAddressReq, IScheduleData, IAddressFormat, IPhoneFormat, IDeleteAddressReq, IEditAddressReq, IConfirmReq, IGetUserDetailsReq, IPasswodForgotReq, IPasswordResetReq, IPutUserDetailsReq, IResendConfirmReq, ISingInReq, ISingUpReq, IAddPhoneReq, IEditPhoneReq, IDataOrderReq } from '@/types/Auth/auth.dtos';
 import { IAuthStore } from '@/types/Stores/IAuthStore';
 import { makeAutoObservable } from 'mobx';
 import {cookies} from 'next/headers';
@@ -21,7 +21,8 @@ export class AuthStore implements IAuthStore {
   orderByIdProduct: OrderByIdProduct[] = [];
   orderTotalCount: number = 0;
   ordersAll: IOrderAll[] = [];
-
+  allOrdersTotalCost: number = 0;
+  salePercent: string = '';
   deliveryType: number = 0;
   dayType: number = 0;
   address: string = '';
@@ -257,7 +258,7 @@ export class AuthStore implements IAuthStore {
     const response = await AuthService.dataOrder({data});
 
     if ('data' in response) {
-      // this.orderId = response?.data?.orderId ?? 0;
+      this.orderId = response?.data?.orderId ?? 0;
     }
       this.isLoading = false;
     return response;
@@ -266,7 +267,6 @@ export class AuthStore implements IAuthStore {
   async dataGetOrderById(data: IDataGetOrderByIdReq ) {
     this.isLoading = true;
     const response = await AuthService.dataGetOrderById({data});
-    console.log(response.data.products,'productsOPDER')
 
     if ('data' in response) {
       this.orderId = response?.data?.orderId ?? 0;
@@ -284,13 +284,37 @@ export class AuthStore implements IAuthStore {
 
     if ('data' in response) {
       this.orderTotalCount = response?.data?.orderTotalCount ?? 0;
+      this.allOrdersTotalCost = response?.data?.allOrdersTotalCost ?? 0;
+      this.salePercent = response?.data?.salePercent ?? '';
       this.ordersAll = response.data?.orders ?? [];
     }
 
       this.isLoading = false;
     return response;
   }
+
+  async changeOrderStatusById(data: IChangeOrderStatusByIdReq) {
+    this.isLoading = true;
+    const response = await AuthService.changeOrderStatusById({data});
+
+    if ('data' in response) {
+      // this.orderTotalCount = response?.data?.orderTotalCount ?? 0;
+    }
+
+      this.isLoading = false;
+    return response;
+  }
   
+
+
+  async removeOrderById(data: IRemoveOrderByIdReq) {
+    this.isLoading = true;
+    const response = await AuthService.removeOrderById({data});
+    this.isLoading = false;
+  return response;
+}
+
+
   setAddress(address: string) {
     this.address = address;
   }

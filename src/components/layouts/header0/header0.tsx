@@ -83,9 +83,9 @@ const Header0: React.FC<Header0Props> = observer(({setSearchBigVisible, searchBi
     }
   }, [isAuth]);
 
-  useEffect(() => {
-    authStore.refreshToken();
-  }, []);
+  // useEffect(() => {
+  //   authStore.refreshToken();
+  // }, []);
 
 
   useActiveScroll(siteHeaderRef, 40);

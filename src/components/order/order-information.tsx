@@ -9,6 +9,7 @@ import { useTranslation } from 'next-i18next';
 import {observer} from "mobx-react";
 import { useStore } from '@/hooks/useStore';
 import { format } from 'date-fns';
+import NotFoundOrder from "@/components/NotFoundBlock/notFoundOrder";
 import { ru } from 'date-fns/locale';
 
 
@@ -17,6 +18,7 @@ const OrderInformation = observer(() => {
   const [{ data }, setState] = useState<any>([]); //дата не всегда заполнялась , просто влязи стейт и засунули в него ответ с сервером
 
 
+  const [orderError, setOrderError] = useState<boolean>(false);
 
 
 
@@ -36,23 +38,54 @@ const OrderInformation = observer(() => {
     }
   );
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const id = Number(searchParams.get('order_id'));
+  //       if (id) {
+  //         const response = await userStore.dataGetOrderById({
+  //           orderId: id,
+  //         });
+  //         setState(response as any);
+  //       }
+  //     } catch (error) {
+  //       console.error('Ошибка при получении данных:', error);
+  //     }
+  //   };
+
+  //   fetchData();
+
+  // }, []);
+
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
         const id = Number(searchParams.get('order_id'));
-        if (id) {
-          const response = await userStore.dataGetOrderById({
-            orderId: id,
-          });
-          setState(response as any);
+        // Выполняем первый запрос
+        const statusResponse = await userStore.changeOrderStatusById({
+          orderId: id,
+        });
+        if (statusResponse?.data?.message === "Запрос выполнен успешно") {
+          // Если статус запроса успешен, выполняем остальные запросы
+          if (id) {
+            const response = await userStore.dataGetOrderById({
+              orderId: id,
+            });
+            setState(response as any);
+          }
+        }
+        if (statusResponse?.message === "Заказ не найден") {
+          setOrderError(true)
+        } else {
+          console.error('Ошибка при изменении статуса заказа:', statusResponse?.message);
         }
       } catch (error) {
-        console.error('Ошибка при получении данных:', error);
+        console.error('Ошибка при выполнении запросов:', error);
       }
     };
 
     fetchData();
-
   }, []);
 
 
@@ -67,6 +100,11 @@ const OrderInformation = observer(() => {
     }
   
     return format(date, "d MMMM yyyy", { locale: ru });
+  }
+
+
+  if (orderError) {
+    return <NotFoundOrder />;
   }
 
   if (userStore.isLoading) return <p>Loading...</p>;

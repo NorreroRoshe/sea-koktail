@@ -12,7 +12,7 @@ const OrdersTablePage = observer(() => {
   
   useEffect(() => {
     const fetchData = async () => {
-      await authStore.getUserOrders({})
+      await authStore.getUserOrders({orderCount: 100})
     };
 
     fetchData();
@@ -22,7 +22,7 @@ const OrdersTablePage = observer(() => {
   const orders = authStore.ordersAll;
 
 
-  console.log(authStore.orderTotalCount,'orderIdOPDER')
+  console.log(authStore.ordersAll,'orderIdOPDER')
 
   
   if (!authStore.isAuth) {
@@ -32,7 +32,30 @@ const OrdersTablePage = observer(() => {
   return (
     <AccountLayout>
       {!authStore.isLoading ? (
-        <OrderTable orders={orders} />
+        <>
+          <OrderTable orders={orders} />
+          
+          <p className="font-semibold text-sm md:text-xl text-skin-base mb-4 md:mb-0">
+            Ваша скидка состовляет: {authStore?.salePercent}
+            <br/>
+            Сумма покупки за все время: {authStore?.allOrdersTotalCost} ₽
+          </p>
+            <br/>
+            <br/>
+          <h2 className="font-semibold text-sm md:text-xl text-skin-base mb-4 md:mb-0">
+            *****Система скидок*****
+          </h2>
+
+          <p className="font-semibold text-sm md:text-xl text-skin-base mb-4 md:mb-0">
+            3% накопительные балы с любой суммы (при регистрации)
+            <br/>
+            5%, при покупке свыше 10тыс.
+            <br/>
+            7% при покупке свыше 25тыс
+            <br/>
+            10% при покупке от 100тыс.
+          </p>
+        </>
       ) : (
         <div>Loading...</div>
       )}

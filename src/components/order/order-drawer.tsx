@@ -11,6 +11,8 @@ import {
 } from '@/components/order/price';
 import { useUI } from '@/contexts/ui.context';
 import { useStore } from '@/hooks/useStore';
+import { format } from 'date-fns';
+import { ru } from 'date-fns/locale';
 
 const OrderDrawer: React.FC = () => {
   const { data, closeDrawer } = useUI();
@@ -26,6 +28,9 @@ const OrderDrawer: React.FC = () => {
       try {
         const id = data.id;
         if (id) {
+          await userStore.changeOrderStatusById({
+            orderId: id,
+          });
           const response = await userStore.dataGetOrderById({
             orderId: id,
           });
@@ -38,18 +43,37 @@ const OrderDrawer: React.FC = () => {
 
     fetchData();
 
-  }, []);
+  }, [data.id]);
 
-
-  
-
-
+  const onClickRemovePhone = async () => {
+    const id = data.id;
+    if (window.confirm('Вы действительно хотите удалить данный заказ ?')) {
+      await userStore.removeOrderById({orderId: id });
+      await closeDrawer();
+      await userStore.getUserOrders({orderCount: 100})
+      // await userStore.dataGetOrderById({ orderId: id });
+    }
+  };
   
   const onClose = () => {
     return closeDrawer();
   };
 
   // let { shipping_address } = data;
+
+  let formattedDate = "Дата не указана";
+
+  if (data?.dateTime) {
+    try {
+      const date = new Date(data.dateTime);
+
+      if (!isNaN(date.getTime())) {
+        formattedDate = format(date, "d MMMM yyyy 'г.' 'в' HH:mm", { locale: ru });
+      }
+    } catch (error) {
+      console.error("Error formatting date:", error);
+    }
+  }
 
   return (
     <>
@@ -58,12 +82,15 @@ const OrderDrawer: React.FC = () => {
           <div className="p-8">
             <h2 className="text-xl font-semibold mb-8">Детали заказа</h2>
             <div className="text-[14px] opacity-70 mb-3 text-skin-base">
-              Адрес заказа
+              Адрес,дата и время доставки:
             </div>
             <div className="rounded border border-solid min-h-[90px] bg-skin-two p-4 border-skin-two text-[12px] md:text-[14px]">
               <p className="text-skin-base opacity-70">
                 {/* {formatAddress(data?.address)} */}
                 {data?.address}
+                <br/>
+                <br/>
+                {formattedDate}
               </p>
             </div>
             {/* <OrderStatus status={data?.status?.serial} /> */}
@@ -113,18 +140,25 @@ const OrderDrawer: React.FC = () => {
                 </p>
               </div>
             </div>
-            <div className="text-end mt-12">
+            <p style={{fontSize: '12px', fontStyle: 'italic'}} className="text-end mt-12">
+              *Вы можете отменить заказ пока вы не произвели оплату по данному заказу
+            </p>
+            <div className="text-end mt-5">
               <span
                 onClick={onClose}
                 className="py-3 px-5 cursor-pointer inline-block text-[12px] md:text-[14px] text-black font-700 bg-white rounded border border-solid border-[#DEE5EA] me-4 hover:bg-[#F35C5C] hover:text-white hover:border-[#F35C5C] transition-all capitalize"
               >
                 Закрыть заказ
               </span>
-              <span
-                className="py-3 px-5 cursor-pointer inline-block text-[12px] md:text-[14px] text-white font-700 bg-[#F35C5C] rounded border border-solid border-[#F35C5C]  hover:bg-white hover:text-black hover:border-[#DEE5EA] transition-all capitalize"
-              >
-                Отменить заказ
-              </span>
+              {data.payStatus === 0 && (
+                <span
+                  onClick={() => onClickRemovePhone()}
+                  className="py-3 px-5 cursor-pointer inline-block text-[12px] md:text-[14px] text-white font-700 bg-[#F35C5C] rounded border border-solid border-[#F35C5C]  hover:bg-white hover:text-black hover:border-[#DEE5EA] transition-all capitalize"
+                >
+                  Отменить заказ
+                </span>
+              )}
+
             </div>
           </div>
         </>

@@ -8,7 +8,8 @@ import Heading from '@/components/ui/heading';
 import { IDataGetOrderByIdRes, OrderByIdProduct } from '@/types/Auth/auth.dtos';
 import {observer} from "mobx-react";
 import { useStore } from '@/hooks/useStore';
-
+import { format } from 'date-fns';
+import { ru } from 'date-fns/locale';
 
 
 const OrderItemCard = observer(({ product }: { product: OrderByIdProduct }) => {
@@ -20,10 +21,10 @@ const OrderItemCard = observer(({ product }: { product: OrderByIdProduct }) => {
 
   const itemTotalPrice = Number(product?.cost) * product.count;
 
-  // const { price: itemTotal } = usePrice({
-  //   amount: product.cost * product.count,
-  //   currencyCode: 'RUB',
-  // });
+  const { price: itemTotal } = usePrice({
+    amount: Number(product?.cost) * product.count,
+    currencyCode: 'RUB',
+  });
   return (
     <tr
       className="border-b font-normal border-skin-base last:border-b-0"
@@ -32,7 +33,7 @@ const OrderItemCard = observer(({ product }: { product: OrderByIdProduct }) => {
       <td className="p-4">
         {product.name} * {product.count}
       </td>
-      <td className="p-4 text-end">{itemTotalPrice}</td>
+      <td className="p-4 text-end">{itemTotalPrice} ₽</td>
     </tr>
   );
 });
@@ -74,23 +75,35 @@ const OrderDetails: React.FC<{ orderi: IDataGetOrderByIdRes,className?: string }
   //     currencyCode: 'RUB',
   //   }
   // );
+
+  let formattedDate = "Дата не указана";
+
+  if (orderi?.dateTime) {
+    try {
+      const date = new Date(orderi.dateTime);
+
+      if (!isNaN(date.getTime())) {
+        formattedDate = format(date, "d MMMM yyyy 'г.' 'в' HH:mm", { locale: ru });
+      }
+    } catch (error) {
+      console.error("Error formatting date:", error);
+    }
+  }
+
   if (userStore.isLoading) return <p>Loading...</p>;
 
   return (
     <div className={className}>
       <Heading variant="heading" className="mb-6 xl:mb-7">
-        {/* {t('text-order-details')}: */}
         Детали заказа:
       </Heading>
       <table className="w-full text-skin-base font-semibold text-sm lg:text-base">
         <thead>
           <tr>
             <th className="bg-skin-secondary p-4 text-start first:rounded-ts-md w-1/2">
-              {/* {t('text-product')} */}
               Продукт
             </th>
             <th className="bg-skin-secondary p-4 text-end last:rounded-te-md w-1/2">
-              {/* {t('text-total')} */}
               Итог
             </th>
           </tr>
@@ -106,7 +119,7 @@ const OrderDetails: React.FC<{ orderi: IDataGetOrderByIdRes,className?: string }
               {/* {t('text-sub-total')}: */}
               Промежуточный итог :
             </td>
-            <td className="p-4 text-end">{orderi?.totalCost}</td>
+            <td className="p-4 text-end">{orderi?.totalCost} ₽</td>
           </tr>
 
 
@@ -115,20 +128,18 @@ const OrderDetails: React.FC<{ orderi: IDataGetOrderByIdRes,className?: string }
 
           <tr className="odd:bg-skin-secondary">
             <td className="p-4 italic">
-              {/* {t('text-shipping')}: */}
               Дата и время доставки :
             </td>
             <td className="p-4 text-end">
-              30 августа 2024г. в 16:00
+              {formattedDate}
             </td>
           </tr>
           <tr className="odd:bg-skin-secondary">
             <td className="p-4 italic">
-              {/* {t('text-shipping')}: */}
               Адрес доставки :
             </td>
             <td className="p-4 text-end">
-              г. Москва, ул. Ясная д.3, кв. 62
+              {orderi?.address}
             </td>
           </tr>
 
@@ -138,7 +149,6 @@ const OrderDetails: React.FC<{ orderi: IDataGetOrderByIdRes,className?: string }
 
           <tr className="odd:bg-skin-secondary">
             <td className="p-4 italic">
-              {/* {t('text-shipping')}: */}
               Цена доставки :
             </td>
             <td className="p-4 text-end">
@@ -150,14 +160,12 @@ const OrderDetails: React.FC<{ orderi: IDataGetOrderByIdRes,className?: string }
           </tr>
           <tr className="odd:bg-skin-secondary">
             <td className="p-4 italic">
-              {/* {t('text-total')}: */}
               Общий итог с учетом доставки :
             </td>
-            <td className="p-4 text-end">{orderi?.totalCost}</td>
+            <td className="p-4 text-end">{orderi?.totalCost} ₽</td>
           </tr>
           <tr className="odd:bg-skin-secondary">
             <td className="p-4 italic">
-              {/* {t('text-note')}: */}
               Комментарий :
             </td>
             <td className="p-4 text-end">

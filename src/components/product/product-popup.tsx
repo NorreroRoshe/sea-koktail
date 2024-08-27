@@ -209,7 +209,7 @@ const ProductPopup: React.FC<ProductPopupProps> = observer(({ popupProduct }) =>
                                 color: '#6bb431',
                               }}
                             >
-                              {popupProduct.availability} шт.
+                              {popupProduct.availability} {popupProduct.unit}
                             </span>
                           </div>
                         ) : (

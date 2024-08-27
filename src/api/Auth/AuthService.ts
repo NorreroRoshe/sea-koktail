@@ -1,7 +1,7 @@
 "use client"
 import makeRequest from '@/api/makeRequest';
 import makeRequestMap from '@/api/makeRequestMap';
-import { IGetUserOrdersReq, IGetUserOrdersRes,IDataGetOrderByIdReq, IDataGetOrderByIdRes, IConfirmRes, IScheduleData, IDataOrderReq, IDataOrderRes, IConfirmReq, IGetUserDetailsReq, IGetUserDetailsRes, IPasswodForgotReq, IPasswodForgotRes, IPasswordResetReq, IPasswordResetRes, IPutUserDetailsReq, IAddAddressReq, IGetAddressRes, IGetPhoneRes, IAddPhoneReq, IEditPhoneReq, IResendConfirmReq, IResendConfirmRes, ISingInReq, ISingInRes, ISingUpReq, ISingUpRes, IDeleteAddressReq, IEditAddressReq, IGetYandexListRes } from '@/types/Auth/auth.dtos';
+import { IRemoveOrderByIdReq, IGetUserOrdersReq, IChangeOrderStatusByIdReq, IGetUserOrdersRes,IDataGetOrderByIdReq, IDataGetOrderByIdRes, IConfirmRes, IScheduleData, IDataOrderReq, IDataOrderRes, IConfirmReq, IGetUserDetailsReq, IGetUserDetailsRes, IPasswodForgotReq, IPasswodForgotRes, IPasswordResetReq, IPasswordResetRes, IPutUserDetailsReq, IAddAddressReq, IGetAddressRes, IGetPhoneRes, IAddPhoneReq, IEditPhoneReq, IResendConfirmReq, IResendConfirmRes, ISingInReq, ISingInRes, ISingUpReq, ISingUpRes, IDeleteAddressReq, IEditAddressReq, IGetYandexListRes } from '@/types/Auth/auth.dtos';
 // import {ProductsResponse} from "@/types/types";
 import {AxiosResponse} from "axios";
 import Cookies from 'js-cookie';
@@ -150,6 +150,7 @@ class AuthService {
       }
     });
   };
+
   editUserPhone({data} :
     {data: IEditPhoneReq}) {
     return makeRequest<void>({
@@ -197,7 +198,16 @@ class AuthService {
     return makeRequest<IGetUserOrdersRes>({
       url: "/order/all",
       method: "GET",
-      data: data,
+      params: data,
+    });
+  };
+
+  changeOrderStatusById({data} :
+    {data: IChangeOrderStatusByIdReq}) {
+    return makeRequest<void>({
+      url: "/order/status",
+      method: "GET",
+      params: data,
     });
   };
 
@@ -206,7 +216,14 @@ class AuthService {
 
 
 
-
+  removeOrderById({data} :
+    {data: IRemoveOrderByIdReq}) {
+    return makeRequest<void>({
+      url: "/order/removebyid",
+      method: "GET",
+      params: data,
+    });
+  };
 
 
 

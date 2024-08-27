@@ -201,7 +201,7 @@ export const ProductInd: React.FC<ProductInfoProps> = observer(({ detProduct }) 
                         color: '#6bb431',
                       }}
                     >
-                      {detProduct.availability} шт.
+                      {detProduct.availability} {detProduct.unit}
                     </span>
                   </div>
                 ) : (

@@ -19,7 +19,7 @@ import { AuthStore } from '@/store/authStore';
 import { ISingInReq, IResendConfirmReq } from '@/types/Auth/auth.dtos';
 import { useStore } from '@/hooks/useStore';
 import { useRouter } from "next/navigation";
-
+import { usePathname } from 'next/navigation';
 
 export interface LoginFormProps {
   isPopup?: boolean;
@@ -39,6 +39,8 @@ const LoginForm: React.FC<LoginFormProps> = ({ isPopup = true, className }) => {
   const [secEemailError, setSecEemailError] = useState<string | null>(null);
 
   const router = useRouter();
+
+  const pathname = usePathname();
 
   const [emailError, setEmailError] = useState<string | null>(null);
   const [passwordError, setPasswordError] = useState<string | null>(null);
@@ -66,7 +68,13 @@ const LoginForm: React.FC<LoginFormProps> = ({ isPopup = true, className }) => {
 
         if (!data?.message) {
           closeModal();
-          router.push('/MyAccount/account-settings');
+
+          if (pathname === '/CompleteOrder') {
+            router.refresh();
+          } else {
+            router.push('/MyAccount/account-settings');
+          }
+          // router.push('/MyAccount/account-settings');
         } else {
 
           if (data?.message === 'Неверный пароль') {

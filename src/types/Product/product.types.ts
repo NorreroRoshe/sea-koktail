@@ -28,6 +28,7 @@ export type Product = {
   nomNumber: string;
   productType: string;
   // products?: any;
+  unit: string;
   count?: number;
   attribute: Attribute[];
 };

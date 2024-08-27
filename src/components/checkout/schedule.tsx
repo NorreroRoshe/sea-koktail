@@ -13,6 +13,8 @@ const deliveryDateSchedule = [
   'Послезавтра'
 ];
 
+const deliveryTypeValues = [1, 2, 3]; // Добавьте это
+
 const Schedule: React.FC = observer(() => {
   const { t } = useTranslation('common');
 
@@ -57,12 +59,20 @@ const Schedule: React.FC = observer(() => {
   }
 
 
+  // useEffect(() => {
+  //   if (dateSchedule) {
+  //     const deliveryType = deliveryDateSchedule.indexOf(dateSchedule);
+  //     userStore.setDayType(deliveryType);
+  //   }
+  // }, [dateSchedule]);
+
   useEffect(() => {
     if (dateSchedule) {
-      const deliveryType = deliveryDateSchedule.indexOf(dateSchedule);
+      const deliveryType = deliveryTypeValues[deliveryDateSchedule.indexOf(dateSchedule)];
       userStore.setDayType(deliveryType);
     }
   }, [dateSchedule]);
+
 
   useEffect(() => {
     if (timeSchedule) {

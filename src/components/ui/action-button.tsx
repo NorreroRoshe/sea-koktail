@@ -3,15 +3,17 @@ import { BsThreeDots } from 'react-icons/bs';
 import { Popover, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 import { useUI } from '@/contexts/ui.context';
+import {observer} from "mobx-react";
 
-const ActionsButton: React.FC<{ item?: any }> = ({ item }) => {
+const ActionsButton: React.FC<{ item?: any }> =  observer(({ item }) => {
+
 
   const { openDrawer, setDrawerView } = useUI();
 
   function handleCartOpen(item: any) {
     setDrawerView('ORDER_DETAILS');
     return openDrawer(item);
-  }
+  }  
 
   return (
     <>
@@ -44,9 +46,9 @@ const ActionsButton: React.FC<{ item?: any }> = ({ item }) => {
                 >
                   Детали заказа
                 </div>
-                <div className="text-[14px] whitespace-nowrap text-[#F35C5C] py-2 px-5 hover:bg-[#F6F9FC] transition-all cursor-pointer">
+                {/* <div className="text-[14px] whitespace-nowrap text-[#F35C5C] py-2 px-5 hover:bg-[#F6F9FC] transition-all cursor-pointer">
                   Отменить заказ
-                </div>
+                </div> */}
               </Popover.Panel>
             </Transition>
           </>
@@ -54,6 +56,6 @@ const ActionsButton: React.FC<{ item?: any }> = ({ item }) => {
       </Popover>
     </>
   );
-};
+});
 
 export default ActionsButton;

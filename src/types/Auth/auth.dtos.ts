@@ -70,6 +70,17 @@ export interface IDataGetOrderByIdReq {
   orderId: number;
 }
 
+
+export interface IChangeOrderStatusByIdReq {
+  orderId: number;
+}
+
+
+export interface IRemoveOrderByIdReq {
+  orderId: number;
+}
+
+
 export interface IDataGetOrderByIdRes {
   orderId: number;
   formatedOrderId: string;
@@ -125,6 +136,8 @@ export interface IDataOrderProductsRes {
 export interface IGetUserOrdersRes {
   orders: IOrderAll[];
   orderTotalCount: number;
+  allOrdersTotalCost: number;
+  salePercent: string;
 }
 
 export interface IOrderAll {
