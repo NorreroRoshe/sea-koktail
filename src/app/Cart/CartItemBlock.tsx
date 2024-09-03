@@ -107,12 +107,12 @@ const CartItemBlock: React.FC<CIBProps> = observer(({
             <CartCounter id={id} count={count}/>
             <div className={cls.root_main_price}>
               {discount ? (
-              <span className={cls.price_discount}>{Math.round(count * price)} ₽.</span>
+              <span className={cls.price_discount}>{Math.round(count * price)}₽.</span>
               ):(<div style={{marginTop: '12px'}}></div>
               )}
               <span className={cls.price_desc}>
                 {Math.round(truePrice * count)}
-                <span> ₽</span>
+                <span>₽</span>
               </span>
             </div>
           </div>

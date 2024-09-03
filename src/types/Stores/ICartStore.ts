@@ -8,7 +8,9 @@ export interface ICartStore {
   totalDiscountPrice: number;
   cart: ICartLocalState;
   isLoading: boolean;
-  
+  saledPrice: number;
+  salePercent: string;
+
   addLocalItem: (localItemProd: string) => void;
   addItem: (addItemProd: CartItem) => void;
   deleteProductFromCart: (deleteProductFromCartProd: string) => void;

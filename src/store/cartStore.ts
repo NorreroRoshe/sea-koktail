@@ -39,6 +39,8 @@ export class CartStore implements ICartStore {
   totalCount: number = 0;
   totalDiscountPrice: number = 0;
   totalPrice: number = 0;
+  saledPrice: number = 0;
+  salePercent: string = '';
   cart: ICartLocalState = observable.array([]);
   isLoading: boolean = false;
 
@@ -46,6 +48,7 @@ export class CartStore implements ICartStore {
   constructor() {
     makeAutoObservable(this);
   }
+  
   addLocalItem(localItemProd: string) {
     const productId = localItemProd;
     const cart = this.cart;
@@ -132,6 +135,10 @@ export class CartStore implements ICartStore {
       this.cartItems = response.data.products?.map((product: CartItem) => ({
         ...product,
       }));
+      this.saledPrice = response?.data?.saledPrice ?? 0;
+      this.totalPrice = response?.data?.totalPrice ?? 0;
+      this.salePercent = response?.data?.salePercent ?? '';
+      
     }
     this.isLoading = false;
   };

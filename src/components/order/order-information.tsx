@@ -37,26 +37,6 @@ const OrderInformation = observer(() => {
       currencyCode: 'RUB',
     }
   );
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const id = Number(searchParams.get('order_id'));
-  //       if (id) {
-  //         const response = await userStore.dataGetOrderById({
-  //           orderId: id,
-  //         });
-  //         setState(response as any);
-  //       }
-  //     } catch (error) {
-  //       console.error('Ошибка при получении данных:', error);
-  //     }
-  //   };
-
-  //   fetchData();
-
-  // }, []);
-
   
   useEffect(() => {
     const fetchData = async () => {

@@ -1,8 +1,6 @@
 "use client"
 import makeRequest from '@/api/makeRequest';
 import { CartItem } from '@/types/Cart/cart.types';
-// import {ProductsResponse} from "@/types/types";
-import {AxiosResponse} from "axios";
 
 class CartService {
   getUserCart() {

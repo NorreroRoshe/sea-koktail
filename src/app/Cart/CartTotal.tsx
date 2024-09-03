@@ -98,31 +98,34 @@ const CartTotal: React.FC = observer(({ }) => {
   };
 
 
-  // console.log(userStore.address,'phoneError')
+  console.log(cartStore.salePercent,'cartStorsaledPrice')
 
 
 //проба
 
 
-console.log(userStore.orderId,'userStoreuserStore')
   
   return (
 
     <div className="CxtlU">
       <div>
-        <div className="v4slS">
+        {/* <div className="v4slS">
           <div className="TKSy2">Итого</div>
           <span className="ui-LD-ZU JVOui" data-testid="price">
-            {Math.round(totalDiscountPrice)}<span className="ui-i5wwi ui-VDyJR ui-VWOa-">руб.</span>
+            {cartStore?.saledPrice}
+            <span className="ui-i5wwi ui-VDyJR ui-VWOa-">руб.</span>
           </span>
-        </div>
-        {!(totalPrice === totalDiscountPrice) ? (
+        </div> */}
+        {/* {!(totalPrice === totalDiscountPrice) ? ( */}
           <div className="KTX0P">
             <div className="BsbQY">
+            <div className="TKSy2">Итого</div>
               <div className="AADop">
-                {totalCount} товара на сумму
+                {/* {totalCount}  */}
+                Товаров на сумму
                 <span className="ui-LD-ZU pkpSl" data-testid="price">
-                {totalPrice}<span className="ui-i5wwi ui-VDyJR ui-VWOa-">руб.</span>
+                {cartStore?.totalPrice}
+                <span className="ui-i5wwi ui-VDyJR ui-VWOa-">руб.</span>
                 </span>
               </div>
               <div className="AADop">
@@ -130,24 +133,33 @@ console.log(userStore.orderId,'userStoreuserStore')
                 <div className="b_Tvv">
                   <span>-</span>
                   <span className="ui-LD-ZU pkpSl" data-testid="price">
-                    {Math.round(truePrice)}<span className="ui-i5wwi ui-VDyJR ui-VWOa-">руб.</span>
+                    {cartStore?.salePercent}
                   </span>
                 </div>
               </div>
+              <div className="AADop">
+                {/* {totalCount}  */}
+                Итого со скидкой
+                <span className="ui-LD-ZU pkpSl" data-testid="price">
+                {cartStore?.saledPrice}
+                <span className="ui-i5wwi ui-VDyJR ui-VWOa-">руб.</span>
+                </span>
+              </div>
             </div>
           </div>
-        ) : (
+        {/* ) : (
           <div className="KTX0P">
             <div className="BsbQY">
               <div className="AADop">
                 {totalCount} товара на сумму
                 <span className="ui-LD-ZU pkpSl" data-testid="price">
-                {totalPrice}<span className="ui-i5wwi ui-VDyJR ui-VWOa-">руб.</span>
+                {cartStore?.saledPrice}
+                <span className="ui-i5wwi ui-VDyJR ui-VWOa-">руб.</span>
                 </span>
               </div>
             </div>
           </div>
-        )}
+        )} */}
 
         {(phoneError || addressError) && (
           <div style={{ border: '1px solid red', padding: '10px', borderRadius: '10px' }}>

@@ -93,6 +93,23 @@ const OrderDrawer: React.FC = () => {
                 {formattedDate}
               </p>
             </div>
+            {data?.payStatus === 1 ? (
+              <p style={{fontSize: '15px', fontStyle: 'italic'}} className="text-end mt-5 mb-5">
+                <a href={data?.payURL} className="text-blue-600 hover:text-blue-600">
+                  Чек оплаты
+                </a>
+              </p>
+            ) : (
+              <p style={{fontSize: '15px', fontStyle: 'italic'}} className="text-end mt-5 mb-5">
+                <a href={data?.payURL} className="text-blue-600 hover:text-blue-600">
+                  Перейти к оплате!
+                </a>
+              </p>
+            )}
+            {/* <p style={{fontSize: '12px', fontStyle: 'italic'}} className="text-end mt-5 mb-5">
+              *Вы можете отменить заказ пока вы не произвели оплату по данному заказу
+            </p> */}
+            
             {/* <OrderStatus status={data?.status?.serial} /> */}
             <div className="grid grid-cols-12 bg-skin-two py-3 rounded-[3px] text-black text-[12px] md:text-[14px]">
               <div className="col-span-2 opacity-50"></div>
@@ -133,16 +150,18 @@ const OrderDrawer: React.FC = () => {
                   )}
                 </div>
                 <p className="flex justify-between ps-20 mb-2">
-                  <span className="me-8">Итоговая стоимость:</span>
+                  <span className="me-8">Итоговая стоимость с учетом скидки:</span>
                   <span className="font-700">
                     <TotalPrice items={data} />
                   </span>
                 </p>
               </div>
             </div>
-            <p style={{fontSize: '12px', fontStyle: 'italic'}} className="text-end mt-12">
-              *Вы можете отменить заказ пока вы не произвели оплату по данному заказу
-            </p>
+            {data?.payStatus === 0 && (
+              <p style={{fontSize: '12px', fontStyle: 'italic'}} className="text-end mt-12">
+                *Вы можете отменить заказ пока вы не произвели оплату по данному заказу
+              </p>
+            )}
             <div className="text-end mt-5">
               <span
                 onClick={onClose}
@@ -150,7 +169,7 @@ const OrderDrawer: React.FC = () => {
               >
                 Закрыть заказ
               </span>
-              {data.payStatus === 0 && (
+              {data?.payStatus === 0 && (
                 <span
                   onClick={() => onClickRemovePhone()}
                   className="py-3 px-5 cursor-pointer inline-block text-[12px] md:text-[14px] text-white font-700 bg-[#F35C5C] rounded border border-solid border-[#F35C5C]  hover:bg-white hover:text-black hover:border-[#DEE5EA] transition-all capitalize"

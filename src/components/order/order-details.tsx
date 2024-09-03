@@ -152,17 +152,17 @@ const OrderDetails: React.FC<{ orderi: IDataGetOrderByIdRes,className?: string }
               Цена доставки :
             </td>
             <td className="p-4 text-end">
-              {/* {shipping} */}450 ₽
               <span className="text-[13px] font-normal ps-1.5 inline-block">
-                по фиксированной ставке
+                Фикс. цена
               </span>
+              &nbsp;{orderi?.deliveryPrice}₽
             </td>
           </tr>
           <tr className="odd:bg-skin-secondary">
             <td className="p-4 italic">
               Общий итог с учетом доставки :
             </td>
-            <td className="p-4 text-end">{orderi?.totalCost} ₽</td>
+            <td className="p-4 text-end">{Number(orderi?.totalCost) + orderi?.deliveryPrice} ₽</td>
           </tr>
           <tr className="odd:bg-skin-secondary">
             <td className="p-4 italic">

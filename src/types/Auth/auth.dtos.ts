@@ -96,6 +96,7 @@ export interface IDataGetOrderByIdRes {
   payType: number;
   created_at: string;
   adresSamovivoz: string;
+  deliveryPrice: number;
   payStatus: number;
   payURL: string | null;
   products: OrderByIdProduct[];

@@ -31,6 +31,8 @@ export interface CartSliceState {
   totalDiscountPrice: number;
   items: CartItem[];
   cart: ICartLocalState;
+  saledPrice: number;
+  salePercent: string;
 }
 
 export type ICartLocalState = ICartLocalItem[];
