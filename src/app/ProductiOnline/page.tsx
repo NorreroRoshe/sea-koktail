@@ -9,7 +9,7 @@ const ProductiOnline: React.FC = () => {
     <>
       <div className={`${cls.container} ${cls.chapter__container}`}>
         <div className={cls.chapter__mt}>
-          <GoodsCatalogue sitePathCategory={sitePathCategory[8]} />
+          <GoodsCatalogue sitePathCategory={sitePathCategory[6]} />
         </div>
       </div>
       <div style={{borderBottom: '1px solid #0c69c7'}}>

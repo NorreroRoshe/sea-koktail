@@ -6,8 +6,9 @@ import { useRouter } from 'next/navigation';
 import { getDirection } from '@/utils/get-direction';
 const OrderDetails = dynamic(() => import('@/components/order/order-drawer'));
 const Cart = dynamic(() => import('@/components/cart/cart'));
+import {observer} from "mobx-react";
 
-const ManagedDrawer = () => {
+const ManagedDrawer = observer(() => {
   const { displayDrawer, closeDrawer, drawerView } = useUI();
   // const { locale } = useRouter();
   const dir = getDirection('ltr');
@@ -27,6 +28,6 @@ const ManagedDrawer = () => {
       {drawerView === 'ORDER_DETAILS' && <OrderDetails />}
     </Drawer>
   );
-};
+});
 
 export default ManagedDrawer;

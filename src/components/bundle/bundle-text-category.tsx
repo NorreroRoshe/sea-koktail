@@ -35,7 +35,8 @@ const BundleTextCategory: React.FC<Props> = ({ className = '', ProductTypesArray
   const { width } = useWindowSize();
   return (
     <div className={cn('heightFull', className)}>
-      {width! < 1536 ? (
+      {/* {width! < 1536 ? ( */}
+      {width! < 2000 ? (
         <>
           <Carousel breakpoints={breakpoints}>
             {data.subcategories?.map((item: any) => (

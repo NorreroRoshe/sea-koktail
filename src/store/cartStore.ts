@@ -43,8 +43,7 @@ export class CartStore implements ICartStore {
   salePercent: string = '';
   cart: ICartLocalState = observable.array([]);
   isLoading: boolean = false;
-
-
+  cartCount: number = 0;
   constructor() {
     makeAutoObservable(this);
   }
@@ -128,6 +127,7 @@ export class CartStore implements ICartStore {
     const response = await CartService.getUserCart();
 
     if ('data' in response) {
+      
       this.cart = response.data.products?.map((item: CartItem) => ({
         count: item.count,
         id: item.id,
@@ -176,10 +176,11 @@ export class CartStore implements ICartStore {
   async addProductToCart(productId: string) {
     this.isLoading = true;
     const response = await CartService.addProductToCart(productId);
-
     if ('data' in response) {
+      console.log(response?.data?.cartCount,'dataDC')
+      this.cartCount = response?.data?.cartCount ?? 0;
+      
       const ind = this.cart?.findIndex((item) => productId === item.id);
-
       if (ind === -1) {
         this.cart = [
           ...this.cart,
@@ -194,6 +195,7 @@ export class CartStore implements ICartStore {
         id: productId,
         count: this.cart[ind].count + 1,
       };
+      
     }
     this.isLoading = false;
   }

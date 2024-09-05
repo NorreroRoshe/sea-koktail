@@ -3,6 +3,7 @@ import React, { useEffect, useMemo } from "react";
 import cls from "./GoodsCatalogue.module.scss";
 import Sorts from "../Sorts";
 import { FilterBlockMore } from "./FilterBlock/FilterBlockMore";
+import { ProductiCategories } from "./ProductiCategories";
 import { CatalogCategories } from "./CatalogCategories";
 import { ProductBunner } from "./ProductBunner";
 import { GoodsTitleCategories } from "./GoodsTitleCategories";
@@ -303,7 +304,8 @@ export const GoodsCatalogue: React.FC<ICatalogCategories> = observer(({ sitePath
       </div>
       <section className={cls.section_catalogue}>
         {NotshouldDisplayFilterBlock && <ProductBunner />}
-        {NotshouldDisplayFilterBlock && <CatalogCategories sitePathCategory={sitePathCategory} />}
+        <ProductiCategories ProductTypesArray={ProductTypesArray} CategoriesArray={CategoriesArray} sitePathCategory={sitePathCategory} />
+        {!NotshouldDisplayFilterBlock && <CatalogCategories sitePathCategory={sitePathCategory} />}
         {!NotshouldDisplayFilterBlock && <GoodsTitleCategories sitePathCategory={sitePathCategory} />}
         <div className={`${cls.catalogue__container} ${cls.container}`}>
 

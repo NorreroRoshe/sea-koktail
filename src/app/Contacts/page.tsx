@@ -24,7 +24,7 @@ const Contacts: React.FC = () => {
             <div className={cls.connection_mail}>
               <div className={cls.connection_mail_client}>
                 <a href="" className={cls.mail_client_telink}>
-                  ikrabery@mail.ru
+                  info@morskoi-koktail.ru
                 </a>
               </div>
             </div>

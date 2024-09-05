@@ -88,7 +88,7 @@ export const Footer: React.FC = () => {
                 </svg>
                 <span className={cls.footer_callwu__phonenum}> +7 (915) 177-77-65 </span>
               </a>
-              <a href="mailto:ikrabery@mail.ru" className={cls.footer_callwu_link}>
+              <a href="mailto:info@morskoi-koktail.ru" className={cls.footer_callwu_link}>
                 <svg
                   className={cls.footer_communic__icon}
                   height="24"
@@ -169,14 +169,14 @@ export const Footer: React.FC = () => {
                     </g>
                   </g>
                 </svg>
-                <span className={cls.footer_callwu__phonenum}> ikrabery@mail.ru</span>
+                <span className={cls.footer_callwu__phonenum}> info@morskoi-koktail.ru</span>
               </a>
             </div>
 
             <div className={cls.footer_nav_nytime}>
               <h5 className={cls.nav_nytime_title}>Режим работы сайта</h5>
               <p className={cls.nav_nytime_time}>Пн-Вс 10:00-23:00</p>
-              <h5 className={cls.nav_nytime_title} style={{marginTop: '10px'}}>Режим работы ресторана</h5>
+              <h5 className={cls.nav_nytime_title} style={{ marginTop: '10px' }}>Режим работы ресторана</h5>
               <p className={cls.nav_nytime_time}>Пн-Вс 12:00-23:00</p>
             </div>
 

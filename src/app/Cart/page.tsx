@@ -49,9 +49,6 @@ const Cart: React.FC = observer(() => {
       return { ...cartItem, count: count };
     });
 
-
-    // console.log(cart,'cart')
-    
     const { clearCart, isLoading, addToCart } = useCart();
     const onClickClear = () => {
     if (window.confirm('Очистить корзину ???')) {

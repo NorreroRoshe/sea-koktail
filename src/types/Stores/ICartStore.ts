@@ -10,6 +10,7 @@ export interface ICartStore {
   isLoading: boolean;
   saledPrice: number;
   salePercent: string;
+  cartCount: number;
 
   addLocalItem: (localItemProd: string) => void;
   addItem: (addItemProd: CartItem) => void;

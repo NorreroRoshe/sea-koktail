@@ -4,7 +4,9 @@ import { BlyudaCatalogue } from "../../components/GoodsCatalogue/BlyudaCatalogue
 import { sitePathCategory } from "@/settings/site-path-cathegory";
 import cls from "./ProductiOnline.module.scss";
 import ProductDownloadApps from '@/components/common/product-download-apps';
-const ProductiOnline: React.FC = () => {
+import {observer} from "mobx-react";
+
+const ProductiOnline: React.FC = observer(() => {
   return (
     <>
       <div className={`${cls.container} ${cls.chapter__container}`}>
@@ -17,6 +19,6 @@ const ProductiOnline: React.FC = () => {
       </div>
     </>
   );
-};
+});
 
 export default ProductiOnline;

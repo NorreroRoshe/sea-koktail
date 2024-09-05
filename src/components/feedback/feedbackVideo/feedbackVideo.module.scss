@@ -232,8 +232,8 @@ width: 100%;
   font-weight: 700;
   outline: none;
   color: #fff;
-  border: 1px solid #404040;
-  background: #404040;
+  border: 1px solid #0085FF;
+  background: #0085FF;
 }
 
 .wrapp_btn_text {
@@ -274,6 +274,7 @@ width: 100%;
 }
 
 .phnumber_container_wrapp_phone {
+  color: #0085FF;
   margin: 0;
   padding: 0;
   cursor: pointer;
@@ -282,12 +283,12 @@ width: 100%;
   background-position: left 0 bottom calc(16% - 3px);
   background-repeat: no-repeat;
   background-size: 100% 1px;
-  color: #000;
+  // color: #000;
   transition: color .2s ease-in-out;
   display: inline-block;
   padding-bottom: 5px;
   vertical-align: top;
-  background-image: linear-gradient(#000,#000);
+  background-image: linear-gradient(#0085FF,#0085FF);
   &:hover {
     background-image: none;
   }

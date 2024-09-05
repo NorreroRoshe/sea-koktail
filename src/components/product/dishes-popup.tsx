@@ -300,11 +300,18 @@ const DishesPopup: React.FC<ProductPopupProps> = observer(({ popupProduct }) => 
         </div>
 
             <div className="pt-6 xl:pt-8">
+              <p>Состав:</p>
               <Text variant="small">
               {popupProduct?.description}
               </Text>
             </div>
             
+            {/* <div className="pt-6 xl:pt-8">
+              <p>Алергены:</p>
+              <Text variant="small">
+              {popupProduct?.description}
+              </Text>
+            </div> */}
           </div>
         </div>
     </div>

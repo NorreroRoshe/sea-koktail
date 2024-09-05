@@ -36,7 +36,7 @@ const FeedbackMessage: React.FC<LoginFormProps> = ({ isPopup = true, className }
                 <div className={cls.feedback_tubs_iconsWrapper}>
                   <div onClick={handleFeedbackPhone} className={cls.iconsWrapper_itemIcon}><img src={phone.src} alt="" /></div>
                   <div className={cls.iconsWrapper_itemIcon}><img src={messagehov.src} alt="" /></div>
-                  <div onClick={handleFeedbackVideo} className={cls.iconsWrapper_itemIcon}><img src={video.src} alt="" /></div>
+                  {/* <div onClick={handleFeedbackVideo} className={cls.iconsWrapper_itemIcon}><img src={video.src} alt="" /></div> */}
                 </div>
               </div>
               {isPopup === true && <div className={cls.feedback_tubs_close} onClick={closeModal}>

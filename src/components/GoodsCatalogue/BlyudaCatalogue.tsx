@@ -235,6 +235,12 @@ export const BlyudaCatalogue: React.FC<ICatalogCategories> = observer(({ sitePat
     pathname === "/Restaurant/KonserviIPreservi";
 
 
+    // const handleScrollToPosition = () => {
+    //   window.scrollTo({
+    //     top: 600,
+    //     behavior: 'smooth',
+    //   });
+    // };
   return (
     <>
       <div className={cls.chapter__mt_bread}>

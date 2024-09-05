@@ -17,6 +17,8 @@ const CartCounter: React.FC<CIBProps> = observer(({ id, count }) => {
   const authStore = store.auth;
   const isAuth = !!authStore.userId;
 
+  const { deleteFromCart } = useCart();
+
   const handleAddToCart = (productId: string) => {
     if (isAuth) {
       cartStore.addProductToCart(productId);
@@ -59,20 +61,35 @@ const CartCounter: React.FC<CIBProps> = observer(({ id, count }) => {
     handleAddToCart(id);
   };
 
-  const onClickMinus = () => {
-    //Здесь мы говорим, если товар в корзине уменьшаем то он может максимум доходить до 0 меньше не может
-    handleDeleteFromCart(id);
+  const onClickRemove = () => {
+    if (window.confirm('Вы действительно хотите удалить данную позицию?')) {
+      deleteFromCart(id);
+    }
   };
+
+  const onClickMinus = () => {
+    if (count === 1) {
+      onClickRemove(); // Если количество товара равно 1, удаляем товар
+    } else {
+      handleDeleteFromCart(id); // В противном случае уменьшаем количество товара
+    }
+  };
+  // const onClickMinus = () => {                 //старая версия
+  //   //Здесь мы говорим, если товар в корзине уменьшаем то он может максимум доходить до 0 меньше не может
+  //   handleDeleteFromCart(id);
+  // };
 
   return (
     <div className={cls.root_main_count}>
       <button
-        disabled={count === 1 || cartStore.isLoading}
+        // disabled={
+        //   // count === 1 || 
+        //   cartStore.isLoading}
         onClick={onClickMinus}
         className={`${cls.count_desc_minus} ${cls.count_desc}`}></button>
       <span className={cls.count_desc}>{count}</span>
       <button
-        disabled={cartStore.isLoading}
+        // disabled={cartStore.isLoading}
         onClick={onClickPlus}
         className={`${cls.count_desc_plus} ${cls.count_desc}`}></button>
     </div>

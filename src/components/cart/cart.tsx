@@ -18,7 +18,7 @@ import {toJS} from "mobx";
 
 const Cart = observer(() => {
   const { t } = useTranslation('common');
-  const { closeDrawer } = useUI();
+  const { displayDrawer, closeDrawer, drawerView } = useUI();
 
   const store = useStore();
   const cartStore = store.cart
@@ -38,12 +38,13 @@ const Cart = observer(() => {
     }
   };
 
+  const isCartSidebarOpen = displayDrawer && drawerView === 'CART_SIDEBAR';
+
   useEffect(() => {
-    cartStore.getUserCart();
-  }, []);
-
-
-    console.log(cart,'aevrbfwcs');
+    if (isCartSidebarOpen) {
+      cartStore.getUserCart();
+    }
+  }, [isCartSidebarOpen]);
 
   useEffect(() => {
     if(!authStore.isAuth) {
@@ -107,11 +108,14 @@ const Cart = observer(() => {
       <div className="border-t border-skin-base px-5 md:px-7 pt-5 md:pt-6 pb-5 md:pb-6">
         <div className="flex pb-5 md:pb-7 justify-between">
           <div className="pe-3">
-            <Heading className="mb-2.5">{t('Итого')}:</Heading>
+            <Heading className="mb-2.5">{t('Итого со скидкой')}:</Heading>
             {/* <Text className="leading-6">{truePrice}</Text> */}
           </div>
           <div className="flex-shrink-0 font-semibold text-base md:text-lg text-skin-base -mt-0.5 min-w-[80px] text-end">
-            {Math.round(totalDiscountPrice)} ₽.
+            {
+            cartStore.saledPrice
+            // Math.round(totalDiscountPrice)
+            } ₽.
           </div>
         </div>
         <div className="flex flex-col" onClick={closeDrawer}>
