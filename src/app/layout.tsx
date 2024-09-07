@@ -27,6 +27,7 @@ import Header0 from "@/components/layouts/header0/header0";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { useStore } from "@/hooks/useStore";
 import { useRef, useState} from 'react';
+import Head from "next/head";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -92,6 +93,10 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+
+      <Head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </Head>
       <body className={inter.className}>
         <Suspense>
           <QueryClientProvider client={queryClient}>
