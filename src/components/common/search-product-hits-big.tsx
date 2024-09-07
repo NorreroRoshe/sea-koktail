@@ -17,8 +17,8 @@ const SearchProductHitsBig: React.FC<SearchProductProps> = ({ item }) => {
       <div className={`relative flex w-12 h-12 rounded-md overflow-hidden flex-shrink-0 cursor-pointer me-4 ${cls.searchproduct_img}`}>
         <Image
           src={item?.image?.thumbnail ?? searchProductPlaceholder}
-          width={48}
-          height={48}
+          width={250}
+          height={250}
           loading="eager"
           alt={item.name || 'Product Image'}
           className="bg-skin-thumbnail object-cover"

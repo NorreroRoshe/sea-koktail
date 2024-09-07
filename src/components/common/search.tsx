@@ -17,6 +17,55 @@ type Props = {
   variant?: 'border' | 'fill';
 };
 
+const data = [
+  {
+    "id": "search1",
+    "name": "Ролл запеченный с угрём ",
+    "slug": "268",
+    "description": "Vegetables are parts of plants that are consumed by humans or other animals as food. the first meaning remains commonly used and is applied to plants collectively to ask all edible plant matter, including the flowers, fruits, stems, leaves, roots, and seeds. An alternate definition of the term is applied somewhat arbitrarily, often by culinary and cultural tradition. it's going to exclude foods derived from some plants that are fruits, flowers, nuts, and cereal grains, but include savoury fruits like tomatoes and courgettes, flowers like broccoli, and seeds like pulses.",
+    "image": {
+      "id": 1,
+      "thumbnail": "/assets/images/products/p-1.jpg",
+      "original": "/assets/images/products/p-1.jpg"
+    },
+    "quantity": 70,
+    "price": 600,
+    "sale_price": 600,
+    "unit": "1 each",
+  },
+  {
+    "id": "search2",
+    "name": "Икра осетра классик ж/б 500 гр",
+    "slug": "228",
+    "description": "Vegetables are parts of plants that are consumed by humans or other animals as food. the first meaning remains commonly used and is applied to plants collectively to ask all edible plant matter, including the flowers, fruits, stems, leaves, roots, and seeds. An alternate definition of the term is applied somewhat arbitrarily, often by culinary and cultural tradition. it's going to exclude foods derived from some plants that are fruits, flowers, nuts, and cereal grains, but include savoury fruits like tomatoes and courgettes, flowers like broccoli, and seeds like pulses.",
+    "image": {
+      "id": 1,
+      "thumbnail": "/assets/images/products/p-3.jpg",
+      "original": "/assets/images/products/p-3.jpg"
+    },
+    "quantity": 70,
+    "price": 36500,
+    "sale_price": 36500,
+    "unit": "1 each",
+  },
+  {
+    "id": "search3",
+    "name": "Мясо 1-ой фаланги камчатского краба 14+ см в/м 1 кг",
+    "slug": "27",
+    "description": "Vegetables are parts of plants that are consumed by humans or other animals as food. the first meaning remains commonly used and is applied to plants collectively to ask all edible plant matter, including the flowers, fruits, stems, leaves, roots, and seeds. An alternate definition of the term is applied somewhat arbitrarily, often by culinary and cultural tradition. it's going to exclude foods derived from some plants that are fruits, flowers, nuts, and cereal grains, but include savoury fruits like tomatoes and courgettes, flowers like broccoli, and seeds like pulses.",
+    "image": {
+      "id": 1,
+      "thumbnail": "/assets/images/products/p-2.jpg",
+      "original": "/assets/images/products/p-2.jpg"
+    },
+    "unit": "1 Bag",
+    "product_type": "variable",
+    "quantity": 70,
+    "price": 7900,
+    "sale_price": 7900,
+  }
+]
+
 function useDebounce(value: string, delay: number) {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
@@ -129,12 +178,13 @@ const Search = observer(({
 
     const [searchText, setSearchText] = useState('');
     const [inputFocus, setInputFocus] = useState<boolean>(false);
-    const { data, isLoading } = useSearchQuery({
-      text: searchText,
-    });
+    // const { data, isLoading } = useSearchQuery({
+    //   text: searchText,
+    // });
     useFreezeBodyScroll(
       inputFocus === true || displaySearch || displayMobileSearch
     );
+    console.log(data,'datadatadata')
     // function handleSearch(e: React.SyntheticEvent) {
     //   e.preventDefault();
     // }

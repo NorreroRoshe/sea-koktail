@@ -145,8 +145,8 @@ export const BlyudaCategoriesKonkret: React.FC<ICatalogCategories> = ({ ProductT
 
     // Перемещаем скролл после обновления URL
     setTimeout(() => {
-      window.scrollTo(0, 600);
-    }, 150);
+      window.scrollTo(0, 400);
+    }, 200);
   };
 
   const isActive =

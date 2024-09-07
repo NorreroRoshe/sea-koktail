@@ -27,7 +27,7 @@ export const SectionHero: React.FC = () => {
     slidesToScroll: 1,
     nextArrow: <CustomNextArrow />,
     prevArrow: <CustomPrevArrow />,
-    autoplay: true,
+    // autoplay: true,
     autoplaySpeed: 2500,
     pauseOnHover: false,
     // centerMode: true,
@@ -47,7 +47,8 @@ export const SectionHero: React.FC = () => {
                 {/* <div className={cls.bano_reklamo}>Свет, мебель, аксессуары<br />  и многое другое<br />с особыми ценами*</div> */}
                 {/* <div className={cls.bano_kupito}>Купить</div> */}
                 {/* <div className={cls.bano_skidkito}>Скидки не&nbsp;суммируются с&nbsp;другими акциями и&nbsp;предложениями.</div> */}
-              </div><br />
+              </div>
+              <br />
             </div>
           </div>
           <div className={`${cls.hero_slider} ${cls.slider2}`}>
