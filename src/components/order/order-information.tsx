@@ -153,8 +153,8 @@ const OrderInformation = observer(() => {
           </a>
         </p>
       ) : (
-        <p className="text-skin-base text-sm md:text-base mb-8">
-          Ссылка на оплату :&nbsp;
+        <p className="text-skin-base text-sm md:text-base mb-8" style={{fontSize: '26px'}}>
+          {/* Ссылка на оплату :&nbsp; */}
           <a href={data?.payURL} className="text-blue-600 hover:text-blue-600">
             Перейти к оплате!
           </a>
