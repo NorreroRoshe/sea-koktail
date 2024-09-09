@@ -684,6 +684,9 @@ element.style {
 .KTX0P {
   margin-bottom: 30px;
   margin-top: 20px;
+  @media(max-width: 450px) {
+    margin-top: 90px;
+  }
 }
 
 .BsbQY {
@@ -857,4 +860,10 @@ element.style {
 
 .font-700 {
   font-weight: 700;
+}
+
+.ewvreqcs {
+  @media(max-width: 705px) {
+    flex-direction: column;
+  }
 }

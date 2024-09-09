@@ -62,22 +62,43 @@ const CartTotal: React.FC = observer(({ }) => {
       dateTime: '',
       description: '',
       payType: 0,
-      // adresSamovivoz: ''
+      adresSamovivoz: 'Москва, ул. Большая Филевская дом 3, корп 2'
     },
   });
 
 
-  const onSubmit = async ({deliveryType, dayType, address, phone, dateTime, description, payType}: IDataOrderReq) => {
-    userStore.dataOrder({
-      deliveryType: userStore.deliveryType,
-      dayType: userStore.dayType,
-      address: userStore.address,
-      phone: userStore.phone,
-      dateTime: userStore.dateTime,
-      description: userStore.description,
-      payType: userStore.payType,
-      // adresSamovivoz: userStore.
-    })
+  const onSubmit = async ({deliveryType, dayType, phone, dateTime, description, payType}: IDataOrderReq) => {
+  // Prepare the base order data
+  const orderData: any = {
+    deliveryType: userStore.deliveryType,
+    dayType: userStore.dayType,
+    phone: userStore.phone,
+    dateTime: userStore.dateTime,
+    description: userStore.description,
+    payType: userStore.payType,
+  };
+
+  // Conditionally add either the address or adresSamovivoz
+  if (userStore.deliveryType === 0) {
+    // For delivery, include the address
+    orderData.address = userStore.address;
+  } else if (userStore.deliveryType === 1) {
+    // For pickup, include the pickup location (adresSamovivoz)
+    orderData.adresSamovivoz = 'Москва, ул. Большая Филевская дом 3, корп 2';
+  }
+
+    //       userStore.dataOrder({
+    //   deliveryType: userStore.deliveryType,
+    //   dayType: userStore.dayType,
+    //   address: userStore.address,
+    //   phone: userStore.phone,
+    //   dateTime: userStore.dateTime,
+    //   description: userStore.description,
+    //   payType: userStore.payType,
+    //   adresSamovivoz: 'Москва, ул. Большая Филевская дом 3, корп 2'
+    // })
+
+  userStore.dataOrder(orderData)
     .then((data) => {
       
       if (data?.data?.message === "Запрос выполнен успешно") {
@@ -98,7 +119,7 @@ const CartTotal: React.FC = observer(({ }) => {
   };
 
 
-  console.log(cartStore.salePercent,'cartStorsaledPrice')
+  console.log(userStore.deliveryType,'cartStorsaledPrice')
 
 
 //проба

@@ -30,7 +30,7 @@ export class AuthStore implements IAuthStore {
   dateTime: string = '';
   description: string = '';
   payType: number = 0;
-  adresSamovivoz: string = '';
+  adresSamovivoz: string = 'Москва, ул. Большая Филевская дом 3, корп 2';
 
   constructor() {
     makeAutoObservable(this);

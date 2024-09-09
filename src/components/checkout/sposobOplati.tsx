@@ -10,7 +10,7 @@ import {observer} from "mobx-react";
 
 const paymentMethods = [
   { name: 'Банковская карта', icon: cardses },
-  // { name: 'СБП', icon: sbp },
+  { name: 'СБП', icon: sbp },
 ];
 
 const SposobOplati = observer(() => {
@@ -50,7 +50,7 @@ const SposobOplati = observer(() => {
                 }
               >
                 {({ checked }) => (
-                  <div className="text-center flex justify-center items-center gap-3">
+                  <div className="text-center flex justify-center items-center gap-3 ewvreqcs">
                     <RadioGroup.Label
                       as="span"
                       className={`text-base font-semibold ${

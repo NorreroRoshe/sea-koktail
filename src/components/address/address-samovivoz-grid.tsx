@@ -19,7 +19,7 @@ const AddressSamovivozGrid: React.FC<{ address?: any }> = ({ address }) => {
             г. Москва
           </div>
           <div className="text-skin-muted leading-6">
-            Ул. Тверская, д.32
+            ул. Большая Филевская дом 3, корп 2
           </div>
         </div>
       </div>

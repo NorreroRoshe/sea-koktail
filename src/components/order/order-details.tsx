@@ -162,7 +162,9 @@ const OrderDetails: React.FC<{ orderi: IDataGetOrderByIdRes,className?: string }
             <td className="p-4 italic">
               Общий итог с учетом доставки :
             </td>
-            <td className="p-4 text-end">{Number(orderi?.totalCost) + orderi?.deliveryPrice} ₽</td>
+            <td className="p-4 text-end">
+              {Number(orderi?.totalCost) + Number(orderi?.deliveryPrice)} ₽
+          </td>
           </tr>
           <tr className="odd:bg-skin-secondary">
             <td className="p-4 italic">

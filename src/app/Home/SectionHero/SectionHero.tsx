@@ -27,8 +27,8 @@ export const SectionHero: React.FC = () => {
     slidesToScroll: 1,
     nextArrow: <CustomNextArrow />,
     prevArrow: <CustomPrevArrow />,
-    // autoplay: true,
-    autoplaySpeed: 2500,
+    autoplay: true,
+    autoplaySpeed: 3000,
     pauseOnHover: false,
     // centerMode: true,
     // centerPadding: '205px',
@@ -36,7 +36,7 @@ export const SectionHero: React.FC = () => {
 
   return (
     <section className={cls.section_hero}>
-      <h1 className={cls.visually_hidden}>Morskoi Koktail</h1>
+      <h1 className={cls.visually_hidden}>Морской Коктель</h1>
       <div className={`${cls.hero__container}`}>
         <Slider className={cls.main_slider} {...sliderSettings}>
           <div className={`${cls.hero_slider} ${cls.slider1}`}>
