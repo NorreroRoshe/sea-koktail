@@ -20,7 +20,7 @@ import DeliveryOrSamovivoz from '@/components/checkout/deliveryOrSamovivoz';
 
 const deliveryDateSchedule = [
   'Доставка',
-  // 'Самовывоз'
+  'Самовывоз'
 ];
 
 const Cart: React.FC = observer(() => {

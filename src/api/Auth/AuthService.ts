@@ -234,13 +234,19 @@ class AuthService {
 
 
   
-  getValidAddress({data} :
-    {data: string}) {
+  // getValidAddress({data} :
+  //   {data: string}) {
+  //   return makeRequestMap<IGetYandexListRes>({
+  //     url: `&text=${data}&ll=55.75583,37.61778`,
+  //     method: "GET"
+  //   });
+  // };
+  getValidAddress({ data }: { data: string }) {
     return makeRequestMap<IGetYandexListRes>({
-      url: `&text=${data}&ll=55.75583,37.61778`,
+      url: `/api/suggest?text=${data}`, // обращаемся к нашему API роуту
       method: "GET"
     });
-  };
+  }
 }
 
 export default new AuthService();
