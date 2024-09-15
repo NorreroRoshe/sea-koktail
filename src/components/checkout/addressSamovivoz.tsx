@@ -5,11 +5,9 @@ import {observer} from "mobx-react";
  
 const AddressSamovivoz: React.FC = observer(() => {
   let { data, isLoading } = useAddressQuery();
-  return !isLoading ? (
+  return (
     <AddressSamovivozGrid address={data?.data} />
-  ) : (
-    <div>Loading...</div>
-  );
+  )
 });
 
 export default AddressSamovivoz;

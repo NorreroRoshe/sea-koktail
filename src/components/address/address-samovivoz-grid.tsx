@@ -5,13 +5,13 @@ const AddressSamovivozGrid: React.FC<{ address?: any }> = ({ address }) => {
   const { t } = useTranslation('common');
 
 
-  address = address || [];
+  // address = address || [];
 
 
   return (
     <div className="text-15px h-full flex flex-col justify-between -mt-4 md:mt-0">
       <div className="md:grid md:grid-cols-2 md:gap-5 auto-rows-auto space-y-4 md:space-y-0">
-        <div className="sr-only">{t('address')}</div>
+        {/* <div className="sr-only">{t('address')}</div> */}
         <div
           className="border-2 relative shadow-md focus:outline-none rounded-md p-5 block cursor-pointer min-h-[112px] h-full group address__box"
         >

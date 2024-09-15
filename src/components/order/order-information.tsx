@@ -68,7 +68,6 @@ const OrderInformation = observer(() => {
     fetchData();
   }, []);
 
-
   const formatDate = (dateString: any) => {
     if (!dateString) {
       return "Неизвестная дата"; // Можете вернуть значение по умолчанию или пустую строку

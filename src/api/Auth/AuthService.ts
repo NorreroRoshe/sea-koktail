@@ -5,6 +5,7 @@ import { IRemoveOrderByIdReq, IGetUserOrdersReq, IChangeOrderStatusByIdReq, IGet
 // import {ProductsResponse} from "@/types/types";
 import {AxiosResponse} from "axios";
 import Cookies from 'js-cookie';
+import axios from 'axios';
 
 class AuthService {
 
@@ -234,19 +235,13 @@ class AuthService {
 
 
   
-  // getValidAddress({data} :
-  //   {data: string}) {
-  //   return makeRequestMap<IGetYandexListRes>({
-  //     url: `&text=${data}&ll=55.75583,37.61778`,
-  //     method: "GET"
-  //   });
-  // };
-  getValidAddress({ data }: { data: string }) {
+  getValidAddress({data} :
+    {data: string}) {
     return makeRequestMap<IGetYandexListRes>({
-      url: `/api/suggest?text=${data}`, // обращаемся к нашему API роуту
+      url: `&text=${data}&ll=55.75583,37.61778`,
       method: "GET"
     });
-  }
+  };
 }
 
 export default new AuthService();

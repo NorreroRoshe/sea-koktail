@@ -29,20 +29,17 @@ export interface AxiosResponse<T = any, D = any> {
 
 type APIResponse<Type> = Promise<AxiosResponse<Type> | APIError>;
 const makeRequestMap = <Type>({
-  url = 'http://localhost:7217/api',
+  url = '',
   method = 'GET',
-  authToken = false,
   headers = {},
   params = {},
   data = {},
 }: TMakeRequestParams): APIResponse<Type> => {
-  url = `${process.env.NEXT_PUBLIC_YANDEX_URL}${url}`;
+  url = `${process.env.NEXT_PUBLIC_YANDEX_URL}${url}`; // полный URL с ключом API
 
-  headers.authorization = (
-    `Bearer 559e1f9b-e496-40c2-9740-90d74cacebed`
-  );
-  headers.contentType = 'text/plain'
-  
+  headers['Authorization'] = `Bearer ${process.env.NEXT_PUBLIC_YANDEX_API_KEY}`;
+  headers['Content-Type'] = 'text/plain';
+
   return axios
   .request<Type>({
     url,
@@ -53,9 +50,7 @@ const makeRequestMap = <Type>({
   })
   .catch((errors) => {
     const message = errors.response?.data?.message as string;
-    const responseErrors = errors.response?.data?.errors;
     const status = errors?.response?.status as number;
-    const meta = errors?.response?.data?.meta;
 
     return { message: message, status };
   });
