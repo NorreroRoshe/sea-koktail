@@ -268,7 +268,7 @@ const AddAddressForm: React.FC = observer(() => {
             variant="solid"
           />
         </div>
-        <AddressSearch />
+        {/* <AddressSearch /> */}
         <div className="flex w-full justify-end">
           <Button className="h-11 md:h-12 mt-1.5" type="submit">
             {t('Сохранить изменения')}
