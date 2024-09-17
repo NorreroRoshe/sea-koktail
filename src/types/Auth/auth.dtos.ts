@@ -41,6 +41,7 @@ export interface IAddressFormat {
   id: number;
   title: string;
   text: string;
+  flag?: number;
   userId: number;
 }
 
@@ -171,6 +172,7 @@ export interface IPhoneFormat {
 export interface IAddAddressReq {
   title: string;
   text: string;
+  flag: number;
 }
 
 export interface IAddPhoneReq {
@@ -187,6 +189,7 @@ export interface IEditAddressReq {
   id: number;
   title: string;
   text: string;
+  flag: number;
 }
 
 export interface IEditPhoneReq {

@@ -238,7 +238,8 @@ class AuthService {
   getValidAddress({data} :
     {data: string}) {
     return makeRequestMap<IGetYandexListRes>({
-      url: `&text=${data}&ll=55.75583,37.61778`,
+      // url: `&text=${data}&ll=55.75583,37.61778`,
+      url: `&geocode=${data}&format=json`,
       method: "GET"
     });
   };

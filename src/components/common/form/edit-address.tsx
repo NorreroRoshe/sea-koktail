@@ -15,6 +15,7 @@ import { useStore } from '@/hooks/useStore';
 import {observer} from "mobx-react";
 import { formatAddress } from '@/utils/format-address';
 import AsyncSelectMap from './async-select-map';
+import AuthService from '@/api/Auth/AuthService';
 
 
 const EditAddressForm: React.FC = observer(() => {
@@ -38,35 +39,133 @@ const EditAddressForm: React.FC = observer(() => {
       id: 0,
       title: '',
       text: '',
+      flag: 0,
     },
   });
 
-  const onSubmit = async ({ id, title, text }: IEditAddressReq) => {
+  // const onSubmit = async ({ id, title, text }: IEditAddressReq) => {
+  //   try {
+  //     await userStore.editUserAddress({
+  //       id: item.id,
+  //       title,
+  //       text
+  //     }).then((data) => {
+      
+  //       console.log(text,'datadatsss')
+      
+  //       if (data?.data?.message === "Запрос выполнен успешно") {
+  //         closeModal();
+  //       }
+  //       if (data?.message  === `Не удалось преобразовать адрес ${text} в координаты: проверьте корректность адреса или попробуйте указать координаты вручную`) {
+  //       setTextError(`Не удалось преобразовать адрес ${text} в координаты: проверьте корректность адреса или попробуйте указать координаты вручную`);
+  //       }
+        
+  //     })
+  //     const response = await userStore.getUserAddress();
+  //     setState(response as any);
+  //     // closeModal();
+  //   } catch (error) {
+  //     console.error('Ошибка при обновлении данных:', error);
+  //   }
+  // };
+
+  const onSubmit = async ({ id, title, text, flag }: IEditAddressReq) => {
     try {
-      await userStore.editUserAddress({
+      // Вызов функции для получения координат с помощью Yandex Geocode API
+      const response = await AuthService.getValidAddress({ data: text });
+  
+      const geoObject = response.data.response.GeoObjectCollection.featureMember[0].GeoObject;
+      const coordinates = geoObject.Point.pos.split(" ").map(Number); // [longitude, latitude]
+      const longitude = coordinates[0];
+      const latitude = coordinates[1];
+  
+      console.log('Coordinates:', latitude, longitude);
+  
+      // Вызываем функцию checkLocation и выводим результат в консоль
+      const resultText = checkLocation(latitude, longitude);
+      console.log('Location check result:', resultText);
+  
+      // Вызываем editUserAddress с соответствующим значением флага
+      await userStore.editUserAddress({ 
         id: item.id,
-        title,
-        text
-      }).then((data) => {
-      
-        console.log(text,'datadatsss')
-      
+        title, 
+        text, 
+        flag: resultText === 'Внутри ЖК "Западный Порт"' ? 1 :
+              resultText === 'В пределах МКАД' ? 2 :
+              resultText === 'В пределах ЦКАД' ? 3 :
+              4 // Если доставка не осуществляется 
+      })
+      .then((data) => {
+        console.log(text, 'datadatsss');
+  
         if (data?.data?.message === "Запрос выполнен успешно") {
           closeModal();
         }
-        if (data?.message  === `Не удалось преобразовать адрес ${text} в координаты: проверьте корректность адреса или попробуйте указать координаты вручную`) {
-        setTextError(`Не удалось преобразовать адрес ${text} в координаты: проверьте корректность адреса или попробуйте указать координаты вручную`);
+        if (data?.message === `Не удалось преобразовать адрес ${text} в координаты: проверьте корректность адреса или попробуйте указать координаты вручную`) {
+          setTextError(`Не удалось преобразовать адрес ${text} в координаты: проверьте корректность адреса или попробуйте указать координаты вручную`);
         }
-        
-      })
-      const response = await userStore.getUserAddress();
-      setState(response as any);
-      // closeModal();
+      });
+  
+      const responseAdd = await userStore.getUserAddress();
+      setState(responseAdd as any);
     } catch (error) {
-      console.error('Ошибка при обновлении данных:', error);
+      console.error('Error:', error);
+      setTextError(`Не удалось преобразовать адрес ${text} в координаты: проверьте корректность адреса или попробуйте указать координаты вручную`);
     }
   };
+  
 
+  // MKAD boundaries for checking if inside MKAD
+  const mkadBounds = {
+    topLeft: [55.917, 37.355],   // North-West
+    bottomRight: [55.573, 37.865] // South-East
+  };
+
+  // Example residential complex boundary (simplified)
+  const residentialComplexBounds = {
+    topLeft: [55.752401, 37.514332],    // North-West (dummy coordinates)
+    bottomRight: [55.747263, 37.520424]  // South-East (dummy coordinates)
+  };
+
+  function checkLocation(latitude: any, longitude: any) {
+    if (isInsideBounds(latitude, longitude, residentialComplexBounds)) {
+      return 'Внутри ЖК "Западный Порт"';
+    } else if (latitude >= mkadBounds.bottomRight[0] && latitude <= mkadBounds.topLeft[0] &&
+      longitude >= mkadBounds.topLeft[1] && longitude <= mkadBounds.bottomRight[1]) {
+      return 'В пределах МКАД';
+    } else if (isNearMoscow(latitude, longitude)) {
+      return 'В пределах ЦКАД';
+    } else {
+      return 'В данной зоне доставка не осуществляется';
+    }
+  }
+
+  function isInsideBounds(latitude: any, longitude: any, bounds: any) {
+    return latitude >= bounds.bottomRight[0] && latitude <= bounds.topLeft[0] &&
+      longitude >= bounds.topLeft[1] && longitude <= bounds.bottomRight[1];
+  }
+
+  function isNearMoscow(latitude: any, longitude: any) {
+    const distance = calculateDistance(latitude, longitude, 55.7558, 37.6173); // Moscow center
+    return distance <= 50; // Check if the distance is within 50km of Moscow center
+  }
+
+  function calculateDistance(lat1: any, lon1: any, lat2: any, lon2: any) {
+    const R = 6371; // Radius of the earth in km
+    const dLat = deg2rad(lat2 - lat1);
+    const dLon = deg2rad(lon2 - lon1);
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const distance = R * c; // Distance in km
+    return distance;
+  }
+
+  function deg2rad(deg: any) {
+    return deg * (Math.PI / 180);
+  }
   return (
     <div className="w-full md:w-[600px] lg:w-[900px] xl:w-[1000px] mx-auto p-5 sm:p-8 bg-skin-fill rounded-md">
       <CloseButton onClick={closeModal} />

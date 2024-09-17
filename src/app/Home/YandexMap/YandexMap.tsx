@@ -18,7 +18,7 @@ const YandexMap = () => {
           className={`${s.cartaas} ${isGrayscale ? s.grayscale : ''}`}
           onClick={toggleGrayscale}
         >
-          <Placemark geometry={[55.751574, 37.573856]} />
+          <Placemark geometry={[55.749483, 37.517037]} />
         </Map>
       </YMaps>
     </section>
