@@ -148,7 +148,7 @@ const OrderInformation = observer(() => {
       {data?.payStatus !== 0 ? (
         <p className="text-skin-base text-sm md:text-base mb-8">
           <a href={data?.payURL} className="text-blue-600 hover:text-blue-600">
-            Чек оплаты
+            Чек оплаты !
           </a>
         </p>
       ) : (
