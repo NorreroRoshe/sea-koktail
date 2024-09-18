@@ -127,7 +127,8 @@ import { useStore } from '@/hooks/useStore';
 import { observer } from 'mobx-react';
 import { IAddAddressReq } from '@/types/Auth/auth.dtos';
 import AuthService from '@/api/Auth/AuthService';
-import AddressSearch from './AddressSearch';
+// import AsyncSelectMap from './async-select-map';
+// import AddressSearch from './AddressSearch';
 
 const AddAddressForm: React.FC = observer(() => {
   const { t } = useTranslation();
@@ -269,6 +270,7 @@ const AddAddressForm: React.FC = observer(() => {
           />
         </div>
         {/* <AddressSearch /> */}
+        {/* <AsyncSelectMap /> */}
         <div className="flex w-full justify-end">
           <Button className="h-11 md:h-12 mt-1.5" type="submit">
             {t('Сохранить изменения')}

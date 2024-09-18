@@ -93,7 +93,7 @@ const OrderDrawer: React.FC = () => {
                 {formattedDate}
               </p>
             </div>
-            {data?.payStatus === 1 ? (
+            {data?.payStatus !== 0 ? (
               <p style={{fontSize: '15px', fontStyle: 'italic'}} className="text-end mt-5 mb-5">
                 <a href={data?.payURL} className="text-blue-600 hover:text-blue-600">
                   Чек оплаты

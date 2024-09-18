@@ -6,6 +6,7 @@ import { IRemoveOrderByIdReq, IGetUserOrdersReq, IChangeOrderStatusByIdReq, IGet
 import {AxiosResponse} from "axios";
 import Cookies from 'js-cookie';
 import axios from 'axios';
+import makeRequestSuggest from '../makeRequestSuggest';
 
 class AuthService {
 
@@ -240,6 +241,19 @@ class AuthService {
     return makeRequestMap<IGetYandexListRes>({
       // url: `&text=${data}&ll=55.75583,37.61778`,
       url: `&geocode=${data}&format=json`,
+      method: "GET"
+    });
+  };
+
+
+
+
+  
+  getSuggestAddress({data} :
+    {data: string}) {
+    return makeRequestSuggest<IGetYandexListRes>({
+      // url: `&text=${data}&ll=55.75583,37.61778`,
+      url: `&text==${data}&ll=37.6173,55.7558&spn=0.9,0.9&lang=ru_RU`,
       method: "GET"
     });
   };

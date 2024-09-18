@@ -14,7 +14,7 @@ import { useTranslation } from 'next-i18next';
 import { useStore } from '@/hooks/useStore';
 import {observer} from "mobx-react";
 import { formatAddress } from '@/utils/format-address';
-import AsyncSelectMap from './async-select-map';
+// import AsyncSelectMap from './async-select-map';
 import AuthService from '@/api/Auth/AuthService';
 
 

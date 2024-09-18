@@ -145,7 +145,7 @@ const OrderInformation = observer(() => {
 
         </li>
       </ul>
-      {data?.payStatus === 1 ? (
+      {data?.payStatus !== 0 ? (
         <p className="text-skin-base text-sm md:text-base mb-8">
           <a href={data?.payURL} className="text-blue-600 hover:text-blue-600">
             Чек оплаты
@@ -162,7 +162,7 @@ const OrderInformation = observer(() => {
 
       <p className="text-skin-base text-sm md:text-base mb-8">
         Статус оплаты :&nbsp;
-        <span className={data?.payStatus === 1 ? "text-green-600" : "text-red-600"}>
+        <span className={data?.payStatus !== 0 ? "text-green-600" : "text-red-600"}>
           {data?.payStatus === 1 ? "Оплата выполнена!" : "Оплата не прошла!"}
         </span>
       </p>
