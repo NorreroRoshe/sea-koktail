@@ -99,11 +99,15 @@ const CartTotal: React.FC = observer(({ }) => {
 
   userStore.dataOrder(orderData)
     .then((data) => {
+  console.log(data.message,'dataqqssx')
       
       if (data?.data?.message === "Запрос выполнен успешно") {
         Router.push(`${ROUTES.ORDER}?order_id=${userStore.orderId}`);
       } else {
 
+        if (data?.message === "адрес доставка в данный регион не осуществляется") {
+          setPhoneError('В данном регионе доставка не осуществляется. Наша доставка осуществляется только в регионе Московская область!');
+        }
         if (data?.data?.errors?.phone?.[0] === "Поле phone должно содержать 11 цифр.") {
           setPhoneError('Номер телефона должен содержать больше 11 цыфр');
         }
