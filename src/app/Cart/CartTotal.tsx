@@ -45,7 +45,6 @@ const CartTotal: React.FC = observer(({ }) => {
 
 
 
-//проба
 
   const userStore = store.auth;
 

@@ -14,8 +14,8 @@ import { useTranslation } from 'next-i18next';
 import { useStore } from '@/hooks/useStore';
 import {observer} from "mobx-react";
 import { formatAddress } from '@/utils/format-address';
-// import AsyncSelectMap from './async-select-map';
 import AuthService from '@/api/Auth/AuthService';
+import AsyncSelectMap from './async-select-map';
 
 
 const EditAddressForm: React.FC = observer(() => {
@@ -25,6 +25,7 @@ const EditAddressForm: React.FC = observer(() => {
   const { closeModal } = useModalAction();
   const [textError, setTextError] = useState<string | null>(null);
   const [titleError, setTitleError] = useState<string | null>(null);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const store = useStore();
   const userStore = store.auth;
@@ -185,7 +186,7 @@ const EditAddressForm: React.FC = observer(() => {
           />
         </div>
         <div className="grid grid-cols-1 mb-6 gap-7">
-          <TextArea
+          {/* <TextArea
             label="Адрес"
             placeholder={item.text}
             {...register('text', {
@@ -194,8 +195,14 @@ const EditAddressForm: React.FC = observer(() => {
             error={textError || errors.text?.message}
             className="text-skin-base"
             variant="solid"
+          /> */}
+          <AsyncSelectMap
+            label={`Введите адрес. Адрес должен быть введен по примеру: Город Москва, Смоленская ул., 8 кв. 15`}
+            {...register('text', { required: 'Адрес обязателен' })}
+            error={textError || errors.text?.message}
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
           />
-          {/* <AsyncSelectMap /> */}
         </div>
         <div className="flex w-full justify-end">
           <Button className="h-11 md:h-12 mt-1.5" type="submit">
