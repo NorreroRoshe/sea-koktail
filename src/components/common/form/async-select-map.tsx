@@ -251,7 +251,7 @@ const renderSuggestion = (suggestion: Suggestion) => (
 );
 
 // AsyncSelectMap component
-const AsyncSelectMap = forwardRef<HTMLInputElement, any>(
+const AsyncSelectMap = React.forwardRef<HTMLInputElement, any>(
   ({ label, error, isOpen, setIsOpen, ...props }, ref) => {
     const { t } = useTranslation();
     const [value, setValue] = useState('');
@@ -318,5 +318,7 @@ const AsyncSelectMap = forwardRef<HTMLInputElement, any>(
     );
   }
 );
+
+AsyncSelectMap.displayName = 'AsyncSelectMap';
 
 export default AsyncSelectMap;

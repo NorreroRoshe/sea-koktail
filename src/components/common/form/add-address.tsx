@@ -270,13 +270,13 @@ const AddAddressForm: React.FC = observer(() => {
             variant="solid"
           /> */}
         {/* <AddressSearch /> */}
-          <AsyncSelectMap 
+          {/* <AsyncSelectMap 
             label={`Введите адрес. Адрес должен быть введен по примеру: Город Москва, Смоленская ул., 8 кв. 15`}
             {...register('text', { required: 'Адрес обязателен' })}
             error={textError || errors.text?.message}
             isOpen={isOpen}
             setIsOpen={setIsOpen}
-            />
+          /> */}
         </div>
         <div className={`flex w-full justify-end ${isOpen ? 'edrwf' : 'edrserfwf'}`}>
           <Button className="h-11 md:h-12 mt-1.5" type="submit">
