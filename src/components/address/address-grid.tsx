@@ -226,13 +226,13 @@ const AddressGrid: React.FC<{ address?: any }> = observer(({ address }) => {
                 {item?.text}
               </RadioGroup.Description>
               <div className="flex absolute end-3 top-3 z-10 lg:opacity-0 transition-all address__actions">
-                <button
+                {/* <button
                   onClick={() => handlePopupEdit(item)}
                   className="flex justify-center items-center bg-skin-primary h-6 w-6 rounded-full text-skin-inverted text-opacity-80 text-base"
                   style={{ marginRight: '5px' }}
                 >
                   <TiPencil />
-                </button>
+                </button> */}
                 <button
                   onClick={() => onClickRemoveAddress(item?.id)}
                   className="flex justify-center items-center bg-[#F35C5C] h-6 w-6 rounded-full text-skin-inverted text-opacity-80 text-base"

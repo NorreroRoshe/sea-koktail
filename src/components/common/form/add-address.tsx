@@ -127,7 +127,7 @@ import { useStore } from '@/hooks/useStore';
 import { observer } from 'mobx-react';
 import { IAddAddressReq } from '@/types/Auth/auth.dtos';
 import AuthService from '@/api/Auth/AuthService';
-// import AsyncSelectMap from './async-select-map';
+import AsyncSelectMap from './async-select-map';
 // import AddressSearch from './AddressSearch';
 
 const AddAddressForm: React.FC = observer(() => {
@@ -135,6 +135,7 @@ const AddAddressForm: React.FC = observer(() => {
   const [textError, setTextError] = useState<string | null>(null);
   const [titleError, setTitleError] = useState<string | null>(null);
   const [{ data }, setState] = useState<any>([]);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const { closeModal } = useModalAction();
   const store = useStore();
@@ -260,18 +261,24 @@ const AddAddressForm: React.FC = observer(() => {
             error={titleError || errors.title?.message}
           />
         </div>
-        <div className="grid grid-cols-1 mb-6 gap-7">
-          <TextArea
+        <div className="mb-6">
+          {/* <TextArea
             label={`Введите адрес. Адрес должен быть введен по примеру: Город Москва, Смоленская ул., 8 кв. 15`}
             {...register('text', { required: 'Адрес обязателен' })}
             error={textError || errors.text?.message}
             className="text-skin-base"
             variant="solid"
-          />
-        </div>
+          /> */}
         {/* <AddressSearch /> */}
-        {/* <AsyncSelectMap /> */}
-        <div className="flex w-full justify-end">
+          <AsyncSelectMap 
+            label={`Введите адрес. Адрес должен быть введен по примеру: Город Москва, Смоленская ул., 8 кв. 15`}
+            {...register('text', { required: 'Адрес обязателен' })}
+            error={textError || errors.text?.message}
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            />
+        </div>
+        <div className={`flex w-full justify-end ${isOpen ? 'edrwf' : 'edrserfwf'}`}>
           <Button className="h-11 md:h-12 mt-1.5" type="submit">
             {t('Сохранить изменения')}
           </Button>

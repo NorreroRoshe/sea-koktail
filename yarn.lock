@@ -4550,6 +4550,13 @@
   resolved "https://registry.npmjs.org/@types/q/-/q-1.5.8.tgz"
   integrity sha512-hroOstUScF6zhIi+5+x0dzqrHA1EJi+Irri6b1fxolMTqqHIV/Cg77EtnQcZqZCu8hR3mX2BzIxN4/GzI68Kfw==
 
+"@types/react-autosuggest@^10.1.11":
+  version "10.1.11"
+  resolved "https://registry.npmjs.org/@types/react-autosuggest/-/react-autosuggest-10.1.11.tgz"
+  integrity sha512-lneJrX/5TZJzKHPJ6UuUjsh9OfeyQHKYEVHyBh5Y7LeRbCZxyIsjBmpxdPy1iH++Ger0qcyW+phPpYH+g3naLA==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-bootstrap@^0.32.35":
   version "0.32.36"
   resolved "https://registry.npmjs.org/@types/react-bootstrap/-/react-bootstrap-0.32.36.tgz"
