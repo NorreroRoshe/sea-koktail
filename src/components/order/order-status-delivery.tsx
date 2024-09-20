@@ -24,8 +24,16 @@ const data = {
         "updated_at": "Thu Jun 17 2021 22:12:35 GMT+0600"
     },
     {
+        "id": 3,
+        "name": "Передан курьеру",
+        "serial": 3,
+        "color": "#FED030",
+        "created_at": "Thu Jun 17 2021 22:12:50 GMT+0600",
+        "updated_at": "Thu Jun 17 2021 22:12:35 GMT+0600"
+    },
+    {
         "id": 4,
-        "name": "Получено",
+        "name": "Доставлен",
         "serial": 4,
         "color": "#02B290",
         "created_at": "Thu Jun 17 2021 22:12:50 GMT+0600",
@@ -33,10 +41,10 @@ const data = {
     }
   ]
 }
-const OrderStatus = ({ status }: Props) => {
+const OrderStatusDelivery = ({ status }: Props) => {
   return (
     <ProgressBox data={data} status={status} />
   )
 };
 
-export default OrderStatus;
+export default OrderStatusDelivery;

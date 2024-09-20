@@ -149,6 +149,7 @@ import { useModalAction } from '@/components/common/modal/modal.context';
 import { useTranslation } from 'next-i18next';
 import { observer } from "mobx-react";
 import { useStore } from '@/hooks/useStore';
+import { IoCheckmarkCircle } from 'react-icons/io5';
 
 const AddressGrid: React.FC<{ address?: any }> = observer(({ address }) => {
   const { t } = useTranslation('common');
@@ -182,6 +183,15 @@ const AddressGrid: React.FC<{ address?: any }> = observer(({ address }) => {
     }
   }, [address]);
 
+
+  // useEffect(() => {
+  //   if (address && address.length > 0) {
+  //     // Поиск элемента с default === true
+  //     const defaultgedAddress = address.find((item: any) => item.default === true);
+  //     setSelected(defaultgedAddress || address[0]); // Установить найденный элемент или address[0], если такого элемента нет
+  //   }
+  // }, [address]);
+
   useEffect(() => {
     if (selected) {
       userStore.setAddress(selected.text);
@@ -201,7 +211,7 @@ const AddressGrid: React.FC<{ address?: any }> = observer(({ address }) => {
             <RadioGroup.Option
               key={index}
               value={item}
-              disabled={item?.flag === 4}
+              disabled={item?.type === 4}
               className={({ checked, disabled }) =>
                 `${checked ? 'border-skin-primary' : 'border-skin-base'}
                   border-2 relative shadow-md focus:outline-none rounded-md p-5 block cursor-pointer min-h-[112px] h-full group address__box 
@@ -213,7 +223,7 @@ const AddressGrid: React.FC<{ address?: any }> = observer(({ address }) => {
                 className="text-skin-base font-semibold mb-2 -mt-1"
               >
                 {item?.title}
-                {item?.flag === 4 && (
+                {item?.type === 4 && (
                   <div className="text-skin-red mt-1 text-sm">
                     {t('На данный адрес доставка невозможна, пожалуйста измените или добавьте другой адрес')}
                   </div>
@@ -239,6 +249,13 @@ const AddressGrid: React.FC<{ address?: any }> = observer(({ address }) => {
                 >
                   <TiDelete />
                 </button>
+                {/* {item?.default === true && (
+                  <button
+                    className="flex justify-center items-center bg-[#02b290] h-6 w-6 rounded-full text-skin-inverted text-opacity-80 text-base"
+                  >
+                    <IoCheckmarkCircle style={{ color: '#fff' }} />
+                  </button>
+                )} */}
               </div>
             </RadioGroup.Option>
           ))

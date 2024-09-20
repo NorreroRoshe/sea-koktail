@@ -252,7 +252,7 @@ const renderSuggestion = (suggestion: Suggestion) => (
 
 // AsyncSelectMap component
 const AsyncSelectMap = React.forwardRef<HTMLInputElement, any>(
-  ({ label, error, isOpen, setIsOpen, ...props }, ref) => {
+  ({ placeholder, label, error, isOpen, setIsOpen, ...props }, ref) => {
     const { t } = useTranslation();
     const [value, setValue] = useState('');
     const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
@@ -278,7 +278,7 @@ const AsyncSelectMap = React.forwardRef<HTMLInputElement, any>(
     };
 
     const inputProps = {
-      placeholder: t('Введите адрес'),
+      placeholder: placeholder,
       value,
       onChange,
       onFocus: () => setIsOpen(true),

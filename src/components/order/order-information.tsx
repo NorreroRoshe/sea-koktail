@@ -6,7 +6,7 @@ import { useOrderQuery } from '@/framework/basic-rest/order/get-order';
 import { useSearchParams } from 'next/navigation';
 import usePrice from '@/framework/basic-rest/product/use-price';
 import { useTranslation } from 'next-i18next';
-import {observer} from "mobx-react";
+import { observer } from "mobx-react";
 import { useStore } from '@/hooks/useStore';
 import { format } from 'date-fns';
 import NotFoundOrder from "@/components/NotFoundBlock/notFoundOrder";
@@ -37,28 +37,60 @@ const OrderInformation = observer(() => {
       currencyCode: 'RUB',
     }
   );
-  
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const id = Number(searchParams.get('order_id'));
+  //       // Выполняем первый запрос
+  //       const statusResponse = await userStore.changeOrderStatusById({
+  //         orderId: id,
+  //       });
+  //       if (statusResponse?.data?.message === "Запрос выполнен успешно") {
+  //         // Если статус запроса успешен, выполняем остальные запросы
+  //         if (id) {
+  //           const response = await userStore.dataGetOrderById({
+  //             orderId: id,
+  //           });
+  //           setState(response as any);
+  //         }
+  //       }
+  //       if (statusResponse?.message === "Заказ не найден") {
+  //         setOrderError(true)
+  //       } else {
+  //         console.error('Ошибка при изменении статуса заказа:', statusResponse?.message);
+  //       }
+  //     } catch (error) {
+  //       console.error('Ошибка при выполнении запросов:', error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const id = Number(searchParams.get('order_id'));
-        // Выполняем первый запрос
-        const statusResponse = await userStore.changeOrderStatusById({
-          orderId: id,
-        });
-        if (statusResponse?.data?.message === "Запрос выполнен успешно") {
-          // Если статус запроса успешен, выполняем остальные запросы
-          if (id) {
-            const response = await userStore.dataGetOrderById({
-              orderId: id,
-            });
-            setState(response as any);
+
+        if (id) {
+          // Выполняем запрос на изменение статуса заказа
+          const statusResponse = await userStore.changeOrderStatusById({
+            orderId: id,
+          });
+
+          // Если заказ не найден, устанавливаем ошибку
+          if (statusResponse?.message === "Заказ не найден") {
+            setOrderError(true);
+            return; // Останавливаем выполнение, если заказ не найден
           }
-        }
-        if (statusResponse?.message === "Заказ не найден") {
-          setOrderError(true)
-        } else {
-          console.error('Ошибка при изменении статуса заказа:', statusResponse?.message);
+
+          // Независимо от ответа на предыдущий запрос, если заказ найден, выполняем запрос на получение данных о заказе
+          const response = await userStore.dataGetOrderById({
+            orderId: id,
+          });
+
+          setState(response as any);
         }
       } catch (error) {
         console.error('Ошибка при выполнении запросов:', error);
@@ -68,16 +100,17 @@ const OrderInformation = observer(() => {
     fetchData();
   }, []);
 
+
   const formatDate = (dateString: any) => {
     if (!dateString) {
       return "Неизвестная дата"; // Можете вернуть значение по умолчанию или пустую строку
     }
-  
+
     const date = new Date(dateString);
     if (isNaN(date.getTime())) {
       return "Неверная дата"; // На случай, если дата не может быть распознана
     }
-  
+
     return format(date, "d MMMM yyyy", { locale: ru });
   }
 
@@ -91,8 +124,8 @@ const OrderInformation = observer(() => {
   return (
     <div className="xl:px-32 2xl:px-44 3xl:px-56 py-16 lg:py-20">
       <div className="border border-skin-base bg-skin-secondary px-4 lg:px-5 py-4 rounded-md flex items-center justify-start text-skin-base text-sm md:text-base mb-6 lg:mb-8">
-        <span className="w-10 h-10 me-3 lg:me-4 rounded-full bg-skin-primary bg-opacity-20 flex items-center justify-center flex-shrink-0" style={{background: '#02b29033'}}>
-          <IoCheckmarkCircle className="w-5 h-5" style={{color: '#02b290'}}/>
+        <span className="w-10 h-10 me-3 lg:me-4 rounded-full bg-skin-primary bg-opacity-20 flex items-center justify-center flex-shrink-0" style={{ background: '#02b29033' }}>
+          <IoCheckmarkCircle className="w-5 h-5" style={{ color: '#02b290' }} />
         </span>
         {/* {t('text-order-received')} */}
         Спасибо. Ваш заказ получен.
@@ -120,14 +153,14 @@ const OrderInformation = observer(() => {
               {/* {t('text-email')}: */}
               Почта :
             </span>
-          {data?.email}
+            {data?.email}
           </div>
           <div>
             <span className="uppercase text-[11px] block text-skin-muted font-normal leading-5">
               {/* {t('text-email')}: */}
               Телефон :
             </span>
-          {data?.phone}
+            {data?.phone}
           </div>
         </li>
         <li className="text-skin-base font-semibold text-base lg:text-lg border-b md:border-b-0 md:border-r border-dashed border-gray-300 px-4 lg:px-6 xl:px-8 py-4 md:py-5 lg:py-6 last:border-0">
@@ -135,7 +168,7 @@ const OrderInformation = observer(() => {
             {/* {t('text-total')}: */}
             Итоговая сумма:
           </span>
-              {Number(data?.totalCost) + Number(data?.deliveryPrice)} ₽
+          {Number(data?.totalCost) + Number(data?.deliveryPrice)} ₽
         </li>
         <li className="text-skin-base font-semibold text-base lg:text-lg border-b md:border-b-0 md:border-r border-dashed border-gray-300 px-4 lg:px-6 xl:px-8 py-4 md:py-5 lg:py-6 last:border-0">
           <span className="uppercase text-[11px] block text-skin-muted font-normal leading-5">
@@ -152,7 +185,7 @@ const OrderInformation = observer(() => {
           </a>
         </p>
       ) : (
-        <p className="text-skin-base text-sm md:text-base mb-8" style={{fontSize: '26px'}}>
+        <p className="text-skin-base text-sm md:text-base mb-8" style={{ fontSize: '26px' }}>
           {/* Ссылка на оплату :&nbsp; */}
           <a href={data?.payURL} className="text-blue-600 hover:text-blue-600">
             Перейти к оплате!
@@ -167,7 +200,7 @@ const OrderInformation = observer(() => {
         </span>
       </p>
 
-      <OrderDetails orderi={data}/>
+      <OrderDetails orderi={data} />
     </div>
   );
 })

@@ -8,6 +8,7 @@ type ProgressProps = {
 };
 
 const ProgressBox: React.FC<ProgressProps> = ({ status, data }) => {
+  console.log(data,'staatdata')
   return (
     <Scrollbar
       className="w-full h-full"
@@ -17,7 +18,7 @@ const ProgressBox: React.FC<ProgressProps> = ({ status, data }) => {
         },
       }}
     >
-      <div className="flex flex-wrap w-full flex-row pt-8 pb-10">
+      <div className="flex flex-wrap w-full flex-row pt-8 pb-10 justify-center">
         {data?.data?.map((item: any, index: number) => (
           <div className="block w-3/12" key={index}>
             {status >= item?.serial ? (

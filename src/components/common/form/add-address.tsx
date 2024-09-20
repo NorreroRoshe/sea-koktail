@@ -135,21 +135,25 @@ const AddAddressForm: React.FC = observer(() => {
   const [textError, setTextError] = useState<string | null>(null);
   const [titleError, setTitleError] = useState<string | null>(null);
   const [{ data }, setState] = useState<any>([]);
+  const [isDefault, setIsDefault] = useState(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const { closeModal } = useModalAction();
   const store = useStore();
   const userStore = store.auth;
 
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const { register, handleSubmit, formState: { errors } } = useForm<IAddAddressReq>({
     defaultValues: {
       title: '',
       text: '',
       flag: 0,
+      // default: false,
     },
   });
 
-  const onSubmit = async ({ title, text, flag }: IAddAddressReq) => {
+  const onSubmit = async ({ title, text, flag
+    // , default
+   } : IAddAddressReq) => {
     try {
       // Вызов функции для получения координат с помощью Yandex Geocode API
       const response = await AuthService.getValidAddress({ data: text });
@@ -167,8 +171,9 @@ const AddAddressForm: React.FC = observer(() => {
   
       // Вызываем addUserAddress с соответствующим значением флага
       await userStore.addUserAddress({ 
-        title, 
-        text, 
+        title,
+        text,
+        // default: isDefault ? true : false,
         flag: resultText === 'Внутри ЖК "Западный Порт"' ? 1 :
               resultText === 'В пределах МКАД' ? 2 :
               resultText === 'В пределах ЦКАД' ? 3 :
@@ -262,6 +267,7 @@ const AddAddressForm: React.FC = observer(() => {
           />
         </div>
         <div className="mb-6">
+          
           {/* <TextArea
             label={`Введите адрес. Адрес должен быть введен по примеру: Город Москва, Смоленская ул., 8 кв. 15`}
             {...register('text', { required: 'Адрес обязателен' })}
@@ -269,7 +275,7 @@ const AddAddressForm: React.FC = observer(() => {
             className="text-skin-base"
             variant="solid"
           /> */}
-        {/* <AddressSearch /> */}
+
           <AsyncSelectMap 
             label={`Введите адрес. Адрес должен быть введен по примеру: Город Москва, Смоленская ул., 8 кв. 15`}
             {...register('text', { required: 'Адрес обязателен' })}
@@ -278,6 +284,23 @@ const AddAddressForm: React.FC = observer(() => {
             setIsOpen={setIsOpen}
           />
         </div>
+
+        {/* <div className="mb-6">
+          <input
+            id="default-type"
+            type="checkbox"
+            className="form-checkbox w-5 h-5 border border-gray-300 rounded cursor-pointer transition duration-500 ease-in-out focus:ring-offset-0 hover:border-heading focus:outline-none focus:ring-0 focus-visible:outline-none focus:checked:bg-skin-primary hover:checked:bg-skin-primary checked:bg-skin-primary"
+            // {...register("default")}
+            onChange={(e) => setIsDefault(e.target.checked)} // Обновление состояния при изменении чекбокса
+          />
+          <label
+            htmlFor="default-type"
+            className="align-middle ms-3 text-sm text-skin-muted"
+          >
+            {t("Сделать номер основным")}
+          </label>
+        </div> */}
+
         <div className={`flex w-full justify-end ${isOpen ? 'edrwf' : 'edrserfwf'}`}>
           <Button className="h-11 md:h-12 mt-1.5" type="submit">
             {t('Сохранить изменения')}

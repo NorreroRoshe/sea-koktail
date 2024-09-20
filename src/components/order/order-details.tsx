@@ -119,34 +119,58 @@ const OrderDetails: React.FC<{ orderi: IDataGetOrderByIdRes,className?: string }
               {/* {t('text-sub-total')}: */}
               Промежуточный итог :
             </td>
-            <td className="p-4 text-end">{orderi?.totalCost} ₽</td>
+            <td className="p-4 text-end">{parseInt(orderi?.totalCost)} ₽</td>
           </tr>
 
 
 
 
+          {orderi?.address && (
+            <tr className="odd:bg-skin-secondary">
+              <td className="p-4 italic">
+                Дата и время доставки :
+              </td>
+              <td className="p-4 text-end">
+                {formattedDate}
+              </td>
+            </tr>
+          )}
+          {orderi?.adresSamovivoz && (
+            <tr className="odd:bg-skin-secondary">
+              <td className="p-4 italic">
+                Дата и время самовывоза :
+              </td>
+              <td className="p-4 text-end">
+                {formattedDate}
+              </td>
+            </tr>
+          )}
+          {orderi?.address && (
+            <tr className="odd:bg-skin-secondary">
+              <td className="p-4 italic">
+                Адрес доставки :
+              </td>
+              <td className="p-4 text-end">
+                {orderi?.address}
+              </td>
+            </tr>
+          )}
+          {orderi?.adresSamovivoz && (
+            <tr className="odd:bg-skin-secondary">
+              <td className="p-4 italic">
+                Адрес самовывоза :
+              </td>
+              <td className="p-4 text-end">
+                {orderi?.adresSamovivoz}
+              </td>
+            </tr>
+          )}
 
-          <tr className="odd:bg-skin-secondary">
-            <td className="p-4 italic">
-              Дата и время доставки :
-            </td>
-            <td className="p-4 text-end">
-              {formattedDate}
-            </td>
-          </tr>
-          <tr className="odd:bg-skin-secondary">
-            <td className="p-4 italic">
-              Адрес доставки :
-            </td>
-            <td className="p-4 text-end">
-              {orderi?.address}
-            </td>
-          </tr>
 
 
 
 
-
+        {/*
           <tr className="odd:bg-skin-secondary">
             <td className="p-4 italic">
               Цена доставки :
@@ -157,7 +181,22 @@ const OrderDetails: React.FC<{ orderi: IDataGetOrderByIdRes,className?: string }
               </span>
               &nbsp;{orderi?.deliveryPrice}₽
             </td>
-          </tr>
+          </tr> */}
+
+          {parseFloat(orderi?.deliveryPrice) > 0 && (
+            <tr className="odd:bg-skin-secondary">
+              <td className="p-4 italic">
+                Цена доставки :
+              </td>
+              <td className="p-4 text-end">
+                <span className="text-[13px] font-normal ps-1.5 inline-block">
+                  Фикс. цена
+                </span>
+                &nbsp;{orderi?.deliveryPrice} ₽
+              </td>
+            </tr>
+          )}
+
           <tr className="odd:bg-skin-secondary">
             <td className="p-4 italic">
               Общий итог с учетом доставки :

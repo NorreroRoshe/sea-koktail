@@ -25,6 +25,7 @@ const EditAddressForm: React.FC = observer(() => {
   const { closeModal } = useModalAction();
   const [textError, setTextError] = useState<string | null>(null);
   const [titleError, setTitleError] = useState<string | null>(null);
+  const [isDefault, setIsDefault] = useState(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const store = useStore();
@@ -41,6 +42,7 @@ const EditAddressForm: React.FC = observer(() => {
       title: '',
       text: '',
       flag: 0,
+      // default: false,
     },
   });
 
@@ -70,7 +72,9 @@ const EditAddressForm: React.FC = observer(() => {
   //   }
   // };
 
-  const onSubmit = async ({ id, title, text, flag }: IEditAddressReq) => {
+  const onSubmit = async ({ id, title, text, flag
+    // , default
+   } : IEditAddressReq) => {
     try {
       // Вызов функции для получения координат с помощью Yandex Geocode API
       const response = await AuthService.getValidAddress({ data: text });
@@ -90,6 +94,7 @@ const EditAddressForm: React.FC = observer(() => {
       await userStore.editUserAddress({ 
         id: item.id,
         title, 
+        // default: isDefault ? true : false,
         text, 
         flag: resultText === 'Внутри ЖК "Западный Порт"' ? 1 :
               resultText === 'В пределах МКАД' ? 2 :
@@ -202,8 +207,24 @@ const EditAddressForm: React.FC = observer(() => {
             error={textError || errors.text?.message}
             isOpen={isOpen}
             setIsOpen={setIsOpen}
+            placeholder={item.text}
           />
         </div>
+        {/* <div className="mb-6">
+          <input
+            id="default-type"
+            type="checkbox"
+            className="form-checkbox w-5 h-5 border border-gray-300 rounded cursor-pointer transition duration-500 ease-in-out focus:ring-offset-0 hover:border-heading focus:outline-none focus:ring-0 focus-visible:outline-none focus:checked:bg-skin-primary hover:checked:bg-skin-primary checked:bg-skin-primary"
+            checked={isDefault} // контролируемое свойство checked
+            onChange={(e) => setIsDefault(e.target.checked)} // обновление состояния
+          />
+          <label
+            htmlFor="default-type"
+            className="align-middle ms-3 text-sm text-skin-muted"
+          >
+            {t("Сделать номер основным")}
+          </label>
+        </div> */}
         <div className="flex w-full justify-end">
           <Button className="h-11 md:h-12 mt-1.5" type="submit">
             {t('Сохранить изменения')}
