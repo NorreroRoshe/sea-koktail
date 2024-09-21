@@ -173,7 +173,7 @@ export interface IAddAddressReq {
   title: string;
   text: string;
   flag: number;
-  default?: boolean;
+  defaultAddress?: number;
 }
 
 export interface IAddPhoneReq {
@@ -191,7 +191,7 @@ export interface IEditAddressReq {
   title: string;
   text: string;
   flag: number;
-  default?: boolean;
+  defaultAddress?: number;
 }
 
 export interface IEditPhoneReq {

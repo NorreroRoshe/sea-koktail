@@ -10,7 +10,7 @@ import {observer} from "mobx-react";
 
 const paymentMethods = [
   { name: 'Банковская карта', icon: cardses },
-  // { name: 'СБП', icon: sbp },
+  { name: 'СБП', icon: sbp },
 ];
 
 const SposobOplati = observer(() => {

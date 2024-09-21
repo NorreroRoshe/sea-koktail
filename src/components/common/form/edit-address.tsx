@@ -42,7 +42,7 @@ const EditAddressForm: React.FC = observer(() => {
       title: '',
       text: '',
       flag: 0,
-      // default: false,
+      defaultAddress: 0,
     },
   });
 
@@ -73,7 +73,7 @@ const EditAddressForm: React.FC = observer(() => {
   // };
 
   const onSubmit = async ({ id, title, text, flag
-    // , default
+    , defaultAddress
    } : IEditAddressReq) => {
     try {
       // Вызов функции для получения координат с помощью Yandex Geocode API
@@ -94,7 +94,7 @@ const EditAddressForm: React.FC = observer(() => {
       await userStore.editUserAddress({ 
         id: item.id,
         title, 
-        // default: isDefault ? true : false,
+        defaultAddress: isDefault ? 1 : 0,
         text, 
         flag: resultText === 'Внутри ЖК "Западный Порт"' ? 1 :
               resultText === 'В пределах МКАД' ? 2 :
@@ -210,7 +210,7 @@ const EditAddressForm: React.FC = observer(() => {
             placeholder={item.text}
           />
         </div>
-        {/* <div className="mb-6">
+        <div className="mb-6 flex">
           <input
             id="default-type"
             type="checkbox"
@@ -222,9 +222,9 @@ const EditAddressForm: React.FC = observer(() => {
             htmlFor="default-type"
             className="align-middle ms-3 text-sm text-skin-muted"
           >
-            {t("Сделать номер основным")}
+            {t("Сделать адрес основным")}
           </label>
-        </div> */}
+        </div>
         <div className="flex w-full justify-end">
           <Button className="h-11 md:h-12 mt-1.5" type="submit">
             {t('Сохранить изменения')}

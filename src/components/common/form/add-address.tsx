@@ -147,13 +147,11 @@ const AddAddressForm: React.FC = observer(() => {
       title: '',
       text: '',
       flag: 0,
-      // default: false,
+      defaultAddress: 0,
     },
   });
 
-  const onSubmit = async ({ title, text, flag
-    // , default
-   } : IAddAddressReq) => {
+  const onSubmit = async ({ title, text, flag, defaultAddress } : IAddAddressReq) => {
     try {
       // Вызов функции для получения координат с помощью Yandex Geocode API
       const response = await AuthService.getValidAddress({ data: text });
@@ -173,7 +171,7 @@ const AddAddressForm: React.FC = observer(() => {
       await userStore.addUserAddress({ 
         title,
         text,
-        // default: isDefault ? true : false,
+        defaultAddress: isDefault ? 1 : 0,
         flag: resultText === 'Внутри ЖК "Западный Порт"' ? 1 :
               resultText === 'В пределах МКАД' ? 2 :
               resultText === 'В пределах ЦКАД' ? 3 :
@@ -285,7 +283,7 @@ const AddAddressForm: React.FC = observer(() => {
           />
         </div>
 
-        {/* <div className="mb-6">
+        <div className="mb-6 flex">
           <input
             id="default-type"
             type="checkbox"
@@ -297,9 +295,9 @@ const AddAddressForm: React.FC = observer(() => {
             htmlFor="default-type"
             className="align-middle ms-3 text-sm text-skin-muted"
           >
-            {t("Сделать номер основным")}
+            {t("Сделать адресс основным")}
           </label>
-        </div> */}
+        </div>
 
         <div className={`flex w-full justify-end ${isOpen ? 'edrwf' : 'edrserfwf'}`}>
           <Button className="h-11 md:h-12 mt-1.5" type="submit">

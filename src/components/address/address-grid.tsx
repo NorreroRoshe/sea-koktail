@@ -249,13 +249,13 @@ const AddressGrid: React.FC<{ address?: any }> = observer(({ address }) => {
                 >
                   <TiDelete />
                 </button>
-                {/* {item?.default === true && (
+                {item?.flag == 1 && (
                   <button
                     className="flex justify-center items-center bg-[#02b290] h-6 w-6 rounded-full text-skin-inverted text-opacity-80 text-base"
                   >
                     <IoCheckmarkCircle style={{ color: '#fff' }} />
                   </button>
-                )} */}
+                )}
               </div>
             </RadioGroup.Option>
           ))

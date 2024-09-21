@@ -95,7 +95,7 @@ const AddContactForm: React.FC = observer(() => {
             error={textError || errors.text?.message}
           />
         </div>
-        <div className="mb-6">
+        <div className="mb-6 flex">
           <input
             id="default-type"
             type="checkbox"
