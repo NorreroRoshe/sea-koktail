@@ -42,77 +42,77 @@ export const siteSettings = {
           },
           {
             id: 0,
-            path: '/ProductiOnline/IkraKrasnaya?ProductTypes=2&Categories=20',
+            path: '/ProductiOnline?ProductTypes=2&Categories=20',
             label: 'Икра красная',
           },
           {
             id: 1,
-            path: '/ProductiOnline/IkraChernaya?ProductTypes=2&Categories=19',
+            path: '/ProductiOnline?ProductTypes=2&Categories=19',
             label: 'Икра черная',
           },
           {
             id: 2,
-            path: '/ProductiOnline/KrabiILobsteri?ProductTypes=2&Categories=73',
+            path: '/ProductiOnline?ProductTypes=2&Categories=73',
             label: 'Крабы и лобстеры',
           },
           {
             id: 3,
-            path: '/ProductiOnline/KrevetkiILangustini?ProductTypes=2&Categories=49',
+            path: '/ProductiOnline?ProductTypes=2&Categories=49',
             label: 'Креветки и лангустины',
           },
           {
             id: 4,
-            path: '/ProductiOnline/Moreproducti?ProductTypes=2&Categories=88',
+            path: '/ProductiOnline?ProductTypes=2&Categories=88',
             label: 'Морские деликатесы',
           },
           {
             id: 5,
-            path: '/ProductiOnline/RibaSvejomorojennaya?ProductTypes=2&Categories=134',
+            path: '/ProductiOnline?ProductTypes=2&Categories=134',
             label: 'Рыба',
           },
           {
             id: 6,
-            path: '/ProductiOnline/RibaOxlojdennaya?ProductTypes=2&Categories=146',
+            path: '/ProductiOnline?ProductTypes=2&Categories=146',
             label: 'Живые морепродукты',
           },
           {
             id: 7,
-            path: '/ProductiOnline/SteikiIFile?ProductTypes=2&Categories=109',
+            path: '/ProductiOnline?ProductTypes=2&Categories=109',
             label: 'Стейки и филе',
           },
           {
             id: 8,
-            path: '/ProductiOnline/RibaVyalennaya?ProductTypes=2&Categories=152',
+            path: '/ProductiOnline?ProductTypes=2&Categories=152',
             label: 'Рыба вяленая, солёная и копченая',
           },
           {
             id: 9,
-            path: '/ProductiOnline/Polufabrikati?ProductTypes=2&Categories=332',
+            path: '/ProductiOnline?ProductTypes=2&Categories=332',
             label: 'Полуфабрикаты',
           },
           {
             id: 10,
-            path: '/ProductiOnline/KonserviIPreservi?ProductTypes=2&Categories=41',
+            path: '/ProductiOnline?ProductTypes=2&Categories=41',
             label: 'Консервы и пресервы',
           },
           {
             id: 11,
-            path: '/ProductiOnline/Snacks?ProductTypes=2&Categories=209',
+            path: '/ProductiOnline?ProductTypes=2&Categories=209',
             label: 'Снеки',
           },
           {
             id: 12,
-            path: '/ProductiOnline/Sauces?ProductTypes=2&Categories=223',
+            path: '/ProductiOnline?ProductTypes=2&Categories=223',
             label: 'Соусы',
           },
           {
             id: 14,
-            path: '/ProductiOnline/Beverages?ProductTypes=2&Categories=483',
+            path: '/ProductiOnline?ProductTypes=2&Categories=483',
             label: 'Напитки',
           },
           {
             id: 15,
-            path: '/ProductiOnline/Water?ProductTypes=2&Categories=498',
+            path: '/ProductiOnline?ProductTypes=2&Categories=498',
             label: 'Вода',
           }
         ]
