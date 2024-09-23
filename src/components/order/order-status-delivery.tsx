@@ -25,7 +25,7 @@ const data = {
     },
     {
         "id": 3,
-        "name": "Передан курьеру",
+        "name": "Передан на доставку",
         "serial": 3,
         "color": "#FED030",
         "created_at": "Thu Jun 17 2021 22:12:50 GMT+0600",
@@ -41,10 +41,14 @@ const data = {
     }
   ]
 }
+
 const OrderStatusDelivery = ({ status }: Props) => {
+
+  const normalizedStatus = status === 9 ? 3 : status;
+
   return (
-    <ProgressBox data={data} status={status} />
-  )
+    <ProgressBox data={data} status={normalizedStatus} />
+  );
 };
 
 export default OrderStatusDelivery;

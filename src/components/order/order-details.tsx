@@ -80,8 +80,7 @@ const OrderDetails: React.FC<{ orderi: IDataGetOrderByIdRes,className?: string }
 
   if (orderi?.dateTime) {
     try {
-      const date = new Date(orderi.dateTime);
-
+      const date = new Date(orderi.dateTime.replace("Z", ""));
       if (!isNaN(date.getTime())) {
         formattedDate = format(date, "d MMMM yyyy 'г.' 'в' HH:mm", { locale: ru });
       }

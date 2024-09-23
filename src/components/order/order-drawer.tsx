@@ -68,7 +68,7 @@ const OrderDrawer: React.FC = observer(() => {
 
   if (data?.dateTime) {
     try {
-      const date = new Date(data.dateTime);
+      const date = new Date(data.dateTime.replace("Z", ""));
 
       if (!isNaN(date.getTime())) {
         formattedDate = format(date, "d MMMM yyyy 'г.' 'в' HH:mm", { locale: ru });

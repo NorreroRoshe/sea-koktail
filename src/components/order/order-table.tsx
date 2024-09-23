@@ -14,11 +14,14 @@ import { BsSearch } from 'react-icons/bs';
 import {observer} from "mobx-react";
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
+import 'dayjs/locale/ru';
 
 export const CreatedAt: React.FC<{ createdAt?: any }> = observer(({ createdAt }) => {
   dayjs.extend(relativeTime);
   dayjs.extend(utc);
   dayjs.extend(timezone);
+  dayjs.locale('ru');
+
   return (
     <span className="whitespace-nowrap">
       {dayjs.utc(createdAt).tz(dayjs.tz.guess()).fromNow()}
