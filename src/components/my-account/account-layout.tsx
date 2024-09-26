@@ -76,7 +76,7 @@ const accountMenu = [
 
 const AccountLayout: React.FunctionComponent<IAccountLayout> = ({ children }) => {
   return (
-    <div className="border-skin-base custom-mt-1000">
+    <div className="border-skin-base custom-mt-1000 sdfdgnb">
       <Container>
         <div className="pt-10 2xl:pt-12 pb-12 lg:pb-14 xl:pb-16 2xl:pb-20 xl:max-w-screen-xl 2xl:max-w-[1300px] mx-auto">
           <div className="flex flex-col lg:flex-row w-full">

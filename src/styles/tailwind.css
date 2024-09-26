@@ -567,6 +567,14 @@
   margin-top: 50px;
 }
 
+
+
+.sdfdgnb {
+  @media(max-width: 550px) {
+    margin-top: 0px;
+  }
+}
+
 .hidden-s {
   @media(min-width: 1200px) {
     display: none;

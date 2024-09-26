@@ -35,7 +35,7 @@ const OrdersTablePage = observer(() => {
         <>
           <OrderTable orders={orders} />
           
-          <p className="font-semibold text-sm md:text-xl text-skin-base mb-4 md:mb-0">
+          <p className="font-semibold text-sm md:text-xl text-skin-base mb-4 md:mb-0 sadvbf">
             Ваша скидка состовляет: {authStore?.salePercent}
             <br/>
             Сумма покупки за все время: {authStore?.allOrdersTotalCost} ₽

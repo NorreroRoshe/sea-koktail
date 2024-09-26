@@ -143,7 +143,7 @@ const OrderDrawer: React.FC = observer(() => {
               <div className="col-span-2 opacity-50"></div>
               <div className="col-span-5 opacity-50">Наименование</div>
               <div className="col-span-3 opacity-50 md:text-start text-center">
-                Количество
+                Кол-во
               </div>
               <div className="col-span-2 opacity-50">Цена</div>
             </div>

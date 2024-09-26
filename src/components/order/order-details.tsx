@@ -40,7 +40,7 @@ const OrderItemCard = observer(({ product }: { product: OrderByIdProduct }) => {
 
 
 const OrderDetails: React.FC<{ orderi: IDataGetOrderByIdRes,className?: string }> = observer(({
-  className = 'pt-10 lg:pt-12',
+  className = 'pt-5 lg:pt-5',
   orderi
 }) => {
 

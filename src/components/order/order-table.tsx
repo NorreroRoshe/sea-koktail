@@ -60,7 +60,7 @@ const columns = [
     title: 'Номер заказа',
     dataIndex: 'id',
     key: 'id',
-    className: 'id-cell',
+    className: 'id-cell qwfegwr',
   },
   {
     title: 'Дата',
@@ -69,6 +69,7 @@ const columns = [
     render: function createdAt(items: any) {
       return <CreatedAt createdAt={items} />;
     },
+    className: 'wevdwf',
     // render: (created_at: any) => {
     //   return formatDate(created_at);
     // },
@@ -87,6 +88,7 @@ const columns = [
     render: (updated_at: any) => {
       return formatDate(updated_at);
     },
+    className: 'wevdwf',
   },
   {
     title: 'Цена',

@@ -8,6 +8,8 @@ import usePrice from '@/framework/basic-rest/product/use-price';
 import { useTranslation } from 'next-i18next';
 import { observer } from "mobx-react";
 import { useStore } from '@/hooks/useStore';
+import OrderStatusDelivery from './order-status-delivery';
+import OrderStatus from './order-status';
 import { format } from 'date-fns';
 import NotFoundOrder from "@/components/NotFoundBlock/notFoundOrder";
 import { ru } from 'date-fns/locale';
@@ -123,12 +125,31 @@ const OrderInformation = observer(() => {
 
   return (
     <div className="xl:px-32 2xl:px-44 3xl:px-56 py-16 lg:py-20">
-      <div className="border border-skin-base bg-skin-secondary px-4 lg:px-5 py-4 rounded-md flex items-center justify-start text-skin-base text-sm md:text-base mb-6 lg:mb-8">
-        <span className="w-10 h-10 me-3 lg:me-4 rounded-full bg-skin-primary bg-opacity-20 flex items-center justify-center flex-shrink-0" style={{ background: '#02b29033' }}>
-          <IoCheckmarkCircle className="w-5 h-5" style={{ color: '#02b290' }} />
-        </span>
-        {/* {t('text-order-received')} */}
-        Спасибо. Ваш заказ получен.
+
+      <div className="border border-skin-base bg-skin-secondary px-4 lg:px-5 py-4 rounded-md flex items-center justify-start text-skin-base text-sm md:text-base mb-6 lg:mb-8 cqevtbe">
+        <div className="flex items-center justify-start text-skin-base text-sm md:text-base">
+          <span className="w-10 h-10 me-3 lg:me-4 rounded-full bg-skin-primary bg-opacity-20 flex items-center justify-center flex-shrink-0" style={{ background: '#02b29033' }}>
+            <IoCheckmarkCircle className="w-5 h-5" style={{ color: '#02b290' }} />
+          </span>
+          {/* {t('text-order-received')} */}
+          Спасибо. Ваш заказ получен.
+        </div>
+
+      {data?.payStatus !== 0 ? (
+        <p className="text-skin-base text-sm md:text-base mb-8" style={{ fontSize: '26px' }}>
+          {/* Ссылка на оплату :&nbsp; */}
+          <a href={data?.payURL} className="wdfegw text-blue-600 hover:text-blue-600">
+            Чек оплаты
+          </a>
+        </p>
+      ) : (
+        <p className="text-skin-base text-sm md:text-base mb-8" style={{ fontSize: '26px' }}>
+          {/* Ссылка на оплату :&nbsp; */}
+          <a href={data?.payURL} className="wdfegw text-blue-600 hover:text-blue-600">
+            Перейти к оплате
+          </a>
+        </p>
+      )}
       </div>
 
       <ul className="border border-skin-base bg-skin-secondary rounded-md flex flex-col md:flex-row mb-7 lg:mb-8 xl:mb-10 items-center wfqegrveasvdeqwv">
@@ -178,27 +199,21 @@ const OrderInformation = observer(() => {
 
         </li>
       </ul>
-      {data?.payStatus !== 0 ? (
-        <p className="text-skin-base text-sm md:text-base mb-8">
-          <a href={data?.payURL} className="text-blue-600 hover:text-blue-600">
-            Чек оплаты !
-          </a>
-        </p>
-      ) : (
-        <p className="text-skin-base text-sm md:text-base mb-8" style={{ fontSize: '26px' }}>
-          {/* Ссылка на оплату :&nbsp; */}
-          <a href={data?.payURL} className="text-blue-600 hover:text-blue-600">
-            Перейти к оплате!
-          </a>
-        </p>
-      )}
 
-      <p className="text-skin-base text-sm md:text-base mb-8">
-        Статус оплаты :&nbsp;
-        <span className={data?.payStatus !== 0 ? "text-green-600" : "text-red-600"}>
-          {data?.payStatus !== 0 ? "Оплата выполнена!" : "Оплата не прошла!"}
+
+      {data?.deliveryType === 0 ? (
+        <OrderStatusDelivery status={data?.payStatus} />
+        ) : data?.deliveryType === 1 ? (
+        <OrderStatus status={data?.payStatus} />
+      ) : null}
+
+
+      {/* <p className="text-skin-base text-sm md:text-base mb-8"> */}
+        {/* Статус оплаты :&nbsp; */}
+        {/* <span className={data?.payStatus !== 0 ? "text-green-600" : "text-red-600"}>
+          {data?.payStatus !== 0 ? "Оплата выполнена!" : ""}
         </span>
-      </p>
+      </p> */}
 
       <OrderDetails orderi={data} />
     </div>

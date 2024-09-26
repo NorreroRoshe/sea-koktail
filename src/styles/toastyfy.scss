@@ -3136,6 +3136,12 @@ input:checked+.slider:before {
   margin-top: 50px
 }
 
+.sdfdgnb {
+  @media(max-width: 550px) {
+    margin-top: 0px;
+  }
+}
+
 .first\:border-t-0:first-child {
   border-top-width: 0
 }
@@ -9781,4 +9787,14 @@ body>.os-scrollbar {
     margin-top: 10px;
   }
   margin-bottom: 10px;
+}
+
+.cqevtbe {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wdfegw {
+  border-bottom: 1px solid #2563eb;
 }

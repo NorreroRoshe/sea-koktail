@@ -28,7 +28,7 @@ export const OrderDetailsContent: React.FC<{ item?: any }> = ({ item }) => {
       }
       </div>
       <div className="col-span-5 self-center">
-        <h2 className="text-skin-base" style={{fontSize: '14px'}}>{item?.name}</h2>
+        <h2 className="text-skin-base" style={{fontSize: '14px', marginLeft: '5px'}}>{item?.name}</h2>
       </div>
       <div className="col-span-3 self-center md:text-start text-center">
         {/* {typeof item?.quantity === 'number' && <p>{item?.quantity}x</p>} */}
