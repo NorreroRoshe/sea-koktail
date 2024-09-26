@@ -3136,12 +3136,6 @@ input:checked+.slider:before {
   margin-top: 50px
 }
 
-.sdfdgnb {
-  @media(max-width: 550px) {
-    margin-top: 0px;
-  }
-}
-
 .first\:border-t-0:first-child {
   border-top-width: 0
 }
@@ -9798,3 +9792,11 @@ body>.os-scrollbar {
 .wdfegw {
   border-bottom: 1px solid #2563eb;
 }
+
+.sadfgf {
+  @media(max-width: 550px) {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+

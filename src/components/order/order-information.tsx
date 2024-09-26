@@ -126,7 +126,7 @@ const OrderInformation = observer(() => {
   return (
     <div className="xl:px-32 2xl:px-44 3xl:px-56 py-16 lg:py-20">
 
-      <div className="border border-skin-base bg-skin-secondary px-4 lg:px-5 py-4 rounded-md flex items-center justify-start text-skin-base text-sm md:text-base mb-6 lg:mb-8 cqevtbe">
+      <div className="sadfgf border border-skin-base bg-skin-secondary px-4 lg:px-5 py-4 rounded-md flex items-center justify-start text-skin-base text-sm md:text-base mb-6 lg:mb-8 cqevtbe">
         <div className="flex items-center justify-start text-skin-base text-sm md:text-base">
           <span className="w-10 h-10 me-3 lg:me-4 rounded-full bg-skin-primary bg-opacity-20 flex items-center justify-center flex-shrink-0" style={{ background: '#02b29033' }}>
             <IoCheckmarkCircle className="w-5 h-5" style={{ color: '#02b290' }} />
