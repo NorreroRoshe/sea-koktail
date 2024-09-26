@@ -31,9 +31,9 @@ const DostavkaOplata: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className={cls.info__text_s}>
+        {/* <div className={cls.info__text_s}>
           Кроме заказанной позиции при наличном расчёте вы получаете на руки кассовый чек и товарный чек. При безналичном расчёте - товарную накладную (ТОРГ-12) и счет-фактуру.
-        </div>
+        </div> */}
         <div className={`${cls.requisite} ${cls.mrb3015}`}>
           <h4 className={`${cls.requisite__title} ${cls.mrreset} ${cls.tac} ${cls.mrb3015}`}>
             Доставка
@@ -52,11 +52,11 @@ const DostavkaOplata: React.FC = () => {
               </div>
             </div>
             <div className={`${cls.info__col} ${cls.info__col_s}`}>
-              <div className={cls.info__col_wrap}>
+              {/* <div className={cls.info__col_wrap}>
                 <div className={`${cls.info__subheadline} ${cls.info__subheadline_fir}`}>
                   Ближайшее подмосковье - 790₽ + 25 ₽/КМ
                 </div>
-              </div>
+              </div> */}
               <div className={cls.info__col_wrap}>
                 <div className={`${cls.info__subheadline} ${cls.info__subheadline_fir}`}>
                   САМОВЫВОЗ ИЗ Ресторана — БЕСПЛАТНО

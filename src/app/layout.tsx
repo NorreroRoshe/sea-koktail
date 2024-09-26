@@ -112,15 +112,13 @@ export default function RootLayout({
                   <MobileNavigation />
                   <ScrollToTop
                     style={{
-                      backgroundColor: '#114f89',
+                      backgroundColor: '#0085FF',
                       borderRadius: '50%',
-                      height: '65px',
-                      width: '65px',
+                      height: '50px',
+                      width: '50px',
                       zIndex: 50,
-                      bottom: '115px'
-                      // bottom: '75px'
                     }}
-                    className="scrollCustom"
+                    className="scrollCustom wsedfd"
                     smooth
                     top={250}
                     svgPath={''}

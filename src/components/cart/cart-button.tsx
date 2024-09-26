@@ -74,6 +74,10 @@ const CartButton: React.FC<CartButtonProps> = observer(({ className }) => {
           <div className="flex items-center relative" style={{padding: '10px 8px 8px', background: '#fff', borderRadius: '50%'}}>
             <Image alt='favorite-icon' src={carhovpol} className={cls.favimga}/>
           </div>
+        {/* <span className="cart-counter-badge flex items-center justify-center text-skin-black absolute -top-2.5 -right-6 start-2.5 rounded-full" style={{ fontSize: '14px' }}> */}
+        <span className={`absolute ${cls.sacsvfbdg}`} style={{ fontSize: '14px' }}>
+          {cartCount}
+        </span>
         </button>
       ) : (
         <button

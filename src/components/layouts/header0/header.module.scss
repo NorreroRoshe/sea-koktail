@@ -342,8 +342,10 @@
 }
 
 .favimga {
-  width: 24px;
-  height: 22px;
+  // width: 24px;
+  // height: 22px;
+  width: 30px;
+  height: 27px;
 }
 
 .efrvws {
@@ -362,4 +364,11 @@
   @media (max-width: 550px) {
     display: none;
   }
+}
+
+.sacsvfbdg {
+  font-size: 14px;
+  top: 10px;
+  right: 17px;
+  color: #fff;
 }

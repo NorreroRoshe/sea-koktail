@@ -59,7 +59,7 @@ type SearchProps = {
       // >
       <>
         <label htmlFor={searchId} className="flex flex-1 items-center py-0.5">
-          <span className="w-14 md:w-16 h-full absolute bottom-1 start-2 flex flex-shrink-0 justify-center items-center focus:outline-none">
+          <span style={{top: '-6px'}} className="w-14 md:w-16 h-full absolute bottom-1 start-2 flex flex-shrink-0 justify-center items-center focus:outline-none">
             <SearchIcon className={`text-skin-base text-opacity-40 ${cls.seach_size}`} />
           </span>
           <input

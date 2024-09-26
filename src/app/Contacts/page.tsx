@@ -14,6 +14,14 @@ const Contacts: React.FC = () => {
             <h3 className={cls.timeline_header}>Режим работы сайта:</h3>
             <p className={cls.timeline_time}>09:00 до 21:00</p>
           </div>
+          <div className={cls.online_timeline}>
+            <h3 className={cls.timeline_header}>Ардес магазина:</h3>
+            <p className={cls.timeline_time}>Москва, ул. Большая Филевская дом 3, корп. 2</p>
+          </div>
+          <div className={cls.online_timeline}>
+            <h3 className={cls.timeline_header}>Режим работы магазина:</h3>
+            <p className={cls.timeline_time}>09:00 до 21:00</p>
+          </div>
           <div className={cls.online_connection}>
             <h3 className={cls.connection_header}>Телефоны и почта:</h3>
             <div className={cls.connection_tel}>

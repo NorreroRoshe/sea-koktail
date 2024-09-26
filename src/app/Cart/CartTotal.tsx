@@ -61,7 +61,7 @@ const CartTotal: React.FC = observer(({ }) => {
       dateTime: '',
       description: '',
       payType: 0,
-      adresSamovivoz: 'Москва, ул. Большая Филевская дом 3, корп 2'
+      adresSamovivoz: 'Москва, ул. Большая Филевская дом 3, корп. 2'
     },
   });
 

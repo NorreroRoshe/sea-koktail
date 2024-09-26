@@ -68,6 +68,7 @@ const ThumbnailCarousel: React.FC<Props> = ({
           {popupProduct?.files?.map((file, index) => (
             <SwiperSlide
               key={index}
+              style={{ marginBottom: 'auto' }}
               className="flex items-center justify-center"
             >
               <img
@@ -80,7 +81,7 @@ const ThumbnailCarousel: React.FC<Props> = ({
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="flex items-center justify-between w-full absolute top-2/4 z-10 px-2.5">
+        <div className="flex items-center toprowefrwb justify-between w-full absolute  z-10 px-2.5">    {/*top-2/4*/}
           <div
             ref={prevRef}
             className="w-7 h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 xl:w-10 xl:h-10 text-base lg:text-lg xl:text-xl flex items-center cursor-pointer justify-center rounded-full bg-skin-follll transition duration-300 hover:bg-skin-primary hover:text-skin-inverted focus:outline-none transform -translate-y-1/2 shadow-navigation"

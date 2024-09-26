@@ -14,11 +14,14 @@ const YandexMap = () => {
       <h3 className={s.s2fewefds}>Мы на картах</h3>
       <YMaps query={{ apikey: '2d4fdc10-d35f-47a4-8484-9119412d96f1' }}>
         <Map
-          defaultState={{ center: [55.751574, 37.573856], zoom: 13 }}
+          defaultState={{
+            //  center: [55.751574, 37.573856],
+             center: [55.749820, 37.516470],
+              zoom: 13 }}
           className={`${s.cartaas} ${isGrayscale ? s.grayscale : ''}`}
           onClick={toggleGrayscale}
         >
-          <Placemark geometry={[55.749483, 37.517037]} />
+          <Placemark geometry={[55.749820, 37.516470]} />
         </Map>
       </YMaps>
     </section>

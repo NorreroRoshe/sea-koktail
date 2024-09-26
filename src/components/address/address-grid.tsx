@@ -235,7 +235,7 @@ const AddressGrid: React.FC<{ address?: any }> = observer(({ address }) => {
               >
                 {item?.text}
               </RadioGroup.Description>
-              <div className="flex absolute end-3 top-3 z-30 transition-all address__actions">
+              <div style={{zIndex: 19}} className="flex absolute end-3 top-3 transition-all address__actions">
                 <div className="flex lg:opacity-0 transition-all address__actions">
                   <button
                     onClick={() => handlePopupEdit(item)}

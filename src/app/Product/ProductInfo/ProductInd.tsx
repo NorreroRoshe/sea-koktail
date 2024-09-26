@@ -182,46 +182,53 @@ export const ProductInd: React.FC<ProductInfoProps> = observer(({ detProduct }) 
               </div>
             </div>
 
-            <div className="pb-2">
-            {detProduct && detProduct.productType !== "1" && (
-              <>
-                {detProduct.availability && detProduct.availability > 0 ? (
-                  <div
-                    className="text-base whitespace-nowrap border-sink-base"
-                    style={{
-                      width: 'fit-content',
-                      fontSize: '14px',
-                    }}
-                  >
-                    В наличии:&nbsp;
-                    <span
+            {/* <div className="pb-2">
+              {detProduct && detProduct.productType !== "1" && (
+                <>
+                  {detProduct.availability && detProduct.availability > 0 ? (
+                    <div
+                      className="text-base whitespace-nowrap border-sink-base"
                       style={{
                         width: 'fit-content',
-                        fontSize: '14px',  // Corrected the font size to 14px
-                        color: '#6bb431',
+                        fontSize: '14px',
                       }}
                     >
-                      {detProduct.availability} {detProduct.unit}
-                    </span>
-                  </div>
-                ) : (
-                  <div
-                    className="whitespace-nowrap"
-                    style={{
-                      border: '1px solid',
-                      width: 'fit-content',
-                      padding: '0px 8px',
-                      fontSize: '12px',
-                      borderRadius: '5px',
-                      color: '#f73d34',
-                    }}
-                  >
-                    Нету в наличии
-                  </div>
-                )}
-              </>
+                      В наличии:&nbsp;
+                      <span
+                        style={{
+                          width: 'fit-content',
+                          fontSize: '14px',  // Corrected the font size to 14px
+                          color: '#6bb431',
+                        }}
+                      >
+                        {detProduct.availability} {detProduct.unit}
+                      </span>
+                    </div>
+                  ) : (
+                    <div
+                      className="whitespace-nowrap"
+                      style={{
+                        border: '1px solid',
+                        width: 'fit-content',
+                        padding: '0px 8px',
+                        fontSize: '12px',
+                        borderRadius: '5px',
+                        color: '#f73d34',
+                      }}
+                    >
+                      Нету в наличии
+                    </div>
+                  )}
+                </>
               )}
-            </div>
+            </div> */}
+
+                <div className="pb-2 ewbres">
+                    <span
+                      className="text-sm font-extrabold qevrbte">
+                      В наличии
+                    </span>
+                </div>
             
             <div className="pb-2">
                 <div

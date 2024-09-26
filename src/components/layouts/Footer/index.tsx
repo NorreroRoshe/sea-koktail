@@ -175,9 +175,9 @@ export const Footer: React.FC = () => {
 
             <div className={cls.footer_nav_nytime}>
               <h5 className={cls.nav_nytime_title}>Режим работы сайта</h5>
-              <p className={cls.nav_nytime_time}>Пн-Вс 10:00-23:00</p>
-              <h5 className={cls.nav_nytime_title} style={{ marginTop: '10px' }}>Режим работы ресторана</h5>
-              <p className={cls.nav_nytime_time}>Пн-Вс 12:00-23:00</p>
+              <p className={cls.nav_nytime_time}>Пн-Вс 9:00-21:00</p>
+              <h5 className={cls.nav_nytime_title} style={{ marginTop: '10px' }}>Режим работы магазина</h5>
+              <p className={cls.nav_nytime_time}>Пн-Вс 9:00-23:00</p>
             </div>
 
             {/* <div className={cls.footer__nav_social}>

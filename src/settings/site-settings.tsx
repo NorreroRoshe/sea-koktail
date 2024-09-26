@@ -247,11 +247,11 @@ export const siteSettings = {
       }
     ],
     MainMenu: [
-      {
-        id: 1,
-        path: '/AboutUs',
-        label: 'О нас',
-      },
+      // {
+      //   id: 1,
+      //   path: '/AboutUs',
+      //   label: 'О нас',
+      // },
       {
         id: 1,
         path: '/Contacts',

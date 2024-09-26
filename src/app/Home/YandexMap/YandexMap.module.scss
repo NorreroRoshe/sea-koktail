@@ -6,6 +6,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 70px;
+  @media(max-width: 550px) {
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
 }
 
 .cartaas {
@@ -17,6 +22,10 @@
   overflow: hidden;
   transition: filter 0.3s ease;
   border: 1px solid #0085FF;
+  @media(max-width: 550px) {
+    width: 82vw;
+    height: 370px;
+  }
 }
 
 .grayscale {
@@ -26,4 +35,8 @@
 .s2fewefds {
   font-size: 39px;
   margin-bottom: 70px;
+  @media(max-width: 550px) {
+  font-size: 35px;
+  margin-bottom: 50px;
+  }
 }

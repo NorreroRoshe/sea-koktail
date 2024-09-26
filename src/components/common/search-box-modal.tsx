@@ -91,7 +91,7 @@ type SearchProps = {
             <CloseIcon className="w-[17px] h-[17px] text-skin-base text-opacity-40" />
           </button>
         ) : (
-          <span className="w-14 md:w-16 h-full absolute top-0 start-0 flex flex-shrink-0 justify-center items-center focus:outline-none">
+          <span style={{top: '-4px'}} className="w-14 md:w-16 h-full absolute top-0 start-0 flex flex-shrink-0 justify-center items-center focus:outline-none">
             <SearchIcon className={`text-skin-base text-opacity-40 ${cls.seach_size}`} />
           </span>
         )}

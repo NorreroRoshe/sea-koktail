@@ -50,7 +50,8 @@
             font-weight: 700;
             font-size: 20px;
             line-height: 24px;
-            color: #18d8d1;
+            color: #000000;
+            border-bottom: 1px solid black;
           }
         }
         .connection_mail {
@@ -61,7 +62,8 @@
               margin-top: 12px;
             }
             .mail_client_telink {
-              color: #1076da;
+              color: #000000;
+              border-bottom: 1px solid black;
               font-weight: 700;;
               font-size: 20px;
             }

@@ -16,7 +16,12 @@ import {
   IoLogoFacebook,
   IoLogoYoutube,
   IoClose,
+  IoLogoWhatsapp,
+  IoLogoVk,
 } from 'react-icons/io5';
+import {
+  BiLogoTelegram
+} from 'react-icons/bi';
 
 const social = [
   // {
@@ -36,14 +41,21 @@ const social = [
   {
     id: 2,
     link: 'https://www.youtube.com/channel/UCjld1tyVHRNy_pe3ROLiLhw',
-    icon: <IoLogoYoutube />,
+    icon: <IoLogoVk  className="icon-sizeweqfw vkev"/>,
     className: 'youtube',
     title: 'text-youtube',
   },
   {
     id: 3,
     link: 'https://www.instagram.com/redqinc/',
-    icon: <IoLogoInstagram />,
+    icon: <IoLogoWhatsapp  className="icon-sizeweqfw whatev"/>,
+    className: 'instagram',
+    title: 'text-instagram',
+  },
+  {
+    id: 3,
+    link: 'https://www.instagram.com/redqinc/',
+    icon: <BiLogoTelegram  className="icon-sizeweqfw tgev"/>,
     className: 'instagram',
     title: 'text-instagram',
   },
@@ -151,62 +163,83 @@ export default function MobileMenu() {
   return (
     <>
       <div className="flex flex-col justify-start w-full h-full">
-        <div className="w-full border-b border-skin-base flex justify-between items-center relative ps-5 md:ps-7 flex-shrink-0 py-0.5" style={{padding: '20px'}}>
-          <div role="button" onClick={closeSidebar} className="inline-flex">
-            <Logo />
+        <div className="flex flex-col justify-start w-full h-full">
+          <div className="w-full border-b border-skin-base flex justify-between items-center relative ps-5 md:ps-7 flex-shrink-0 py-0.5" style={{padding: '20px'}}>
+            <div role="button" onClick={closeSidebar} className="inline-flex">
+              <Logo />
+            </div>
+
+            <div className="asfegrbe flex items-center justify-center px-7 flex-shrink-0 space-s-1 py-5">
+              <Link
+                href="tel:+79151777765"
+                className={`cevwr text-heading space-s-6 transition duration-300 ease-in text-skin-base text-opacity-60 hover:text-skin-primary`}
+              >
+                  +7 (915) 177-77-65
+              </Link>
+            </div>
+
+            <button
+              className="flex text-2xl items-center justify-center px-4 md:px-5 py-5 lg:py-8 focus:outline-none transition-opacity hover:opacity-60"
+              onClick={closeSidebar}
+              aria-label="close"
+            >
+              <IoClose className="text-skin-base mt-0.5" />
+            </button>
           </div>
 
-          <button
-            className="flex text-2xl items-center justify-center px-4 md:px-5 py-5 lg:py-8 focus:outline-none transition-opacity hover:opacity-60"
-            onClick={closeSidebar}
-            aria-label="close"
-          >
-            <IoClose className="text-skin-base mt-0.5" />
-          </button>
+
+          <Scrollbar className="menu-scrollbar flex-grow mb-auto">
+            <div className={`flex flex-col py-6 px-0 text-skin-base ${cls.mob_men_hei}`}>
+              <ul className="mobile-menu">
+                {site_header.menu.map((menu, index) => {
+                  const dept: number = 1;
+                  const menuName: string = `sidebar-menu-${dept}-${index}`;
+
+                  return (
+                    <ListMenu
+                      dept={dept}
+                      data={menu}
+                      hasSubMenu={menu.subMenu}
+                      menuName={menuName}
+                      key={menuName}
+                      menuIndex={index}
+                    />
+                  );
+                })}
+              </ul>
+
+
+              <ul className={`mobile-menu ${cls.mob_men_heig}`}>
+                {site_header.MainMenu?.map((MainMenu, index) => {
+                  const dept: number = 1;
+                  const menuName: string = `sidebar-menu-${dept}-${index}`;
+
+                  return (
+                    <ListMenu
+                      dept={dept}
+                      data={MainMenu}
+                      // hasSubMenu={MainMenu.subMenu}
+                      menuName={menuName}
+                      key={menuName}
+                      menuIndex={index}
+                    />
+                  );
+                })}
+              </ul>
+
+            </div>
+          </Scrollbar>
         </div>
-        <Scrollbar className="menu-scrollbar flex-grow mb-auto">
-          <div className={`flex flex-col py-6 px-0 text-skin-base ${cls.mob_men_hei}`}>
-            <ul className="mobile-menu">
-              {site_header.menu.map((menu, index) => {
-                const dept: number = 1;
-                const menuName: string = `sidebar-menu-${dept}-${index}`;
 
-                return (
-                  <ListMenu
-                    dept={dept}
-                    data={menu}
-                    hasSubMenu={menu.subMenu}
-                    menuName={menuName}
-                    key={menuName}
-                    menuIndex={index}
-                  />
-                );
-              })}
-            </ul>
-
-
-            <ul className={`mobile-menu ${cls.mob_men_heig}`}>
-              {site_header.MainMenu?.map((MainMenu, index) => {
-                const dept: number = 1;
-                const menuName: string = `sidebar-menu-${dept}-${index}`;
-
-                return (
-                  <ListMenu
-                    dept={dept}
-                    data={MainMenu}
-                    // hasSubMenu={MainMenu.subMenu}
-                    menuName={menuName}
-                    key={menuName}
-                    menuIndex={index}
-                  />
-                );
-              })}
-            </ul>
-
-          </div>
-        </Scrollbar>
-
-        {/* <div className="flex items-center justify-center bg-skin-fill border-t border-skin-base px-7 flex-shrink-0 space-s-1 py-5">
+        <div className="dwqfewgrbef flex items-center justify-center bg-skin-fill border-t border-skin-base px-7 flex-shrink-0 space-s-1 py-5">
+          <Link
+            href="tel:+79151777765"
+            className={`qwdfewgr text-heading space-s-6 transition duration-300 ease-in text-skin-base text-opacity-60 hover:text-skin-primary`}
+          >
+              +7 (915) 177-77-65
+          </Link>
+        </div>
+        <div className="asvdsfbdgf flex items-center justify-center bg-skin-fill border-t border-skin-base px-7 flex-shrink-0 space-s-1 py-5">
           {social?.map((item, index) => (
             <Link
               href={item.link}
@@ -214,10 +247,10 @@ export default function MobileMenu() {
               key={index}
             >
               <span className="sr-only">{t(`${item.title}`)}</span>
-              {item.icon}
+                {item.icon}
             </Link>
           ))}
-        </div> */}
+        </div>
       </div>
     </>
   );

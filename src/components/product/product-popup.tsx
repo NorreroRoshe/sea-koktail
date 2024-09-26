@@ -192,7 +192,7 @@ const ProductPopup: React.FC<ProductPopupProps> = observer(({ popupProduct }) =>
                       {popupProduct.name} &nbsp;
                       {/* <strong>{popupProduct.article}</strong> */}
                     </h2>
-                    {popupProduct && popupProduct.productType !== "1" && (
+                    {/* {popupProduct && popupProduct.productType !== "1" && (
                       <>
                         {popupProduct.availability && popupProduct.availability > 0 ? (
                           <div
@@ -229,36 +229,42 @@ const ProductPopup: React.FC<ProductPopupProps> = observer(({ popupProduct }) =>
                           </div>
                         )}
                       </>
-                    )}
+                    )} */}
                   </div>
                 </div>
                 <div className="pb-2">
 
-                  {popupProduct?.attribute
+                    {popupProduct?.attribute
                     ?.filter((attribute) => attribute.value)
                     .map((attribute, ids) => (
-                    <span
+                      <span
                       key={ids}
                       className="text-sm font-extrabold"
                       style={{ color: '#787a80', fontSize: '17px' }}>
                           {getAttributeLabel(attribute.key)}:
                       <span style={{ marginLeft: '10px', fontSize: '17px' }}>{attribute.value}</span>
                       <br />
-                    </span>
-                  ))}
+                      </span>
+                    ))}
 
-                  <span
-                    className="text-sm font-extrabold"
-                    style={{ color: '#787a80', fontSize: '17px' }}>
-                    код товара:
-                    <span style={{ marginLeft: '10px', fontSize: '17px' }}>
-                      {popupProduct.nomNumber}
+                    <span
+                      className="text-sm font-extrabold"
+                      style={{ color: '#787a80', fontSize: '17px' }}>
+                      код товара:
+                      <span style={{ marginLeft: '10px', fontSize: '17px' }}>
+                        {popupProduct.nomNumber}
+                      </span>
                     </span>
-                  </span>
-                  </div>
+                </div>
+                <div className="pb-2 ewbre">
+                    <span
+                      className="text-sm font-extrabold qevrbte">
+                      В наличии
+                    </span>
+                </div>
 
                 {popupProduct.discount > 0 ? (
-                  <div className={`flex items-center mt-5 ${cls.fegrhbetrgweas}`}>
+                  <div className={`flex items-center mt-5 mb-5 wdqfegrb ${cls.fegrhbetrgweas}`}>
                     <div className="text-skin-base font-extrabold text-base md:text-xl xl:text-[22px]">
                       {/* {Math.round(popupProduct.price - discountPercentage)} */}
                       {mainPrice}
@@ -273,7 +279,7 @@ const ProductPopup: React.FC<ProductPopupProps> = observer(({ popupProduct }) =>
                     </span>
                   </div>
                 ) : (
-                  <div className="flex items-center  mt-5">
+                  <div className="flex items-center mb-5 mt-5 wdqfegrb">
                     <div className="text-skin-base font-extrabold text-base md:text-xl xl:text-[22px]">
                       {popupProduct.price}&nbsp;<span>₽</span>
                     </div>
