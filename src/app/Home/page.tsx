@@ -15,6 +15,9 @@ import YandexMap from './YandexMap/YandexMap';
 import { useModalAction } from '../../components/common/modal/modal.context';
 import { MirrorAdvertisement } from './MirrorAdvertisement/MirrorAdvertisement';
 import { SectionChoise } from './SectionChoise/SectionChoise';
+
+
+
 const Home: React.FC = () => {
 
 
@@ -29,7 +32,6 @@ const Home: React.FC = () => {
       }, 1000);
     }
   }, [openModal]);
-
 
   return (
     <div className="wrapp">

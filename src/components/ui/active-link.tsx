@@ -42,7 +42,7 @@ const ActiveLink = ({ children, activeClassName, href, ...props }: any) => {
   if (href === '/ProductiOnline') {
     modifiedHref = '/ProductiOnline?ProductTypes=2&Page=0';
   } else if (href === '/Restaurant') {
-    modifiedHref = '/ProductiOnline?ProductTypes=1&Category=518&Page=0';
+    modifiedHref = '/Restaurant?ProductTypes=1&Categories=518&Page=0';
   } else {
     modifiedHref = href;
   }

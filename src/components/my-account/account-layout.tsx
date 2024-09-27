@@ -9,8 +9,8 @@ import SettingsIcon from '@/components/iconsCode/account-settings';
 import HelpIcon from '@/components/iconsCode/account-help';
 import AccountChangePassIcon from '../iconsCode/account-change-password';
 
-interface IAccountLayout{
-  children? : any
+interface IAccountLayout {
+  children?: any
 }
 
 // const accountMenu = [
