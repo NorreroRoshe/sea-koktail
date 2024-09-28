@@ -162,7 +162,7 @@ export const BlyudaCatalogue: React.FC<ICatalogCategories> = observer(({ sitePat
   useEffect(() => {
       productStore.getProducts(COUNT_PER_PAGE, page * COUNT_PER_PAGE,requestParams)
       .then(() => window.scrollTo({
-        top: 0,
+        top: 400,
         left: 0,
         behavior: "smooth",
       })

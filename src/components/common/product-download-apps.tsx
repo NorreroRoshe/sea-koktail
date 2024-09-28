@@ -8,7 +8,8 @@ import cls from './Common.module.scss'
 
 const data = {
   title: 'app-heading',
-  description: 'Привезем продукты в удобное время, с помощью сервиса Яндекс.Доставка',
+  description: 'Привезем в удобное время, с помощью сервиса Яндекс.Доставка',
+  // description: 'Привезем продукты в удобное время, с помощью сервиса Яндекс.Доставка',
   appImage: '/assets/images/crab_jxvq44xtkmu7.svg',
   accImage: '/assets/images/credit_card_hand_payment_pay_icon_143286.svg',
   abbImage: '/assets/images/free-icon-delivery-truck-2189145.svg',
@@ -105,7 +106,7 @@ const ProductDownloadApps: React.FC<Props> = ({ className = 'pt-1.5 md:pt-0' }) 
               src={abbImage}
               alt={t('text-app-thumbnail')}
               width={140}
-              className={cls.down_image}
+              className={`${cls.down_image} ${cls.cevwdacs}`}
               height={100}
               />
             </h3>

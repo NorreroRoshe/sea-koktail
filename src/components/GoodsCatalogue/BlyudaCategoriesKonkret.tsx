@@ -138,20 +138,38 @@ export const BlyudaCategoriesKonkret: React.FC<ICatalogCategories> = ({ ProductT
 
     const sort_by = searchParams.get('sort_by');
     if (sort_by !== null) {
-      router.push(`${pathname}?${newSearchParams}&sort_by=${sort_by}`);
+      router.push(`${pathname}?${newSearchParams}&sort_by=${sort_by}`)
+    setTimeout(() => {
+      window.scrollTo({
+        top: 400,
+        left: 0,
+        behavior: "smooth",
+      });
+    }, 250);
     } else {
-      router.push(`${pathname}?${newSearchParams}`);
+      router.push(`${pathname}?${newSearchParams}`)
+    setTimeout(() => {
+      window.scrollTo({
+        top: 400,
+        left: 0,
+        behavior: "smooth",
+      });
+    }, 250);
     }
 
     // Перемещаем скролл после обновления URL
-    setTimeout(() => {
-      window.scrollTo(0, 400);
-    }, 150);
+    // setTimeout(() => {
+    //   window.scrollTo({
+    //     top: 400,
+    //     left: 0,
+    //     behavior: "smooth",
+    //   });
+    // }, 250);
   };
 
   const isActive =
   //Продукты
-  (subcategory?.subName === "Все продукты" && ProductTypesArray.includes(2) && CategoriesArray.length === 0) ||
+    (subcategory?.subName === "Все продукты" && ProductTypesArray.includes(2) && CategoriesArray.length === 0) ||
     (subcategory?.subName === "Икра красная" && ProductTypesArray.includes(2) && CategoriesArray.includes(20)) ||
     (subcategory?.subName === "Икра черная" && ProductTypesArray.includes(2) && CategoriesArray.includes(19)) ||
     (subcategory?.subName === "Крабы и лобстеры" && ProductTypesArray.includes(2) && CategoriesArray.includes(73)) ||

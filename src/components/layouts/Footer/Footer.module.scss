@@ -484,7 +484,8 @@
 .footer_privacy {
   display: block;
   color: #000;
-    // color: #fff;
+  min-width: 230px;
+  // color: #fff;
   @media (max-width: 1100px) {
     font-size: 14px;
   }

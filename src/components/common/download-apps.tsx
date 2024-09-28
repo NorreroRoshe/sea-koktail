@@ -7,7 +7,8 @@ import cls from './Common.module.scss'
 
 const data = {
   title: 'app-heading',
-  description: 'Привезем продукты в удобное время, с помощью сервиса Яндекс.Доставка',
+  description: 'Привезем в удобное время, с помощью сервиса Яндекс.Доставка',
+  // description: 'Привезем продукты в удобное время, с помощью сервиса Яндекс.Доставка',
   appImage: '/assets/images/crab_jxvq44xtkmu7.svg',
   accImage: '/assets/images/credit_card_hand_payment_pay_icon_143286.svg',
   abbImage: '/assets/images/free-icon-delivery-truck-2189145.svg',

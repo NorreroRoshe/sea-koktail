@@ -164,6 +164,11 @@ const DishesPopup: React.FC<ProductPopupProps> = observer(({ popupProduct }) => 
   };
   
   const getAttributeLabel = (key: any) => attributeLabels[key] || key;
+  
+  const isParentMatched = popupProduct?.hierarchicalParent === 513 ||
+  popupProduct?.hierarchicalParent === 514 ||
+  popupProduct?.hierarchicalParent === 515 ||
+  popupProduct?.hierarchicalParent === 516;
 
   return (
     <div className="md:w-[600px] lg:w-[940px] xl:w-[1180px] 2xl:w-[1360px] mx-auto p-1 lg:p-0 xl:p-3 bg-skin-fill rounded-md">
@@ -302,9 +307,18 @@ const DishesPopup: React.FC<ProductPopupProps> = observer(({ popupProduct }) => 
             <div className="pt-6 xl:pt-8">
               <p>Состав:</p>
               <Text variant="small">
-              {popupProduct?.description}
+                {popupProduct?.description}
               </Text>
             </div>
+
+            {isParentMatched && (
+              <div className="pt-6 xl:pt-8">
+                <p>Комплект:</p>
+                <Text variant="small">
+                  Соевый соус, васаби, имбирь, палочки
+                </Text>
+              </div>
+            )}
             
             {/* <div className="pt-6 xl:pt-8">
               <p>Алергены:</p>

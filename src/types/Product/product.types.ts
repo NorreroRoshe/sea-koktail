@@ -31,6 +31,7 @@ export type Product = {
   unit: string;
   count?: number;
   attribute: Attribute[];
+  hierarchicalParent: number;
 };
 
 interface Attribute {

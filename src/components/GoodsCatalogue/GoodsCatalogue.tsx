@@ -297,6 +297,10 @@ export const GoodsCatalogue: React.FC<ICatalogCategories> = observer(({ sitePath
     pathname === "/ProductiOnline/Water" ||
     pathname === "/ProductiOnline/KonserviIPreservi";
 
+    const message = productsCount < COUNT_PER_PAGE
+    ? `Всего ${productsCount} товаров`
+    : `Всего ${productsCount} товаров`;
+  
   return (
     <>
       <div className={cls.chapter__mt_bread}>
@@ -335,11 +339,13 @@ export const GoodsCatalogue: React.FC<ICatalogCategories> = observer(({ sitePath
             </div>
            {!NotshouldDisplayFilterBlockAccess ? (
               <h3 className={cls.allproduct_heading}>
-                Показано {40} товаров из {850}{' '}
+                {/* Показано {COUNT_PER_PAGE} товаров из {productsCount}{' '} */}
+                {message}
               </h3>
             ) : (
               <h3 className={`${cls.allproduct_heading} ${cls.allproduct_headingceqcqe}`}>
-                Показано {40} товаров из {850}{' '}
+                {/* Показано {COUNT_PER_PAGE} товаров из {productsCount}{' '} */}
+                {message}
               </h3>
             )}
             <ul className={cls.allproduct_goods_list}>
