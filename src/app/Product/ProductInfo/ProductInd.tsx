@@ -122,6 +122,7 @@ export const ProductInd: React.FC<ProductInfoProps> = observer(({ detProduct }) 
   const handleChange = () => {
     setShareButtonStatus(!shareButtonStatus);
   };
+
   return (
     <div className={`${cls.product_info_container} ${cls.product_info_container_s} ${cls.container}`}>
       <div className="pt-6 md:pt-7 pb-2">

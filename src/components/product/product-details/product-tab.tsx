@@ -71,6 +71,11 @@ export const ProductDetailsTab: React.FC<ProductInfoProps> = ({ detProduct }) =>
   
   const getAttributeLabel = (key: any) => attributeLabels[key] || key;
 
+  const isParentMatched = detProduct?.hierarchicalParent === 513 ||
+  detProduct?.hierarchicalParent === 514 ||
+  detProduct?.hierarchicalParent === 515 ||
+  detProduct?.hierarchicalParent === 516;
+
   return (
     <div className="w-full xl:px-2 py-11 lg:py-14 xl:py-16 sm:px-0">
       <Tab.Group>
@@ -116,6 +121,15 @@ export const ProductDetailsTab: React.FC<ProductInfoProps> = ({ detProduct }) =>
                 </p>
               </div>
             )}
+            {isParentMatched && (
+              <div className="text-sm sm:text-15px text-skin-muted leading-[2em] space-y-4 lg:space-y-5 xl:space-y-7 lg:ps-10 xl:ps-14 2xl:ps-20">
+                <h2>Описание: </h2>
+                <p>
+                  Соевый соус, васаби, имбирь, палочки
+                </p>
+              </div>
+            )}
+            
           </Tab.Panel>
           <Tab.Panel>
             <ProductReviewRating />
