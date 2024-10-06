@@ -6,7 +6,7 @@ const Warranty: React.FC = () => {
   return (
     <>
       <section className={cls.section_warranty}>
-        <div className={`${cls.warranty_container} ${cls.container}`}>
+        {/* <div className={`${cls.warranty_container} ${cls.container}`}>
           <Breadcrumb />
           <h1 className={cls.warranty_header}>Гарантии Morskoi Koktail</h1>
           <div className={cls.warranty_desc}>
@@ -74,7 +74,7 @@ const Warranty: React.FC = () => {
             <br />
             - Если брак обнаружился спустя 2 недели, но до окончания срока гарантийного обслуживания, то товар подлежит ремонту. Сдача товара в ремонт также производится на пунктах выдачи, опять же по предварительной договоренности.
           </div>
-        </div>
+        </div> */}
       </section>
     </>
   );

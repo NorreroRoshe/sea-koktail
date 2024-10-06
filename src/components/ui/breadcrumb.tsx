@@ -124,6 +124,8 @@ const Breadcrumb: React.FC<{ separator?: string }> = ({
         return 'Поиск';
       case 'Soglashenie':
         return 'Соглашение';
+      case 'AboutUs':
+        return 'О компании';
         
       default:
         return convertBreadcrumbTitle(breadcrumb);

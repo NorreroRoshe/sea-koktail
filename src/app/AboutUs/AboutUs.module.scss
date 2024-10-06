@@ -3,10 +3,10 @@
   margin-bottom: -5px;
 
   @media (max-width: 1024px) {
-    margin-top: 85px;
+    // margin-top: 85px;
   }
   @media (max-width: 550px) {
-    margin-top: 70px;
+    // margin-top: 70px;
   }
 
   .container {
@@ -409,7 +409,7 @@
 }
 
 .content_img_p {
-  background: url('../../assets/img/header-met-desktop_8_3.png') center no-repeat;
+  background: url('../../assets/img/78.jpg') center no-repeat;
   background-size: cover;
   width: 100%;
   // max-height: 400px;
@@ -418,7 +418,7 @@
 }
 
 .desc_wrapper_image_gif {
-  margin-left: 125px;
+  // margin-left: 125px;
   @media(max-width: 1510px) {
     margin-left: 0;
     width: auto;
@@ -472,3 +472,4 @@
     margin-top: -27px;
   }
 }
+

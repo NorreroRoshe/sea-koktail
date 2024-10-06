@@ -117,9 +117,9 @@ const Header0: React.FC<Header0Props> = observer(({setSearchBigVisible, searchBi
           <div className={cls.efrvws}>
             <button
               aria-label="Menu"
-              className={`flex flex-col items-center justify-center flex-shrink-0 outline-none focus:outline-none`}             // ${cls.fegsartef}
+              className={`flex flex-col items-center justify-center flex-shrink-0 outline-none focus:outline-none ${cls.qwfevdwf}`}             // ${cls.fegsartef}
               onClick={handleMobileMenu}
-              style={{padding: '12px 9px', background: '#fff', borderRadius: '50%', marginRight: '15px', marginBottom: '8px'}}
+              // style={{padding: '12px 9px', background: '#fff', borderRadius: '50%', marginRight: '15px', marginBottom: '8px'}}
             >
               <MenuIcon />
             </button>
@@ -162,10 +162,9 @@ const Header0: React.FC<Header0Props> = observer(({setSearchBigVisible, searchBi
           <Container className={`h-16 flex justify-between items-center ${cls.head_cont} ${cls.head_cont_polu}`}>
           <div className={cls.efrvws}>
               <button
-                aria-label="Menu"
-                className={`flex flex-col items-center justify-center flex-shrink-0 outline-none focus:outline-none`}      // ${cls.fegsartef}
+                aria-label="Menu" 
+                className={`flex flex-col items-center justify-center flex-shrink-0 outline-none focus:outline-none ${cls.qwfevdwf}`}      // ${cls.fegsartef}
                 onClick={handleMobileMenu}
-                style={{padding: '12px 9px', background: '#fff', borderRadius: '50%', marginRight: '15px', marginBottom: '8px'}}
               >
                 <MenuIcon />
               </button>

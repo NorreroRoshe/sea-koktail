@@ -10,13 +10,11 @@ const Collections: React.FC = observer(() => {
   return (
     <>
       <section className={cls.section_collections}>
-        <div className={`${cls.collections_container} ${cls.container}`}>
+        {/* <div className={`${cls.collections_container} ${cls.container}`}>
           <Breadcrumb />
-          {/* <h2 className={cls.collections_header}>Butterrfly L.C. Collections</h2> */}
-          {/* <TypeOfGoods /> */}
           <NotFoundBlock />
 
-        </div>
+        </div> */}
       </section>
     </>
   );

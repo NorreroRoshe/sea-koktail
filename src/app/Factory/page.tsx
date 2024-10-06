@@ -11,7 +11,7 @@ const Factory = () => {
   const page = usePathname();
   return (
     <div className={cls.section_collaboration}>
-      <div className={cls.content}>
+      {/* <div className={cls.content}>
         <div className={cls.container}>
           <Breadcrumb />
           <div>
@@ -20,18 +20,18 @@ const Factory = () => {
               <img
                 // width="100%"
                 height="500px"
-                alt="Салон Morskoi Koktail на Новой Риге"
+                alt=""
                 src={insta.src}
                 className={`${cls.content_factory_img} ${cls.content_factory_img_s}`}
-                title="Салон Morskoi Koktail на Новой Риге Аутлет Виллидж"
+                title=""
               />
               <img
                 // width="100%"
                 height="500px"
-                alt="Салон Morskoi Koktail на Новой Риге"
+                alt=""
                 src={instsa.src}
                 className={cls.content_factory_img}
-                title="Салон Morskoi Koktail на Новой Риге Аутлет Виллидж"
+                title=""
               />
             </div>
             <br />
@@ -73,7 +73,7 @@ const Factory = () => {
           </div>
         </div>
       </div>
-      <ReturnForm pageMess={page} />
+      <ReturnForm pageMess={page} /> */}
     </div>
   );
 };
