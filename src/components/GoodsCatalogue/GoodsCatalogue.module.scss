@@ -568,6 +568,10 @@
     
       .allproduct_goods_img {
         display: block;
+        width: auto;
+        height: auto;
+        max-width: 100%; /* Заставляет изображение занимать максимум 100% ширины родителя */
+        height: auto; 
         margin: 0 auto 7px;
         border-radius: 5px;
         max-height: 294px;

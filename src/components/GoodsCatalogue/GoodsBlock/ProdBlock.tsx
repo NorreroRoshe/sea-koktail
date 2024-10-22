@@ -10,6 +10,7 @@ import 'slick-carousel/slick/slick-theme.css'; // путь к slick-theme.css
 import PP from '@/assets/placeholders/product-placeholder.png';
 import Image from '@/components/ui/image';
 import { useStore } from '@/hooks/useStore';
+// import Image from 'next/image';
 import { Product } from '@/types/Product/product.types';
 import {observer} from "mobx-react";
 import { useModalAction } from '@/components/common/modal/modal.context';
@@ -93,10 +94,20 @@ export const ProdBlock: React.FC<ProdBlockProps> = observer(({ product }) => {
             </div>
           </Slider> */}
           {!!imageUrl ? (
-            <img
-            src={imageUrl}
-            alt=""
-            className={cls.allproduct_goods_img} />
+            // <img
+            // src={imageUrl}
+            // alt=""
+            // className={cls.allproduct_goods_img} />
+            <Image
+              src={imageUrl}
+              alt=""
+              width={0} // Эти значения можно оставить, но они не будут использованы
+              height={0}
+              sizes="100vw" // Задает адаптивную ширину в зависимости от экрана
+              quality={30}
+              className={cls.allproduct_goods_img}
+            />
+
           ) : (
             <div className="w-auto flex items-center justify-center">
               {/* <img src={PP} alt='404!'/> */}

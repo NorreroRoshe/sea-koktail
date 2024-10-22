@@ -29,6 +29,10 @@ const { esmExternals = false, tsconfigPath } = loadCustomBuildParams();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+
+  images: {
+    domains: ['api.sbis.ru'], // Добавляем api.sbis.ru в список разрешённых доменов
+  },
   experimental: {
     esmExternals, // https://nextjs.org/blog/next-11-1#es-modules-support
   },

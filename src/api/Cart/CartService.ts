@@ -37,6 +37,15 @@ class CartService {
         }
     });
   };
+
+
+  basketReset() {
+    return makeRequest<void>({
+      url: "/basket/reset",
+      method: "POST"
+    });
+  };
+
 }
 
 export default new CartService();

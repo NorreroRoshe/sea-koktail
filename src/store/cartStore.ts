@@ -214,4 +214,15 @@ export class CartStore implements ICartStore {
     }
     this.isLoading = false;
   }
+
+
+  async basketReset() {
+    this.isLoading = true;
+    const response = await CartService.basketReset();
+
+    if ('data' in response) {
+      this.isLoading = false;
+    }
+    return response;
+  }
 };

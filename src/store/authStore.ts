@@ -311,8 +311,8 @@ export class AuthStore implements IAuthStore {
     this.isLoading = true;
     const response = await AuthService.removeOrderById({data});
     this.isLoading = false;
-  return response;
-}
+    return response;
+  }
 
 
   setAddress(address: string) {

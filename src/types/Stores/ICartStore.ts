@@ -23,6 +23,7 @@ export interface ICartStore {
   clearUserCart: () => void;
   addProductToCart: (productId: string) => void;
   minusProductCart: (productId: string, isRemovingAll?: boolean) => void;
+  basketReset: () => void;
 
   
 }

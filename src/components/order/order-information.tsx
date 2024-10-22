@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import { IoCheckmarkCircle } from 'react-icons/io5';
+import { IoArrowBack } from 'react-icons/io5';
 import OrderDetails from '@/components/order/order-details';
 import { useOrderQuery } from '@/framework/basic-rest/order/get-order';
 import { useSearchParams } from 'next/navigation';
@@ -13,6 +14,7 @@ import OrderStatus from './order-status';
 import { format } from 'date-fns';
 import NotFoundOrder from "@/components/NotFoundBlock/notFoundOrder";
 import { ru } from 'date-fns/locale';
+import { useRouter } from 'next/navigation';
 
 
 const OrderInformation = observer(() => {
@@ -22,10 +24,12 @@ const OrderInformation = observer(() => {
 
   const [orderError, setOrderError] = useState<boolean>(false);
 
+  const router = useRouter();
 
 
   const store = useStore();
   const userStore = store.auth;
+  const cartStore = store.cart;
 
 
 
@@ -39,6 +43,12 @@ const OrderInformation = observer(() => {
       currencyCode: 'RUB',
     }
   );
+
+  
+  const handleBasketReset = () => {
+    cartStore.basketReset();
+    router.push(`/Cart`);
+  };
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -124,8 +134,21 @@ const OrderInformation = observer(() => {
   if (userStore.isLoading) return <p>Loading...</p>;
 
   return (
-    <div className="xl:px-32 2xl:px-44 3xl:px-56 py-16 lg:py-20">
+    <div className="xl:px-32 2xl:px-44 3xl:px-56 py-16 lg:py-20 svedwrfeg">
+      {data?.payStatus === 0 && (
+        <div
+        onClick={handleBasketReset}
+        className="flex items-center justify-start text-skin-base text-sm md:text-base cursor-pointer mb-7">
+          <span className="w-10 h-10 me-3 lg:me-4 rounded-full bg-skin-primary bg-opacity-20 flex items-center justify-center flex-shrink-0" style={{ background: '#0085ff33' }}>
+            <IoArrowBack className="w-5 h-5" style={{ color: '#0085FF' }} />
+          </span>
+          {/* {t('text-order-received')} */}
+          Назад в корзину
+        </div>
+      )}
 
+
+      
       <div className="sadfgf border border-skin-base bg-skin-secondary px-4 lg:px-5 py-4 rounded-md flex items-center justify-start text-skin-base text-sm md:text-base mb-6 lg:mb-8 cqevtbe">
         <div className="flex items-center justify-start text-skin-base text-sm md:text-base">
           <span className="w-10 h-10 me-3 lg:me-4 rounded-full bg-skin-primary bg-opacity-20 flex items-center justify-center flex-shrink-0" style={{ background: '#02b29033' }}>

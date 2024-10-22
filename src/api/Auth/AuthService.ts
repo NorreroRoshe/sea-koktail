@@ -18,6 +18,7 @@ class AuthService {
       data: data,
     });
   };
+
   signUp({data} :
     {data: ISingUpReq}) {
     return makeRequest<ISingUpRes>({
@@ -26,12 +27,14 @@ class AuthService {
       data: data,
     });
   };
+
   refreshToken() {
     return makeRequest<ISingInRes>({
       url: `/auth/token-refresh?refreshToken=${Cookies.get("refresh_token")}`,
       method: "POST",
     })
   };
+
   emailConfirm({data} :
     {data: IConfirmReq}) {
     return makeRequest<IConfirmRes>({
@@ -40,6 +43,7 @@ class AuthService {
       data: data,
     });
   };
+
   emailResendConfirm({data} :
     {data: IResendConfirmReq}) {
     return makeRequest<IResendConfirmRes>({
@@ -48,6 +52,7 @@ class AuthService {
       params: data,
     });
   };
+
   passwordForgot({data} :
     {data: IPasswodForgotReq}) {
     return makeRequest<IPasswodForgotRes>({
@@ -56,6 +61,7 @@ class AuthService {
       params: data,
     });
   };
+
   passwordReset({data} :
     {data: IPasswordResetReq}) {
     return makeRequest<IPasswordResetRes>({
@@ -64,6 +70,7 @@ class AuthService {
       data: data,
     });
   };
+
   getUserDetails({data} :
     {data: IGetUserDetailsReq}) {
     return makeRequest<IGetUserDetailsRes>({
@@ -72,6 +79,7 @@ class AuthService {
       params: data,
     });
   };
+
   putUserDetails({data} :
     {data: IPutUserDetailsReq}) {
     return makeRequest<void>({
@@ -257,6 +265,7 @@ class AuthService {
       method: "GET"
     });
   };
+
 }
 
 export default new AuthService();
