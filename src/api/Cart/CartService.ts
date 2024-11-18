@@ -20,10 +20,7 @@ class CartService {
     return makeRequest<CartItem>({
       url: "/product/cart",
       method: "POST",
-      data: {
-        productId: productId,
-        // userId: Cookies.get("access_token"),
-      },
+      data: {productId: productId},
     });
   };
 
@@ -37,6 +34,7 @@ class CartService {
         }
     });
   };
+
 
 
   basketReset() {

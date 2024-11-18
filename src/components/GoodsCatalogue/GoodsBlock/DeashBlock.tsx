@@ -54,10 +54,18 @@ export const DeashBlock: React.FC<ProdBlockProps> = observer(({ product }) => {
       <div className={cls.allproduct_goods_link}>
         <div onClick={handlePopupView} className={`${cls.allproduct_goods_box} ${cls.allproduct_goods_boxcwsqevd}`}>
           {!!imageUrl ? (
-            <img
-            src={imageUrl}
-            alt=""
-            className={`${cls.allproduct_goods_img} ${cls.allproduct_goods_imgwqevrwf}`} />
+            // <img
+            // src={imageUrl}
+            // alt=""
+            // className={`${cls.allproduct_goods_img} ${cls.allproduct_goods_imgwqevrwf}`} />
+            <Image
+              src={imageUrl}
+              alt=""
+              width={0}
+              height={0}
+              sizes="100vw"
+              quality={10}
+              className={`${cls.allproduct_goods_img} ${cls.allproduct_goods_imgwqevrwf}`} />
           ) : (
             <div className="w-auto flex items-center justify-center">
                 <Image src={PP} alt={'404!'} className={cls.allproduct_goods_img} />

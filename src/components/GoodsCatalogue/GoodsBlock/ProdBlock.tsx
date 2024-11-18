@@ -104,7 +104,7 @@ export const ProdBlock: React.FC<ProdBlockProps> = observer(({ product }) => {
               width={0} // Эти значения можно оставить, но они не будут использованы
               height={0}
               sizes="100vw" // Задает адаптивную ширину в зависимости от экрана
-              quality={30}
+              quality={10}
               className={cls.allproduct_goods_img}
             />
 
