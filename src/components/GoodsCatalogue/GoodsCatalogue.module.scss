@@ -1170,6 +1170,10 @@
   border-radius: 20px;
   z-index: 2;
 
+  // @media (max-width: 840px) {
+  //   width: fit-content;
+  // }
+
   @media (max-width: 500px) {
     padding: 1px 10px 2px;
   }
