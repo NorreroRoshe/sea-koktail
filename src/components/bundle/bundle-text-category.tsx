@@ -44,8 +44,8 @@ const getBreakpoints = (pathname: string) => {
         spaceBetween: 25,
       },
       '0': {
-        slidesPerView: 5,
-        spaceBetween: 25,
+        slidesPerView: 4,
+        spaceBetween: 0,
       },
     };
   }
