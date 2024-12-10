@@ -23,7 +23,7 @@ const Contacts: React.FC = () => {
             <p className={cls.timeline_time}>09:00 до 21:00</p>
           </div>
           <div className={cls.online_connection}>
-            <h3 className={cls.connection_header}>Телефоны и почта:</h3>
+            <h3 className={cls.connection_header}>Связаться с нами:</h3>
             <div className={cls.connection_tel}>
               <a href="tel:+79151777765" className={cls.connection_tel_number}>
                 +7(915)-177-77-65

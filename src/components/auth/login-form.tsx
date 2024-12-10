@@ -143,7 +143,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ isPopup = true, className }) => {
               {t('Авторизоваться')}
             </h4>
             <div className="text-sm sm:text-15px text-body text-center mt-3 mb-1">
-              {t('Нету аккаунта?')}
+              {t('Нет аккаунта?')}
               <br />
               <button
                 type="button"

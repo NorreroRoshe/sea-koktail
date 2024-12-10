@@ -2485,6 +2485,13 @@ export const sitePathCategory: ISiteCategory[] = [
         categor: 514,
       },
       {
+        id: 7,
+        subName: 'Пицца',
+        href: '/Restaurant',
+        typese: 1,
+        categor: 533,
+      },
+      {
         id: 8,
         subName: 'Сэндвичи',
         href: '/Restaurant',

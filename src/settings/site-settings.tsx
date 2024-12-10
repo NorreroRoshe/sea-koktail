@@ -158,6 +158,11 @@ export const siteSettings = {
             label: 'Теплые роллы',
           },
           {
+            id: 12,
+            path: '/Restaurant?ProductTypes=1&Categories=533',
+            label: 'Пицца',
+          },
+          {
             id: 8,
             path: '/Restaurant?ProductTypes=1&Categories=520',
             label: 'Сэндвичи',
